@@ -132,7 +132,7 @@ class Class(object):
 
     @property
     def ref_counted(self):
-        return self.inherits('Urho3D::RefCounted')
+        return self.inherits('Urho3D::RefCounted') or self.canonical == 'Urho3D::RefCounted'
 
     @property
     def properties(self):

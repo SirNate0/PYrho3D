@@ -97,7 +97,8 @@ exclude_incomplete = ['Urho3D::SArrayCache',
                       # Protected Destructor:
                     'Urho3D::CScriptDictionary',
                     'Urho3D::CScriptArray',
-
+                      # not SharedPtr
+                    # 'Urho3D::GPUObject'
                       ]
 
 abstract = [
@@ -239,6 +240,7 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     class_names = [cls.canonical for cls in classes]
     complete_names = class_names[:] + Type._primitive_types
     complete_names.append('Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>')
+    complete_names.append('Urho3D::Vector<Urho3D::Variant>')
 
     if 'Urho3D::String' in canon:
         classes.remove(canon['Urho3D::String']) #Because we handle it in String_binding.h with a type caster
@@ -285,8 +287,9 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
         pyclass = 'pyclass_Var_' + varsafe(fullclass)
         baseclass = 'pyclass_Var_' + varsafe(cls.scope.canonical)
         trampolineClass = (', %s' % trampoline_types[cls.canonical]) if cls.canonical in trampoline_types else ''
-        ptrclass = (', Urho3D::SharedPtr<%s>' % fullclass) if cls.ref_counted else ''
-        inherits = ''.join([', ' + c for c in cls.bases if c in classes])
+        ptrclass = (', Urho3D::SharedPtr<%s>' % fullclass) if cls.ref_counted else (', std::shared_ptr<%s>' % fullclass)#''
+        inherits = ''.join([', ' + c for c in cls.bases if c in class_names])
+
         # inherits = ''.join([', ' + x['base'] for x in cls['inherits'] ]) TODO: Fix
     #    print (fullclass, ptrclass, inherits)
     #    print fullclass + ptrclass + inherits
@@ -429,6 +432,8 @@ PYBIND11_MODULE(urho, m) {{
     // Bind Container classes
     auto pyclass_Var_Urho3D_Vector__int_ = py::bind_Vector<Urho3D::Vector<int>>(pyclass_Var_Urho3D,"Vector_int");
 
+    auto pyclass_Var_Urho3D_VariantVector = py::bind_Vector<Urho3D::Vector<Variant>>(pyclass_Var_Urho3D,"VariantVector");
+    
     auto pyclass_Var_Urho3D_VariantMap = py::bind_Map<Urho3D::VariantMap>(pyclass_Var_Urho3D,"VariantMap");
 
 

@@ -22,6 +22,23 @@ class App(urho.Application):
         print 'Setting up the applicaiton'
         
         self.engineParameters["WindowTitle"] = "PYrho3D"
+
+        return
+
+    def Start(self):
+        print 'Starting up the applicaiton'
+        fs = c.GetSubsystem('FileSystem')
+        commandFile = fs.GetProgramDir() + "Data/CommandLine.txt"
+        print commandFile
+        # with open(commandFile) as f:
+            # line = commandFile[0]
+        scriptfile = 'Scripts/NinjaSnowWar.as'
+
+        c.RegisterSubsystem(urho.Script(c))
+        cache = c.GetSubsystem('ResourceCache')
+        sf = cache.GetResource('ScriptFile',scriptfile)
+        sf.Execute("void Start()")
+
 a = App(c)
 #help(a)
 
@@ -42,4 +59,5 @@ c.GetSubsystem(sh('Input')).SetMouseVisible(True)
 a.Run()
 
 #ep = a.engineParameters
+
 

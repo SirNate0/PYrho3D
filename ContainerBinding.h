@@ -307,15 +307,16 @@ template <typename Vector, typename Class_> auto Vector_if_insertion_operator(Cl
 
     cl.def("__repr__",
            [name](Vector &v) {
-            std::ostringstream s;
-            s << name << '[';
-            for (size_type i=0; i < v.Size(); ++i) {
-                s << v[i];
-                if (i != v.Size() - 1)
-                    s << ", ";
-            }
-            s << ']';
-            return s.str();
+//            std::ostringstream s;
+//            s << name << '[';
+//            for (size_type i=0; i < v.Size(); ++i) {
+//                s << v[i];
+//                if (i != v.Size() - 1)
+//                    s << ", ";
+//            }
+//            s << ']';
+//            return s.str();
+            return "VECTOR REPR UNSUPPORTED AT PRESENT";
         },
         "Return the canonical string representation of this list."
     );
@@ -395,7 +396,7 @@ class_<Vector, holder_type> bind_Vector(handle scope, std::string const &name, A
     detail::Vector_if_equal_operator<Vector, Class_>(cl);
 
     // Register stream insertion operator (if possible). Rather, registers __repr__ if possible.
-    detail::Vector_if_insertion_operator<Vector, Class_>(cl, name);
+//    detail::Vector_if_insertion_operator<Vector, Class_>(cl, name);
 
     // Modifiers require copyable vector value type
     detail::Vector_modifiers<Vector, Class_>(cl);
