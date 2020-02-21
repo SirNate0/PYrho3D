@@ -1,4 +1,4 @@
-TODO: Need to mark ExternalPtr as being non-intrusive in general, and switch  
+DONE: Need to mark ExternalPtr as being non-intrusive in general, and switch  
 to SharedPtr for the types that support it.
 
 Concerining Base classes that are not RefCounted derived that RefCounted's derive from

@@ -291,7 +291,8 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
         baseclass = 'pyclass_Var_' + varsafe(cls.scope.canonical)
         trampolineClass = (', %s' % trampoline_types[cls.canonical]) if cls.canonical in trampoline_types else ''
         #ptrclass = (', Urho3D::SharedPtr<%s>' % fullclass) if cls.ref_counted else (', std::shared_ptr<%s>' % fullclass)#''
-        ptrclass = ', Urho3D::ExternalPtr<%s>' % fullclass
+        #ptrclass = ', Urho3D::ExternalPtr<%s>' % fullclass
+        ptrclass = (', Urho3D::SharedPtr<%s>' % fullclass) if cls.ref_counted else (', Urho3D::ExternalPtr<%s>' % fullclass)#''
         inherits = ''.join([', ' + c for c in cls.bases if c in class_names])
         # TODO: Multiple inheritance flag if we don't have all the base classes
         xx = [ ('@'+c if c in class_names else c) for c in cls.bases if canon[c].ref_counted != cls.ref_counted  ]
@@ -418,7 +419,8 @@ const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
 //================================================
 // Declare the holder types shared and weak ptr
 //================================================
-PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::ExternalPtr<T>, true);
+// TODO: Consider global hashmap of pointers for external pointer, then we could mark it as safe from raw ptr.
+PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::ExternalPtr<T>, false);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::SharedPtr<T>, true);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 
