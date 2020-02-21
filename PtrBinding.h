@@ -16,6 +16,11 @@ struct holder_helper<Urho3D::WeakPtr<T>> {
     static auto get(const Urho3D::WeakPtr<T> &p) -> decltype(p.Get()) { return p.Get(); }
 };
 
+template <typename T>
+struct holder_helper<Urho3D::ExternalPtr<T>> {
+    static auto get(const Urho3D::WeakPtr<T> &p) -> decltype(p.Get()) { return p.Get(); }
+};
+
 
 NAMESPACE_END(detail)
 NAMESPACE_END(PYBIND11_NAMESPACE)

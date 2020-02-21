@@ -29,7 +29,7 @@ CXX_FLAGS = -std=gnu++14 -g3 -gdwarf-2 -Wno-invalid-offsetof -pthread -DURHO3D_C
 #CXX_DEFINES = -DGLEW_NO_GLU -DGLEW_STATIC -DURHO3D_ANGELSCRIPT -DURHO3D_CPP11 -DURHO3D_LOGGING -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_OPENGL -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_SSE -DURHO3D_STATIC_DEFINE -DURHO3D_THREADING -DURHO3D_URHO2D
 CXX_DEFINES = -DGLEW_NO_GLU -DGLEW_STATIC -DHAVE_SINCOSF -DTOLUA_RELEASE -DURHO3D_ANGELSCRIPT -DURHO3D_CXX11 -DURHO3D_FILEWATCHER -DURHO3D_IK -DURHO3D_LOGGING -DURHO3D_LUA -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_THREADING -DURHO3D_URHO2D -DUrho3D_EXPORTS
 
-CXX_INCLUDES =  -I/home/nathan/Projects/Urho3D/SharedBuild/include/ -I/usr/local/include -I/home/nathan/Projects/Urho3D/SharedBuild/include/Urho3D/ThirdParty -I/usr/local/include/Urho3D/ThirdParty -I/usr/local/include/Urho3D/ThirdParty/Bullet -I/usr/local/include/Urho3D
+CXX_INCLUDES =  -I/home/nathan/Projects/Urho/Urho3D/Build/include/ -I/usr/local/include -I/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty -I/usr/local/include/Urho3D/ThirdParty -I/usr/local/include/Urho3D/ThirdParty/Bullet -I/usr/local/include/Urho3D
 
 LINK_TARGET = -ldl -lrt -lGL
 
@@ -42,7 +42,7 @@ Urho3DAll.h: ;
 Urho3DProcessed.h: Urho3DAll.h
 	clang++ -E -P Urho3DAll.h -std=c++14 -I /home/nathan/Projects/Urho/PythonBindings/pybind11/include -I /usr/include/python2.7 $(CXX_INCLUDES) $(CXX_DEFINES) -fPIC -o Urho3DProcessed.h
 
-#     -I/home/nathan/Projects/Urho3D/SharedBuild/Source/Urho3D -I/home/nathan/Projects/Urho/Urho3D/Source/Urho3D -I/home/nathan/Projects/Urho3D/SharedBuild/include/Urho3D/ThirdParty -I/home/nathan/Projects/Urho3D/SharedBuild/include/Urho3D/ThirdParty/Bullet -I/home/nathan/Projects/Urho3D/SharedBuild/include/Urho3D/ThirdParty/Detour -I/home/nathan/Projects/Urho3D/SharedBuild/include/Urho3D/ThirdParty/Lua  -frtti -fvisibility=default -std=gnu++11 -Wno-invalid-offsetof -march=native -ffast-math -pthread
+#     -I/home/nathan/Projects/Urho/Urho3D/Build/Source/Urho3D -I/home/nathan/Projects/Urho/Urho3D/Source/Urho3D -I/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty -I/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Bullet -I/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Detour -I/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Lua  -frtti -fvisibility=default -std=gnu++11 -Wno-invalid-offsetof -march=native -ffast-math -pthread
 
 
 urholib: urhobindings

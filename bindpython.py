@@ -241,6 +241,8 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     complete_names = class_names[:] + Type._primitive_types
     complete_names.append('Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>')
     complete_names.append('Urho3D::Vector<Urho3D::Variant>')
+    complete_names.append('Urho3D::VariantMap')
+    complete_names.append('Urho3D::StringMap')
 
     if 'Urho3D::String' in canon:
         classes.remove(canon['Urho3D::String']) #Because we handle it in String_binding.h with a type caster
@@ -276,6 +278,7 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
         namespaceVars.append(comment + '\n' + binding)
     namespaceVars = '\n\n'.join(namespaceVars)
 
+    classesMixedHolder = {}
 
     classVars = []
     classImpls = []
@@ -287,8 +290,13 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
         pyclass = 'pyclass_Var_' + varsafe(fullclass)
         baseclass = 'pyclass_Var_' + varsafe(cls.scope.canonical)
         trampolineClass = (', %s' % trampoline_types[cls.canonical]) if cls.canonical in trampoline_types else ''
-        ptrclass = (', Urho3D::SharedPtr<%s>' % fullclass) if cls.ref_counted else (', std::shared_ptr<%s>' % fullclass)#''
+        #ptrclass = (', Urho3D::SharedPtr<%s>' % fullclass) if cls.ref_counted else (', std::shared_ptr<%s>' % fullclass)#''
+        ptrclass = ', Urho3D::ExternalPtr<%s>' % fullclass
         inherits = ''.join([', ' + c for c in cls.bases if c in class_names])
+        # TODO: Multiple inheritance flag if we don't have all the base classes
+        xx = [ ('@'+c if c in class_names else c) for c in cls.bases if canon[c].ref_counted != cls.ref_counted  ]
+        if xx:
+            classesMixedHolder[fullclass] = xx
 
         # inherits = ''.join([', ' + x['base'] for x in cls['inherits'] ]) TODO: Fix
     #    print (fullclass, ptrclass, inherits)
@@ -410,6 +418,7 @@ const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
 //================================================
 // Declare the holder types shared and weak ptr
 //================================================
+PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::ExternalPtr<T>, true);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::SharedPtr<T>, true);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 
@@ -436,6 +445,8 @@ PYBIND11_MODULE(urho, m) {{
     
     auto pyclass_Var_Urho3D_VariantMap = py::bind_Map<Urho3D::VariantMap>(pyclass_Var_Urho3D,"VariantMap");
 
+    auto pyclass_Var_Urho3D_StringMap = py::bind_Map<Urho3D::StringMap>(pyclass_Var_Urho3D,"StringMap");
+
 
     //================================================
     // Declare Classes
@@ -460,6 +471,10 @@ PYBIND11_MODULE(urho, m) {{
 
 
 }}
+
+
+/*{classesMixedHolder}*/
+
 
 '''#.format(includes=includes, preamble=preamble)
     print('~~~~~~~~~~~~~~~~~')

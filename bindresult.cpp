@@ -50,10 +50,11 @@ typedef long long longlong;
 //================================================
 // Declare the holder types shared and weak ptr
 //================================================
+PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::ExternalPtr<T>, true);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::SharedPtr<T>, true);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 
-void Implement_Urho3D_HashBase(py::class_<Urho3D::HashBase, std::shared_ptr<Urho3D::HashBase>>& pyclass_Var_Urho3D_HashBase)
+void Implement_Urho3D_HashBase(py::class_<Urho3D::HashBase, Urho3D::ExternalPtr<Urho3D::HashBase>>& pyclass_Var_Urho3D_HashBase)
 {
     // Class HashBase Implementation
 pyclass_Var_Urho3D_HashBase
@@ -65,7 +66,7 @@ pyclass_Var_Urho3D_HashBase
 ;
 }
 
-void Implement_Urho3D_WString(py::class_<Urho3D::WString, std::shared_ptr<Urho3D::WString>>& pyclass_Var_Urho3D_WString)
+void Implement_Urho3D_WString(py::class_<Urho3D::WString, Urho3D::ExternalPtr<Urho3D::WString>>& pyclass_Var_Urho3D_WString)
 {
     // Class WString Implementation
 pyclass_Var_Urho3D_WString
@@ -86,7 +87,7 @@ pyclass_Var_Urho3D_WString
 ;
 }
 
-void Implement_Urho3D_StringHashRegister(py::class_<Urho3D::StringHashRegister, std::shared_ptr<Urho3D::StringHashRegister>>& pyclass_Var_Urho3D_StringHashRegister)
+void Implement_Urho3D_StringHashRegister(py::class_<Urho3D::StringHashRegister, Urho3D::ExternalPtr<Urho3D::StringHashRegister>>& pyclass_Var_Urho3D_StringHashRegister)
 {
     // Class StringHashRegister Implementation
 pyclass_Var_Urho3D_StringHashRegister
@@ -98,12 +99,11 @@ pyclass_Var_Urho3D_StringHashRegister
   .def("GetStringCopy", (Urho3D::String (Urho3D::StringHashRegister::*)(const Urho3D::StringHash &) const) &Urho3D::StringHashRegister::GetStringCopy, "todo: docstring", py::arg("hash"))
   .def("Contains", (bool (Urho3D::StringHashRegister::*)(const Urho3D::StringHash &) const) &Urho3D::StringHashRegister::Contains, "todo: docstring", py::arg("hash"))
   .def("GetString", (const Urho3D::String & (Urho3D::StringHashRegister::*)(const Urho3D::StringHash &) const) &Urho3D::StringHashRegister::GetString, "todo: docstring", py::arg("hash"))
-  //.def("GetInternalMap", (const Urho3D::StringMap & (Urho3D::StringHashRegister::*)() const) &Urho3D::StringHashRegister::GetInternalMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetInternalMap", (const Urho3D::StringMap & (Urho3D::StringHashRegister::*)() const) &Urho3D::StringHashRegister::GetInternalMap, "todo: docstring")
 ;
 }
 
-void Implement_Urho3D_StringFactory(py::class_<Urho3D::StringFactory, std::shared_ptr<Urho3D::StringFactory>>& pyclass_Var_Urho3D_StringFactory)
+void Implement_Urho3D_StringFactory(py::class_<Urho3D::StringFactory, Urho3D::ExternalPtr<Urho3D::StringFactory>>& pyclass_Var_Urho3D_StringFactory)
 {
     // Class StringFactory Implementation
 pyclass_Var_Urho3D_StringFactory
@@ -113,7 +113,7 @@ pyclass_Var_Urho3D_StringFactory
 ;
 }
 
-void Implement_Urho3D_MutexLock(py::class_<Urho3D::MutexLock, std::shared_ptr<Urho3D::MutexLock>>& pyclass_Var_Urho3D_MutexLock)
+void Implement_Urho3D_MutexLock(py::class_<Urho3D::MutexLock, Urho3D::ExternalPtr<Urho3D::MutexLock>>& pyclass_Var_Urho3D_MutexLock)
 {
     // Class MutexLock Implementation
 pyclass_Var_Urho3D_MutexLock
@@ -127,7 +127,7 @@ pyclass_Var_Urho3D_MutexLock
 ;
 }
 
-void Implement_Urho3D_RefCounted(py::class_<Urho3D::RefCounted, Urho3D::SharedPtr<Urho3D::RefCounted>>& pyclass_Var_Urho3D_RefCounted)
+void Implement_Urho3D_RefCounted(py::class_<Urho3D::RefCounted, Urho3D::ExternalPtr<Urho3D::RefCounted>>& pyclass_Var_Urho3D_RefCounted)
 {
     // Class RefCounted Implementation
 pyclass_Var_Urho3D_RefCounted
@@ -147,7 +147,7 @@ pyclass_Var_Urho3D_RefCounted
 ;
 }
 
-void Implement_Urho3D_Vector2(py::class_<Urho3D::Vector2, std::shared_ptr<Urho3D::Vector2>>& pyclass_Var_Urho3D_Vector2)
+void Implement_Urho3D_Vector2(py::class_<Urho3D::Vector2, Urho3D::ExternalPtr<Urho3D::Vector2>>& pyclass_Var_Urho3D_Vector2)
 {
     // Class Vector2 Implementation
 pyclass_Var_Urho3D_Vector2
@@ -213,7 +213,7 @@ pyclass_Var_Urho3D_Vector2
 ;
 }
 
-void Implement_Urho3D_Vector3(py::class_<Urho3D::Vector3, std::shared_ptr<Urho3D::Vector3>>& pyclass_Var_Urho3D_Vector3)
+void Implement_Urho3D_Vector3(py::class_<Urho3D::Vector3, Urho3D::ExternalPtr<Urho3D::Vector3>>& pyclass_Var_Urho3D_Vector3)
 {
     // Class Vector3 Implementation
 pyclass_Var_Urho3D_Vector3
@@ -292,7 +292,7 @@ pyclass_Var_Urho3D_Vector3
 ;
 }
 
-void Implement_Urho3D_Color(py::class_<Urho3D::Color, std::shared_ptr<Urho3D::Color>>& pyclass_Var_Urho3D_Color)
+void Implement_Urho3D_Color(py::class_<Urho3D::Color, Urho3D::ExternalPtr<Urho3D::Color>>& pyclass_Var_Urho3D_Color)
 {
     // Class Color Implementation
 pyclass_Var_Urho3D_Color
@@ -364,7 +364,7 @@ pyclass_Var_Urho3D_Color
 ;
 }
 
-void Implement_Urho3D_Quaternion(py::class_<Urho3D::Quaternion, std::shared_ptr<Urho3D::Quaternion>>& pyclass_Var_Urho3D_Quaternion)
+void Implement_Urho3D_Quaternion(py::class_<Urho3D::Quaternion, Urho3D::ExternalPtr<Urho3D::Quaternion>>& pyclass_Var_Urho3D_Quaternion)
 {
     // Class Quaternion Implementation
 pyclass_Var_Urho3D_Quaternion
@@ -435,7 +435,7 @@ pyclass_Var_Urho3D_Quaternion
 ;
 }
 
-void Implement_Urho3D_Matrix4(py::class_<Urho3D::Matrix4, std::shared_ptr<Urho3D::Matrix4>>& pyclass_Var_Urho3D_Matrix4)
+void Implement_Urho3D_Matrix4(py::class_<Urho3D::Matrix4, Urho3D::ExternalPtr<Urho3D::Matrix4>>& pyclass_Var_Urho3D_Matrix4)
 {
     // Class Matrix4 Implementation
 pyclass_Var_Urho3D_Matrix4
@@ -506,7 +506,7 @@ pyclass_Var_Urho3D_Matrix4
 ;
 }
 
-void Implement_Urho3D_IntRect(py::class_<Urho3D::IntRect, std::shared_ptr<Urho3D::IntRect>>& pyclass_Var_Urho3D_IntRect)
+void Implement_Urho3D_IntRect(py::class_<Urho3D::IntRect, Urho3D::ExternalPtr<Urho3D::IntRect>>& pyclass_Var_Urho3D_IntRect)
 {
     // Class IntRect Implementation
 pyclass_Var_Urho3D_IntRect
@@ -557,7 +557,7 @@ pyclass_Var_Urho3D_IntRect
 ;
 }
 
-void Implement_Urho3D_ResourceRef(py::class_<Urho3D::ResourceRef, std::shared_ptr<Urho3D::ResourceRef>>& pyclass_Var_Urho3D_ResourceRef)
+void Implement_Urho3D_ResourceRef(py::class_<Urho3D::ResourceRef, Urho3D::ExternalPtr<Urho3D::ResourceRef>>& pyclass_Var_Urho3D_ResourceRef)
 {
     // Class ResourceRef Implementation
 pyclass_Var_Urho3D_ResourceRef
@@ -576,7 +576,7 @@ pyclass_Var_Urho3D_ResourceRef
 ;
 }
 
-void Implement_Urho3D_Context(py::class_<Urho3D::Context, Urho3D::SharedPtr<Urho3D::Context>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Context)
+void Implement_Urho3D_Context(py::class_<Urho3D::Context, Urho3D::ExternalPtr<Urho3D::Context>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Context)
 {
     // Class Context Implementation
 pyclass_Var_Urho3D_Context
@@ -594,8 +594,7 @@ pyclass_Var_Urho3D_Context
   .def("RemoveAttribute", (void (Urho3D::Context::*)(Urho3D::StringHash, const char *)) &Urho3D::Context::RemoveAttribute, "todo: docstring", py::arg("objectType"), py::arg("name"))
   .def("RemoveAllAttributes", (void (Urho3D::Context::*)(Urho3D::StringHash)) &Urho3D::Context::RemoveAllAttributes, "todo: docstring", py::arg("objectType"))
   .def("UpdateAttributeDefaultValue", (void (Urho3D::Context::*)(Urho3D::StringHash, const char *, const Urho3D::Variant &)) &Urho3D::Context::UpdateAttributeDefaultValue, "todo: docstring", py::arg("objectType"), py::arg("name"), py::arg("defaultValue"))
-  //.def("GetEventDataMap", (Urho3D::VariantMap & (Urho3D::Context::*)()) &Urho3D::Context::GetEventDataMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetEventDataMap", (Urho3D::VariantMap & (Urho3D::Context::*)()) &Urho3D::Context::GetEventDataMap, "todo: docstring")
   .def("RequireSDL", (bool (Urho3D::Context::*)(unsigned int)) &Urho3D::Context::RequireSDL, "todo: docstring", py::arg("sdlFlags"))
   .def("ReleaseSDL", (void (Urho3D::Context::*)()) &Urho3D::Context::ReleaseSDL, "todo: docstring")
   .def("RequireIK", (void (Urho3D::Context::*)()) &Urho3D::Context::RequireIK, "todo: docstring")
@@ -603,8 +602,7 @@ pyclass_Var_Urho3D_Context
   .def("CopyBaseAttributes", (void (Urho3D::Context::*)(Urho3D::StringHash, Urho3D::StringHash)) &Urho3D::Context::CopyBaseAttributes, "todo: docstring", py::arg("baseType"), py::arg("derivedType"))
   .def("GetSubsystem", (Urho3D::Object * (Urho3D::Context::*)(Urho3D::StringHash) const) &Urho3D::Context::GetSubsystem, "todo: docstring", py::arg("type"))
   .def("GetGlobalVar", (const Urho3D::Variant & (Urho3D::Context::*)(Urho3D::StringHash) const) &Urho3D::Context::GetGlobalVar, "todo: docstring", py::arg("key"))
-  //.def("GetGlobalVars", (const Urho3D::VariantMap & (Urho3D::Context::*)() const) &Urho3D::Context::GetGlobalVars, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetGlobalVars", (const Urho3D::VariantMap & (Urho3D::Context::*)() const) &Urho3D::Context::GetGlobalVars, "todo: docstring")
   .def("SetGlobalVar", (void (Urho3D::Context::*)(Urho3D::StringHash, const Urho3D::Variant &)) &Urho3D::Context::SetGlobalVar, "todo: docstring", py::arg("key"), py::arg("value"))
   //.def("GetSubsystems", (const HashMap<Urho3D::StringHash, SharedPtr<Urho3D::Object> > & (Urho3D::Context::*)() const) &Urho3D::Context::GetSubsystems, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -628,7 +626,7 @@ pyclass_Var_Urho3D_Context
 ;
 }
 
-void Implement_Urho3D_TypeInfo(py::class_<Urho3D::TypeInfo, std::shared_ptr<Urho3D::TypeInfo>>& pyclass_Var_Urho3D_TypeInfo)
+void Implement_Urho3D_TypeInfo(py::class_<Urho3D::TypeInfo, Urho3D::ExternalPtr<Urho3D::TypeInfo>>& pyclass_Var_Urho3D_TypeInfo)
 {
     // Class TypeInfo Implementation
 pyclass_Var_Urho3D_TypeInfo
@@ -643,7 +641,7 @@ pyclass_Var_Urho3D_TypeInfo
 ;
 }
 
-void Implement_Urho3D_ObjectFactory(py::class_<Urho3D::ObjectFactory, Urho3D::SharedPtr<Urho3D::ObjectFactory>, Urho3D::RefCounted>& pyclass_Var_Urho3D_ObjectFactory)
+void Implement_Urho3D_ObjectFactory(py::class_<Urho3D::ObjectFactory, Urho3D::ExternalPtr<Urho3D::ObjectFactory>, Urho3D::RefCounted>& pyclass_Var_Urho3D_ObjectFactory)
 {
     // Class ObjectFactory Implementation
 pyclass_Var_Urho3D_ObjectFactory
@@ -658,7 +656,7 @@ pyclass_Var_Urho3D_ObjectFactory
 ;
 }
 
-void Implement_Urho3D_ScriptEventListener(py::class_<Urho3D::ScriptEventListener, std::shared_ptr<Urho3D::ScriptEventListener>>& pyclass_Var_Urho3D_ScriptEventListener)
+void Implement_Urho3D_ScriptEventListener(py::class_<Urho3D::ScriptEventListener, Urho3D::ExternalPtr<Urho3D::ScriptEventListener>>& pyclass_Var_Urho3D_ScriptEventListener)
 {
     // Class ScriptEventListener Implementation
 pyclass_Var_Urho3D_ScriptEventListener
@@ -677,7 +675,7 @@ pyclass_Var_Urho3D_ScriptEventListener
 ;
 }
 
-void Implement_Urho3D_AttributeAccessor(py::class_<Urho3D::AttributeAccessor, Urho3D::SharedPtr<Urho3D::AttributeAccessor>, Urho3D::RefCounted>& pyclass_Var_Urho3D_AttributeAccessor)
+void Implement_Urho3D_AttributeAccessor(py::class_<Urho3D::AttributeAccessor, Urho3D::ExternalPtr<Urho3D::AttributeAccessor>, Urho3D::RefCounted>& pyclass_Var_Urho3D_AttributeAccessor)
 {
     // Class AttributeAccessor Implementation
 pyclass_Var_Urho3D_AttributeAccessor
@@ -686,7 +684,7 @@ pyclass_Var_Urho3D_AttributeAccessor
 ;
 }
 
-void Implement_Urho3D_Deserializer(py::class_<Urho3D::Deserializer, std::shared_ptr<Urho3D::Deserializer>>& pyclass_Var_Urho3D_Deserializer)
+void Implement_Urho3D_Deserializer(py::class_<Urho3D::Deserializer, Urho3D::ExternalPtr<Urho3D::Deserializer>>& pyclass_Var_Urho3D_Deserializer)
 {
     // Class Deserializer Implementation
 pyclass_Var_Urho3D_Deserializer
@@ -747,15 +745,14 @@ pyclass_Var_Urho3D_Deserializer
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("ReadStringVector", (Urho3D::StringVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadStringVector, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("ReadVariantMap", (Urho3D::VariantMap (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("ReadVariantMap", (Urho3D::VariantMap (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantMap, "todo: docstring")
   .def("ReadVLE", (unsigned int (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVLE, "todo: docstring")
   .def("ReadNetID", (unsigned int (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadNetID, "todo: docstring")
   .def("ReadLine", (Urho3D::String (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadLine, "todo: docstring")
 ;
 }
 
-void Implement_Urho3D_XMLElement(py::class_<Urho3D::XMLElement, std::shared_ptr<Urho3D::XMLElement>>& pyclass_Var_Urho3D_XMLElement)
+void Implement_Urho3D_XMLElement(py::class_<Urho3D::XMLElement, Urho3D::ExternalPtr<Urho3D::XMLElement>>& pyclass_Var_Urho3D_XMLElement)
 {
     // Class XMLElement Implementation
 pyclass_Var_Urho3D_XMLElement
@@ -876,8 +873,7 @@ pyclass_Var_Urho3D_XMLElement
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetStringVector", (Urho3D::StringVector (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetStringVector, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantMap", (Urho3D::VariantMap (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariantMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVariantMap", (Urho3D::VariantMap (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariantMap, "todo: docstring")
   .def("GetVector2", (Urho3D::Vector2 (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetVector2, "todo: docstring", py::arg("name"))
   .def("GetVector3", (Urho3D::Vector3 (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetVector3, "todo: docstring", py::arg("name"))
   .def("GetVector4", (Urho3D::Vector4 (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetVector4, "todo: docstring", py::arg("name"))
@@ -898,7 +894,7 @@ pyclass_Var_Urho3D_XMLElement
 ;
 }
 
-void Implement_Urho3D_DirtyBits(py::class_<Urho3D::DirtyBits, std::shared_ptr<Urho3D::DirtyBits>>& pyclass_Var_Urho3D_DirtyBits)
+void Implement_Urho3D_DirtyBits(py::class_<Urho3D::DirtyBits, Urho3D::ExternalPtr<Urho3D::DirtyBits>>& pyclass_Var_Urho3D_DirtyBits)
 {
     // Class DirtyBits Implementation
 pyclass_Var_Urho3D_DirtyBits
@@ -913,14 +909,14 @@ pyclass_Var_Urho3D_DirtyBits
 ;
 }
 
-void Implement_Urho3D_ReplicationState(py::class_<Urho3D::ReplicationState, std::shared_ptr<Urho3D::ReplicationState>>& pyclass_Var_Urho3D_ReplicationState)
+void Implement_Urho3D_ReplicationState(py::class_<Urho3D::ReplicationState, Urho3D::ExternalPtr<Urho3D::ReplicationState>>& pyclass_Var_Urho3D_ReplicationState)
 {
     // Class ReplicationState Implementation
 pyclass_Var_Urho3D_ReplicationState
 ;
 }
 
-void Implement_Urho3D_ValueAnimationInfo(py::class_<Urho3D::ValueAnimationInfo, Urho3D::SharedPtr<Urho3D::ValueAnimationInfo>, Urho3D::RefCounted>& pyclass_Var_Urho3D_ValueAnimationInfo)
+void Implement_Urho3D_ValueAnimationInfo(py::class_<Urho3D::ValueAnimationInfo, Urho3D::ExternalPtr<Urho3D::ValueAnimationInfo>, Urho3D::RefCounted>& pyclass_Var_Urho3D_ValueAnimationInfo)
 {
     // Class ValueAnimationInfo Implementation
 pyclass_Var_Urho3D_ValueAnimationInfo
@@ -945,7 +941,7 @@ pyclass_Var_Urho3D_ValueAnimationInfo
 ;
 }
 
-void Implement_Urho3D_ComponentReplicationState(py::class_<Urho3D::ComponentReplicationState, std::shared_ptr<Urho3D::ComponentReplicationState>, Urho3D::ReplicationState>& pyclass_Var_Urho3D_ComponentReplicationState)
+void Implement_Urho3D_ComponentReplicationState(py::class_<Urho3D::ComponentReplicationState, Urho3D::ExternalPtr<Urho3D::ComponentReplicationState>, Urho3D::ReplicationState>& pyclass_Var_Urho3D_ComponentReplicationState)
 {
     // Class ComponentReplicationState Implementation
 pyclass_Var_Urho3D_ComponentReplicationState
@@ -954,7 +950,7 @@ pyclass_Var_Urho3D_ComponentReplicationState
 ;
 }
 
-void Implement_Urho3D_SoundStream(py::class_<Urho3D::SoundStream, Urho3D::SharedPtr<Urho3D::SoundStream>, Urho3D::RefCounted>& pyclass_Var_Urho3D_SoundStream)
+void Implement_Urho3D_SoundStream(py::class_<Urho3D::SoundStream, Urho3D::ExternalPtr<Urho3D::SoundStream>, Urho3D::RefCounted>& pyclass_Var_Urho3D_SoundStream)
 {
     // Class SoundStream Implementation
 pyclass_Var_Urho3D_SoundStream
@@ -976,7 +972,7 @@ pyclass_Var_Urho3D_SoundStream
 ;
 }
 
-void Implement_Urho3D_EventReceiverGroup(py::class_<Urho3D::EventReceiverGroup, Urho3D::SharedPtr<Urho3D::EventReceiverGroup>, Urho3D::RefCounted>& pyclass_Var_Urho3D_EventReceiverGroup)
+void Implement_Urho3D_EventReceiverGroup(py::class_<Urho3D::EventReceiverGroup, Urho3D::ExternalPtr<Urho3D::EventReceiverGroup>, Urho3D::RefCounted>& pyclass_Var_Urho3D_EventReceiverGroup)
 {
     // Class EventReceiverGroup Implementation
 pyclass_Var_Urho3D_EventReceiverGroup
@@ -988,7 +984,7 @@ pyclass_Var_Urho3D_EventReceiverGroup
 ;
 }
 
-void Implement_Urho3D_Polyhedron(py::class_<Urho3D::Polyhedron, std::shared_ptr<Urho3D::Polyhedron>>& pyclass_Var_Urho3D_Polyhedron)
+void Implement_Urho3D_Polyhedron(py::class_<Urho3D::Polyhedron, Urho3D::ExternalPtr<Urho3D::Polyhedron>>& pyclass_Var_Urho3D_Polyhedron)
 {
     // Class Polyhedron Implementation
 pyclass_Var_Urho3D_Polyhedron
@@ -1021,7 +1017,7 @@ pyclass_Var_Urho3D_Polyhedron
 ;
 }
 
-void Implement_Urho3D_Sphere(py::class_<Urho3D::Sphere, std::shared_ptr<Urho3D::Sphere>>& pyclass_Var_Urho3D_Sphere)
+void Implement_Urho3D_Sphere(py::class_<Urho3D::Sphere, Urho3D::ExternalPtr<Urho3D::Sphere>>& pyclass_Var_Urho3D_Sphere)
 {
     // Class Sphere Implementation
 pyclass_Var_Urho3D_Sphere
@@ -1070,7 +1066,7 @@ pyclass_Var_Urho3D_Sphere
 ;
 }
 
-void Implement_Urho3D_Octant(py::class_<Urho3D::Octant, std::shared_ptr<Urho3D::Octant>>& pyclass_Var_Urho3D_Octant)
+void Implement_Urho3D_Octant(py::class_<Urho3D::Octant, Urho3D::ExternalPtr<Urho3D::Octant>>& pyclass_Var_Urho3D_Octant)
 {
     // Class Octant Implementation
 pyclass_Var_Urho3D_Octant
@@ -1095,7 +1091,7 @@ pyclass_Var_Urho3D_Octant
 ;
 }
 
-void Implement_Urho3D_RayQueryResult(py::class_<Urho3D::RayQueryResult, std::shared_ptr<Urho3D::RayQueryResult>>& pyclass_Var_Urho3D_RayQueryResult)
+void Implement_Urho3D_RayQueryResult(py::class_<Urho3D::RayQueryResult, Urho3D::ExternalPtr<Urho3D::RayQueryResult>>& pyclass_Var_Urho3D_RayQueryResult)
 {
     // Class RayQueryResult Implementation
 pyclass_Var_Urho3D_RayQueryResult
@@ -1110,7 +1106,7 @@ pyclass_Var_Urho3D_RayQueryResult
 ;
 }
 
-void Implement_Urho3D_GPUObject(py::class_<Urho3D::GPUObject, std::shared_ptr<Urho3D::GPUObject>>& pyclass_Var_Urho3D_GPUObject)
+void Implement_Urho3D_GPUObject(py::class_<Urho3D::GPUObject, Urho3D::ExternalPtr<Urho3D::GPUObject>>& pyclass_Var_Urho3D_GPUObject)
 {
     // Class GPUObject Implementation
 pyclass_Var_Urho3D_GPUObject
@@ -1129,7 +1125,7 @@ pyclass_Var_Urho3D_GPUObject
 ;
 }
 
-void Implement_Urho3D_HiresTimer(py::class_<Urho3D::HiresTimer, std::shared_ptr<Urho3D::HiresTimer>>& pyclass_Var_Urho3D_HiresTimer)
+void Implement_Urho3D_HiresTimer(py::class_<Urho3D::HiresTimer, Urho3D::ExternalPtr<Urho3D::HiresTimer>>& pyclass_Var_Urho3D_HiresTimer)
 {
     // Class HiresTimer Implementation
 pyclass_Var_Urho3D_HiresTimer
@@ -1139,7 +1135,7 @@ pyclass_Var_Urho3D_HiresTimer
 ;
 }
 
-void Implement_Urho3D_SceneResolver(py::class_<Urho3D::SceneResolver, std::shared_ptr<Urho3D::SceneResolver>>& pyclass_Var_Urho3D_SceneResolver)
+void Implement_Urho3D_SceneResolver(py::class_<Urho3D::SceneResolver, Urho3D::ExternalPtr<Urho3D::SceneResolver>>& pyclass_Var_Urho3D_SceneResolver)
 {
     // Class SceneResolver Implementation
 pyclass_Var_Urho3D_SceneResolver
@@ -1153,7 +1149,7 @@ pyclass_Var_Urho3D_SceneResolver
 ;
 }
 
-void Implement_Urho3D_NodeImpl(py::class_<Urho3D::NodeImpl, std::shared_ptr<Urho3D::NodeImpl>>& pyclass_Var_Urho3D_NodeImpl)
+void Implement_Urho3D_NodeImpl(py::class_<Urho3D::NodeImpl, Urho3D::ExternalPtr<Urho3D::NodeImpl>>& pyclass_Var_Urho3D_NodeImpl)
 {
     // Class NodeImpl Implementation
 pyclass_Var_Urho3D_NodeImpl
@@ -1165,7 +1161,7 @@ pyclass_Var_Urho3D_NodeImpl
 ;
 }
 
-void Implement_Urho3D_XPathResultSet(py::class_<Urho3D::XPathResultSet, std::shared_ptr<Urho3D::XPathResultSet>>& pyclass_Var_Urho3D_XPathResultSet)
+void Implement_Urho3D_XPathResultSet(py::class_<Urho3D::XPathResultSet, Urho3D::ExternalPtr<Urho3D::XPathResultSet>>& pyclass_Var_Urho3D_XPathResultSet)
 {
     // Class XPathResultSet Implementation
 pyclass_Var_Urho3D_XPathResultSet
@@ -1187,7 +1183,7 @@ pyclass_Var_Urho3D_XPathResultSet
 ;
 }
 
-void Implement_Urho3D_BiasParameters(py::class_<Urho3D::BiasParameters, std::shared_ptr<Urho3D::BiasParameters>>& pyclass_Var_Urho3D_BiasParameters)
+void Implement_Urho3D_BiasParameters(py::class_<Urho3D::BiasParameters, Urho3D::ExternalPtr<Urho3D::BiasParameters>>& pyclass_Var_Urho3D_BiasParameters)
 {
     // Class BiasParameters Implementation
 pyclass_Var_Urho3D_BiasParameters
@@ -1200,7 +1196,7 @@ pyclass_Var_Urho3D_BiasParameters
 ;
 }
 
-void Implement_Urho3D_FocusParameters(py::class_<Urho3D::FocusParameters, std::shared_ptr<Urho3D::FocusParameters>>& pyclass_Var_Urho3D_FocusParameters)
+void Implement_Urho3D_FocusParameters(py::class_<Urho3D::FocusParameters, Urho3D::ExternalPtr<Urho3D::FocusParameters>>& pyclass_Var_Urho3D_FocusParameters)
 {
     // Class FocusParameters Implementation
 pyclass_Var_Urho3D_FocusParameters
@@ -1215,7 +1211,7 @@ pyclass_Var_Urho3D_FocusParameters
 ;
 }
 
-void Implement_Urho3D_UIBatch(py::class_<Urho3D::UIBatch, std::shared_ptr<Urho3D::UIBatch>>& pyclass_Var_Urho3D_UIBatch)
+void Implement_Urho3D_UIBatch(py::class_<Urho3D::UIBatch, Urho3D::ExternalPtr<Urho3D::UIBatch>>& pyclass_Var_Urho3D_UIBatch)
 {
     // Class UIBatch Implementation
 pyclass_Var_Urho3D_UIBatch
@@ -1242,7 +1238,7 @@ pyclass_Var_Urho3D_UIBatch
 ;
 }
 
-void Implement_Urho3D_BufferedSoundStream(py::class_<Urho3D::BufferedSoundStream, Urho3D::SharedPtr<Urho3D::BufferedSoundStream>, Urho3D::SoundStream>& pyclass_Var_Urho3D_BufferedSoundStream)
+void Implement_Urho3D_BufferedSoundStream(py::class_<Urho3D::BufferedSoundStream, Urho3D::ExternalPtr<Urho3D::BufferedSoundStream>, Urho3D::SoundStream>& pyclass_Var_Urho3D_BufferedSoundStream)
 {
     // Class BufferedSoundStream Implementation
 pyclass_Var_Urho3D_BufferedSoundStream
@@ -1262,7 +1258,7 @@ pyclass_Var_Urho3D_BufferedSoundStream
 ;
 }
 
-void Implement_Urho3D_Condition(py::class_<Urho3D::Condition, std::shared_ptr<Urho3D::Condition>>& pyclass_Var_Urho3D_Condition)
+void Implement_Urho3D_Condition(py::class_<Urho3D::Condition, Urho3D::ExternalPtr<Urho3D::Condition>>& pyclass_Var_Urho3D_Condition)
 {
     // Class Condition Implementation
 pyclass_Var_Urho3D_Condition
@@ -1274,7 +1270,7 @@ pyclass_Var_Urho3D_Condition
 ;
 }
 
-void Implement_Urho3D_ProfilerBlock(py::class_<Urho3D::ProfilerBlock, std::shared_ptr<Urho3D::ProfilerBlock>>& pyclass_Var_Urho3D_ProfilerBlock)
+void Implement_Urho3D_ProfilerBlock(py::class_<Urho3D::ProfilerBlock, Urho3D::ExternalPtr<Urho3D::ProfilerBlock>>& pyclass_Var_Urho3D_ProfilerBlock)
 {
     // Class ProfilerBlock Implementation
 pyclass_Var_Urho3D_ProfilerBlock
@@ -1302,7 +1298,7 @@ pyclass_Var_Urho3D_ProfilerBlock
 ;
 }
 
-void Implement_Urho3D_AutoProfileBlock(py::class_<Urho3D::AutoProfileBlock, std::shared_ptr<Urho3D::AutoProfileBlock>>& pyclass_Var_Urho3D_AutoProfileBlock)
+void Implement_Urho3D_AutoProfileBlock(py::class_<Urho3D::AutoProfileBlock, Urho3D::ExternalPtr<Urho3D::AutoProfileBlock>>& pyclass_Var_Urho3D_AutoProfileBlock)
 {
     // Class AutoProfileBlock Implementation
 pyclass_Var_Urho3D_AutoProfileBlock
@@ -1312,7 +1308,7 @@ pyclass_Var_Urho3D_AutoProfileBlock
 ;
 }
 
-void Implement_Urho3D_Spline(py::class_<Urho3D::Spline, std::shared_ptr<Urho3D::Spline>>& pyclass_Var_Urho3D_Spline)
+void Implement_Urho3D_Spline(py::class_<Urho3D::Spline, Urho3D::ExternalPtr<Urho3D::Spline>>& pyclass_Var_Urho3D_Spline)
 {
     // Class Spline Implementation
 pyclass_Var_Urho3D_Spline
@@ -1346,7 +1342,7 @@ pyclass_Var_Urho3D_Spline
 ;
 }
 
-void Implement_Urho3D_Skeleton(py::class_<Urho3D::Skeleton, std::shared_ptr<Urho3D::Skeleton>>& pyclass_Var_Urho3D_Skeleton)
+void Implement_Urho3D_Skeleton(py::class_<Urho3D::Skeleton, Urho3D::ExternalPtr<Urho3D::Skeleton>>& pyclass_Var_Urho3D_Skeleton)
 {
     // Class Skeleton Implementation
 pyclass_Var_Urho3D_Skeleton
@@ -1384,7 +1380,7 @@ pyclass_Var_Urho3D_Skeleton
 ;
 }
 
-void Implement_Urho3D_AnimationState(py::class_<Urho3D::AnimationState, Urho3D::SharedPtr<Urho3D::AnimationState>, Urho3D::RefCounted>& pyclass_Var_Urho3D_AnimationState)
+void Implement_Urho3D_AnimationState(py::class_<Urho3D::AnimationState, Urho3D::ExternalPtr<Urho3D::AnimationState>, Urho3D::RefCounted>& pyclass_Var_Urho3D_AnimationState)
 {
     // Class AnimationState Implementation
 pyclass_Var_Urho3D_AnimationState
@@ -1428,7 +1424,7 @@ pyclass_Var_Urho3D_AnimationState
 ;
 }
 
-void Implement_Urho3D_AnimationTrack(py::class_<Urho3D::AnimationTrack, std::shared_ptr<Urho3D::AnimationTrack>>& pyclass_Var_Urho3D_AnimationTrack)
+void Implement_Urho3D_AnimationTrack(py::class_<Urho3D::AnimationTrack, Urho3D::ExternalPtr<Urho3D::AnimationTrack>>& pyclass_Var_Urho3D_AnimationTrack)
 {
     // Class AnimationTrack Implementation
 pyclass_Var_Urho3D_AnimationTrack
@@ -1452,7 +1448,7 @@ pyclass_Var_Urho3D_AnimationTrack
 ;
 }
 
-void Implement_Urho3D_ShaderVariation(py::class_<Urho3D::ShaderVariation, Urho3D::SharedPtr<Urho3D::ShaderVariation>, Urho3D::RefCounted, Urho3D::GPUObject>& pyclass_Var_Urho3D_ShaderVariation)
+void Implement_Urho3D_ShaderVariation(py::class_<Urho3D::ShaderVariation, Urho3D::ExternalPtr<Urho3D::ShaderVariation>, Urho3D::RefCounted, Urho3D::GPUObject>& pyclass_Var_Urho3D_ShaderVariation)
 {
     // Class ShaderVariation Implementation
 pyclass_Var_Urho3D_ShaderVariation
@@ -1485,7 +1481,7 @@ pyclass_Var_Urho3D_ShaderVariation
 ;
 }
 
-void Implement_Urho3D_Billboard(py::class_<Urho3D::Billboard, std::shared_ptr<Urho3D::Billboard>>& pyclass_Var_Urho3D_Billboard)
+void Implement_Urho3D_Billboard(py::class_<Urho3D::Billboard, Urho3D::ExternalPtr<Urho3D::Billboard>>& pyclass_Var_Urho3D_Billboard)
 {
     // Class Billboard Implementation
 pyclass_Var_Urho3D_Billboard
@@ -1501,7 +1497,7 @@ pyclass_Var_Urho3D_Billboard
 ;
 }
 
-void Implement_Urho3D_Ray(py::class_<Urho3D::Ray, std::shared_ptr<Urho3D::Ray>>& pyclass_Var_Urho3D_Ray)
+void Implement_Urho3D_Ray(py::class_<Urho3D::Ray, Urho3D::ExternalPtr<Urho3D::Ray>>& pyclass_Var_Urho3D_Ray)
 {
     // Class Ray Implementation
 pyclass_Var_Urho3D_Ray
@@ -1533,7 +1529,7 @@ pyclass_Var_Urho3D_Ray
 ;
 }
 
-void Implement_Urho3D_RenderSurface(py::class_<Urho3D::RenderSurface, Urho3D::SharedPtr<Urho3D::RenderSurface>, Urho3D::RefCounted>& pyclass_Var_Urho3D_RenderSurface)
+void Implement_Urho3D_RenderSurface(py::class_<Urho3D::RenderSurface, Urho3D::ExternalPtr<Urho3D::RenderSurface>, Urho3D::RefCounted>& pyclass_Var_Urho3D_RenderSurface)
 {
     // Class RenderSurface Implementation
 pyclass_Var_Urho3D_RenderSurface
@@ -1575,7 +1571,7 @@ pyclass_Var_Urho3D_RenderSurface
 ;
 }
 
-void Implement_Urho3D_ShaderProgram(py::class_<Urho3D::ShaderProgram, Urho3D::SharedPtr<Urho3D::ShaderProgram>, Urho3D::RefCounted, Urho3D::GPUObject>& pyclass_Var_Urho3D_ShaderProgram)
+void Implement_Urho3D_ShaderProgram(py::class_<Urho3D::ShaderProgram, Urho3D::ExternalPtr<Urho3D::ShaderProgram>, Urho3D::RefCounted, Urho3D::GPUObject>& pyclass_Var_Urho3D_ShaderProgram)
 {
     // Class ShaderProgram Implementation
 pyclass_Var_Urho3D_ShaderProgram
@@ -1605,7 +1601,7 @@ pyclass_Var_Urho3D_ShaderProgram
 ;
 }
 
-void Implement_Urho3D_OctreeQuery(py::class_<Urho3D::OctreeQuery, std::shared_ptr<Urho3D::OctreeQuery>>& pyclass_Var_Urho3D_OctreeQuery)
+void Implement_Urho3D_OctreeQuery(py::class_<Urho3D::OctreeQuery, Urho3D::ExternalPtr<Urho3D::OctreeQuery>>& pyclass_Var_Urho3D_OctreeQuery)
 {
     // Class OctreeQuery Implementation
 pyclass_Var_Urho3D_OctreeQuery
@@ -1628,7 +1624,7 @@ pyclass_Var_Urho3D_OctreeQuery
 ;
 }
 
-void Implement_Urho3D_SphereOctreeQuery(py::class_<Urho3D::SphereOctreeQuery, std::shared_ptr<Urho3D::SphereOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_SphereOctreeQuery)
+void Implement_Urho3D_SphereOctreeQuery(py::class_<Urho3D::SphereOctreeQuery, Urho3D::ExternalPtr<Urho3D::SphereOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_SphereOctreeQuery)
 {
     // Class SphereOctreeQuery Implementation
 pyclass_Var_Urho3D_SphereOctreeQuery
@@ -1642,7 +1638,7 @@ pyclass_Var_Urho3D_SphereOctreeQuery
 ;
 }
 
-void Implement_Urho3D_FrustumOctreeQuery(py::class_<Urho3D::FrustumOctreeQuery, std::shared_ptr<Urho3D::FrustumOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_FrustumOctreeQuery)
+void Implement_Urho3D_FrustumOctreeQuery(py::class_<Urho3D::FrustumOctreeQuery, Urho3D::ExternalPtr<Urho3D::FrustumOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_FrustumOctreeQuery)
 {
     // Class FrustumOctreeQuery Implementation
 pyclass_Var_Urho3D_FrustumOctreeQuery
@@ -1656,7 +1652,7 @@ pyclass_Var_Urho3D_FrustumOctreeQuery
 ;
 }
 
-void Implement_Urho3D_AllContentOctreeQuery(py::class_<Urho3D::AllContentOctreeQuery, std::shared_ptr<Urho3D::AllContentOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_AllContentOctreeQuery)
+void Implement_Urho3D_AllContentOctreeQuery(py::class_<Urho3D::AllContentOctreeQuery, Urho3D::ExternalPtr<Urho3D::AllContentOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_AllContentOctreeQuery)
 {
     // Class AllContentOctreeQuery Implementation
 pyclass_Var_Urho3D_AllContentOctreeQuery
@@ -1669,7 +1665,7 @@ pyclass_Var_Urho3D_AllContentOctreeQuery
 ;
 }
 
-void Implement_Urho3D_RenderTargetInfo(py::class_<Urho3D::RenderTargetInfo, std::shared_ptr<Urho3D::RenderTargetInfo>>& pyclass_Var_Urho3D_RenderTargetInfo)
+void Implement_Urho3D_RenderTargetInfo(py::class_<Urho3D::RenderTargetInfo, Urho3D::ExternalPtr<Urho3D::RenderTargetInfo>>& pyclass_Var_Urho3D_RenderTargetInfo)
 {
     // Class RenderTargetInfo Implementation
 pyclass_Var_Urho3D_RenderTargetInfo
@@ -1689,7 +1685,7 @@ pyclass_Var_Urho3D_RenderTargetInfo
 ;
 }
 
-void Implement_Urho3D_RenderPath(py::class_<Urho3D::RenderPath, Urho3D::SharedPtr<Urho3D::RenderPath>, Urho3D::RefCounted>& pyclass_Var_Urho3D_RenderPath)
+void Implement_Urho3D_RenderPath(py::class_<Urho3D::RenderPath, Urho3D::ExternalPtr<Urho3D::RenderPath>, Urho3D::RefCounted>& pyclass_Var_Urho3D_RenderPath)
 {
     // Class RenderPath Implementation
 pyclass_Var_Urho3D_RenderPath
@@ -1724,7 +1720,7 @@ pyclass_Var_Urho3D_RenderPath
 ;
 }
 
-void Implement_Urho3D_TrailPoint(py::class_<Urho3D::TrailPoint, std::shared_ptr<Urho3D::TrailPoint>>& pyclass_Var_Urho3D_TrailPoint)
+void Implement_Urho3D_TrailPoint(py::class_<Urho3D::TrailPoint, Urho3D::ExternalPtr<Urho3D::TrailPoint>>& pyclass_Var_Urho3D_TrailPoint)
 {
     // Class TrailPoint Implementation
 pyclass_Var_Urho3D_TrailPoint
@@ -1739,7 +1735,7 @@ pyclass_Var_Urho3D_TrailPoint
 ;
 }
 
-void Implement_Urho3D_Controls(py::class_<Urho3D::Controls, std::shared_ptr<Urho3D::Controls>>& pyclass_Var_Urho3D_Controls)
+void Implement_Urho3D_Controls(py::class_<Urho3D::Controls, Urho3D::ExternalPtr<Urho3D::Controls>>& pyclass_Var_Urho3D_Controls)
 {
     // Class Controls Implementation
 pyclass_Var_Urho3D_Controls
@@ -1757,7 +1753,7 @@ pyclass_Var_Urho3D_Controls
 ;
 }
 
-void Implement_Urho3D_LuaFunction(py::class_<Urho3D::LuaFunction, Urho3D::SharedPtr<Urho3D::LuaFunction>, Urho3D::RefCounted>& pyclass_Var_Urho3D_LuaFunction)
+void Implement_Urho3D_LuaFunction(py::class_<Urho3D::LuaFunction, Urho3D::ExternalPtr<Urho3D::LuaFunction>, Urho3D::RefCounted>& pyclass_Var_Urho3D_LuaFunction)
 {
     // Class LuaFunction Implementation
 pyclass_Var_Urho3D_LuaFunction
@@ -1783,7 +1779,7 @@ pyclass_Var_Urho3D_LuaFunction
 ;
 }
 
-void Implement_Urho3D_AreaAllocator(py::class_<Urho3D::AreaAllocator, std::shared_ptr<Urho3D::AreaAllocator>>& pyclass_Var_Urho3D_AreaAllocator)
+void Implement_Urho3D_AreaAllocator(py::class_<Urho3D::AreaAllocator, Urho3D::ExternalPtr<Urho3D::AreaAllocator>>& pyclass_Var_Urho3D_AreaAllocator)
 {
     // Class AreaAllocator Implementation
 pyclass_Var_Urho3D_AreaAllocator
@@ -1798,7 +1794,7 @@ pyclass_Var_Urho3D_AreaAllocator
 ;
 }
 
-void Implement_Urho3D_NavBuildData(py::class_<Urho3D::NavBuildData, std::shared_ptr<Urho3D::NavBuildData>>& pyclass_Var_Urho3D_NavBuildData)
+void Implement_Urho3D_NavBuildData(py::class_<Urho3D::NavBuildData, Urho3D::ExternalPtr<Urho3D::NavBuildData>>& pyclass_Var_Urho3D_NavBuildData)
 {
     // Class NavBuildData Implementation
 pyclass_Var_Urho3D_NavBuildData
@@ -1817,7 +1813,7 @@ pyclass_Var_Urho3D_NavBuildData
 ;
 }
 
-void Implement_Urho3D_NavAreaStub(py::class_<Urho3D::NavAreaStub, std::shared_ptr<Urho3D::NavAreaStub>>& pyclass_Var_Urho3D_NavAreaStub)
+void Implement_Urho3D_NavAreaStub(py::class_<Urho3D::NavAreaStub, Urho3D::ExternalPtr<Urho3D::NavAreaStub>>& pyclass_Var_Urho3D_NavAreaStub)
 {
     // Class NavAreaStub Implementation
 pyclass_Var_Urho3D_NavAreaStub
@@ -1826,7 +1822,7 @@ pyclass_Var_Urho3D_NavAreaStub
 ;
 }
 
-void Implement_Urho3D_SceneReplicationState(py::class_<Urho3D::SceneReplicationState, std::shared_ptr<Urho3D::SceneReplicationState>, Urho3D::ReplicationState>& pyclass_Var_Urho3D_SceneReplicationState)
+void Implement_Urho3D_SceneReplicationState(py::class_<Urho3D::SceneReplicationState, Urho3D::ExternalPtr<Urho3D::SceneReplicationState>, Urho3D::ReplicationState>& pyclass_Var_Urho3D_SceneReplicationState)
 {
     // Class SceneReplicationState Implementation
 pyclass_Var_Urho3D_SceneReplicationState
@@ -1836,7 +1832,7 @@ pyclass_Var_Urho3D_SceneReplicationState
 ;
 }
 
-void Implement_Urho3D_PhysicsRaycastResult(py::class_<Urho3D::PhysicsRaycastResult, std::shared_ptr<Urho3D::PhysicsRaycastResult>>& pyclass_Var_Urho3D_PhysicsRaycastResult)
+void Implement_Urho3D_PhysicsRaycastResult(py::class_<Urho3D::PhysicsRaycastResult, Urho3D::ExternalPtr<Urho3D::PhysicsRaycastResult>>& pyclass_Var_Urho3D_PhysicsRaycastResult)
 {
     // Class PhysicsRaycastResult Implementation
 pyclass_Var_Urho3D_PhysicsRaycastResult
@@ -1849,7 +1845,7 @@ pyclass_Var_Urho3D_PhysicsRaycastResult
 ;
 }
 
-void Implement_Urho3D_PListValue(py::class_<Urho3D::PListValue, std::shared_ptr<Urho3D::PListValue>>& pyclass_Var_Urho3D_PListValue)
+void Implement_Urho3D_PListValue(py::class_<Urho3D::PListValue, Urho3D::ExternalPtr<Urho3D::PListValue>>& pyclass_Var_Urho3D_PListValue)
 {
     // Class PListValue Implementation
 pyclass_Var_Urho3D_PListValue
@@ -1895,7 +1891,7 @@ pyclass_Var_Urho3D_PListValue
 ;
 }
 
-void Implement_Urho3D_FontFace(py::class_<Urho3D::FontFace, Urho3D::SharedPtr<Urho3D::FontFace>, Urho3D::RefCounted>& pyclass_Var_Urho3D_FontFace)
+void Implement_Urho3D_FontFace(py::class_<Urho3D::FontFace, Urho3D::ExternalPtr<Urho3D::FontFace>, Urho3D::RefCounted>& pyclass_Var_Urho3D_FontFace)
 {
     // Class FontFace Implementation
 pyclass_Var_Urho3D_FontFace
@@ -1915,7 +1911,7 @@ pyclass_Var_Urho3D_FontFace
 ;
 }
 
-void Implement_Urho3D_FontFaceBitmap(py::class_<Urho3D::FontFaceBitmap, Urho3D::SharedPtr<Urho3D::FontFaceBitmap>, Urho3D::FontFace>& pyclass_Var_Urho3D_FontFaceBitmap)
+void Implement_Urho3D_FontFaceBitmap(py::class_<Urho3D::FontFaceBitmap, Urho3D::ExternalPtr<Urho3D::FontFaceBitmap>, Urho3D::FontFace>& pyclass_Var_Urho3D_FontFaceBitmap)
 {
     // Class FontFaceBitmap Implementation
 pyclass_Var_Urho3D_FontFaceBitmap
@@ -1928,7 +1924,7 @@ pyclass_Var_Urho3D_FontFaceBitmap
 ;
 }
 
-void Implement_Urho3D_PhysicsRaycastResult2D(py::class_<Urho3D::PhysicsRaycastResult2D, std::shared_ptr<Urho3D::PhysicsRaycastResult2D>>& pyclass_Var_Urho3D_PhysicsRaycastResult2D)
+void Implement_Urho3D_PhysicsRaycastResult2D(py::class_<Urho3D::PhysicsRaycastResult2D, Urho3D::ExternalPtr<Urho3D::PhysicsRaycastResult2D>>& pyclass_Var_Urho3D_PhysicsRaycastResult2D)
 {
     // Class PhysicsRaycastResult2D Implementation
 pyclass_Var_Urho3D_PhysicsRaycastResult2D
@@ -1940,7 +1936,7 @@ pyclass_Var_Urho3D_PhysicsRaycastResult2D
 ;
 }
 
-void Implement_Urho3D_TileMapInfo2D(py::class_<Urho3D::TileMapInfo2D, std::shared_ptr<Urho3D::TileMapInfo2D>>& pyclass_Var_Urho3D_TileMapInfo2D)
+void Implement_Urho3D_TileMapInfo2D(py::class_<Urho3D::TileMapInfo2D, Urho3D::ExternalPtr<Urho3D::TileMapInfo2D>>& pyclass_Var_Urho3D_TileMapInfo2D)
 {
     // Class TileMapInfo2D Implementation
 pyclass_Var_Urho3D_TileMapInfo2D
@@ -1957,7 +1953,7 @@ pyclass_Var_Urho3D_TileMapInfo2D
 ;
 }
 
-void Implement_Urho3D_Tile2D(py::class_<Urho3D::Tile2D, Urho3D::SharedPtr<Urho3D::Tile2D>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Tile2D)
+void Implement_Urho3D_Tile2D(py::class_<Urho3D::Tile2D, Urho3D::ExternalPtr<Urho3D::Tile2D>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Tile2D)
 {
     // Class Tile2D Implementation
 pyclass_Var_Urho3D_Tile2D
@@ -1972,7 +1968,7 @@ pyclass_Var_Urho3D_Tile2D
 ;
 }
 
-void Implement_Urho3D_ListBase(py::class_<Urho3D::ListBase, std::shared_ptr<Urho3D::ListBase>>& pyclass_Var_Urho3D_ListBase)
+void Implement_Urho3D_ListBase(py::class_<Urho3D::ListBase, Urho3D::ExternalPtr<Urho3D::ListBase>>& pyclass_Var_Urho3D_ListBase)
 {
     // Class ListBase Implementation
 pyclass_Var_Urho3D_ListBase
@@ -1981,7 +1977,7 @@ pyclass_Var_Urho3D_ListBase
 ;
 }
 
-void Implement_Urho3D_StringHash(py::class_<Urho3D::StringHash, std::shared_ptr<Urho3D::StringHash>>& pyclass_Var_Urho3D_StringHash)
+void Implement_Urho3D_StringHash(py::class_<Urho3D::StringHash, Urho3D::ExternalPtr<Urho3D::StringHash>>& pyclass_Var_Urho3D_StringHash)
 {
     // Class StringHash Implementation
 pyclass_Var_Urho3D_StringHash
@@ -2012,7 +2008,7 @@ pyclass_Var_Urho3D_StringHash
 ;
 }
 
-void Implement_Urho3D_Mutex(py::class_<Urho3D::Mutex, std::shared_ptr<Urho3D::Mutex>>& pyclass_Var_Urho3D_Mutex)
+void Implement_Urho3D_Mutex(py::class_<Urho3D::Mutex, Urho3D::ExternalPtr<Urho3D::Mutex>>& pyclass_Var_Urho3D_Mutex)
 {
     // Class Mutex Implementation
 pyclass_Var_Urho3D_Mutex
@@ -2025,7 +2021,7 @@ pyclass_Var_Urho3D_Mutex
 ;
 }
 
-void Implement_Urho3D_IntVector2(py::class_<Urho3D::IntVector2, std::shared_ptr<Urho3D::IntVector2>>& pyclass_Var_Urho3D_IntVector2)
+void Implement_Urho3D_IntVector2(py::class_<Urho3D::IntVector2, Urho3D::ExternalPtr<Urho3D::IntVector2>>& pyclass_Var_Urho3D_IntVector2)
 {
     // Class IntVector2 Implementation
 pyclass_Var_Urho3D_IntVector2
@@ -2081,7 +2077,7 @@ pyclass_Var_Urho3D_IntVector2
 ;
 }
 
-void Implement_Urho3D_Vector4(py::class_<Urho3D::Vector4, std::shared_ptr<Urho3D::Vector4>>& pyclass_Var_Urho3D_Vector4)
+void Implement_Urho3D_Vector4(py::class_<Urho3D::Vector4, Urho3D::ExternalPtr<Urho3D::Vector4>>& pyclass_Var_Urho3D_Vector4)
 {
     // Class Vector4 Implementation
 pyclass_Var_Urho3D_Vector4
@@ -2145,7 +2141,7 @@ pyclass_Var_Urho3D_Vector4
 ;
 }
 
-void Implement_Urho3D_Matrix3x4(py::class_<Urho3D::Matrix3x4, std::shared_ptr<Urho3D::Matrix3x4>>& pyclass_Var_Urho3D_Matrix3x4)
+void Implement_Urho3D_Matrix3x4(py::class_<Urho3D::Matrix3x4, Urho3D::ExternalPtr<Urho3D::Matrix3x4>>& pyclass_Var_Urho3D_Matrix3x4)
 {
     // Class Matrix3x4 Implementation
 pyclass_Var_Urho3D_Matrix3x4
@@ -2217,7 +2213,7 @@ pyclass_Var_Urho3D_Matrix3x4
 ;
 }
 
-void Implement_Urho3D_Variant(py::class_<Urho3D::Variant, std::shared_ptr<Urho3D::Variant>>& pyclass_Var_Urho3D_Variant)
+void Implement_Urho3D_Variant(py::class_<Urho3D::Variant, Urho3D::ExternalPtr<Urho3D::Variant>>& pyclass_Var_Urho3D_Variant)
 {
     // Class Variant Implementation
 pyclass_Var_Urho3D_Variant
@@ -2484,8 +2480,7 @@ pyclass_Var_Urho3D_Variant
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetStringVector", (const Urho3D::StringVector & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetStringVector, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantMap", (const Urho3D::VariantMap & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetVariantMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVariantMap", (const Urho3D::VariantMap & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetVariantMap, "todo: docstring")
   .def("GetRect", (const Urho3D::Rect & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetRect, "todo: docstring")
   .def("GetIntRect", (const Urho3D::IntRect & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetIntRect, "todo: docstring")
   .def("GetIntVector2", (const Urho3D::IntVector2 & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetIntVector2, "todo: docstring")
@@ -2511,8 +2506,7 @@ pyclass_Var_Urho3D_Variant
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
   //.def("GetStringVectorPtr", (Urho3D::StringVector * (Urho3D::Variant::*)()) &Urho3D::Variant::GetStringVectorPtr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("GetVariantMapPtr", (Urho3D::VariantMap * (Urho3D::Variant::*)()) &Urho3D::Variant::GetVariantMapPtr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
+  .def("GetVariantMapPtr", (Urho3D::VariantMap * (Urho3D::Variant::*)()) &Urho3D::Variant::GetVariantMapPtr, "todo: docstring")
   .def_readonly_static("emptyBuffer",&Urho3D::Variant::emptyBuffer, "todo: var docstring")//const Urho3D::PODVector<unsigned char>
   .def_readonly_static("emptyResourceRef",&Urho3D::Variant::emptyResourceRef, "todo: var docstring")//const Urho3D::ResourceRef
   .def_readonly_static("emptyResourceRefList",&Urho3D::Variant::emptyResourceRefList, "todo: var docstring")//const Urho3D::ResourceRefList
@@ -2522,7 +2516,7 @@ pyclass_Var_Urho3D_Variant
 ;
 }
 
-void Implement_Urho3D_ResourceRefList(py::class_<Urho3D::ResourceRefList, std::shared_ptr<Urho3D::ResourceRefList>>& pyclass_Var_Urho3D_ResourceRefList)
+void Implement_Urho3D_ResourceRefList(py::class_<Urho3D::ResourceRefList, Urho3D::ExternalPtr<Urho3D::ResourceRefList>>& pyclass_Var_Urho3D_ResourceRefList)
 {
     // Class ResourceRefList Implementation
 pyclass_Var_Urho3D_ResourceRefList
@@ -2539,7 +2533,7 @@ pyclass_Var_Urho3D_ResourceRefList
 ;
 }
 
-void Implement_Urho3D_Object(py::class_<Urho3D::Object, Urho3D::SharedPtr<Urho3D::Object>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Object)
+void Implement_Urho3D_Object(py::class_<Urho3D::Object, Urho3D::ExternalPtr<Urho3D::Object>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Object)
 {
     // Class Object Implementation
 pyclass_Var_Urho3D_Object
@@ -2567,12 +2561,10 @@ pyclass_Var_Urho3D_Object
     //['Urho3D::PODVector<Urho3D::StringHash>', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("SendEvent", (void (Urho3D::Object::*)(Urho3D::StringHash)) &Urho3D::Object::SendEvent, "todo: docstring", py::arg("eventType"))
   .def("SendEvent", (void (Urho3D::Object::*)(Urho3D::StringHash, Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &)) &Urho3D::Object::SendEvent, "todo: docstring", py::arg("eventType"), py::arg("eventData"))
-  //.def("GetEventDataMap", (Urho3D::VariantMap & (Urho3D::Object::*)() const) &Urho3D::Object::GetEventDataMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetEventDataMap", (Urho3D::VariantMap & (Urho3D::Object::*)() const) &Urho3D::Object::GetEventDataMap, "todo: docstring")
   .def("GetContext", (Urho3D::Context * (Urho3D::Object::*)() const) &Urho3D::Object::GetContext, "todo: docstring")
   .def("GetGlobalVar", (const Urho3D::Variant & (Urho3D::Object::*)(Urho3D::StringHash) const) &Urho3D::Object::GetGlobalVar, "todo: docstring", py::arg("key"))
-  //.def("GetGlobalVars", (const Urho3D::VariantMap & (Urho3D::Object::*)() const) &Urho3D::Object::GetGlobalVars, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetGlobalVars", (const Urho3D::VariantMap & (Urho3D::Object::*)() const) &Urho3D::Object::GetGlobalVars, "todo: docstring")
   .def("SetGlobalVar", (void (Urho3D::Object::*)(Urho3D::StringHash, const Urho3D::Variant &)) &Urho3D::Object::SetGlobalVar, "todo: docstring", py::arg("key"), py::arg("value"))
   .def("GetSubsystem", (Urho3D::Object * (Urho3D::Object::*)(Urho3D::StringHash) const) &Urho3D::Object::GetSubsystem, "todo: docstring", py::arg("type"))
   .def("GetEventSender", (Urho3D::Object * (Urho3D::Object::*)() const) &Urho3D::Object::GetEventSender, "todo: docstring")
@@ -2586,7 +2578,7 @@ pyclass_Var_Urho3D_Object
 ;
 }
 
-void Implement_Urho3D_Script(py::class_<Urho3D::Script, Urho3D::SharedPtr<Urho3D::Script>, Urho3D::Object>& pyclass_Var_Urho3D_Script)
+void Implement_Urho3D_Script(py::class_<Urho3D::Script, Urho3D::ExternalPtr<Urho3D::Script>, Urho3D::Object>& pyclass_Var_Urho3D_Script)
 {
     // Class Script Implementation
 pyclass_Var_Urho3D_Script
@@ -2622,7 +2614,7 @@ pyclass_Var_Urho3D_Script
 ;
 }
 
-void Implement_Urho3D_Connection(py::class_<Urho3D::Connection, Urho3D::SharedPtr<Urho3D::Connection>, Urho3D::Object>& pyclass_Var_Urho3D_Connection)
+void Implement_Urho3D_Connection(py::class_<Urho3D::Connection, Urho3D::ExternalPtr<Urho3D::Connection>, Urho3D::Object>& pyclass_Var_Urho3D_Connection)
 {
     // Class Connection Implementation
 pyclass_Var_Urho3D_Connection
@@ -2656,8 +2648,7 @@ pyclass_Var_Urho3D_Connection
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("SetAddressOrGUID", (void (Urho3D::Connection::*)(const SLNet::AddressOrGUID &)) &Urho3D::Connection::SetAddressOrGUID, "todo: docstring", py::arg("addr"))
     //['SLNet::AddressOrGUID']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetIdentity", (Urho3D::VariantMap & (Urho3D::Connection::*)()) &Urho3D::Connection::GetIdentity, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetIdentity", (Urho3D::VariantMap & (Urho3D::Connection::*)()) &Urho3D::Connection::GetIdentity, "todo: docstring")
   .def("GetScene", (Urho3D::Scene * (Urho3D::Connection::*)() const) &Urho3D::Connection::GetScene, "todo: docstring")
   .def("GetControls", (const Urho3D::Controls & (Urho3D::Connection::*)() const) &Urho3D::Connection::GetControls, "todo: docstring")
   .def("GetTimeStamp", (unsigned char (Urho3D::Connection::*)() const) &Urho3D::Connection::GetTimeStamp, "todo: docstring")
@@ -2688,7 +2679,7 @@ pyclass_Var_Urho3D_Connection
 ;
 }
 
-void Implement_Urho3D_JSONValue(py::class_<Urho3D::JSONValue, std::shared_ptr<Urho3D::JSONValue>>& pyclass_Var_Urho3D_JSONValue)
+void Implement_Urho3D_JSONValue(py::class_<Urho3D::JSONValue, Urho3D::ExternalPtr<Urho3D::JSONValue>>& pyclass_Var_Urho3D_JSONValue)
 {
     // Class JSONValue Implementation
 pyclass_Var_Urho3D_JSONValue
@@ -2785,8 +2776,7 @@ pyclass_Var_Urho3D_JSONValue
   //.def("GetVariantValue", (Urho3D::Variant (Urho3D::JSONValue::*)(Urho3D::VariantType) const) &Urho3D::JSONValue::GetVariantValue, "todo: docstring", py::arg("type"))
     //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("SetVariantMap", (void (Urho3D::JSONValue::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantMap, "todo: docstring", py::arg("variantMap"), py::arg("context")=nullptr)
-  //.def("GetVariantMap", (Urho3D::VariantMap (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantMap, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVariantMap", (Urho3D::VariantMap (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantMap, "todo: docstring")
   .def("SetVariantVector", (void (Urho3D::JSONValue::*)(const Urho3D::Vector<Urho3D::Variant> &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantVector, "todo: docstring", py::arg("variantVector"), py::arg("context")=nullptr)
   //.def("GetVariantVector", (Urho3D::VariantVector (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantVector, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -2795,7 +2785,7 @@ pyclass_Var_Urho3D_JSONValue
 ;
 }
 
-void Implement_Urho3D_Audio(py::class_<Urho3D::Audio, Urho3D::SharedPtr<Urho3D::Audio>, Urho3D::Object>& pyclass_Var_Urho3D_Audio)
+void Implement_Urho3D_Audio(py::class_<Urho3D::Audio, Urho3D::ExternalPtr<Urho3D::Audio>, Urho3D::Object>& pyclass_Var_Urho3D_Audio)
 {
     // Class Audio Implementation
 pyclass_Var_Urho3D_Audio
@@ -2835,7 +2825,7 @@ pyclass_Var_Urho3D_Audio
 ;
 }
 
-void Implement_Urho3D_VertexElement(py::class_<Urho3D::VertexElement, std::shared_ptr<Urho3D::VertexElement>>& pyclass_Var_Urho3D_VertexElement)
+void Implement_Urho3D_VertexElement(py::class_<Urho3D::VertexElement, Urho3D::ExternalPtr<Urho3D::VertexElement>>& pyclass_Var_Urho3D_VertexElement)
 {
     // Class VertexElement Implementation
 pyclass_Var_Urho3D_VertexElement
@@ -2854,7 +2844,7 @@ pyclass_Var_Urho3D_VertexElement
 ;
 }
 
-void Implement_Urho3D_BoundingBox(py::class_<Urho3D::BoundingBox, std::shared_ptr<Urho3D::BoundingBox>>& pyclass_Var_Urho3D_BoundingBox)
+void Implement_Urho3D_BoundingBox(py::class_<Urho3D::BoundingBox, Urho3D::ExternalPtr<Urho3D::BoundingBox>>& pyclass_Var_Urho3D_BoundingBox)
 {
     // Class BoundingBox Implementation
 pyclass_Var_Urho3D_BoundingBox
@@ -2922,7 +2912,7 @@ pyclass_Var_Urho3D_BoundingBox
 ;
 }
 
-void Implement_Urho3D_Geometry(py::class_<Urho3D::Geometry, Urho3D::SharedPtr<Urho3D::Geometry>, Urho3D::Object>& pyclass_Var_Urho3D_Geometry)
+void Implement_Urho3D_Geometry(py::class_<Urho3D::Geometry, Urho3D::ExternalPtr<Urho3D::Geometry>, Urho3D::Object>& pyclass_Var_Urho3D_Geometry)
 {
     // Class Geometry Implementation
 pyclass_Var_Urho3D_Geometry
@@ -2970,7 +2960,7 @@ pyclass_Var_Urho3D_Geometry
 ;
 }
 
-void Implement_Urho3D_OcclusionBuffer(py::class_<Urho3D::OcclusionBuffer, Urho3D::SharedPtr<Urho3D::OcclusionBuffer>, Urho3D::Object>& pyclass_Var_Urho3D_OcclusionBuffer)
+void Implement_Urho3D_OcclusionBuffer(py::class_<Urho3D::OcclusionBuffer, Urho3D::ExternalPtr<Urho3D::OcclusionBuffer>, Urho3D::Object>& pyclass_Var_Urho3D_OcclusionBuffer)
 {
     // Class OcclusionBuffer Implementation
 pyclass_Var_Urho3D_OcclusionBuffer
@@ -3009,7 +2999,7 @@ pyclass_Var_Urho3D_OcclusionBuffer
 ;
 }
 
-void Implement_Urho3D_SourceBatch(py::class_<Urho3D::SourceBatch, std::shared_ptr<Urho3D::SourceBatch>>& pyclass_Var_Urho3D_SourceBatch)
+void Implement_Urho3D_SourceBatch(py::class_<Urho3D::SourceBatch, Urho3D::ExternalPtr<Urho3D::SourceBatch>>& pyclass_Var_Urho3D_SourceBatch)
 {
     // Class SourceBatch Implementation
 pyclass_Var_Urho3D_SourceBatch
@@ -3026,7 +3016,7 @@ pyclass_Var_Urho3D_SourceBatch
 ;
 }
 
-void Implement_Urho3D_Graphics(py::class_<Urho3D::Graphics, Urho3D::SharedPtr<Urho3D::Graphics>, Urho3D::Object>& pyclass_Var_Urho3D_Graphics)
+void Implement_Urho3D_Graphics(py::class_<Urho3D::Graphics, Urho3D::ExternalPtr<Urho3D::Graphics>, Urho3D::Object>& pyclass_Var_Urho3D_Graphics)
 {
     // Class Graphics Implementation
 pyclass_Var_Urho3D_Graphics
@@ -3254,7 +3244,7 @@ pyclass_Var_Urho3D_Graphics
 ;
 }
 
-void Implement_Urho3D_Time(py::class_<Urho3D::Time, Urho3D::SharedPtr<Urho3D::Time>, Urho3D::Object>& pyclass_Var_Urho3D_Time)
+void Implement_Urho3D_Time(py::class_<Urho3D::Time, Urho3D::ExternalPtr<Urho3D::Time>, Urho3D::Object>& pyclass_Var_Urho3D_Time)
 {
     // Class Time Implementation
 pyclass_Var_Urho3D_Time
@@ -3275,7 +3265,7 @@ pyclass_Var_Urho3D_Time
 ;
 }
 
-void Implement_Urho3D_PackageFile(py::class_<Urho3D::PackageFile, Urho3D::SharedPtr<Urho3D::PackageFile>, Urho3D::Object>& pyclass_Var_Urho3D_PackageFile)
+void Implement_Urho3D_PackageFile(py::class_<Urho3D::PackageFile, Urho3D::ExternalPtr<Urho3D::PackageFile>, Urho3D::Object>& pyclass_Var_Urho3D_PackageFile)
 {
     // Class PackageFile Implementation
 pyclass_Var_Urho3D_PackageFile
@@ -3304,7 +3294,7 @@ pyclass_Var_Urho3D_PackageFile
 ;
 }
 
-void Implement_Urho3D_NodeReplicationState(py::class_<Urho3D::NodeReplicationState, std::shared_ptr<Urho3D::NodeReplicationState>, Urho3D::ReplicationState>& pyclass_Var_Urho3D_NodeReplicationState)
+void Implement_Urho3D_NodeReplicationState(py::class_<Urho3D::NodeReplicationState, Urho3D::ExternalPtr<Urho3D::NodeReplicationState>, Urho3D::ReplicationState>& pyclass_Var_Urho3D_NodeReplicationState)
 {
     // Class NodeReplicationState Implementation
 pyclass_Var_Urho3D_NodeReplicationState
@@ -3317,7 +3307,7 @@ pyclass_Var_Urho3D_NodeReplicationState
 ;
 }
 
-void Implement_Urho3D_Plane(py::class_<Urho3D::Plane, std::shared_ptr<Urho3D::Plane>>& pyclass_Var_Urho3D_Plane)
+void Implement_Urho3D_Plane(py::class_<Urho3D::Plane, Urho3D::ExternalPtr<Urho3D::Plane>>& pyclass_Var_Urho3D_Plane)
 {
     // Class Plane Implementation
 pyclass_Var_Urho3D_Plane
@@ -3349,7 +3339,7 @@ pyclass_Var_Urho3D_Plane
 ;
 }
 
-void Implement_Urho3D_Pass(py::class_<Urho3D::Pass, Urho3D::SharedPtr<Urho3D::Pass>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Pass)
+void Implement_Urho3D_Pass(py::class_<Urho3D::Pass, Urho3D::ExternalPtr<Urho3D::Pass>, Urho3D::RefCounted>& pyclass_Var_Urho3D_Pass)
 {
     // Class Pass Implementation
 pyclass_Var_Urho3D_Pass
@@ -3408,7 +3398,7 @@ pyclass_Var_Urho3D_Pass
 ;
 }
 
-void Implement_Urho3D_ResourceCache(py::class_<Urho3D::ResourceCache, Urho3D::SharedPtr<Urho3D::ResourceCache>, Urho3D::Object>& pyclass_Var_Urho3D_ResourceCache)
+void Implement_Urho3D_ResourceCache(py::class_<Urho3D::ResourceCache, Urho3D::ExternalPtr<Urho3D::ResourceCache>, Urho3D::Object>& pyclass_Var_Urho3D_ResourceCache)
 {
     // Class ResourceCache Implementation
 pyclass_Var_Urho3D_ResourceCache
@@ -3474,7 +3464,7 @@ pyclass_Var_Urho3D_ResourceCache
 ;
 }
 
-void Implement_Urho3D_ScriptEventInvoker(py::class_<Urho3D::ScriptEventInvoker, Urho3D::SharedPtr<Urho3D::ScriptEventInvoker>, Urho3D::Object>& pyclass_Var_Urho3D_ScriptEventInvoker)
+void Implement_Urho3D_ScriptEventInvoker(py::class_<Urho3D::ScriptEventInvoker, Urho3D::ExternalPtr<Urho3D::ScriptEventInvoker>, Urho3D::Object>& pyclass_Var_Urho3D_ScriptEventInvoker)
 {
     // Class ScriptEventInvoker Implementation
 pyclass_Var_Urho3D_ScriptEventInvoker
@@ -3492,7 +3482,7 @@ pyclass_Var_Urho3D_ScriptEventInvoker
 ;
 }
 
-void Implement_Urho3D_OggVorbisSoundStream(py::class_<Urho3D::OggVorbisSoundStream, Urho3D::SharedPtr<Urho3D::OggVorbisSoundStream>, Urho3D::SoundStream>& pyclass_Var_Urho3D_OggVorbisSoundStream)
+void Implement_Urho3D_OggVorbisSoundStream(py::class_<Urho3D::OggVorbisSoundStream, Urho3D::ExternalPtr<Urho3D::OggVorbisSoundStream>, Urho3D::SoundStream>& pyclass_Var_Urho3D_OggVorbisSoundStream)
 {
     // Class OggVorbisSoundStream Implementation
 pyclass_Var_Urho3D_OggVorbisSoundStream
@@ -3505,7 +3495,7 @@ pyclass_Var_Urho3D_OggVorbisSoundStream
 ;
 }
 
-void Implement_Urho3D_Thread(py::class_<Urho3D::Thread, std::shared_ptr<Urho3D::Thread>>& pyclass_Var_Urho3D_Thread)
+void Implement_Urho3D_Thread(py::class_<Urho3D::Thread, Urho3D::ExternalPtr<Urho3D::Thread>>& pyclass_Var_Urho3D_Thread)
 {
     // Class Thread Implementation
 pyclass_Var_Urho3D_Thread
@@ -3521,7 +3511,7 @@ pyclass_Var_Urho3D_Thread
 ;
 }
 
-void Implement_Urho3D_EventProfilerBlock(py::class_<Urho3D::EventProfilerBlock, std::shared_ptr<Urho3D::EventProfilerBlock>, Urho3D::ProfilerBlock>& pyclass_Var_Urho3D_EventProfilerBlock)
+void Implement_Urho3D_EventProfilerBlock(py::class_<Urho3D::EventProfilerBlock, Urho3D::ExternalPtr<Urho3D::EventProfilerBlock>, Urho3D::ProfilerBlock>& pyclass_Var_Urho3D_EventProfilerBlock)
 {
     // Class EventProfilerBlock Implementation
 pyclass_Var_Urho3D_EventProfilerBlock
@@ -3531,7 +3521,7 @@ pyclass_Var_Urho3D_EventProfilerBlock
 ;
 }
 
-void Implement_Urho3D_WorkQueue(py::class_<Urho3D::WorkQueue, Urho3D::SharedPtr<Urho3D::WorkQueue>, Urho3D::Object>& pyclass_Var_Urho3D_WorkQueue)
+void Implement_Urho3D_WorkQueue(py::class_<Urho3D::WorkQueue, Urho3D::ExternalPtr<Urho3D::WorkQueue>, Urho3D::Object>& pyclass_Var_Urho3D_WorkQueue)
 {
     // Class WorkQueue Implementation
 pyclass_Var_Urho3D_WorkQueue
@@ -3563,7 +3553,7 @@ pyclass_Var_Urho3D_WorkQueue
 ;
 }
 
-void Implement_Urho3D_DebugHud(py::class_<Urho3D::DebugHud, Urho3D::SharedPtr<Urho3D::DebugHud>, Urho3D::Object>& pyclass_Var_Urho3D_DebugHud)
+void Implement_Urho3D_DebugHud(py::class_<Urho3D::DebugHud, Urho3D::ExternalPtr<Urho3D::DebugHud>, Urho3D::Object>& pyclass_Var_Urho3D_DebugHud)
 {
     // Class DebugHud Implementation
 pyclass_Var_Urho3D_DebugHud
@@ -3597,7 +3587,7 @@ pyclass_Var_Urho3D_DebugHud
 ;
 }
 
-void Implement_Urho3D_Application(py::class_<Urho3D::Application, PyApplication, Urho3D::SharedPtr<Urho3D::Application>, Urho3D::Object>& pyclass_Var_Urho3D_Application)
+void Implement_Urho3D_Application(py::class_<Urho3D::Application, PyApplication, Urho3D::ExternalPtr<Urho3D::Application>, Urho3D::Object>& pyclass_Var_Urho3D_Application)
 {
     // Class Application Implementation
 pyclass_Var_Urho3D_Application
@@ -3614,7 +3604,7 @@ pyclass_Var_Urho3D_Application
 ;
 }
 
-void Implement_Urho3D_IndexBuffer(py::class_<Urho3D::IndexBuffer, Urho3D::SharedPtr<Urho3D::IndexBuffer>, Urho3D::Object, Urho3D::GPUObject>& pyclass_Var_Urho3D_IndexBuffer)
+void Implement_Urho3D_IndexBuffer(py::class_<Urho3D::IndexBuffer, Urho3D::ExternalPtr<Urho3D::IndexBuffer>, Urho3D::Object, Urho3D::GPUObject>& pyclass_Var_Urho3D_IndexBuffer)
 {
     // Class IndexBuffer Implementation
 pyclass_Var_Urho3D_IndexBuffer
@@ -3645,7 +3635,7 @@ pyclass_Var_Urho3D_IndexBuffer
 ;
 }
 
-void Implement_Urho3D_AnimationControl(py::class_<Urho3D::AnimationControl, std::shared_ptr<Urho3D::AnimationControl>>& pyclass_Var_Urho3D_AnimationControl)
+void Implement_Urho3D_AnimationControl(py::class_<Urho3D::AnimationControl, Urho3D::ExternalPtr<Urho3D::AnimationControl>>& pyclass_Var_Urho3D_AnimationControl)
 {
     // Class AnimationControl Implementation
 pyclass_Var_Urho3D_AnimationControl
@@ -3666,7 +3656,7 @@ pyclass_Var_Urho3D_AnimationControl
 ;
 }
 
-void Implement_Urho3D_View(py::class_<Urho3D::View, Urho3D::SharedPtr<Urho3D::View>, Urho3D::Object>& pyclass_Var_Urho3D_View)
+void Implement_Urho3D_View(py::class_<Urho3D::View, Urho3D::ExternalPtr<Urho3D::View>, Urho3D::Object>& pyclass_Var_Urho3D_View)
 {
     // Class View Implementation
 pyclass_Var_Urho3D_View
@@ -3712,7 +3702,7 @@ pyclass_Var_Urho3D_View
 ;
 }
 
-void Implement_Urho3D_ConstantBuffer(py::class_<Urho3D::ConstantBuffer, Urho3D::SharedPtr<Urho3D::ConstantBuffer>, Urho3D::Object, Urho3D::GPUObject>& pyclass_Var_Urho3D_ConstantBuffer)
+void Implement_Urho3D_ConstantBuffer(py::class_<Urho3D::ConstantBuffer, Urho3D::ExternalPtr<Urho3D::ConstantBuffer>, Urho3D::Object, Urho3D::GPUObject>& pyclass_Var_Urho3D_ConstantBuffer)
 {
     // Class ConstantBuffer Implementation
 pyclass_Var_Urho3D_ConstantBuffer
@@ -3733,7 +3723,7 @@ pyclass_Var_Urho3D_ConstantBuffer
 ;
 }
 
-void Implement_Urho3D_Renderer(py::class_<Urho3D::Renderer, Urho3D::SharedPtr<Urho3D::Renderer>, Urho3D::Object>& pyclass_Var_Urho3D_Renderer)
+void Implement_Urho3D_Renderer(py::class_<Urho3D::Renderer, Urho3D::ExternalPtr<Urho3D::Renderer>, Urho3D::Object>& pyclass_Var_Urho3D_Renderer)
 {
     // Class Renderer Implementation
 pyclass_Var_Urho3D_Renderer
@@ -3858,7 +3848,7 @@ pyclass_Var_Urho3D_Renderer
 ;
 }
 
-void Implement_Urho3D_ShaderPrecache(py::class_<Urho3D::ShaderPrecache, Urho3D::SharedPtr<Urho3D::ShaderPrecache>, Urho3D::Object>& pyclass_Var_Urho3D_ShaderPrecache)
+void Implement_Urho3D_ShaderPrecache(py::class_<Urho3D::ShaderPrecache, Urho3D::ExternalPtr<Urho3D::ShaderPrecache>, Urho3D::Object>& pyclass_Var_Urho3D_ShaderPrecache)
 {
     // Class ShaderPrecache Implementation
 pyclass_Var_Urho3D_ShaderPrecache
@@ -3872,7 +3862,7 @@ pyclass_Var_Urho3D_ShaderPrecache
 ;
 }
 
-void Implement_Urho3D_PointOctreeQuery(py::class_<Urho3D::PointOctreeQuery, std::shared_ptr<Urho3D::PointOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_PointOctreeQuery)
+void Implement_Urho3D_PointOctreeQuery(py::class_<Urho3D::PointOctreeQuery, Urho3D::ExternalPtr<Urho3D::PointOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_PointOctreeQuery)
 {
     // Class PointOctreeQuery Implementation
 pyclass_Var_Urho3D_PointOctreeQuery
@@ -3886,7 +3876,7 @@ pyclass_Var_Urho3D_PointOctreeQuery
 ;
 }
 
-void Implement_Urho3D_OctreeQueryResult(py::class_<Urho3D::OctreeQueryResult, std::shared_ptr<Urho3D::OctreeQueryResult>>& pyclass_Var_Urho3D_OctreeQueryResult)
+void Implement_Urho3D_OctreeQueryResult(py::class_<Urho3D::OctreeQueryResult, Urho3D::ExternalPtr<Urho3D::OctreeQueryResult>>& pyclass_Var_Urho3D_OctreeQueryResult)
 {
     // Class OctreeQueryResult Implementation
 pyclass_Var_Urho3D_OctreeQueryResult
@@ -3896,7 +3886,7 @@ pyclass_Var_Urho3D_OctreeQueryResult
 ;
 }
 
-void Implement_Urho3D_RenderPathCommand(py::class_<Urho3D::RenderPathCommand, std::shared_ptr<Urho3D::RenderPathCommand>>& pyclass_Var_Urho3D_RenderPathCommand)
+void Implement_Urho3D_RenderPathCommand(py::class_<Urho3D::RenderPathCommand, Urho3D::ExternalPtr<Urho3D::RenderPathCommand>>& pyclass_Var_Urho3D_RenderPathCommand)
 {
     // Class RenderPathCommand Implementation
 pyclass_Var_Urho3D_RenderPathCommand
@@ -3948,7 +3938,7 @@ pyclass_Var_Urho3D_RenderPathCommand
 ;
 }
 
-void Implement_Urho3D_FileSystem(py::class_<Urho3D::FileSystem, Urho3D::SharedPtr<Urho3D::FileSystem>, Urho3D::Object>& pyclass_Var_Urho3D_FileSystem)
+void Implement_Urho3D_FileSystem(py::class_<Urho3D::FileSystem, Urho3D::ExternalPtr<Urho3D::FileSystem>, Urho3D::Object>& pyclass_Var_Urho3D_FileSystem)
 {
     // Class FileSystem Implementation
 pyclass_Var_Urho3D_FileSystem
@@ -3989,7 +3979,7 @@ pyclass_Var_Urho3D_FileSystem
 ;
 }
 
-void Implement_Urho3D_CursorShapeInfo(py::class_<Urho3D::CursorShapeInfo, std::shared_ptr<Urho3D::CursorShapeInfo>>& pyclass_Var_Urho3D_CursorShapeInfo)
+void Implement_Urho3D_CursorShapeInfo(py::class_<Urho3D::CursorShapeInfo, Urho3D::ExternalPtr<Urho3D::CursorShapeInfo>>& pyclass_Var_Urho3D_CursorShapeInfo)
 {
     // Class CursorShapeInfo Implementation
 pyclass_Var_Urho3D_CursorShapeInfo
@@ -4004,7 +3994,7 @@ pyclass_Var_Urho3D_CursorShapeInfo
 ;
 }
 
-void Implement_Urho3D_LuaScriptEventListener(py::class_<Urho3D::LuaScriptEventListener, std::shared_ptr<Urho3D::LuaScriptEventListener>>& pyclass_Var_Urho3D_LuaScriptEventListener)
+void Implement_Urho3D_LuaScriptEventListener(py::class_<Urho3D::LuaScriptEventListener, Urho3D::ExternalPtr<Urho3D::LuaScriptEventListener>>& pyclass_Var_Urho3D_LuaScriptEventListener)
 {
     // Class LuaScriptEventListener Implementation
 pyclass_Var_Urho3D_LuaScriptEventListener
@@ -4025,7 +4015,7 @@ pyclass_Var_Urho3D_LuaScriptEventListener
 ;
 }
 
-void Implement_Urho3D_NavigationPathPoint(py::class_<Urho3D::NavigationPathPoint, std::shared_ptr<Urho3D::NavigationPathPoint>>& pyclass_Var_Urho3D_NavigationPathPoint)
+void Implement_Urho3D_NavigationPathPoint(py::class_<Urho3D::NavigationPathPoint, Urho3D::ExternalPtr<Urho3D::NavigationPathPoint>>& pyclass_Var_Urho3D_NavigationPathPoint)
 {
     // Class NavigationPathPoint Implementation
 pyclass_Var_Urho3D_NavigationPathPoint
@@ -4035,7 +4025,7 @@ pyclass_Var_Urho3D_NavigationPathPoint
 ;
 }
 
-void Implement_Urho3D_HttpRequest(py::class_<Urho3D::HttpRequest, Urho3D::SharedPtr<Urho3D::HttpRequest>, Urho3D::RefCounted, Urho3D::Deserializer, Urho3D::Thread>& pyclass_Var_Urho3D_HttpRequest)
+void Implement_Urho3D_HttpRequest(py::class_<Urho3D::HttpRequest, Urho3D::ExternalPtr<Urho3D::HttpRequest>, Urho3D::RefCounted, Urho3D::Deserializer, Urho3D::Thread>& pyclass_Var_Urho3D_HttpRequest)
 {
     // Class HttpRequest Implementation
 pyclass_Var_Urho3D_HttpRequest
@@ -4057,7 +4047,7 @@ pyclass_Var_Urho3D_HttpRequest
 ;
 }
 
-void Implement_Urho3D_Localization(py::class_<Urho3D::Localization, Urho3D::SharedPtr<Urho3D::Localization>, Urho3D::Object>& pyclass_Var_Urho3D_Localization)
+void Implement_Urho3D_Localization(py::class_<Urho3D::Localization, Urho3D::ExternalPtr<Urho3D::Localization>, Urho3D::Object>& pyclass_Var_Urho3D_Localization)
 {
     // Class Localization Implementation
 pyclass_Var_Urho3D_Localization
@@ -4082,7 +4072,7 @@ pyclass_Var_Urho3D_Localization
 ;
 }
 
-void Implement_Urho3D_RocketSys(py::class_<Urho3D::RocketSys, Urho3D::SharedPtr<Urho3D::RocketSys>, Urho3D::Object>& pyclass_Var_Urho3D_RocketSys)
+void Implement_Urho3D_RocketSys(py::class_<Urho3D::RocketSys, Urho3D::ExternalPtr<Urho3D::RocketSys>, Urho3D::Object>& pyclass_Var_Urho3D_RocketSys)
 {
     // Class RocketSys Implementation
 pyclass_Var_Urho3D_RocketSys
@@ -4115,7 +4105,7 @@ pyclass_Var_Urho3D_RocketSys
 ;
 }
 
-void Implement_Urho3D_FileSelector(py::class_<Urho3D::FileSelector, Urho3D::SharedPtr<Urho3D::FileSelector>, Urho3D::Object>& pyclass_Var_Urho3D_FileSelector)
+void Implement_Urho3D_FileSelector(py::class_<Urho3D::FileSelector, Urho3D::ExternalPtr<Urho3D::FileSelector>, Urho3D::Object>& pyclass_Var_Urho3D_FileSelector)
 {
     // Class FileSelector Implementation
 pyclass_Var_Urho3D_FileSelector
@@ -4153,7 +4143,7 @@ pyclass_Var_Urho3D_FileSelector
 ;
 }
 
-void Implement_Urho3D_FontFaceFreeType(py::class_<Urho3D::FontFaceFreeType, Urho3D::SharedPtr<Urho3D::FontFaceFreeType>, Urho3D::FontFace>& pyclass_Var_Urho3D_FontFaceFreeType)
+void Implement_Urho3D_FontFaceFreeType(py::class_<Urho3D::FontFaceFreeType, Urho3D::ExternalPtr<Urho3D::FontFaceFreeType>, Urho3D::FontFace>& pyclass_Var_Urho3D_FontFaceFreeType)
 {
     // Class FontFaceFreeType Implementation
 pyclass_Var_Urho3D_FontFaceFreeType
@@ -4166,7 +4156,7 @@ pyclass_Var_Urho3D_FontFaceFreeType
 ;
 }
 
-void Implement_Urho3D_MessageBox(py::class_<Urho3D::MessageBox, Urho3D::SharedPtr<Urho3D::MessageBox>, Urho3D::Object>& pyclass_Var_Urho3D_MessageBox)
+void Implement_Urho3D_MessageBox(py::class_<Urho3D::MessageBox, Urho3D::ExternalPtr<Urho3D::MessageBox>, Urho3D::Object>& pyclass_Var_Urho3D_MessageBox)
 {
     // Class MessageBox Implementation
 pyclass_Var_Urho3D_MessageBox
@@ -4184,7 +4174,7 @@ pyclass_Var_Urho3D_MessageBox
 ;
 }
 
-void Implement_Urho3D_UI(py::class_<Urho3D::UI, Urho3D::SharedPtr<Urho3D::UI>, Urho3D::Object>& pyclass_Var_Urho3D_UI)
+void Implement_Urho3D_UI(py::class_<Urho3D::UI, Urho3D::ExternalPtr<Urho3D::UI>, Urho3D::Object>& pyclass_Var_Urho3D_UI)
 {
     // Class UI Implementation
 pyclass_Var_Urho3D_UI
@@ -4265,7 +4255,7 @@ pyclass_Var_Urho3D_UI
 ;
 }
 
-void Implement_Urho3D_PropertySet2D(py::class_<Urho3D::PropertySet2D, Urho3D::SharedPtr<Urho3D::PropertySet2D>, Urho3D::RefCounted>& pyclass_Var_Urho3D_PropertySet2D)
+void Implement_Urho3D_PropertySet2D(py::class_<Urho3D::PropertySet2D, Urho3D::ExternalPtr<Urho3D::PropertySet2D>, Urho3D::RefCounted>& pyclass_Var_Urho3D_PropertySet2D)
 {
     // Class PropertySet2D Implementation
 pyclass_Var_Urho3D_PropertySet2D
@@ -4278,7 +4268,7 @@ pyclass_Var_Urho3D_PropertySet2D
 ;
 }
 
-void Implement_Urho3D_VectorBase(py::class_<Urho3D::VectorBase, std::shared_ptr<Urho3D::VectorBase>>& pyclass_Var_Urho3D_VectorBase)
+void Implement_Urho3D_VectorBase(py::class_<Urho3D::VectorBase, Urho3D::ExternalPtr<Urho3D::VectorBase>>& pyclass_Var_Urho3D_VectorBase)
 {
     // Class VectorBase Implementation
 pyclass_Var_Urho3D_VectorBase
@@ -4287,7 +4277,7 @@ pyclass_Var_Urho3D_VectorBase
 ;
 }
 
-void Implement_Urho3D_LinkedListNode(py::class_<Urho3D::LinkedListNode, std::shared_ptr<Urho3D::LinkedListNode>>& pyclass_Var_Urho3D_LinkedListNode)
+void Implement_Urho3D_LinkedListNode(py::class_<Urho3D::LinkedListNode, Urho3D::ExternalPtr<Urho3D::LinkedListNode>>& pyclass_Var_Urho3D_LinkedListNode)
 {
     // Class LinkedListNode Implementation
 pyclass_Var_Urho3D_LinkedListNode
@@ -4295,7 +4285,7 @@ pyclass_Var_Urho3D_LinkedListNode
 ;
 }
 
-void Implement_Urho3D_Matrix3(py::class_<Urho3D::Matrix3, std::shared_ptr<Urho3D::Matrix3>>& pyclass_Var_Urho3D_Matrix3)
+void Implement_Urho3D_Matrix3(py::class_<Urho3D::Matrix3, Urho3D::ExternalPtr<Urho3D::Matrix3>>& pyclass_Var_Urho3D_Matrix3)
 {
     // Class Matrix3 Implementation
 pyclass_Var_Urho3D_Matrix3
@@ -4346,7 +4336,7 @@ pyclass_Var_Urho3D_Matrix3
 ;
 }
 
-void Implement_Urho3D_EventHandler(py::class_<Urho3D::EventHandler, std::shared_ptr<Urho3D::EventHandler>, Urho3D::LinkedListNode>& pyclass_Var_Urho3D_EventHandler)
+void Implement_Urho3D_EventHandler(py::class_<Urho3D::EventHandler, Urho3D::ExternalPtr<Urho3D::EventHandler>, Urho3D::LinkedListNode>& pyclass_Var_Urho3D_EventHandler)
 {
     // Class EventHandler Implementation
 pyclass_Var_Urho3D_EventHandler
@@ -4364,7 +4354,7 @@ pyclass_Var_Urho3D_EventHandler
 ;
 }
 
-void Implement_Urho3D_Serializable(py::class_<Urho3D::Serializable, Urho3D::SharedPtr<Urho3D::Serializable>, Urho3D::Object>& pyclass_Var_Urho3D_Serializable)
+void Implement_Urho3D_Serializable(py::class_<Urho3D::Serializable, Urho3D::ExternalPtr<Urho3D::Serializable>, Urho3D::Object>& pyclass_Var_Urho3D_Serializable)
 {
     // Class Serializable Implementation
 pyclass_Var_Urho3D_Serializable
@@ -4418,7 +4408,7 @@ pyclass_Var_Urho3D_Serializable
 ;
 }
 
-void Implement_Urho3D_NetworkState(py::class_<Urho3D::NetworkState, std::shared_ptr<Urho3D::NetworkState>>& pyclass_Var_Urho3D_NetworkState)
+void Implement_Urho3D_NetworkState(py::class_<Urho3D::NetworkState, Urho3D::ExternalPtr<Urho3D::NetworkState>>& pyclass_Var_Urho3D_NetworkState)
 {
     // Class NetworkState Implementation
 pyclass_Var_Urho3D_NetworkState
@@ -4429,7 +4419,7 @@ pyclass_Var_Urho3D_NetworkState
 ;
 }
 
-void Implement_Urho3D_Animatable(py::class_<Urho3D::Animatable, Urho3D::SharedPtr<Urho3D::Animatable>, Urho3D::Serializable>& pyclass_Var_Urho3D_Animatable)
+void Implement_Urho3D_Animatable(py::class_<Urho3D::Animatable, Urho3D::ExternalPtr<Urho3D::Animatable>, Urho3D::Serializable>& pyclass_Var_Urho3D_Animatable)
 {
     // Class Animatable Implementation
 pyclass_Var_Urho3D_Animatable
@@ -4467,7 +4457,7 @@ pyclass_Var_Urho3D_Animatable
 ;
 }
 
-void Implement_Urho3D_Node(py::class_<Urho3D::Node, Urho3D::SharedPtr<Urho3D::Node>, Urho3D::Animatable>& pyclass_Var_Urho3D_Node)
+void Implement_Urho3D_Node(py::class_<Urho3D::Node, Urho3D::ExternalPtr<Urho3D::Node>, Urho3D::Animatable>& pyclass_Var_Urho3D_Node)
 {
     // Class Node Implementation
 pyclass_Var_Urho3D_Node
@@ -4662,8 +4652,7 @@ pyclass_Var_Urho3D_Node
   //.def("GetListeners", (const Vector<WeakPtr<Urho3D::Component> > (Urho3D::Node::*)() const) &Urho3D::Node::GetListeners, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetVar", (const Urho3D::Variant & (Urho3D::Node::*)(Urho3D::StringHash) const) &Urho3D::Node::GetVar, "todo: docstring", py::arg("key"))
-  //.def("GetVars", (const Urho3D::VariantMap & (Urho3D::Node::*)() const) &Urho3D::Node::GetVars, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVars", (const Urho3D::VariantMap & (Urho3D::Node::*)() const) &Urho3D::Node::GetVars, "todo: docstring")
   .def("SetID", (void (Urho3D::Node::*)(unsigned int)) &Urho3D::Node::SetID, "todo: docstring", py::arg("id"))
   .def("SetScene", (void (Urho3D::Node::*)(Urho3D::Scene *)) &Urho3D::Node::SetScene, "todo: docstring", py::arg("scene"))
   .def("ResetScene", (void (Urho3D::Node::*)()) &Urho3D::Node::ResetScene, "todo: docstring")
@@ -4701,7 +4690,7 @@ pyclass_Var_Urho3D_Node
 ;
 }
 
-void Implement_Urho3D_Frustum(py::class_<Urho3D::Frustum, std::shared_ptr<Urho3D::Frustum>>& pyclass_Var_Urho3D_Frustum)
+void Implement_Urho3D_Frustum(py::class_<Urho3D::Frustum, Urho3D::ExternalPtr<Urho3D::Frustum>>& pyclass_Var_Urho3D_Frustum)
 {
     // Class Frustum Implementation
 pyclass_Var_Urho3D_Frustum
@@ -4735,7 +4724,7 @@ pyclass_Var_Urho3D_Frustum
 ;
 }
 
-void Implement_Urho3D_RayOctreeQuery(py::class_<Urho3D::RayOctreeQuery, std::shared_ptr<Urho3D::RayOctreeQuery>>& pyclass_Var_Urho3D_RayOctreeQuery)
+void Implement_Urho3D_RayOctreeQuery(py::class_<Urho3D::RayOctreeQuery, Urho3D::ExternalPtr<Urho3D::RayOctreeQuery>>& pyclass_Var_Urho3D_RayOctreeQuery)
 {
     // Class RayOctreeQuery Implementation
 pyclass_Var_Urho3D_RayOctreeQuery
@@ -4753,7 +4742,7 @@ pyclass_Var_Urho3D_RayOctreeQuery
 ;
 }
 
-void Implement_Urho3D_Timer(py::class_<Urho3D::Timer, std::shared_ptr<Urho3D::Timer>>& pyclass_Var_Urho3D_Timer)
+void Implement_Urho3D_Timer(py::class_<Urho3D::Timer, Urho3D::ExternalPtr<Urho3D::Timer>>& pyclass_Var_Urho3D_Timer)
 {
     // Class Timer Implementation
 pyclass_Var_Urho3D_Timer
@@ -4763,7 +4752,7 @@ pyclass_Var_Urho3D_Timer
 ;
 }
 
-void Implement_Urho3D_Log(py::class_<Urho3D::Log, Urho3D::SharedPtr<Urho3D::Log>, Urho3D::Object>& pyclass_Var_Urho3D_Log)
+void Implement_Urho3D_Log(py::class_<Urho3D::Log, Urho3D::ExternalPtr<Urho3D::Log>, Urho3D::Object>& pyclass_Var_Urho3D_Log)
 {
     // Class Log Implementation
 pyclass_Var_Urho3D_Log
@@ -4785,7 +4774,7 @@ pyclass_Var_Urho3D_Log
 ;
 }
 
-void Implement_Urho3D_CascadeParameters(py::class_<Urho3D::CascadeParameters, std::shared_ptr<Urho3D::CascadeParameters>>& pyclass_Var_Urho3D_CascadeParameters)
+void Implement_Urho3D_CascadeParameters(py::class_<Urho3D::CascadeParameters, Urho3D::ExternalPtr<Urho3D::CascadeParameters>>& pyclass_Var_Urho3D_CascadeParameters)
 {
     // Class CascadeParameters Implementation
 pyclass_Var_Urho3D_CascadeParameters
@@ -4799,7 +4788,7 @@ pyclass_Var_Urho3D_CascadeParameters
 ;
 }
 
-void Implement_Urho3D_UIElement(py::class_<Urho3D::UIElement, Urho3D::SharedPtr<Urho3D::UIElement>, Urho3D::Animatable>& pyclass_Var_Urho3D_UIElement)
+void Implement_Urho3D_UIElement(py::class_<Urho3D::UIElement, Urho3D::ExternalPtr<Urho3D::UIElement>, Urho3D::Animatable>& pyclass_Var_Urho3D_UIElement)
 {
     // Class UIElement Implementation
 pyclass_Var_Urho3D_UIElement
@@ -5013,8 +5002,7 @@ pyclass_Var_Urho3D_UIElement
   .def("GetRoot", (Urho3D::UIElement * (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetRoot, "todo: docstring")
   .def("GetDerivedColor", (const Urho3D::Color & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetDerivedColor, "todo: docstring")
   .def("GetVar", (const Urho3D::Variant & (Urho3D::UIElement::*)(const Urho3D::StringHash &) const) &Urho3D::UIElement::GetVar, "todo: docstring", py::arg("key"))
-  //.def("GetVars", (const Urho3D::VariantMap & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetVars, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVars", (const Urho3D::VariantMap & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetVars, "todo: docstring")
   .def("GetBasePath", (const Urho3D::String & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetBasePath, "todo: docstring")
   .def("HasTag", (bool (Urho3D::UIElement::*)(const Urho3D::String &) const) &Urho3D::UIElement::HasTag, "todo: docstring", py::arg("tag"))
   //.def("GetTags", (const Urho3D::StringVector & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetTags, "todo: docstring")
@@ -5048,7 +5036,7 @@ pyclass_Var_Urho3D_UIElement
 ;
 }
 
-void Implement_Urho3D_BorderImage(py::class_<Urho3D::BorderImage, Urho3D::SharedPtr<Urho3D::BorderImage>, Urho3D::UIElement>& pyclass_Var_Urho3D_BorderImage)
+void Implement_Urho3D_BorderImage(py::class_<Urho3D::BorderImage, Urho3D::ExternalPtr<Urho3D::BorderImage>, Urho3D::UIElement>& pyclass_Var_Urho3D_BorderImage)
 {
     // Class BorderImage Implementation
 pyclass_Var_Urho3D_BorderImage
@@ -5087,7 +5075,7 @@ pyclass_Var_Urho3D_BorderImage
 ;
 }
 
-void Implement_Urho3D_Profiler(py::class_<Urho3D::Profiler, Urho3D::SharedPtr<Urho3D::Profiler>, Urho3D::Object>& pyclass_Var_Urho3D_Profiler)
+void Implement_Urho3D_Profiler(py::class_<Urho3D::Profiler, Urho3D::ExternalPtr<Urho3D::Profiler>, Urho3D::Object>& pyclass_Var_Urho3D_Profiler)
 {
     // Class Profiler Implementation
 pyclass_Var_Urho3D_Profiler
@@ -5108,7 +5096,7 @@ pyclass_Var_Urho3D_Profiler
 ;
 }
 
-void Implement_Urho3D_Console(py::class_<Urho3D::Console, Urho3D::SharedPtr<Urho3D::Console>, Urho3D::Object>& pyclass_Var_Urho3D_Console)
+void Implement_Urho3D_Console(py::class_<Urho3D::Console, Urho3D::ExternalPtr<Urho3D::Console>, Urho3D::Object>& pyclass_Var_Urho3D_Console)
 {
     // Class Console Implementation
 pyclass_Var_Urho3D_Console
@@ -5147,7 +5135,7 @@ pyclass_Var_Urho3D_Console
 ;
 }
 
-void Implement_Urho3D_Button(py::class_<Urho3D::Button, Urho3D::SharedPtr<Urho3D::Button>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Button)
+void Implement_Urho3D_Button(py::class_<Urho3D::Button, Urho3D::ExternalPtr<Urho3D::Button>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Button)
 {
     // Class Button Implementation
 pyclass_Var_Urho3D_Button
@@ -5183,7 +5171,7 @@ pyclass_Var_Urho3D_Button
 ;
 }
 
-void Implement_Urho3D_LineEdit(py::class_<Urho3D::LineEdit, Urho3D::SharedPtr<Urho3D::LineEdit>, Urho3D::BorderImage>& pyclass_Var_Urho3D_LineEdit)
+void Implement_Urho3D_LineEdit(py::class_<Urho3D::LineEdit, Urho3D::ExternalPtr<Urho3D::LineEdit>, Urho3D::BorderImage>& pyclass_Var_Urho3D_LineEdit)
 {
     // Class LineEdit Implementation
 pyclass_Var_Urho3D_LineEdit
@@ -5225,7 +5213,7 @@ pyclass_Var_Urho3D_LineEdit
 ;
 }
 
-void Implement_Urho3D_VertexBuffer(py::class_<Urho3D::VertexBuffer, Urho3D::SharedPtr<Urho3D::VertexBuffer>, Urho3D::Object, Urho3D::GPUObject>& pyclass_Var_Urho3D_VertexBuffer)
+void Implement_Urho3D_VertexBuffer(py::class_<Urho3D::VertexBuffer, Urho3D::ExternalPtr<Urho3D::VertexBuffer>, Urho3D::Object, Urho3D::GPUObject>& pyclass_Var_Urho3D_VertexBuffer)
 {
     // Class VertexBuffer Implementation
 pyclass_Var_Urho3D_VertexBuffer
@@ -5274,7 +5262,7 @@ pyclass_Var_Urho3D_VertexBuffer
 ;
 }
 
-void Implement_Urho3D_BoxOctreeQuery(py::class_<Urho3D::BoxOctreeQuery, std::shared_ptr<Urho3D::BoxOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_BoxOctreeQuery)
+void Implement_Urho3D_BoxOctreeQuery(py::class_<Urho3D::BoxOctreeQuery, Urho3D::ExternalPtr<Urho3D::BoxOctreeQuery>, Urho3D::OctreeQuery>& pyclass_Var_Urho3D_BoxOctreeQuery)
 {
     // Class BoxOctreeQuery Implementation
 pyclass_Var_Urho3D_BoxOctreeQuery
@@ -5288,7 +5276,7 @@ pyclass_Var_Urho3D_BoxOctreeQuery
 ;
 }
 
-void Implement_Urho3D_Viewport(py::class_<Urho3D::Viewport, Urho3D::SharedPtr<Urho3D::Viewport>, Urho3D::Object>& pyclass_Var_Urho3D_Viewport)
+void Implement_Urho3D_Viewport(py::class_<Urho3D::Viewport, Urho3D::ExternalPtr<Urho3D::Viewport>, Urho3D::Object>& pyclass_Var_Urho3D_Viewport)
 {
     // Class Viewport Implementation
 pyclass_Var_Urho3D_Viewport
@@ -5321,7 +5309,7 @@ pyclass_Var_Urho3D_Viewport
 ;
 }
 
-void Implement_Urho3D_FileWatcher(py::class_<Urho3D::FileWatcher, Urho3D::SharedPtr<Urho3D::FileWatcher>, Urho3D::Object, Urho3D::Thread>& pyclass_Var_Urho3D_FileWatcher)
+void Implement_Urho3D_FileWatcher(py::class_<Urho3D::FileWatcher, Urho3D::ExternalPtr<Urho3D::FileWatcher>, Urho3D::Object, Urho3D::Thread>& pyclass_Var_Urho3D_FileWatcher)
 {
     // Class FileWatcher Implementation
 pyclass_Var_Urho3D_FileWatcher
@@ -5342,7 +5330,7 @@ pyclass_Var_Urho3D_FileWatcher
 ;
 }
 
-void Implement_Urho3D_Input(py::class_<Urho3D::Input, Urho3D::SharedPtr<Urho3D::Input>, Urho3D::Object>& pyclass_Var_Urho3D_Input)
+void Implement_Urho3D_Input(py::class_<Urho3D::Input, Urho3D::ExternalPtr<Urho3D::Input>, Urho3D::Object>& pyclass_Var_Urho3D_Input)
 {
     // Class Input Implementation
 pyclass_Var_Urho3D_Input
@@ -5436,7 +5424,7 @@ pyclass_Var_Urho3D_Input
 ;
 }
 
-void Implement_Urho3D_LuaScript(py::class_<Urho3D::LuaScript, Urho3D::SharedPtr<Urho3D::LuaScript>, Urho3D::Object, Urho3D::LuaScriptEventListener>& pyclass_Var_Urho3D_LuaScript)
+void Implement_Urho3D_LuaScript(py::class_<Urho3D::LuaScript, Urho3D::ExternalPtr<Urho3D::LuaScript>, Urho3D::Object, Urho3D::LuaScriptEventListener>& pyclass_Var_Urho3D_LuaScript)
 {
     // Class LuaScript Implementation
 pyclass_Var_Urho3D_LuaScript
@@ -5472,7 +5460,7 @@ pyclass_Var_Urho3D_LuaScript
 ;
 }
 
-void Implement_Urho3D_Matrix2(py::class_<Urho3D::Matrix2, std::shared_ptr<Urho3D::Matrix2>>& pyclass_Var_Urho3D_Matrix2)
+void Implement_Urho3D_Matrix2(py::class_<Urho3D::Matrix2, Urho3D::ExternalPtr<Urho3D::Matrix2>>& pyclass_Var_Urho3D_Matrix2)
 {
     // Class Matrix2 Implementation
 pyclass_Var_Urho3D_Matrix2
@@ -5514,7 +5502,7 @@ pyclass_Var_Urho3D_Matrix2
 ;
 }
 
-void Implement_Urho3D_Network(py::class_<Urho3D::Network, Urho3D::SharedPtr<Urho3D::Network>, Urho3D::Object>& pyclass_Var_Urho3D_Network)
+void Implement_Urho3D_Network(py::class_<Urho3D::Network, Urho3D::ExternalPtr<Urho3D::Network>, Urho3D::Object>& pyclass_Var_Urho3D_Network)
 {
     // Class Network Implementation
 pyclass_Var_Urho3D_Network
@@ -5573,7 +5561,7 @@ pyclass_Var_Urho3D_Network
 ;
 }
 
-void Implement_Urho3D_CheckBox(py::class_<Urho3D::CheckBox, Urho3D::SharedPtr<Urho3D::CheckBox>, Urho3D::BorderImage>& pyclass_Var_Urho3D_CheckBox)
+void Implement_Urho3D_CheckBox(py::class_<Urho3D::CheckBox, Urho3D::ExternalPtr<Urho3D::CheckBox>, Urho3D::BorderImage>& pyclass_Var_Urho3D_CheckBox)
 {
     // Class CheckBox Implementation
 pyclass_Var_Urho3D_CheckBox
@@ -5596,7 +5584,7 @@ pyclass_Var_Urho3D_CheckBox
 ;
 }
 
-void Implement_Urho3D_Window(py::class_<Urho3D::Window, Urho3D::SharedPtr<Urho3D::Window>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Window)
+void Implement_Urho3D_Window(py::class_<Urho3D::Window, Urho3D::ExternalPtr<Urho3D::Window>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Window)
 {
     // Class Window Implementation
 pyclass_Var_Urho3D_Window
@@ -5636,7 +5624,7 @@ pyclass_Var_Urho3D_Window
 ;
 }
 
-void Implement_Urho3D_ScrollBar(py::class_<Urho3D::ScrollBar, Urho3D::SharedPtr<Urho3D::ScrollBar>, Urho3D::BorderImage>& pyclass_Var_Urho3D_ScrollBar)
+void Implement_Urho3D_ScrollBar(py::class_<Urho3D::ScrollBar, Urho3D::ExternalPtr<Urho3D::ScrollBar>, Urho3D::BorderImage>& pyclass_Var_Urho3D_ScrollBar)
 {
     // Class ScrollBar Implementation
 pyclass_Var_Urho3D_ScrollBar
@@ -5671,7 +5659,7 @@ pyclass_Var_Urho3D_ScrollBar
 ;
 }
 
-void Implement_Urho3D_UISelectable(py::class_<Urho3D::UISelectable, Urho3D::SharedPtr<Urho3D::UISelectable>, Urho3D::UIElement>& pyclass_Var_Urho3D_UISelectable)
+void Implement_Urho3D_UISelectable(py::class_<Urho3D::UISelectable, Urho3D::ExternalPtr<Urho3D::UISelectable>, Urho3D::UIElement>& pyclass_Var_Urho3D_UISelectable)
 {
     // Class UISelectable Implementation
 pyclass_Var_Urho3D_UISelectable
@@ -5689,7 +5677,7 @@ pyclass_Var_Urho3D_UISelectable
 ;
 }
 
-void Implement_Urho3D_Slider(py::class_<Urho3D::Slider, Urho3D::SharedPtr<Urho3D::Slider>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Slider)
+void Implement_Urho3D_Slider(py::class_<Urho3D::Slider, Urho3D::ExternalPtr<Urho3D::Slider>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Slider)
 {
     // Class Slider Implementation
 pyclass_Var_Urho3D_Slider
@@ -5722,7 +5710,7 @@ pyclass_Var_Urho3D_Slider
 ;
 }
 
-void Implement_Urho3D_ToolTip(py::class_<Urho3D::ToolTip, Urho3D::SharedPtr<Urho3D::ToolTip>, Urho3D::UIElement>& pyclass_Var_Urho3D_ToolTip)
+void Implement_Urho3D_ToolTip(py::class_<Urho3D::ToolTip, Urho3D::ExternalPtr<Urho3D::ToolTip>, Urho3D::UIElement>& pyclass_Var_Urho3D_ToolTip)
 {
     // Class ToolTip Implementation
 pyclass_Var_Urho3D_ToolTip
@@ -5740,7 +5728,7 @@ pyclass_Var_Urho3D_ToolTip
 ;
 }
 
-void Implement_Urho3D_View3D(py::class_<Urho3D::View3D, Urho3D::SharedPtr<Urho3D::View3D>, Urho3D::Window>& pyclass_Var_Urho3D_View3D)
+void Implement_Urho3D_View3D(py::class_<Urho3D::View3D, Urho3D::ExternalPtr<Urho3D::View3D>, Urho3D::Window>& pyclass_Var_Urho3D_View3D)
 {
     // Class View3D Implementation
 pyclass_Var_Urho3D_View3D
@@ -5765,7 +5753,7 @@ pyclass_Var_Urho3D_View3D
 ;
 }
 
-void Implement_Urho3D_TileMapObject2D(py::class_<Urho3D::TileMapObject2D, Urho3D::SharedPtr<Urho3D::TileMapObject2D>, Urho3D::RefCounted>& pyclass_Var_Urho3D_TileMapObject2D)
+void Implement_Urho3D_TileMapObject2D(py::class_<Urho3D::TileMapObject2D, Urho3D::ExternalPtr<Urho3D::TileMapObject2D>, Urho3D::RefCounted>& pyclass_Var_Urho3D_TileMapObject2D)
 {
     // Class TileMapObject2D Implementation
 pyclass_Var_Urho3D_TileMapObject2D
@@ -5788,7 +5776,7 @@ pyclass_Var_Urho3D_TileMapObject2D
 ;
 }
 
-void Implement_Urho3D_CScriptDictValue(py::class_<Urho3D::CScriptDictValue, std::shared_ptr<Urho3D::CScriptDictValue>>& pyclass_Var_Urho3D_CScriptDictValue)
+void Implement_Urho3D_CScriptDictValue(py::class_<Urho3D::CScriptDictValue, Urho3D::ExternalPtr<Urho3D::CScriptDictValue>>& pyclass_Var_Urho3D_CScriptDictValue)
 {
     // Class CScriptDictValue Implementation
 pyclass_Var_Urho3D_CScriptDictValue
@@ -5815,7 +5803,7 @@ pyclass_Var_Urho3D_CScriptDictValue
 ;
 }
 
-void Implement_Urho3D_Rect(py::class_<Urho3D::Rect, std::shared_ptr<Urho3D::Rect>>& pyclass_Var_Urho3D_Rect)
+void Implement_Urho3D_Rect(py::class_<Urho3D::Rect, Urho3D::ExternalPtr<Urho3D::Rect>>& pyclass_Var_Urho3D_Rect)
 {
     // Class Rect Implementation
 pyclass_Var_Urho3D_Rect
@@ -5880,7 +5868,7 @@ pyclass_Var_Urho3D_Rect
 ;
 }
 
-void Implement_Urho3D_ResourceRouter(py::class_<Urho3D::ResourceRouter, Urho3D::SharedPtr<Urho3D::ResourceRouter>, Urho3D::Object>& pyclass_Var_Urho3D_ResourceRouter)
+void Implement_Urho3D_ResourceRouter(py::class_<Urho3D::ResourceRouter, Urho3D::ExternalPtr<Urho3D::ResourceRouter>, Urho3D::Object>& pyclass_Var_Urho3D_ResourceRouter)
 {
     // Class ResourceRouter Implementation
 pyclass_Var_Urho3D_ResourceRouter
@@ -5891,7 +5879,7 @@ pyclass_Var_Urho3D_ResourceRouter
 ;
 }
 
-void Implement_Urho3D_Serializer(py::class_<Urho3D::Serializer, std::shared_ptr<Urho3D::Serializer>>& pyclass_Var_Urho3D_Serializer)
+void Implement_Urho3D_Serializer(py::class_<Urho3D::Serializer, Urho3D::ExternalPtr<Urho3D::Serializer>>& pyclass_Var_Urho3D_Serializer)
 {
     // Class Serializer Implementation
 pyclass_Var_Urho3D_Serializer
@@ -5945,7 +5933,7 @@ pyclass_Var_Urho3D_Serializer
 ;
 }
 
-void Implement_Urho3D_Component(py::class_<Urho3D::Component, Urho3D::SharedPtr<Urho3D::Component>, Urho3D::Animatable>& pyclass_Var_Urho3D_Component)
+void Implement_Urho3D_Component(py::class_<Urho3D::Component, Urho3D::ExternalPtr<Urho3D::Component>, Urho3D::Animatable>& pyclass_Var_Urho3D_Component)
 {
     // Class Component Implementation
 pyclass_Var_Urho3D_Component
@@ -5981,7 +5969,7 @@ pyclass_Var_Urho3D_Component
 ;
 }
 
-void Implement_Urho3D_SoundSource(py::class_<Urho3D::SoundSource, Urho3D::SharedPtr<Urho3D::SoundSource>, Urho3D::Component>& pyclass_Var_Urho3D_SoundSource)
+void Implement_Urho3D_SoundSource(py::class_<Urho3D::SoundSource, Urho3D::ExternalPtr<Urho3D::SoundSource>, Urho3D::Component>& pyclass_Var_Urho3D_SoundSource)
 {
     // Class SoundSource Implementation
 pyclass_Var_Urho3D_SoundSource
@@ -6030,7 +6018,7 @@ pyclass_Var_Urho3D_SoundSource
 ;
 }
 
-void Implement_Urho3D_Drawable(py::class_<Urho3D::Drawable, Urho3D::SharedPtr<Urho3D::Drawable>, Urho3D::Component>& pyclass_Var_Urho3D_Drawable)
+void Implement_Urho3D_Drawable(py::class_<Urho3D::Drawable, Urho3D::ExternalPtr<Urho3D::Drawable>, Urho3D::Component>& pyclass_Var_Urho3D_Drawable)
 {
     // Class Drawable Implementation
 pyclass_Var_Urho3D_Drawable
@@ -6116,7 +6104,7 @@ pyclass_Var_Urho3D_Drawable
 ;
 }
 
-void Implement_Urho3D_StaticModel(py::class_<Urho3D::StaticModel, Urho3D::SharedPtr<Urho3D::StaticModel>, Urho3D::Drawable>& pyclass_Var_Urho3D_StaticModel)
+void Implement_Urho3D_StaticModel(py::class_<Urho3D::StaticModel, Urho3D::ExternalPtr<Urho3D::StaticModel>, Urho3D::Drawable>& pyclass_Var_Urho3D_StaticModel)
 {
     // Class StaticModel Implementation
 pyclass_Var_Urho3D_StaticModel
@@ -6152,7 +6140,7 @@ pyclass_Var_Urho3D_StaticModel
 ;
 }
 
-void Implement_Urho3D_AbstractFile(py::class_<Urho3D::AbstractFile, std::shared_ptr<Urho3D::AbstractFile>, Urho3D::Deserializer, Urho3D::Serializer>& pyclass_Var_Urho3D_AbstractFile)
+void Implement_Urho3D_AbstractFile(py::class_<Urho3D::AbstractFile, Urho3D::ExternalPtr<Urho3D::AbstractFile>, Urho3D::Deserializer, Urho3D::Serializer>& pyclass_Var_Urho3D_AbstractFile)
 {
     // Class AbstractFile Implementation
 pyclass_Var_Urho3D_AbstractFile
@@ -6165,7 +6153,7 @@ pyclass_Var_Urho3D_AbstractFile
 ;
 }
 
-void Implement_Urho3D_Cursor(py::class_<Urho3D::Cursor, Urho3D::SharedPtr<Urho3D::Cursor>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Cursor)
+void Implement_Urho3D_Cursor(py::class_<Urho3D::Cursor, Urho3D::ExternalPtr<Urho3D::Cursor>, Urho3D::BorderImage>& pyclass_Var_Urho3D_Cursor)
 {
     // Class Cursor Implementation
 pyclass_Var_Urho3D_Cursor
@@ -6193,7 +6181,7 @@ pyclass_Var_Urho3D_Cursor
 ;
 }
 
-void Implement_Urho3D_SoundSource3D(py::class_<Urho3D::SoundSource3D, Urho3D::SharedPtr<Urho3D::SoundSource3D>, Urho3D::SoundSource>& pyclass_Var_Urho3D_SoundSource3D)
+void Implement_Urho3D_SoundSource3D(py::class_<Urho3D::SoundSource3D, Urho3D::ExternalPtr<Urho3D::SoundSource3D>, Urho3D::SoundSource>& pyclass_Var_Urho3D_SoundSource3D)
 {
     // Class SoundSource3D Implementation
 pyclass_Var_Urho3D_SoundSource3D
@@ -6219,7 +6207,7 @@ pyclass_Var_Urho3D_SoundSource3D
 ;
 }
 
-void Implement_Urho3D_Engine(py::class_<Urho3D::Engine, Urho3D::SharedPtr<Urho3D::Engine>, Urho3D::Object>& pyclass_Var_Urho3D_Engine)
+void Implement_Urho3D_Engine(py::class_<Urho3D::Engine, Urho3D::ExternalPtr<Urho3D::Engine>, Urho3D::Object>& pyclass_Var_Urho3D_Engine)
 {
     // Class Engine Implementation
 pyclass_Var_Urho3D_Engine
@@ -6261,7 +6249,7 @@ pyclass_Var_Urho3D_Engine
 ;
 }
 
-void Implement_Urho3D_Text(py::class_<Urho3D::Text, Urho3D::SharedPtr<Urho3D::Text>, Urho3D::UISelectable>& pyclass_Var_Urho3D_Text)
+void Implement_Urho3D_Text(py::class_<Urho3D::Text, Urho3D::ExternalPtr<Urho3D::Text>, Urho3D::UISelectable>& pyclass_Var_Urho3D_Text)
 {
     // Class Text Implementation
 pyclass_Var_Urho3D_Text
@@ -6324,7 +6312,7 @@ pyclass_Var_Urho3D_Text
 ;
 }
 
-void Implement_Urho3D_AnimatedModel(py::class_<Urho3D::AnimatedModel, Urho3D::SharedPtr<Urho3D::AnimatedModel>, Urho3D::StaticModel>& pyclass_Var_Urho3D_AnimatedModel)
+void Implement_Urho3D_AnimatedModel(py::class_<Urho3D::AnimatedModel, Urho3D::ExternalPtr<Urho3D::AnimatedModel>, Urho3D::StaticModel>& pyclass_Var_Urho3D_AnimatedModel)
 {
     // Class AnimatedModel Implementation
 pyclass_Var_Urho3D_AnimatedModel
@@ -6403,7 +6391,7 @@ pyclass_Var_Urho3D_AnimatedModel
 ;
 }
 
-void Implement_Urho3D_BillboardSet(py::class_<Urho3D::BillboardSet, Urho3D::SharedPtr<Urho3D::BillboardSet>, Urho3D::Drawable>& pyclass_Var_Urho3D_BillboardSet)
+void Implement_Urho3D_BillboardSet(py::class_<Urho3D::BillboardSet, Urho3D::ExternalPtr<Urho3D::BillboardSet>, Urho3D::Drawable>& pyclass_Var_Urho3D_BillboardSet)
 {
     // Class BillboardSet Implementation
 pyclass_Var_Urho3D_BillboardSet
@@ -6457,7 +6445,7 @@ pyclass_Var_Urho3D_BillboardSet
 ;
 }
 
-void Implement_Urho3D_DecalSet(py::class_<Urho3D::DecalSet, Urho3D::SharedPtr<Urho3D::DecalSet>, Urho3D::Drawable>& pyclass_Var_Urho3D_DecalSet)
+void Implement_Urho3D_DecalSet(py::class_<Urho3D::DecalSet, Urho3D::ExternalPtr<Urho3D::DecalSet>, Urho3D::Drawable>& pyclass_Var_Urho3D_DecalSet)
 {
     // Class DecalSet Implementation
 pyclass_Var_Urho3D_DecalSet
@@ -6500,7 +6488,7 @@ pyclass_Var_Urho3D_DecalSet
 ;
 }
 
-void Implement_Urho3D_Octree(py::class_<Urho3D::Octree, Urho3D::SharedPtr<Urho3D::Octree>, Urho3D::Component, Urho3D::Octant>& pyclass_Var_Urho3D_Octree)
+void Implement_Urho3D_Octree(py::class_<Urho3D::Octree, Urho3D::ExternalPtr<Urho3D::Octree>, Urho3D::Component, Urho3D::Octant>& pyclass_Var_Urho3D_Octree)
 {
     // Class Octree Implementation
 pyclass_Var_Urho3D_Octree
@@ -6526,7 +6514,7 @@ pyclass_Var_Urho3D_Octree
 ;
 }
 
-void Implement_Urho3D_ParticleEmitter(py::class_<Urho3D::ParticleEmitter, Urho3D::SharedPtr<Urho3D::ParticleEmitter>, Urho3D::BillboardSet>& pyclass_Var_Urho3D_ParticleEmitter)
+void Implement_Urho3D_ParticleEmitter(py::class_<Urho3D::ParticleEmitter, Urho3D::ExternalPtr<Urho3D::ParticleEmitter>, Urho3D::BillboardSet>& pyclass_Var_Urho3D_ParticleEmitter)
 {
     // Class ParticleEmitter Implementation
 pyclass_Var_Urho3D_ParticleEmitter
@@ -6565,7 +6553,7 @@ pyclass_Var_Urho3D_ParticleEmitter
 ;
 }
 
-void Implement_Urho3D_Skybox(py::class_<Urho3D::Skybox, Urho3D::SharedPtr<Urho3D::Skybox>, Urho3D::StaticModel>& pyclass_Var_Urho3D_Skybox)
+void Implement_Urho3D_Skybox(py::class_<Urho3D::Skybox, Urho3D::ExternalPtr<Urho3D::Skybox>, Urho3D::StaticModel>& pyclass_Var_Urho3D_Skybox)
 {
     // Class Skybox Implementation
 pyclass_Var_Urho3D_Skybox
@@ -6582,7 +6570,7 @@ pyclass_Var_Urho3D_Skybox
 ;
 }
 
-void Implement_Urho3D_TerrainPatch(py::class_<Urho3D::TerrainPatch, Urho3D::SharedPtr<Urho3D::TerrainPatch>, Urho3D::Drawable>& pyclass_Var_Urho3D_TerrainPatch)
+void Implement_Urho3D_TerrainPatch(py::class_<Urho3D::TerrainPatch, Urho3D::ExternalPtr<Urho3D::TerrainPatch>, Urho3D::Drawable>& pyclass_Var_Urho3D_TerrainPatch)
 {
     // Class TerrainPatch Implementation
 pyclass_Var_Urho3D_TerrainPatch
@@ -6626,7 +6614,7 @@ pyclass_Var_Urho3D_TerrainPatch
 ;
 }
 
-void Implement_Urho3D_IKConstraint(py::class_<Urho3D::IKConstraint, Urho3D::SharedPtr<Urho3D::IKConstraint>, Urho3D::Component>& pyclass_Var_Urho3D_IKConstraint)
+void Implement_Urho3D_IKConstraint(py::class_<Urho3D::IKConstraint, Urho3D::ExternalPtr<Urho3D::IKConstraint>, Urho3D::Component>& pyclass_Var_Urho3D_IKConstraint)
 {
     // Class IKConstraint Implementation
 pyclass_Var_Urho3D_IKConstraint
@@ -6645,7 +6633,7 @@ pyclass_Var_Urho3D_IKConstraint
 ;
 }
 
-void Implement_Urho3D_IKEffector(py::class_<Urho3D::IKEffector, Urho3D::SharedPtr<Urho3D::IKEffector>, Urho3D::Component>& pyclass_Var_Urho3D_IKEffector)
+void Implement_Urho3D_IKEffector(py::class_<Urho3D::IKEffector, Urho3D::ExternalPtr<Urho3D::IKEffector>, Urho3D::Component>& pyclass_Var_Urho3D_IKEffector)
 {
     // Class IKEffector Implementation
 pyclass_Var_Urho3D_IKEffector
@@ -6686,7 +6674,7 @@ pyclass_Var_Urho3D_IKEffector
 ;
 }
 
-void Implement_Urho3D_NamedPipe(py::class_<Urho3D::NamedPipe, Urho3D::SharedPtr<Urho3D::NamedPipe>, Urho3D::Object, Urho3D::AbstractFile>& pyclass_Var_Urho3D_NamedPipe)
+void Implement_Urho3D_NamedPipe(py::class_<Urho3D::NamedPipe, Urho3D::ExternalPtr<Urho3D::NamedPipe>, Urho3D::Object, Urho3D::AbstractFile>& pyclass_Var_Urho3D_NamedPipe)
 {
     // Class NamedPipe Implementation
 pyclass_Var_Urho3D_NamedPipe
@@ -6709,7 +6697,7 @@ pyclass_Var_Urho3D_NamedPipe
 ;
 }
 
-void Implement_Urho3D_LuaScriptInstance(py::class_<Urho3D::LuaScriptInstance, Urho3D::SharedPtr<Urho3D::LuaScriptInstance>, Urho3D::Component, Urho3D::LuaScriptEventListener>& pyclass_Var_Urho3D_LuaScriptInstance)
+void Implement_Urho3D_LuaScriptInstance(py::class_<Urho3D::LuaScriptInstance, Urho3D::ExternalPtr<Urho3D::LuaScriptInstance>, Urho3D::Component, Urho3D::LuaScriptEventListener>& pyclass_Var_Urho3D_LuaScriptInstance)
 {
     // Class LuaScriptInstance Implementation
 pyclass_Var_Urho3D_LuaScriptInstance
@@ -6760,7 +6748,7 @@ pyclass_Var_Urho3D_LuaScriptInstance
 ;
 }
 
-void Implement_Urho3D_NavigationMesh(py::class_<Urho3D::NavigationMesh, Urho3D::SharedPtr<Urho3D::NavigationMesh>, Urho3D::Component>& pyclass_Var_Urho3D_NavigationMesh)
+void Implement_Urho3D_NavigationMesh(py::class_<Urho3D::NavigationMesh, Urho3D::ExternalPtr<Urho3D::NavigationMesh>, Urho3D::Component>& pyclass_Var_Urho3D_NavigationMesh)
 {
     // Class NavigationMesh Implementation
 pyclass_Var_Urho3D_NavigationMesh
@@ -6852,7 +6840,7 @@ pyclass_Var_Urho3D_NavigationMesh
 ;
 }
 
-void Implement_Urho3D_NavArea(py::class_<Urho3D::NavArea, Urho3D::SharedPtr<Urho3D::NavArea>, Urho3D::Component>& pyclass_Var_Urho3D_NavArea)
+void Implement_Urho3D_NavArea(py::class_<Urho3D::NavArea, Urho3D::ExternalPtr<Urho3D::NavArea>, Urho3D::Component>& pyclass_Var_Urho3D_NavArea)
 {
     // Class NavArea Implementation
 pyclass_Var_Urho3D_NavArea
@@ -6871,7 +6859,7 @@ pyclass_Var_Urho3D_NavArea
 ;
 }
 
-void Implement_Urho3D_Obstacle(py::class_<Urho3D::Obstacle, Urho3D::SharedPtr<Urho3D::Obstacle>, Urho3D::Component>& pyclass_Var_Urho3D_Obstacle)
+void Implement_Urho3D_Obstacle(py::class_<Urho3D::Obstacle, Urho3D::ExternalPtr<Urho3D::Obstacle>, Urho3D::Component>& pyclass_Var_Urho3D_Obstacle)
 {
     // Class Obstacle Implementation
 pyclass_Var_Urho3D_Obstacle
@@ -6892,7 +6880,7 @@ pyclass_Var_Urho3D_Obstacle
 ;
 }
 
-void Implement_Urho3D_Navigable(py::class_<Urho3D::Navigable, Urho3D::SharedPtr<Urho3D::Navigable>, Urho3D::Component>& pyclass_Var_Urho3D_Navigable)
+void Implement_Urho3D_Navigable(py::class_<Urho3D::Navigable, Urho3D::ExternalPtr<Urho3D::Navigable>, Urho3D::Component>& pyclass_Var_Urho3D_Navigable)
 {
     // Class Navigable Implementation
 pyclass_Var_Urho3D_Navigable
@@ -6907,7 +6895,7 @@ pyclass_Var_Urho3D_Navigable
 ;
 }
 
-void Implement_Urho3D_PhysicsWorld(py::class_<Urho3D::PhysicsWorld, Urho3D::SharedPtr<Urho3D::PhysicsWorld>, Urho3D::Component>& pyclass_Var_Urho3D_PhysicsWorld)
+void Implement_Urho3D_PhysicsWorld(py::class_<Urho3D::PhysicsWorld, Urho3D::ExternalPtr<Urho3D::PhysicsWorld>, Urho3D::Component>& pyclass_Var_Urho3D_PhysicsWorld)
 {
     // Class PhysicsWorld Implementation
 pyclass_Var_Urho3D_PhysicsWorld
@@ -6993,7 +6981,7 @@ pyclass_Var_Urho3D_PhysicsWorld
 ;
 }
 
-void Implement_Urho3D_CollisionShape(py::class_<Urho3D::CollisionShape, Urho3D::SharedPtr<Urho3D::CollisionShape>, Urho3D::Component>& pyclass_Var_Urho3D_CollisionShape)
+void Implement_Urho3D_CollisionShape(py::class_<Urho3D::CollisionShape, Urho3D::ExternalPtr<Urho3D::CollisionShape>, Urho3D::Component>& pyclass_Var_Urho3D_CollisionShape)
 {
     // Class CollisionShape Implementation
 pyclass_Var_Urho3D_CollisionShape
@@ -7049,7 +7037,7 @@ pyclass_Var_Urho3D_CollisionShape
 ;
 }
 
-void Implement_Urho3D_LogicComponent(py::class_<Urho3D::LogicComponent, Urho3D::SharedPtr<Urho3D::LogicComponent>, Urho3D::Component>& pyclass_Var_Urho3D_LogicComponent)
+void Implement_Urho3D_LogicComponent(py::class_<Urho3D::LogicComponent, Urho3D::ExternalPtr<Urho3D::LogicComponent>, Urho3D::Component>& pyclass_Var_Urho3D_LogicComponent)
 {
     // Class LogicComponent Implementation
 pyclass_Var_Urho3D_LogicComponent
@@ -7075,7 +7063,7 @@ pyclass_Var_Urho3D_LogicComponent
 ;
 }
 
-void Implement_Urho3D_RaycastVehicle(py::class_<Urho3D::RaycastVehicle, Urho3D::SharedPtr<Urho3D::RaycastVehicle>, Urho3D::LogicComponent>& pyclass_Var_Urho3D_RaycastVehicle)
+void Implement_Urho3D_RaycastVehicle(py::class_<Urho3D::RaycastVehicle, Urho3D::ExternalPtr<Urho3D::RaycastVehicle>, Urho3D::LogicComponent>& pyclass_Var_Urho3D_RaycastVehicle)
 {
     // Class RaycastVehicle Implementation
 pyclass_Var_Urho3D_RaycastVehicle
@@ -7153,7 +7141,7 @@ pyclass_Var_Urho3D_RaycastVehicle
 ;
 }
 
-void Implement_Urho3D_SplinePath(py::class_<Urho3D::SplinePath, Urho3D::SharedPtr<Urho3D::SplinePath>, Urho3D::Component>& pyclass_Var_Urho3D_SplinePath)
+void Implement_Urho3D_SplinePath(py::class_<Urho3D::SplinePath, Urho3D::ExternalPtr<Urho3D::SplinePath>, Urho3D::Component>& pyclass_Var_Urho3D_SplinePath)
 {
     // Class SplinePath Implementation
 pyclass_Var_Urho3D_SplinePath
@@ -7191,7 +7179,7 @@ pyclass_Var_Urho3D_SplinePath
 ;
 }
 
-void Implement_Urho3D_Menu(py::class_<Urho3D::Menu, Urho3D::SharedPtr<Urho3D::Menu>, Urho3D::Button>& pyclass_Var_Urho3D_Menu)
+void Implement_Urho3D_Menu(py::class_<Urho3D::Menu, Urho3D::ExternalPtr<Urho3D::Menu>, Urho3D::Button>& pyclass_Var_Urho3D_Menu)
 {
     // Class Menu Implementation
 pyclass_Var_Urho3D_Menu
@@ -7220,7 +7208,7 @@ pyclass_Var_Urho3D_Menu
 ;
 }
 
-void Implement_Urho3D_ScrollView(py::class_<Urho3D::ScrollView, Urho3D::SharedPtr<Urho3D::ScrollView>, Urho3D::UIElement>& pyclass_Var_Urho3D_ScrollView)
+void Implement_Urho3D_ScrollView(py::class_<Urho3D::ScrollView, Urho3D::ExternalPtr<Urho3D::ScrollView>, Urho3D::UIElement>& pyclass_Var_Urho3D_ScrollView)
 {
     // Class ScrollView Implementation
 pyclass_Var_Urho3D_ScrollView
@@ -7269,7 +7257,7 @@ pyclass_Var_Urho3D_ScrollView
 ;
 }
 
-void Implement_Urho3D_Sprite(py::class_<Urho3D::Sprite, Urho3D::SharedPtr<Urho3D::Sprite>, Urho3D::UIElement>& pyclass_Var_Urho3D_Sprite)
+void Implement_Urho3D_Sprite(py::class_<Urho3D::Sprite, Urho3D::ExternalPtr<Urho3D::Sprite>, Urho3D::UIElement>& pyclass_Var_Urho3D_Sprite)
 {
     // Class Sprite Implementation
 pyclass_Var_Urho3D_Sprite
@@ -7313,7 +7301,7 @@ pyclass_Var_Urho3D_Sprite
 ;
 }
 
-void Implement_Urho3D_UIComponent(py::class_<Urho3D::UIComponent, Urho3D::SharedPtr<Urho3D::UIComponent>, Urho3D::Component>& pyclass_Var_Urho3D_UIComponent)
+void Implement_Urho3D_UIComponent(py::class_<Urho3D::UIComponent, Urho3D::ExternalPtr<Urho3D::UIComponent>, Urho3D::Component>& pyclass_Var_Urho3D_UIComponent)
 {
     // Class UIComponent Implementation
 pyclass_Var_Urho3D_UIComponent
@@ -7330,7 +7318,7 @@ pyclass_Var_Urho3D_UIComponent
 ;
 }
 
-void Implement_Urho3D_Renderer2D(py::class_<Urho3D::Renderer2D, Urho3D::SharedPtr<Urho3D::Renderer2D>, Urho3D::Drawable>& pyclass_Var_Urho3D_Renderer2D)
+void Implement_Urho3D_Renderer2D(py::class_<Urho3D::Renderer2D, Urho3D::ExternalPtr<Urho3D::Renderer2D>, Urho3D::Drawable>& pyclass_Var_Urho3D_Renderer2D)
 {
     // Class Renderer2D Implementation
 pyclass_Var_Urho3D_Renderer2D
@@ -7356,7 +7344,7 @@ pyclass_Var_Urho3D_Renderer2D
 ;
 }
 
-void Implement_Urho3D_RigidBody2D(py::class_<Urho3D::RigidBody2D, Urho3D::SharedPtr<Urho3D::RigidBody2D>, Urho3D::Component>& pyclass_Var_Urho3D_RigidBody2D)
+void Implement_Urho3D_RigidBody2D(py::class_<Urho3D::RigidBody2D, Urho3D::ExternalPtr<Urho3D::RigidBody2D>, Urho3D::Component>& pyclass_Var_Urho3D_RigidBody2D)
 {
     // Class RigidBody2D Implementation
 pyclass_Var_Urho3D_RigidBody2D
@@ -7416,7 +7404,7 @@ pyclass_Var_Urho3D_RigidBody2D
 ;
 }
 
-void Implement_Urho3D_PhysicsWorld2D(py::class_<Urho3D::PhysicsWorld2D, Urho3D::SharedPtr<Urho3D::PhysicsWorld2D>, Urho3D::Component>& pyclass_Var_Urho3D_PhysicsWorld2D)
+void Implement_Urho3D_PhysicsWorld2D(py::class_<Urho3D::PhysicsWorld2D, Urho3D::ExternalPtr<Urho3D::PhysicsWorld2D>, Urho3D::Component>& pyclass_Var_Urho3D_PhysicsWorld2D)
 {
     // Class PhysicsWorld2D Implementation
 pyclass_Var_Urho3D_PhysicsWorld2D
@@ -7495,7 +7483,7 @@ pyclass_Var_Urho3D_PhysicsWorld2D
 ;
 }
 
-void Implement_Urho3D_TileMapLayer2D(py::class_<Urho3D::TileMapLayer2D, Urho3D::SharedPtr<Urho3D::TileMapLayer2D>, Urho3D::Component>& pyclass_Var_Urho3D_TileMapLayer2D)
+void Implement_Urho3D_TileMapLayer2D(py::class_<Urho3D::TileMapLayer2D, Urho3D::ExternalPtr<Urho3D::TileMapLayer2D>, Urho3D::Component>& pyclass_Var_Urho3D_TileMapLayer2D)
 {
     // Class TileMapLayer2D Implementation
 pyclass_Var_Urho3D_TileMapLayer2D
@@ -7530,7 +7518,7 @@ pyclass_Var_Urho3D_TileMapLayer2D
 ;
 }
 
-void Implement_Urho3D_TileMap2D(py::class_<Urho3D::TileMap2D, Urho3D::SharedPtr<Urho3D::TileMap2D>, Urho3D::Component>& pyclass_Var_Urho3D_TileMap2D)
+void Implement_Urho3D_TileMap2D(py::class_<Urho3D::TileMap2D, Urho3D::ExternalPtr<Urho3D::TileMap2D>, Urho3D::Component>& pyclass_Var_Urho3D_TileMap2D)
 {
     // Class TileMap2D Implementation
 pyclass_Var_Urho3D_TileMap2D
@@ -7556,7 +7544,7 @@ pyclass_Var_Urho3D_TileMap2D
 ;
 }
 
-void Implement_Urho3D_IntVector3(py::class_<Urho3D::IntVector3, std::shared_ptr<Urho3D::IntVector3>>& pyclass_Var_Urho3D_IntVector3)
+void Implement_Urho3D_IntVector3(py::class_<Urho3D::IntVector3, Urho3D::ExternalPtr<Urho3D::IntVector3>>& pyclass_Var_Urho3D_IntVector3)
 {
     // Class IntVector3 Implementation
 pyclass_Var_Urho3D_IntVector3
@@ -7614,7 +7602,7 @@ pyclass_Var_Urho3D_IntVector3
 ;
 }
 
-void Implement_Urho3D_Scene(py::class_<Urho3D::Scene, Urho3D::SharedPtr<Urho3D::Scene>, Urho3D::Node>& pyclass_Var_Urho3D_Scene)
+void Implement_Urho3D_Scene(py::class_<Urho3D::Scene, Urho3D::ExternalPtr<Urho3D::Scene>, Urho3D::Node>& pyclass_Var_Urho3D_Scene)
 {
     // Class Scene Implementation
 pyclass_Var_Urho3D_Scene
@@ -7707,7 +7695,7 @@ pyclass_Var_Urho3D_Scene
 ;
 }
 
-void Implement_Urho3D_ScriptInstance(py::class_<Urho3D::ScriptInstance, Urho3D::SharedPtr<Urho3D::ScriptInstance>, Urho3D::Component, Urho3D::ScriptEventListener>& pyclass_Var_Urho3D_ScriptInstance)
+void Implement_Urho3D_ScriptInstance(py::class_<Urho3D::ScriptInstance, Urho3D::ExternalPtr<Urho3D::ScriptInstance>, Urho3D::Component, Urho3D::ScriptEventListener>& pyclass_Var_Urho3D_ScriptInstance)
 {
     // Class ScriptInstance Implementation
 pyclass_Var_Urho3D_ScriptInstance
@@ -7766,7 +7754,7 @@ pyclass_Var_Urho3D_ScriptInstance
 ;
 }
 
-void Implement_Urho3D_DebugRenderer(py::class_<Urho3D::DebugRenderer, Urho3D::SharedPtr<Urho3D::DebugRenderer>, Urho3D::Component>& pyclass_Var_Urho3D_DebugRenderer)
+void Implement_Urho3D_DebugRenderer(py::class_<Urho3D::DebugRenderer, Urho3D::ExternalPtr<Urho3D::DebugRenderer>, Urho3D::Component>& pyclass_Var_Urho3D_DebugRenderer)
 {
     // Class DebugRenderer Implementation
 pyclass_Var_Urho3D_DebugRenderer
@@ -7808,7 +7796,7 @@ pyclass_Var_Urho3D_DebugRenderer
 ;
 }
 
-void Implement_Urho3D_Camera(py::class_<Urho3D::Camera, Urho3D::SharedPtr<Urho3D::Camera>, Urho3D::Component>& pyclass_Var_Urho3D_Camera)
+void Implement_Urho3D_Camera(py::class_<Urho3D::Camera, Urho3D::ExternalPtr<Urho3D::Camera>, Urho3D::Component>& pyclass_Var_Urho3D_Camera)
 {
     // Class Camera Implementation
 pyclass_Var_Urho3D_Camera
@@ -7890,7 +7878,7 @@ pyclass_Var_Urho3D_Camera
 ;
 }
 
-void Implement_Urho3D_Light(py::class_<Urho3D::Light, Urho3D::SharedPtr<Urho3D::Light>, Urho3D::Drawable>& pyclass_Var_Urho3D_Light)
+void Implement_Urho3D_Light(py::class_<Urho3D::Light, Urho3D::ExternalPtr<Urho3D::Light>, Urho3D::Drawable>& pyclass_Var_Urho3D_Light)
 {
     // Class Light Implementation
 pyclass_Var_Urho3D_Light
@@ -7975,7 +7963,7 @@ pyclass_Var_Urho3D_Light
 ;
 }
 
-void Implement_Urho3D_Zone(py::class_<Urho3D::Zone, Urho3D::SharedPtr<Urho3D::Zone>, Urho3D::Drawable>& pyclass_Var_Urho3D_Zone)
+void Implement_Urho3D_Zone(py::class_<Urho3D::Zone, Urho3D::ExternalPtr<Urho3D::Zone>, Urho3D::Drawable>& pyclass_Var_Urho3D_Zone)
 {
     // Class Zone Implementation
 pyclass_Var_Urho3D_Zone
@@ -8018,7 +8006,7 @@ pyclass_Var_Urho3D_Zone
 ;
 }
 
-void Implement_Urho3D_Resource(py::class_<Urho3D::Resource, Urho3D::SharedPtr<Urho3D::Resource>, Urho3D::Object>& pyclass_Var_Urho3D_Resource)
+void Implement_Urho3D_Resource(py::class_<Urho3D::Resource, Urho3D::ExternalPtr<Urho3D::Resource>, Urho3D::Object>& pyclass_Var_Urho3D_Resource)
 {
     // Class Resource Implementation
 pyclass_Var_Urho3D_Resource
@@ -8046,7 +8034,7 @@ pyclass_Var_Urho3D_Resource
 ;
 }
 
-void Implement_Urho3D_XMLFile(py::class_<Urho3D::XMLFile, Urho3D::SharedPtr<Urho3D::XMLFile>, Urho3D::Resource>& pyclass_Var_Urho3D_XMLFile)
+void Implement_Urho3D_XMLFile(py::class_<Urho3D::XMLFile, Urho3D::ExternalPtr<Urho3D::XMLFile>, Urho3D::Resource>& pyclass_Var_Urho3D_XMLFile)
 {
     // Class XMLFile Implementation
 pyclass_Var_Urho3D_XMLFile
@@ -8071,7 +8059,7 @@ pyclass_Var_Urho3D_XMLFile
 ;
 }
 
-void Implement_Urho3D_XPathQuery(py::class_<Urho3D::XPathQuery, std::shared_ptr<Urho3D::XPathQuery>>& pyclass_Var_Urho3D_XPathQuery)
+void Implement_Urho3D_XPathQuery(py::class_<Urho3D::XPathQuery, Urho3D::ExternalPtr<Urho3D::XPathQuery>>& pyclass_Var_Urho3D_XPathQuery)
 {
     // Class XPathQuery Implementation
 pyclass_Var_Urho3D_XPathQuery
@@ -8099,7 +8087,7 @@ pyclass_Var_Urho3D_XPathQuery
 ;
 }
 
-void Implement_Urho3D_JSONFile(py::class_<Urho3D::JSONFile, Urho3D::SharedPtr<Urho3D::JSONFile>, Urho3D::Resource>& pyclass_Var_Urho3D_JSONFile)
+void Implement_Urho3D_JSONFile(py::class_<Urho3D::JSONFile, Urho3D::ExternalPtr<Urho3D::JSONFile>, Urho3D::Resource>& pyclass_Var_Urho3D_JSONFile)
 {
     // Class JSONFile Implementation
 pyclass_Var_Urho3D_JSONFile
@@ -8119,7 +8107,7 @@ pyclass_Var_Urho3D_JSONFile
 ;
 }
 
-void Implement_Urho3D_EventProfiler(py::class_<Urho3D::EventProfiler, Urho3D::SharedPtr<Urho3D::EventProfiler>, Urho3D::Profiler>& pyclass_Var_Urho3D_EventProfiler)
+void Implement_Urho3D_EventProfiler(py::class_<Urho3D::EventProfiler, Urho3D::ExternalPtr<Urho3D::EventProfiler>, Urho3D::Profiler>& pyclass_Var_Urho3D_EventProfiler)
 {
     // Class EventProfiler Implementation
 pyclass_Var_Urho3D_EventProfiler
@@ -8131,7 +8119,7 @@ pyclass_Var_Urho3D_EventProfiler
 ;
 }
 
-void Implement_Urho3D_Font(py::class_<Urho3D::Font, Urho3D::SharedPtr<Urho3D::Font>, Urho3D::Resource>& pyclass_Var_Urho3D_Font)
+void Implement_Urho3D_Font(py::class_<Urho3D::Font, Urho3D::ExternalPtr<Urho3D::Font>, Urho3D::Resource>& pyclass_Var_Urho3D_Font)
 {
     // Class Font Implementation
 pyclass_Var_Urho3D_Font
@@ -8156,7 +8144,7 @@ pyclass_Var_Urho3D_Font
 ;
 }
 
-void Implement_Urho3D_AnimationController(py::class_<Urho3D::AnimationController, Urho3D::SharedPtr<Urho3D::AnimationController>, Urho3D::Component>& pyclass_Var_Urho3D_AnimationController)
+void Implement_Urho3D_AnimationController(py::class_<Urho3D::AnimationController, Urho3D::ExternalPtr<Urho3D::AnimationController>, Urho3D::Component>& pyclass_Var_Urho3D_AnimationController)
 {
     // Class AnimationController Implementation
 pyclass_Var_Urho3D_AnimationController
@@ -8222,7 +8210,7 @@ pyclass_Var_Urho3D_AnimationController
 ;
 }
 
-void Implement_Urho3D_Shader(py::class_<Urho3D::Shader, Urho3D::SharedPtr<Urho3D::Shader>, Urho3D::Resource>& pyclass_Var_Urho3D_Shader)
+void Implement_Urho3D_Shader(py::class_<Urho3D::Shader, Urho3D::ExternalPtr<Urho3D::Shader>, Urho3D::Resource>& pyclass_Var_Urho3D_Shader)
 {
     // Class Shader Implementation
 pyclass_Var_Urho3D_Shader
@@ -8244,7 +8232,7 @@ pyclass_Var_Urho3D_Shader
 ;
 }
 
-void Implement_Urho3D_ParticleEffect(py::class_<Urho3D::ParticleEffect, Urho3D::SharedPtr<Urho3D::ParticleEffect>, Urho3D::Resource>& pyclass_Var_Urho3D_ParticleEffect)
+void Implement_Urho3D_ParticleEffect(py::class_<Urho3D::ParticleEffect, Urho3D::ExternalPtr<Urho3D::ParticleEffect>, Urho3D::Resource>& pyclass_Var_Urho3D_ParticleEffect)
 {
     // Class ParticleEffect Implementation
 pyclass_Var_Urho3D_ParticleEffect
@@ -8366,7 +8354,7 @@ pyclass_Var_Urho3D_ParticleEffect
 ;
 }
 
-void Implement_Urho3D_StaticModelGroup(py::class_<Urho3D::StaticModelGroup, Urho3D::SharedPtr<Urho3D::StaticModelGroup>, Urho3D::StaticModel>& pyclass_Var_Urho3D_StaticModelGroup)
+void Implement_Urho3D_StaticModelGroup(py::class_<Urho3D::StaticModelGroup, Urho3D::ExternalPtr<Urho3D::StaticModelGroup>, Urho3D::StaticModel>& pyclass_Var_Urho3D_StaticModelGroup)
 {
     // Class StaticModelGroup Implementation
 pyclass_Var_Urho3D_StaticModelGroup
@@ -8394,7 +8382,7 @@ pyclass_Var_Urho3D_StaticModelGroup
 ;
 }
 
-void Implement_Urho3D_IKSolver(py::class_<Urho3D::IKSolver, Urho3D::SharedPtr<Urho3D::IKSolver>, Urho3D::Component>& pyclass_Var_Urho3D_IKSolver)
+void Implement_Urho3D_IKSolver(py::class_<Urho3D::IKSolver, Urho3D::ExternalPtr<Urho3D::IKSolver>, Urho3D::Component>& pyclass_Var_Urho3D_IKSolver)
 {
     // Class IKSolver Implementation
 pyclass_Var_Urho3D_IKSolver
@@ -8444,7 +8432,7 @@ pyclass_Var_Urho3D_IKSolver
 ;
 }
 
-void Implement_Urho3D_LuaFile(py::class_<Urho3D::LuaFile, Urho3D::SharedPtr<Urho3D::LuaFile>, Urho3D::Resource>& pyclass_Var_Urho3D_LuaFile)
+void Implement_Urho3D_LuaFile(py::class_<Urho3D::LuaFile, Urho3D::ExternalPtr<Urho3D::LuaFile>, Urho3D::Resource>& pyclass_Var_Urho3D_LuaFile)
 {
     // Class LuaFile Implementation
 pyclass_Var_Urho3D_LuaFile
@@ -8463,7 +8451,7 @@ pyclass_Var_Urho3D_LuaFile
 ;
 }
 
-void Implement_Urho3D_CrowdManager(py::class_<Urho3D::CrowdManager, Urho3D::SharedPtr<Urho3D::CrowdManager>, Urho3D::Component>& pyclass_Var_Urho3D_CrowdManager)
+void Implement_Urho3D_CrowdManager(py::class_<Urho3D::CrowdManager, Urho3D::ExternalPtr<Urho3D::CrowdManager>, Urho3D::Component>& pyclass_Var_Urho3D_CrowdManager)
 {
     // Class CrowdManager Implementation
 pyclass_Var_Urho3D_CrowdManager
@@ -8517,7 +8505,7 @@ pyclass_Var_Urho3D_CrowdManager
 ;
 }
 
-void Implement_Urho3D_DynamicNavigationMesh(py::class_<Urho3D::DynamicNavigationMesh, Urho3D::SharedPtr<Urho3D::DynamicNavigationMesh>, Urho3D::NavigationMesh>& pyclass_Var_Urho3D_DynamicNavigationMesh)
+void Implement_Urho3D_DynamicNavigationMesh(py::class_<Urho3D::DynamicNavigationMesh, Urho3D::ExternalPtr<Urho3D::DynamicNavigationMesh>, Urho3D::NavigationMesh>& pyclass_Var_Urho3D_DynamicNavigationMesh)
 {
     // Class DynamicNavigationMesh Implementation
 pyclass_Var_Urho3D_DynamicNavigationMesh
@@ -8553,7 +8541,7 @@ pyclass_Var_Urho3D_DynamicNavigationMesh
 ;
 }
 
-void Implement_Urho3D_RigidBody(py::class_<Urho3D::RigidBody, Urho3D::SharedPtr<Urho3D::RigidBody>, Urho3D::Component>& pyclass_Var_Urho3D_RigidBody)
+void Implement_Urho3D_RigidBody(py::class_<Urho3D::RigidBody, Urho3D::ExternalPtr<Urho3D::RigidBody>, Urho3D::Component>& pyclass_Var_Urho3D_RigidBody)
 {
     // Class RigidBody Implementation
 pyclass_Var_Urho3D_RigidBody
@@ -8658,7 +8646,7 @@ pyclass_Var_Urho3D_RigidBody
 ;
 }
 
-void Implement_Urho3D_SmoothedTransform(py::class_<Urho3D::SmoothedTransform, Urho3D::SharedPtr<Urho3D::SmoothedTransform>, Urho3D::Component>& pyclass_Var_Urho3D_SmoothedTransform)
+void Implement_Urho3D_SmoothedTransform(py::class_<Urho3D::SmoothedTransform, Urho3D::ExternalPtr<Urho3D::SmoothedTransform>, Urho3D::Component>& pyclass_Var_Urho3D_SmoothedTransform)
 {
     // Class SmoothedTransform Implementation
 pyclass_Var_Urho3D_SmoothedTransform
@@ -8681,7 +8669,7 @@ pyclass_Var_Urho3D_SmoothedTransform
 ;
 }
 
-void Implement_Urho3D_UnknownComponent(py::class_<Urho3D::UnknownComponent, Urho3D::SharedPtr<Urho3D::UnknownComponent>, Urho3D::Component>& pyclass_Var_Urho3D_UnknownComponent)
+void Implement_Urho3D_UnknownComponent(py::class_<Urho3D::UnknownComponent, Urho3D::ExternalPtr<Urho3D::UnknownComponent>, Urho3D::Component>& pyclass_Var_Urho3D_UnknownComponent)
 {
     // Class UnknownComponent Implementation
 pyclass_Var_Urho3D_UnknownComponent
@@ -8706,7 +8694,7 @@ pyclass_Var_Urho3D_UnknownComponent
 ;
 }
 
-void Implement_Urho3D_ProgressBar(py::class_<Urho3D::ProgressBar, Urho3D::SharedPtr<Urho3D::ProgressBar>, Urho3D::BorderImage>& pyclass_Var_Urho3D_ProgressBar)
+void Implement_Urho3D_ProgressBar(py::class_<Urho3D::ProgressBar, Urho3D::ExternalPtr<Urho3D::ProgressBar>, Urho3D::BorderImage>& pyclass_Var_Urho3D_ProgressBar)
 {
     // Class ProgressBar Implementation
 pyclass_Var_Urho3D_ProgressBar
@@ -8734,7 +8722,7 @@ pyclass_Var_Urho3D_ProgressBar
 ;
 }
 
-void Implement_Urho3D_Drawable2D(py::class_<Urho3D::Drawable2D, Urho3D::SharedPtr<Urho3D::Drawable2D>, Urho3D::Drawable>& pyclass_Var_Urho3D_Drawable2D)
+void Implement_Urho3D_Drawable2D(py::class_<Urho3D::Drawable2D, Urho3D::ExternalPtr<Urho3D::Drawable2D>, Urho3D::Drawable>& pyclass_Var_Urho3D_Drawable2D)
 {
     // Class Drawable2D Implementation
 pyclass_Var_Urho3D_Drawable2D
@@ -8755,7 +8743,7 @@ pyclass_Var_Urho3D_Drawable2D
 ;
 }
 
-void Implement_Urho3D_StaticSprite2D(py::class_<Urho3D::StaticSprite2D, Urho3D::SharedPtr<Urho3D::StaticSprite2D>, Urho3D::Drawable2D>& pyclass_Var_Urho3D_StaticSprite2D)
+void Implement_Urho3D_StaticSprite2D(py::class_<Urho3D::StaticSprite2D, Urho3D::ExternalPtr<Urho3D::StaticSprite2D>, Urho3D::Drawable2D>& pyclass_Var_Urho3D_StaticSprite2D)
 {
     // Class StaticSprite2D Implementation
 pyclass_Var_Urho3D_StaticSprite2D
@@ -8803,7 +8791,7 @@ pyclass_Var_Urho3D_StaticSprite2D
 ;
 }
 
-void Implement_Urho3D_AnimatedSprite2D(py::class_<Urho3D::AnimatedSprite2D, Urho3D::SharedPtr<Urho3D::AnimatedSprite2D>, Urho3D::StaticSprite2D>& pyclass_Var_Urho3D_AnimatedSprite2D)
+void Implement_Urho3D_AnimatedSprite2D(py::class_<Urho3D::AnimatedSprite2D, Urho3D::ExternalPtr<Urho3D::AnimatedSprite2D>, Urho3D::StaticSprite2D>& pyclass_Var_Urho3D_AnimatedSprite2D)
 {
     // Class AnimatedSprite2D Implementation
 pyclass_Var_Urho3D_AnimatedSprite2D
@@ -8833,7 +8821,7 @@ pyclass_Var_Urho3D_AnimatedSprite2D
 ;
 }
 
-void Implement_Urho3D_CollisionShape2D(py::class_<Urho3D::CollisionShape2D, Urho3D::SharedPtr<Urho3D::CollisionShape2D>, Urho3D::Component>& pyclass_Var_Urho3D_CollisionShape2D)
+void Implement_Urho3D_CollisionShape2D(py::class_<Urho3D::CollisionShape2D, Urho3D::ExternalPtr<Urho3D::CollisionShape2D>, Urho3D::Component>& pyclass_Var_Urho3D_CollisionShape2D)
 {
     // Class CollisionShape2D Implementation
 pyclass_Var_Urho3D_CollisionShape2D
@@ -8869,7 +8857,7 @@ pyclass_Var_Urho3D_CollisionShape2D
 ;
 }
 
-void Implement_Urho3D_CollisionChain2D(py::class_<Urho3D::CollisionChain2D, Urho3D::SharedPtr<Urho3D::CollisionChain2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionChain2D)
+void Implement_Urho3D_CollisionChain2D(py::class_<Urho3D::CollisionChain2D, Urho3D::ExternalPtr<Urho3D::CollisionChain2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionChain2D)
 {
     // Class CollisionChain2D Implementation
 pyclass_Var_Urho3D_CollisionChain2D
@@ -8896,7 +8884,7 @@ pyclass_Var_Urho3D_CollisionChain2D
 ;
 }
 
-void Implement_Urho3D_CollisionEdge2D(py::class_<Urho3D::CollisionEdge2D, Urho3D::SharedPtr<Urho3D::CollisionEdge2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionEdge2D)
+void Implement_Urho3D_CollisionEdge2D(py::class_<Urho3D::CollisionEdge2D, Urho3D::ExternalPtr<Urho3D::CollisionEdge2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionEdge2D)
 {
     // Class CollisionEdge2D Implementation
 pyclass_Var_Urho3D_CollisionEdge2D
@@ -8914,7 +8902,7 @@ pyclass_Var_Urho3D_CollisionEdge2D
 ;
 }
 
-void Implement_Urho3D_Constraint2D(py::class_<Urho3D::Constraint2D, Urho3D::SharedPtr<Urho3D::Constraint2D>, Urho3D::Component>& pyclass_Var_Urho3D_Constraint2D)
+void Implement_Urho3D_Constraint2D(py::class_<Urho3D::Constraint2D, Urho3D::ExternalPtr<Urho3D::Constraint2D>, Urho3D::Component>& pyclass_Var_Urho3D_Constraint2D)
 {
     // Class Constraint2D Implementation
 pyclass_Var_Urho3D_Constraint2D
@@ -8940,7 +8928,7 @@ pyclass_Var_Urho3D_Constraint2D
 ;
 }
 
-void Implement_Urho3D_ConstraintFriction2D(py::class_<Urho3D::ConstraintFriction2D, Urho3D::SharedPtr<Urho3D::ConstraintFriction2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintFriction2D)
+void Implement_Urho3D_ConstraintFriction2D(py::class_<Urho3D::ConstraintFriction2D, Urho3D::ExternalPtr<Urho3D::ConstraintFriction2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintFriction2D)
 {
     // Class ConstraintFriction2D Implementation
 pyclass_Var_Urho3D_ConstraintFriction2D
@@ -8959,7 +8947,7 @@ pyclass_Var_Urho3D_ConstraintFriction2D
 ;
 }
 
-void Implement_Urho3D_ConstraintMotor2D(py::class_<Urho3D::ConstraintMotor2D, Urho3D::SharedPtr<Urho3D::ConstraintMotor2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintMotor2D)
+void Implement_Urho3D_ConstraintMotor2D(py::class_<Urho3D::ConstraintMotor2D, Urho3D::ExternalPtr<Urho3D::ConstraintMotor2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintMotor2D)
 {
     // Class ConstraintMotor2D Implementation
 pyclass_Var_Urho3D_ConstraintMotor2D
@@ -8982,7 +8970,7 @@ pyclass_Var_Urho3D_ConstraintMotor2D
 ;
 }
 
-void Implement_Urho3D_ConstraintPrismatic2D(py::class_<Urho3D::ConstraintPrismatic2D, Urho3D::SharedPtr<Urho3D::ConstraintPrismatic2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintPrismatic2D)
+void Implement_Urho3D_ConstraintPrismatic2D(py::class_<Urho3D::ConstraintPrismatic2D, Urho3D::ExternalPtr<Urho3D::ConstraintPrismatic2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintPrismatic2D)
 {
     // Class ConstraintPrismatic2D Implementation
 pyclass_Var_Urho3D_ConstraintPrismatic2D
@@ -9011,7 +8999,7 @@ pyclass_Var_Urho3D_ConstraintPrismatic2D
 ;
 }
 
-void Implement_Urho3D_ConstraintRevolute2D(py::class_<Urho3D::ConstraintRevolute2D, Urho3D::SharedPtr<Urho3D::ConstraintRevolute2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintRevolute2D)
+void Implement_Urho3D_ConstraintRevolute2D(py::class_<Urho3D::ConstraintRevolute2D, Urho3D::ExternalPtr<Urho3D::ConstraintRevolute2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintRevolute2D)
 {
     // Class ConstraintRevolute2D Implementation
 pyclass_Var_Urho3D_ConstraintRevolute2D
@@ -9038,7 +9026,7 @@ pyclass_Var_Urho3D_ConstraintRevolute2D
 ;
 }
 
-void Implement_Urho3D_ConstraintWeld2D(py::class_<Urho3D::ConstraintWeld2D, Urho3D::SharedPtr<Urho3D::ConstraintWeld2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintWeld2D)
+void Implement_Urho3D_ConstraintWeld2D(py::class_<Urho3D::ConstraintWeld2D, Urho3D::ExternalPtr<Urho3D::ConstraintWeld2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintWeld2D)
 {
     // Class ConstraintWeld2D Implementation
 pyclass_Var_Urho3D_ConstraintWeld2D
@@ -9057,7 +9045,7 @@ pyclass_Var_Urho3D_ConstraintWeld2D
 ;
 }
 
-void Implement_Urho3D_ParticleEffect2D(py::class_<Urho3D::ParticleEffect2D, Urho3D::SharedPtr<Urho3D::ParticleEffect2D>, Urho3D::Resource>& pyclass_Var_Urho3D_ParticleEffect2D)
+void Implement_Urho3D_ParticleEffect2D(py::class_<Urho3D::ParticleEffect2D, Urho3D::ExternalPtr<Urho3D::ParticleEffect2D>, Urho3D::Resource>& pyclass_Var_Urho3D_ParticleEffect2D)
 {
     // Class ParticleEffect2D Implementation
 pyclass_Var_Urho3D_ParticleEffect2D
@@ -9149,7 +9137,7 @@ pyclass_Var_Urho3D_ParticleEffect2D
 ;
 }
 
-void Implement_Urho3D_StretchableSprite2D(py::class_<Urho3D::StretchableSprite2D, Urho3D::SharedPtr<Urho3D::StretchableSprite2D>, Urho3D::StaticSprite2D>& pyclass_Var_Urho3D_StretchableSprite2D)
+void Implement_Urho3D_StretchableSprite2D(py::class_<Urho3D::StretchableSprite2D, Urho3D::ExternalPtr<Urho3D::StretchableSprite2D>, Urho3D::StaticSprite2D>& pyclass_Var_Urho3D_StretchableSprite2D)
 {
     // Class StretchableSprite2D Implementation
 pyclass_Var_Urho3D_StretchableSprite2D
@@ -9162,7 +9150,7 @@ pyclass_Var_Urho3D_StretchableSprite2D
 ;
 }
 
-void Implement_Urho3D_VectorBuffer(py::class_<Urho3D::VectorBuffer, std::shared_ptr<Urho3D::VectorBuffer>, Urho3D::AbstractFile>& pyclass_Var_Urho3D_VectorBuffer)
+void Implement_Urho3D_VectorBuffer(py::class_<Urho3D::VectorBuffer, Urho3D::ExternalPtr<Urho3D::VectorBuffer>, Urho3D::AbstractFile>& pyclass_Var_Urho3D_VectorBuffer)
 {
     // Class VectorBuffer Implementation
 pyclass_Var_Urho3D_VectorBuffer
@@ -9187,7 +9175,7 @@ pyclass_Var_Urho3D_VectorBuffer
 ;
 }
 
-void Implement_Urho3D_ValueAnimation(py::class_<Urho3D::ValueAnimation, Urho3D::SharedPtr<Urho3D::ValueAnimation>, Urho3D::Resource>& pyclass_Var_Urho3D_ValueAnimation)
+void Implement_Urho3D_ValueAnimation(py::class_<Urho3D::ValueAnimation, Urho3D::ExternalPtr<Urho3D::ValueAnimation>, Urho3D::Resource>& pyclass_Var_Urho3D_ValueAnimation)
 {
     // Class ValueAnimation Implementation
 pyclass_Var_Urho3D_ValueAnimation
@@ -9229,7 +9217,7 @@ pyclass_Var_Urho3D_ValueAnimation
 ;
 }
 
-void Implement_Urho3D_File(py::class_<Urho3D::File, Urho3D::SharedPtr<Urho3D::File>, Urho3D::Object, Urho3D::AbstractFile>& pyclass_Var_Urho3D_File)
+void Implement_Urho3D_File(py::class_<Urho3D::File, Urho3D::ExternalPtr<Urho3D::File>, Urho3D::Object, Urho3D::AbstractFile>& pyclass_Var_Urho3D_File)
 {
     // Class File Implementation
 pyclass_Var_Urho3D_File
@@ -9261,7 +9249,7 @@ pyclass_Var_Urho3D_File
 ;
 }
 
-void Implement_Urho3D_ResourceWithMetadata(py::class_<Urho3D::ResourceWithMetadata, Urho3D::SharedPtr<Urho3D::ResourceWithMetadata>, Urho3D::Resource>& pyclass_Var_Urho3D_ResourceWithMetadata)
+void Implement_Urho3D_ResourceWithMetadata(py::class_<Urho3D::ResourceWithMetadata, Urho3D::ExternalPtr<Urho3D::ResourceWithMetadata>, Urho3D::Resource>& pyclass_Var_Urho3D_ResourceWithMetadata)
 {
     // Class ResourceWithMetadata Implementation
 pyclass_Var_Urho3D_ResourceWithMetadata
@@ -9277,7 +9265,7 @@ pyclass_Var_Urho3D_ResourceWithMetadata
 ;
 }
 
-void Implement_Urho3D_Technique(py::class_<Urho3D::Technique, Urho3D::SharedPtr<Urho3D::Technique>, Urho3D::Resource>& pyclass_Var_Urho3D_Technique)
+void Implement_Urho3D_Technique(py::class_<Urho3D::Technique, Urho3D::ExternalPtr<Urho3D::Technique>, Urho3D::Resource>& pyclass_Var_Urho3D_Technique)
 {
     // Class Technique Implementation
 pyclass_Var_Urho3D_Technique
@@ -9320,7 +9308,7 @@ pyclass_Var_Urho3D_Technique
 ;
 }
 
-void Implement_Urho3D_SoundListener(py::class_<Urho3D::SoundListener, Urho3D::SharedPtr<Urho3D::SoundListener>, Urho3D::Component>& pyclass_Var_Urho3D_SoundListener)
+void Implement_Urho3D_SoundListener(py::class_<Urho3D::SoundListener, Urho3D::ExternalPtr<Urho3D::SoundListener>, Urho3D::Component>& pyclass_Var_Urho3D_SoundListener)
 {
     // Class SoundListener Implementation
 pyclass_Var_Urho3D_SoundListener
@@ -9333,7 +9321,7 @@ pyclass_Var_Urho3D_SoundListener
 ;
 }
 
-void Implement_Urho3D_ListView(py::class_<Urho3D::ListView, Urho3D::SharedPtr<Urho3D::ListView>, Urho3D::ScrollView>& pyclass_Var_Urho3D_ListView)
+void Implement_Urho3D_ListView(py::class_<Urho3D::ListView, Urho3D::ExternalPtr<Urho3D::ListView>, Urho3D::ScrollView>& pyclass_Var_Urho3D_ListView)
 {
     // Class ListView Implementation
 pyclass_Var_Urho3D_ListView
@@ -9397,7 +9385,7 @@ pyclass_Var_Urho3D_ListView
 ;
 }
 
-void Implement_Urho3D_CustomGeometry(py::class_<Urho3D::CustomGeometry, Urho3D::SharedPtr<Urho3D::CustomGeometry>, Urho3D::Drawable>& pyclass_Var_Urho3D_CustomGeometry)
+void Implement_Urho3D_CustomGeometry(py::class_<Urho3D::CustomGeometry, Urho3D::ExternalPtr<Urho3D::CustomGeometry>, Urho3D::Drawable>& pyclass_Var_Urho3D_CustomGeometry)
 {
     // Class CustomGeometry Implementation
 pyclass_Var_Urho3D_CustomGeometry
@@ -9444,7 +9432,7 @@ pyclass_Var_Urho3D_CustomGeometry
 ;
 }
 
-void Implement_Urho3D_RibbonTrail(py::class_<Urho3D::RibbonTrail, Urho3D::SharedPtr<Urho3D::RibbonTrail>, Urho3D::Drawable>& pyclass_Var_Urho3D_RibbonTrail)
+void Implement_Urho3D_RibbonTrail(py::class_<Urho3D::RibbonTrail, Urho3D::ExternalPtr<Urho3D::RibbonTrail>, Urho3D::Drawable>& pyclass_Var_Urho3D_RibbonTrail)
 {
     // Class RibbonTrail Implementation
 pyclass_Var_Urho3D_RibbonTrail
@@ -9503,7 +9491,7 @@ pyclass_Var_Urho3D_RibbonTrail
 ;
 }
 
-void Implement_Urho3D_MemoryBuffer(py::class_<Urho3D::MemoryBuffer, std::shared_ptr<Urho3D::MemoryBuffer>, Urho3D::AbstractFile>& pyclass_Var_Urho3D_MemoryBuffer)
+void Implement_Urho3D_MemoryBuffer(py::class_<Urho3D::MemoryBuffer, Urho3D::ExternalPtr<Urho3D::MemoryBuffer>, Urho3D::AbstractFile>& pyclass_Var_Urho3D_MemoryBuffer)
 {
     // Class MemoryBuffer Implementation
 pyclass_Var_Urho3D_MemoryBuffer
@@ -9521,7 +9509,7 @@ pyclass_Var_Urho3D_MemoryBuffer
 ;
 }
 
-void Implement_Urho3D_OffMeshConnection(py::class_<Urho3D::OffMeshConnection, Urho3D::SharedPtr<Urho3D::OffMeshConnection>, Urho3D::Component>& pyclass_Var_Urho3D_OffMeshConnection)
+void Implement_Urho3D_OffMeshConnection(py::class_<Urho3D::OffMeshConnection, Urho3D::ExternalPtr<Urho3D::OffMeshConnection>, Urho3D::Component>& pyclass_Var_Urho3D_OffMeshConnection)
 {
     // Class OffMeshConnection Implementation
 pyclass_Var_Urho3D_OffMeshConnection
@@ -9546,7 +9534,7 @@ pyclass_Var_Urho3D_OffMeshConnection
 ;
 }
 
-void Implement_Urho3D_Constraint(py::class_<Urho3D::Constraint, Urho3D::SharedPtr<Urho3D::Constraint>, Urho3D::Component>& pyclass_Var_Urho3D_Constraint)
+void Implement_Urho3D_Constraint(py::class_<Urho3D::Constraint, Urho3D::ExternalPtr<Urho3D::Constraint>, Urho3D::Component>& pyclass_Var_Urho3D_Constraint)
 {
     // Class Constraint Implementation
 pyclass_Var_Urho3D_Constraint
@@ -9598,7 +9586,7 @@ pyclass_Var_Urho3D_Constraint
 ;
 }
 
-void Implement_Urho3D_FontGlyph(py::class_<Urho3D::FontGlyph, std::shared_ptr<Urho3D::FontGlyph>>& pyclass_Var_Urho3D_FontGlyph)
+void Implement_Urho3D_FontGlyph(py::class_<Urho3D::FontGlyph, Urho3D::ExternalPtr<Urho3D::FontGlyph>>& pyclass_Var_Urho3D_FontGlyph)
 {
     // Class FontGlyph Implementation
 pyclass_Var_Urho3D_FontGlyph
@@ -9616,7 +9604,7 @@ pyclass_Var_Urho3D_FontGlyph
 ;
 }
 
-void Implement_Urho3D_Sprite2D(py::class_<Urho3D::Sprite2D, Urho3D::SharedPtr<Urho3D::Sprite2D>, Urho3D::Resource>& pyclass_Var_Urho3D_Sprite2D)
+void Implement_Urho3D_Sprite2D(py::class_<Urho3D::Sprite2D, Urho3D::ExternalPtr<Urho3D::Sprite2D>, Urho3D::Resource>& pyclass_Var_Urho3D_Sprite2D)
 {
     // Class Sprite2D Implementation
 pyclass_Var_Urho3D_Sprite2D
@@ -9646,7 +9634,7 @@ pyclass_Var_Urho3D_Sprite2D
 ;
 }
 
-void Implement_Urho3D_SpriteSheet2D(py::class_<Urho3D::SpriteSheet2D, Urho3D::SharedPtr<Urho3D::SpriteSheet2D>, Urho3D::Resource>& pyclass_Var_Urho3D_SpriteSheet2D)
+void Implement_Urho3D_SpriteSheet2D(py::class_<Urho3D::SpriteSheet2D, Urho3D::ExternalPtr<Urho3D::SpriteSheet2D>, Urho3D::Resource>& pyclass_Var_Urho3D_SpriteSheet2D)
 {
     // Class SpriteSheet2D Implementation
 pyclass_Var_Urho3D_SpriteSheet2D
@@ -9667,7 +9655,7 @@ pyclass_Var_Urho3D_SpriteSheet2D
 ;
 }
 
-void Implement_Urho3D_CollisionCircle2D(py::class_<Urho3D::CollisionCircle2D, Urho3D::SharedPtr<Urho3D::CollisionCircle2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionCircle2D)
+void Implement_Urho3D_CollisionCircle2D(py::class_<Urho3D::CollisionCircle2D, Urho3D::ExternalPtr<Urho3D::CollisionCircle2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionCircle2D)
 {
     // Class CollisionCircle2D Implementation
 pyclass_Var_Urho3D_CollisionCircle2D
@@ -9685,7 +9673,7 @@ pyclass_Var_Urho3D_CollisionCircle2D
 ;
 }
 
-void Implement_Urho3D_ConstraintDistance2D(py::class_<Urho3D::ConstraintDistance2D, Urho3D::SharedPtr<Urho3D::ConstraintDistance2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintDistance2D)
+void Implement_Urho3D_ConstraintDistance2D(py::class_<Urho3D::ConstraintDistance2D, Urho3D::ExternalPtr<Urho3D::ConstraintDistance2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintDistance2D)
 {
     // Class ConstraintDistance2D Implementation
 pyclass_Var_Urho3D_ConstraintDistance2D
@@ -9708,7 +9696,7 @@ pyclass_Var_Urho3D_ConstraintDistance2D
 ;
 }
 
-void Implement_Urho3D_ConstraintMouse2D(py::class_<Urho3D::ConstraintMouse2D, Urho3D::SharedPtr<Urho3D::ConstraintMouse2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintMouse2D)
+void Implement_Urho3D_ConstraintMouse2D(py::class_<Urho3D::ConstraintMouse2D, Urho3D::ExternalPtr<Urho3D::ConstraintMouse2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintMouse2D)
 {
     // Class ConstraintMouse2D Implementation
 pyclass_Var_Urho3D_ConstraintMouse2D
@@ -9729,7 +9717,7 @@ pyclass_Var_Urho3D_ConstraintMouse2D
 ;
 }
 
-void Implement_Urho3D_ConstraintRope2D(py::class_<Urho3D::ConstraintRope2D, Urho3D::SharedPtr<Urho3D::ConstraintRope2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintRope2D)
+void Implement_Urho3D_ConstraintRope2D(py::class_<Urho3D::ConstraintRope2D, Urho3D::ExternalPtr<Urho3D::ConstraintRope2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintRope2D)
 {
     // Class ConstraintRope2D Implementation
 pyclass_Var_Urho3D_ConstraintRope2D
@@ -9748,7 +9736,7 @@ pyclass_Var_Urho3D_ConstraintRope2D
 ;
 }
 
-void Implement_Urho3D_ParticleEmitter2D(py::class_<Urho3D::ParticleEmitter2D, Urho3D::SharedPtr<Urho3D::ParticleEmitter2D>, Urho3D::Drawable2D>& pyclass_Var_Urho3D_ParticleEmitter2D)
+void Implement_Urho3D_ParticleEmitter2D(py::class_<Urho3D::ParticleEmitter2D, Urho3D::ExternalPtr<Urho3D::ParticleEmitter2D>, Urho3D::Drawable2D>& pyclass_Var_Urho3D_ParticleEmitter2D)
 {
     // Class ParticleEmitter2D Implementation
 pyclass_Var_Urho3D_ParticleEmitter2D
@@ -9778,7 +9766,7 @@ pyclass_Var_Urho3D_ParticleEmitter2D
 ;
 }
 
-void Implement_Urho3D_ScriptFile(py::class_<Urho3D::ScriptFile, Urho3D::SharedPtr<Urho3D::ScriptFile>, Urho3D::Resource, Urho3D::ScriptEventListener>& pyclass_Var_Urho3D_ScriptFile)
+void Implement_Urho3D_ScriptFile(py::class_<Urho3D::ScriptFile, Urho3D::ExternalPtr<Urho3D::ScriptFile>, Urho3D::Resource, Urho3D::ScriptEventListener>& pyclass_Var_Urho3D_ScriptFile)
 {
     // Class ScriptFile Implementation
 pyclass_Var_Urho3D_ScriptFile
@@ -9824,7 +9812,7 @@ pyclass_Var_Urho3D_ScriptFile
 ;
 }
 
-void Implement_Urho3D_Sound(py::class_<Urho3D::Sound, Urho3D::SharedPtr<Urho3D::Sound>, Urho3D::ResourceWithMetadata>& pyclass_Var_Urho3D_Sound)
+void Implement_Urho3D_Sound(py::class_<Urho3D::Sound, Urho3D::ExternalPtr<Urho3D::Sound>, Urho3D::ResourceWithMetadata>& pyclass_Var_Urho3D_Sound)
 {
     // Class Sound Implementation
 pyclass_Var_Urho3D_Sound
@@ -9866,7 +9854,7 @@ pyclass_Var_Urho3D_Sound
 ;
 }
 
-void Implement_Urho3D_Model(py::class_<Urho3D::Model, Urho3D::SharedPtr<Urho3D::Model>, Urho3D::ResourceWithMetadata>& pyclass_Var_Urho3D_Model)
+void Implement_Urho3D_Model(py::class_<Urho3D::Model, Urho3D::ExternalPtr<Urho3D::Model>, Urho3D::ResourceWithMetadata>& pyclass_Var_Urho3D_Model)
 {
     // Class Model Implementation
 pyclass_Var_Urho3D_Model
@@ -9925,7 +9913,7 @@ pyclass_Var_Urho3D_Model
 ;
 }
 
-void Implement_Urho3D_DropDownList(py::class_<Urho3D::DropDownList, Urho3D::SharedPtr<Urho3D::DropDownList>, Urho3D::Menu>& pyclass_Var_Urho3D_DropDownList)
+void Implement_Urho3D_DropDownList(py::class_<Urho3D::DropDownList, Urho3D::ExternalPtr<Urho3D::DropDownList>, Urho3D::Menu>& pyclass_Var_Urho3D_DropDownList)
 {
     // Class DropDownList Implementation
 pyclass_Var_Urho3D_DropDownList
@@ -9963,7 +9951,7 @@ pyclass_Var_Urho3D_DropDownList
 ;
 }
 
-void Implement_Urho3D_Image(py::class_<Urho3D::Image, Urho3D::SharedPtr<Urho3D::Image>, Urho3D::Resource>& pyclass_Var_Urho3D_Image)
+void Implement_Urho3D_Image(py::class_<Urho3D::Image, Urho3D::ExternalPtr<Urho3D::Image>, Urho3D::Resource>& pyclass_Var_Urho3D_Image)
 {
     // Class Image Implementation
 pyclass_Var_Urho3D_Image
@@ -10035,7 +10023,7 @@ pyclass_Var_Urho3D_Image
 ;
 }
 
-void Implement_Urho3D_Terrain(py::class_<Urho3D::Terrain, Urho3D::SharedPtr<Urho3D::Terrain>, Urho3D::Component>& pyclass_Var_Urho3D_Terrain)
+void Implement_Urho3D_Terrain(py::class_<Urho3D::Terrain, Urho3D::ExternalPtr<Urho3D::Terrain>, Urho3D::Component>& pyclass_Var_Urho3D_Terrain)
 {
     // Class Terrain Implementation
 pyclass_Var_Urho3D_Terrain
@@ -10117,7 +10105,7 @@ pyclass_Var_Urho3D_Terrain
 ;
 }
 
-void Implement_Urho3D_CrowdAgent(py::class_<Urho3D::CrowdAgent, Urho3D::SharedPtr<Urho3D::CrowdAgent>, Urho3D::Component>& pyclass_Var_Urho3D_CrowdAgent)
+void Implement_Urho3D_CrowdAgent(py::class_<Urho3D::CrowdAgent, Urho3D::ExternalPtr<Urho3D::CrowdAgent>, Urho3D::Component>& pyclass_Var_Urho3D_CrowdAgent)
 {
     // Class CrowdAgent Implementation
 pyclass_Var_Urho3D_CrowdAgent
@@ -10174,7 +10162,7 @@ pyclass_Var_Urho3D_CrowdAgent
 ;
 }
 
-void Implement_Urho3D_PListFile(py::class_<Urho3D::PListFile, Urho3D::SharedPtr<Urho3D::PListFile>, Urho3D::Resource>& pyclass_Var_Urho3D_PListFile)
+void Implement_Urho3D_PListFile(py::class_<Urho3D::PListFile, Urho3D::ExternalPtr<Urho3D::PListFile>, Urho3D::Resource>& pyclass_Var_Urho3D_PListFile)
 {
     // Class PListFile Implementation
 pyclass_Var_Urho3D_PListFile
@@ -10190,7 +10178,7 @@ pyclass_Var_Urho3D_PListFile
 ;
 }
 
-void Implement_Urho3D_AnimationSet2D(py::class_<Urho3D::AnimationSet2D, Urho3D::SharedPtr<Urho3D::AnimationSet2D>, Urho3D::Resource>& pyclass_Var_Urho3D_AnimationSet2D)
+void Implement_Urho3D_AnimationSet2D(py::class_<Urho3D::AnimationSet2D, Urho3D::ExternalPtr<Urho3D::AnimationSet2D>, Urho3D::Resource>& pyclass_Var_Urho3D_AnimationSet2D)
 {
     // Class AnimationSet2D Implementation
 pyclass_Var_Urho3D_AnimationSet2D
@@ -10212,7 +10200,7 @@ pyclass_Var_Urho3D_AnimationSet2D
 ;
 }
 
-void Implement_Urho3D_CollisionPolygon2D(py::class_<Urho3D::CollisionPolygon2D, Urho3D::SharedPtr<Urho3D::CollisionPolygon2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionPolygon2D)
+void Implement_Urho3D_CollisionPolygon2D(py::class_<Urho3D::CollisionPolygon2D, Urho3D::ExternalPtr<Urho3D::CollisionPolygon2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionPolygon2D)
 {
     // Class CollisionPolygon2D Implementation
 pyclass_Var_Urho3D_CollisionPolygon2D
@@ -10237,7 +10225,7 @@ pyclass_Var_Urho3D_CollisionPolygon2D
 ;
 }
 
-void Implement_Urho3D_ConstraintPulley2D(py::class_<Urho3D::ConstraintPulley2D, Urho3D::SharedPtr<Urho3D::ConstraintPulley2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintPulley2D)
+void Implement_Urho3D_ConstraintPulley2D(py::class_<Urho3D::ConstraintPulley2D, Urho3D::ExternalPtr<Urho3D::ConstraintPulley2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintPulley2D)
 {
     // Class ConstraintPulley2D Implementation
 pyclass_Var_Urho3D_ConstraintPulley2D
@@ -10260,7 +10248,7 @@ pyclass_Var_Urho3D_ConstraintPulley2D
 ;
 }
 
-void Implement_Urho3D_TmxFile2D(py::class_<Urho3D::TmxFile2D, Urho3D::SharedPtr<Urho3D::TmxFile2D>, Urho3D::Resource>& pyclass_Var_Urho3D_TmxFile2D)
+void Implement_Urho3D_TmxFile2D(py::class_<Urho3D::TmxFile2D, Urho3D::ExternalPtr<Urho3D::TmxFile2D>, Urho3D::Resource>& pyclass_Var_Urho3D_TmxFile2D)
 {
     // Class TmxFile2D Implementation
 pyclass_Var_Urho3D_TmxFile2D
@@ -10291,7 +10279,7 @@ pyclass_Var_Urho3D_TmxFile2D
 ;
 }
 
-void Implement_Urho3D_ObjectAnimation(py::class_<Urho3D::ObjectAnimation, Urho3D::SharedPtr<Urho3D::ObjectAnimation>, Urho3D::Resource>& pyclass_Var_Urho3D_ObjectAnimation)
+void Implement_Urho3D_ObjectAnimation(py::class_<Urho3D::ObjectAnimation, Urho3D::ExternalPtr<Urho3D::ObjectAnimation>, Urho3D::Resource>& pyclass_Var_Urho3D_ObjectAnimation)
 {
     // Class ObjectAnimation Implementation
 pyclass_Var_Urho3D_ObjectAnimation
@@ -10321,7 +10309,7 @@ pyclass_Var_Urho3D_ObjectAnimation
 ;
 }
 
-void Implement_Urho3D_Texture(py::class_<Urho3D::Texture, Urho3D::SharedPtr<Urho3D::Texture>, Urho3D::ResourceWithMetadata, Urho3D::GPUObject>& pyclass_Var_Urho3D_Texture)
+void Implement_Urho3D_Texture(py::class_<Urho3D::Texture, Urho3D::ExternalPtr<Urho3D::Texture>, Urho3D::ResourceWithMetadata, Urho3D::GPUObject>& pyclass_Var_Urho3D_Texture)
 {
     // Class Texture Implementation
 pyclass_Var_Urho3D_Texture
@@ -10389,7 +10377,7 @@ pyclass_Var_Urho3D_Texture
 ;
 }
 
-void Implement_Urho3D_TextureCube(py::class_<Urho3D::TextureCube, Urho3D::SharedPtr<Urho3D::TextureCube>, Urho3D::Texture>& pyclass_Var_Urho3D_TextureCube)
+void Implement_Urho3D_TextureCube(py::class_<Urho3D::TextureCube, Urho3D::ExternalPtr<Urho3D::TextureCube>, Urho3D::Texture>& pyclass_Var_Urho3D_TextureCube)
 {
     // Class TextureCube Implementation
 pyclass_Var_Urho3D_TextureCube
@@ -10421,7 +10409,7 @@ pyclass_Var_Urho3D_TextureCube
 ;
 }
 
-void Implement_Urho3D_Texture2DArray(py::class_<Urho3D::Texture2DArray, Urho3D::SharedPtr<Urho3D::Texture2DArray>, Urho3D::Texture>& pyclass_Var_Urho3D_Texture2DArray)
+void Implement_Urho3D_Texture2DArray(py::class_<Urho3D::Texture2DArray, Urho3D::ExternalPtr<Urho3D::Texture2DArray>, Urho3D::Texture>& pyclass_Var_Urho3D_Texture2DArray)
 {
     // Class Texture2DArray Implementation
 pyclass_Var_Urho3D_Texture2DArray
@@ -10448,7 +10436,7 @@ pyclass_Var_Urho3D_Texture2DArray
 ;
 }
 
-void Implement_Urho3D_NetworkPriority(py::class_<Urho3D::NetworkPriority, Urho3D::SharedPtr<Urho3D::NetworkPriority>, Urho3D::Component>& pyclass_Var_Urho3D_NetworkPriority)
+void Implement_Urho3D_NetworkPriority(py::class_<Urho3D::NetworkPriority, Urho3D::ExternalPtr<Urho3D::NetworkPriority>, Urho3D::Component>& pyclass_Var_Urho3D_NetworkPriority)
 {
     // Class NetworkPriority Implementation
 pyclass_Var_Urho3D_NetworkPriority
@@ -10470,7 +10458,7 @@ pyclass_Var_Urho3D_NetworkPriority
 ;
 }
 
-void Implement_Urho3D_CollisionBox2D(py::class_<Urho3D::CollisionBox2D, Urho3D::SharedPtr<Urho3D::CollisionBox2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionBox2D)
+void Implement_Urho3D_CollisionBox2D(py::class_<Urho3D::CollisionBox2D, Urho3D::ExternalPtr<Urho3D::CollisionBox2D>, Urho3D::CollisionShape2D>& pyclass_Var_Urho3D_CollisionBox2D)
 {
     // Class CollisionBox2D Implementation
 pyclass_Var_Urho3D_CollisionBox2D
@@ -10491,7 +10479,7 @@ pyclass_Var_Urho3D_CollisionBox2D
 ;
 }
 
-void Implement_Urho3D_ConstraintWheel2D(py::class_<Urho3D::ConstraintWheel2D, Urho3D::SharedPtr<Urho3D::ConstraintWheel2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintWheel2D)
+void Implement_Urho3D_ConstraintWheel2D(py::class_<Urho3D::ConstraintWheel2D, Urho3D::ExternalPtr<Urho3D::ConstraintWheel2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintWheel2D)
 {
     // Class ConstraintWheel2D Implementation
 pyclass_Var_Urho3D_ConstraintWheel2D
@@ -10518,7 +10506,7 @@ pyclass_Var_Urho3D_ConstraintWheel2D
 ;
 }
 
-void Implement_Urho3D_Material(py::class_<Urho3D::Material, Urho3D::SharedPtr<Urho3D::Material>, Urho3D::Resource>& pyclass_Var_Urho3D_Material)
+void Implement_Urho3D_Material(py::class_<Urho3D::Material, Urho3D::ExternalPtr<Urho3D::Material>, Urho3D::Resource>& pyclass_Var_Urho3D_Material)
 {
     // Class Material Implementation
 pyclass_Var_Urho3D_Material
@@ -10606,7 +10594,7 @@ pyclass_Var_Urho3D_Material
 ;
 }
 
-void Implement_Urho3D_Animation(py::class_<Urho3D::Animation, Urho3D::SharedPtr<Urho3D::Animation>, Urho3D::ResourceWithMetadata>& pyclass_Var_Urho3D_Animation)
+void Implement_Urho3D_Animation(py::class_<Urho3D::Animation, Urho3D::ExternalPtr<Urho3D::Animation>, Urho3D::ResourceWithMetadata>& pyclass_Var_Urho3D_Animation)
 {
     // Class Animation Implementation
 pyclass_Var_Urho3D_Animation
@@ -10650,7 +10638,7 @@ pyclass_Var_Urho3D_Animation
 ;
 }
 
-void Implement_Urho3D_Text3D(py::class_<Urho3D::Text3D, Urho3D::SharedPtr<Urho3D::Text3D>, Urho3D::Drawable>& pyclass_Var_Urho3D_Text3D)
+void Implement_Urho3D_Text3D(py::class_<Urho3D::Text3D, Urho3D::ExternalPtr<Urho3D::Text3D>, Urho3D::Drawable>& pyclass_Var_Urho3D_Text3D)
 {
     // Class Text3D Implementation
 pyclass_Var_Urho3D_Text3D
@@ -10740,7 +10728,7 @@ pyclass_Var_Urho3D_Text3D
 ;
 }
 
-void Implement_Urho3D_Texture2D(py::class_<Urho3D::Texture2D, Urho3D::SharedPtr<Urho3D::Texture2D>, Urho3D::Texture>& pyclass_Var_Urho3D_Texture2D)
+void Implement_Urho3D_Texture2D(py::class_<Urho3D::Texture2D, Urho3D::ExternalPtr<Urho3D::Texture2D>, Urho3D::Texture>& pyclass_Var_Urho3D_Texture2D)
 {
     // Class Texture2D Implementation
 pyclass_Var_Urho3D_Texture2D
@@ -10767,7 +10755,7 @@ pyclass_Var_Urho3D_Texture2D
 ;
 }
 
-void Implement_Urho3D_ConstraintGear2D(py::class_<Urho3D::ConstraintGear2D, Urho3D::SharedPtr<Urho3D::ConstraintGear2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintGear2D)
+void Implement_Urho3D_ConstraintGear2D(py::class_<Urho3D::ConstraintGear2D, Urho3D::ExternalPtr<Urho3D::ConstraintGear2D>, Urho3D::Constraint2D>& pyclass_Var_Urho3D_ConstraintGear2D)
 {
     // Class ConstraintGear2D Implementation
 pyclass_Var_Urho3D_ConstraintGear2D
@@ -10786,7 +10774,7 @@ pyclass_Var_Urho3D_ConstraintGear2D
 ;
 }
 
-void Implement_Urho3D_Texture3D(py::class_<Urho3D::Texture3D, Urho3D::SharedPtr<Urho3D::Texture3D>, Urho3D::Texture>& pyclass_Var_Urho3D_Texture3D)
+void Implement_Urho3D_Texture3D(py::class_<Urho3D::Texture3D, Urho3D::ExternalPtr<Urho3D::Texture3D>, Urho3D::Texture>& pyclass_Var_Urho3D_Texture3D)
 {
     // Class Texture3D Implementation
 pyclass_Var_Urho3D_Texture3D
@@ -11629,585 +11617,587 @@ auto pyclass_Var_Rocket_Core_Font = py::class_<PythonBindingsFakeModule_Rocket_C
     //================================================
     // Bind Container classes
     auto pyclass_Var_Urho3D_Vector__int_ = py::bind_Vector<Urho3D::Vector<int>>(pyclass_Var_Urho3D,"Vector_int");
-    
-    auto pyclass_Var_Urho3D_VariantVector = py::bind_Vector<Urho3D::Vector<Variant>>(pyclass_Var_Urho3D,"VariantVector");
 
+    auto pyclass_Var_Urho3D_VariantVector = py::bind_Vector<Urho3D::Vector<Variant>>(pyclass_Var_Urho3D,"VariantVector");
+    
     auto pyclass_Var_Urho3D_VariantMap = py::bind_Map<Urho3D::VariantMap>(pyclass_Var_Urho3D,"VariantMap");
+
+    auto pyclass_Var_Urho3D_StringMap = py::bind_Map<Urho3D::StringMap>(pyclass_Var_Urho3D,"StringMap");
 
 
     //================================================
     // Declare Classes
     //================================================
     // Type Urho3D::HashBase Registrations
-auto pyclass_Var_Urho3D_HashBase = py::class_<Urho3D::HashBase, std::shared_ptr<Urho3D::HashBase>>(pyclass_Var_Urho3D, "HashBase", "test doc");
+auto pyclass_Var_Urho3D_HashBase = py::class_<Urho3D::HashBase, Urho3D::ExternalPtr<Urho3D::HashBase>>(pyclass_Var_Urho3D, "HashBase", "test doc");
 // Type Urho3D::WString Registrations
-auto pyclass_Var_Urho3D_WString = py::class_<Urho3D::WString, std::shared_ptr<Urho3D::WString>>(pyclass_Var_Urho3D, "WString", "test doc");
+auto pyclass_Var_Urho3D_WString = py::class_<Urho3D::WString, Urho3D::ExternalPtr<Urho3D::WString>>(pyclass_Var_Urho3D, "WString", "test doc");
 // Type Urho3D::StringHashRegister Registrations
-auto pyclass_Var_Urho3D_StringHashRegister = py::class_<Urho3D::StringHashRegister, std::shared_ptr<Urho3D::StringHashRegister>>(pyclass_Var_Urho3D, "StringHashRegister", "test doc");
+auto pyclass_Var_Urho3D_StringHashRegister = py::class_<Urho3D::StringHashRegister, Urho3D::ExternalPtr<Urho3D::StringHashRegister>>(pyclass_Var_Urho3D, "StringHashRegister", "test doc");
 // Type Urho3D::StringFactory Registrations
-auto pyclass_Var_Urho3D_StringFactory = py::class_<Urho3D::StringFactory, std::shared_ptr<Urho3D::StringFactory>>(pyclass_Var_Urho3D, "StringFactory", "test doc");
+auto pyclass_Var_Urho3D_StringFactory = py::class_<Urho3D::StringFactory, Urho3D::ExternalPtr<Urho3D::StringFactory>>(pyclass_Var_Urho3D, "StringFactory", "test doc");
 // Type Urho3D::MutexLock Registrations
-auto pyclass_Var_Urho3D_MutexLock = py::class_<Urho3D::MutexLock, std::shared_ptr<Urho3D::MutexLock>>(pyclass_Var_Urho3D, "MutexLock", "test doc");
+auto pyclass_Var_Urho3D_MutexLock = py::class_<Urho3D::MutexLock, Urho3D::ExternalPtr<Urho3D::MutexLock>>(pyclass_Var_Urho3D, "MutexLock", "test doc");
 // Type Urho3D::RefCounted Registrations
-auto pyclass_Var_Urho3D_RefCounted = py::class_<Urho3D::RefCounted, Urho3D::SharedPtr<Urho3D::RefCounted>>(pyclass_Var_Urho3D, "RefCounted", "test doc");
+auto pyclass_Var_Urho3D_RefCounted = py::class_<Urho3D::RefCounted, Urho3D::ExternalPtr<Urho3D::RefCounted>>(pyclass_Var_Urho3D, "RefCounted", "test doc");
 // Type Urho3D::Vector2 Registrations
-auto pyclass_Var_Urho3D_Vector2 = py::class_<Urho3D::Vector2, std::shared_ptr<Urho3D::Vector2>>(pyclass_Var_Urho3D, "Vector2", "test doc");
+auto pyclass_Var_Urho3D_Vector2 = py::class_<Urho3D::Vector2, Urho3D::ExternalPtr<Urho3D::Vector2>>(pyclass_Var_Urho3D, "Vector2", "test doc");
 // Type Urho3D::Vector3 Registrations
-auto pyclass_Var_Urho3D_Vector3 = py::class_<Urho3D::Vector3, std::shared_ptr<Urho3D::Vector3>>(pyclass_Var_Urho3D, "Vector3", "test doc");
+auto pyclass_Var_Urho3D_Vector3 = py::class_<Urho3D::Vector3, Urho3D::ExternalPtr<Urho3D::Vector3>>(pyclass_Var_Urho3D, "Vector3", "test doc");
 // Type Urho3D::Color Registrations
-auto pyclass_Var_Urho3D_Color = py::class_<Urho3D::Color, std::shared_ptr<Urho3D::Color>>(pyclass_Var_Urho3D, "Color", "test doc");
+auto pyclass_Var_Urho3D_Color = py::class_<Urho3D::Color, Urho3D::ExternalPtr<Urho3D::Color>>(pyclass_Var_Urho3D, "Color", "test doc");
 // Type Urho3D::Quaternion Registrations
-auto pyclass_Var_Urho3D_Quaternion = py::class_<Urho3D::Quaternion, std::shared_ptr<Urho3D::Quaternion>>(pyclass_Var_Urho3D, "Quaternion", "test doc");
+auto pyclass_Var_Urho3D_Quaternion = py::class_<Urho3D::Quaternion, Urho3D::ExternalPtr<Urho3D::Quaternion>>(pyclass_Var_Urho3D, "Quaternion", "test doc");
 // Type Urho3D::Matrix4 Registrations
-auto pyclass_Var_Urho3D_Matrix4 = py::class_<Urho3D::Matrix4, std::shared_ptr<Urho3D::Matrix4>>(pyclass_Var_Urho3D, "Matrix4", "test doc");
+auto pyclass_Var_Urho3D_Matrix4 = py::class_<Urho3D::Matrix4, Urho3D::ExternalPtr<Urho3D::Matrix4>>(pyclass_Var_Urho3D, "Matrix4", "test doc");
 // Type Urho3D::IntRect Registrations
-auto pyclass_Var_Urho3D_IntRect = py::class_<Urho3D::IntRect, std::shared_ptr<Urho3D::IntRect>>(pyclass_Var_Urho3D, "IntRect", "test doc");
+auto pyclass_Var_Urho3D_IntRect = py::class_<Urho3D::IntRect, Urho3D::ExternalPtr<Urho3D::IntRect>>(pyclass_Var_Urho3D, "IntRect", "test doc");
 // Type Urho3D::ResourceRef Registrations
-auto pyclass_Var_Urho3D_ResourceRef = py::class_<Urho3D::ResourceRef, std::shared_ptr<Urho3D::ResourceRef>>(pyclass_Var_Urho3D, "ResourceRef", "test doc");
+auto pyclass_Var_Urho3D_ResourceRef = py::class_<Urho3D::ResourceRef, Urho3D::ExternalPtr<Urho3D::ResourceRef>>(pyclass_Var_Urho3D, "ResourceRef", "test doc");
 // Type Urho3D::Context Registrations
-auto pyclass_Var_Urho3D_Context = py::class_<Urho3D::Context, Urho3D::SharedPtr<Urho3D::Context>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Context", "test doc");
+auto pyclass_Var_Urho3D_Context = py::class_<Urho3D::Context, Urho3D::ExternalPtr<Urho3D::Context>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Context", "test doc");
 // Type Urho3D::TypeInfo Registrations
-auto pyclass_Var_Urho3D_TypeInfo = py::class_<Urho3D::TypeInfo, std::shared_ptr<Urho3D::TypeInfo>>(pyclass_Var_Urho3D, "TypeInfo", "test doc");
+auto pyclass_Var_Urho3D_TypeInfo = py::class_<Urho3D::TypeInfo, Urho3D::ExternalPtr<Urho3D::TypeInfo>>(pyclass_Var_Urho3D, "TypeInfo", "test doc");
 // Type Urho3D::ObjectFactory Registrations
-auto pyclass_Var_Urho3D_ObjectFactory = py::class_<Urho3D::ObjectFactory, Urho3D::SharedPtr<Urho3D::ObjectFactory>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "ObjectFactory", "test doc");
+auto pyclass_Var_Urho3D_ObjectFactory = py::class_<Urho3D::ObjectFactory, Urho3D::ExternalPtr<Urho3D::ObjectFactory>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "ObjectFactory", "test doc");
 // Type Urho3D::ScriptEventListener Registrations
-auto pyclass_Var_Urho3D_ScriptEventListener = py::class_<Urho3D::ScriptEventListener, std::shared_ptr<Urho3D::ScriptEventListener>>(pyclass_Var_Urho3D, "ScriptEventListener", "test doc");
+auto pyclass_Var_Urho3D_ScriptEventListener = py::class_<Urho3D::ScriptEventListener, Urho3D::ExternalPtr<Urho3D::ScriptEventListener>>(pyclass_Var_Urho3D, "ScriptEventListener", "test doc");
 // Type Urho3D::AttributeAccessor Registrations
-auto pyclass_Var_Urho3D_AttributeAccessor = py::class_<Urho3D::AttributeAccessor, Urho3D::SharedPtr<Urho3D::AttributeAccessor>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "AttributeAccessor", "test doc");
+auto pyclass_Var_Urho3D_AttributeAccessor = py::class_<Urho3D::AttributeAccessor, Urho3D::ExternalPtr<Urho3D::AttributeAccessor>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "AttributeAccessor", "test doc");
 // Type Urho3D::Deserializer Registrations
-auto pyclass_Var_Urho3D_Deserializer = py::class_<Urho3D::Deserializer, std::shared_ptr<Urho3D::Deserializer>>(pyclass_Var_Urho3D, "Deserializer", "test doc");
+auto pyclass_Var_Urho3D_Deserializer = py::class_<Urho3D::Deserializer, Urho3D::ExternalPtr<Urho3D::Deserializer>>(pyclass_Var_Urho3D, "Deserializer", "test doc");
 // Type Urho3D::XMLElement Registrations
-auto pyclass_Var_Urho3D_XMLElement = py::class_<Urho3D::XMLElement, std::shared_ptr<Urho3D::XMLElement>>(pyclass_Var_Urho3D, "XMLElement", "test doc");
+auto pyclass_Var_Urho3D_XMLElement = py::class_<Urho3D::XMLElement, Urho3D::ExternalPtr<Urho3D::XMLElement>>(pyclass_Var_Urho3D, "XMLElement", "test doc");
 // Type Urho3D::DirtyBits Registrations
-auto pyclass_Var_Urho3D_DirtyBits = py::class_<Urho3D::DirtyBits, std::shared_ptr<Urho3D::DirtyBits>>(pyclass_Var_Urho3D, "DirtyBits", "test doc");
+auto pyclass_Var_Urho3D_DirtyBits = py::class_<Urho3D::DirtyBits, Urho3D::ExternalPtr<Urho3D::DirtyBits>>(pyclass_Var_Urho3D, "DirtyBits", "test doc");
 // Type Urho3D::ReplicationState Registrations
-auto pyclass_Var_Urho3D_ReplicationState = py::class_<Urho3D::ReplicationState, std::shared_ptr<Urho3D::ReplicationState>>(pyclass_Var_Urho3D, "ReplicationState", "test doc");
+auto pyclass_Var_Urho3D_ReplicationState = py::class_<Urho3D::ReplicationState, Urho3D::ExternalPtr<Urho3D::ReplicationState>>(pyclass_Var_Urho3D, "ReplicationState", "test doc");
 // Type Urho3D::ValueAnimationInfo Registrations
-auto pyclass_Var_Urho3D_ValueAnimationInfo = py::class_<Urho3D::ValueAnimationInfo, Urho3D::SharedPtr<Urho3D::ValueAnimationInfo>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "ValueAnimationInfo", "test doc");
+auto pyclass_Var_Urho3D_ValueAnimationInfo = py::class_<Urho3D::ValueAnimationInfo, Urho3D::ExternalPtr<Urho3D::ValueAnimationInfo>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "ValueAnimationInfo", "test doc");
 // Type Urho3D::ComponentReplicationState Registrations
-auto pyclass_Var_Urho3D_ComponentReplicationState = py::class_<Urho3D::ComponentReplicationState, std::shared_ptr<Urho3D::ComponentReplicationState>, Urho3D::ReplicationState>(pyclass_Var_Urho3D, "ComponentReplicationState", "test doc");
+auto pyclass_Var_Urho3D_ComponentReplicationState = py::class_<Urho3D::ComponentReplicationState, Urho3D::ExternalPtr<Urho3D::ComponentReplicationState>, Urho3D::ReplicationState>(pyclass_Var_Urho3D, "ComponentReplicationState", "test doc");
 // Type Urho3D::SoundStream Registrations
-auto pyclass_Var_Urho3D_SoundStream = py::class_<Urho3D::SoundStream, Urho3D::SharedPtr<Urho3D::SoundStream>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "SoundStream", "test doc");
+auto pyclass_Var_Urho3D_SoundStream = py::class_<Urho3D::SoundStream, Urho3D::ExternalPtr<Urho3D::SoundStream>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "SoundStream", "test doc");
 // Type Urho3D::EventReceiverGroup Registrations
-auto pyclass_Var_Urho3D_EventReceiverGroup = py::class_<Urho3D::EventReceiverGroup, Urho3D::SharedPtr<Urho3D::EventReceiverGroup>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "EventReceiverGroup", "test doc");
+auto pyclass_Var_Urho3D_EventReceiverGroup = py::class_<Urho3D::EventReceiverGroup, Urho3D::ExternalPtr<Urho3D::EventReceiverGroup>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "EventReceiverGroup", "test doc");
 // Type Urho3D::Polyhedron Registrations
-auto pyclass_Var_Urho3D_Polyhedron = py::class_<Urho3D::Polyhedron, std::shared_ptr<Urho3D::Polyhedron>>(pyclass_Var_Urho3D, "Polyhedron", "test doc");
+auto pyclass_Var_Urho3D_Polyhedron = py::class_<Urho3D::Polyhedron, Urho3D::ExternalPtr<Urho3D::Polyhedron>>(pyclass_Var_Urho3D, "Polyhedron", "test doc");
 // Type Urho3D::Sphere Registrations
-auto pyclass_Var_Urho3D_Sphere = py::class_<Urho3D::Sphere, std::shared_ptr<Urho3D::Sphere>>(pyclass_Var_Urho3D, "Sphere", "test doc");
+auto pyclass_Var_Urho3D_Sphere = py::class_<Urho3D::Sphere, Urho3D::ExternalPtr<Urho3D::Sphere>>(pyclass_Var_Urho3D, "Sphere", "test doc");
 // Type Urho3D::Octant Registrations
-auto pyclass_Var_Urho3D_Octant = py::class_<Urho3D::Octant, std::shared_ptr<Urho3D::Octant>>(pyclass_Var_Urho3D, "Octant", "test doc");
+auto pyclass_Var_Urho3D_Octant = py::class_<Urho3D::Octant, Urho3D::ExternalPtr<Urho3D::Octant>>(pyclass_Var_Urho3D, "Octant", "test doc");
 // Type Urho3D::RayQueryResult Registrations
-auto pyclass_Var_Urho3D_RayQueryResult = py::class_<Urho3D::RayQueryResult, std::shared_ptr<Urho3D::RayQueryResult>>(pyclass_Var_Urho3D, "RayQueryResult", "test doc");
+auto pyclass_Var_Urho3D_RayQueryResult = py::class_<Urho3D::RayQueryResult, Urho3D::ExternalPtr<Urho3D::RayQueryResult>>(pyclass_Var_Urho3D, "RayQueryResult", "test doc");
 // Type Urho3D::GPUObject Registrations
-auto pyclass_Var_Urho3D_GPUObject = py::class_<Urho3D::GPUObject, std::shared_ptr<Urho3D::GPUObject>>(pyclass_Var_Urho3D, "GPUObject", "test doc");
+auto pyclass_Var_Urho3D_GPUObject = py::class_<Urho3D::GPUObject, Urho3D::ExternalPtr<Urho3D::GPUObject>>(pyclass_Var_Urho3D, "GPUObject", "test doc");
 // Type Urho3D::HiresTimer Registrations
-auto pyclass_Var_Urho3D_HiresTimer = py::class_<Urho3D::HiresTimer, std::shared_ptr<Urho3D::HiresTimer>>(pyclass_Var_Urho3D, "HiresTimer", "test doc");
+auto pyclass_Var_Urho3D_HiresTimer = py::class_<Urho3D::HiresTimer, Urho3D::ExternalPtr<Urho3D::HiresTimer>>(pyclass_Var_Urho3D, "HiresTimer", "test doc");
 // Type Urho3D::SceneResolver Registrations
-auto pyclass_Var_Urho3D_SceneResolver = py::class_<Urho3D::SceneResolver, std::shared_ptr<Urho3D::SceneResolver>>(pyclass_Var_Urho3D, "SceneResolver", "test doc");
+auto pyclass_Var_Urho3D_SceneResolver = py::class_<Urho3D::SceneResolver, Urho3D::ExternalPtr<Urho3D::SceneResolver>>(pyclass_Var_Urho3D, "SceneResolver", "test doc");
 // Type Urho3D::NodeImpl Registrations
-auto pyclass_Var_Urho3D_NodeImpl = py::class_<Urho3D::NodeImpl, std::shared_ptr<Urho3D::NodeImpl>>(pyclass_Var_Urho3D, "NodeImpl", "test doc");
+auto pyclass_Var_Urho3D_NodeImpl = py::class_<Urho3D::NodeImpl, Urho3D::ExternalPtr<Urho3D::NodeImpl>>(pyclass_Var_Urho3D, "NodeImpl", "test doc");
 // Type Urho3D::XPathResultSet Registrations
-auto pyclass_Var_Urho3D_XPathResultSet = py::class_<Urho3D::XPathResultSet, std::shared_ptr<Urho3D::XPathResultSet>>(pyclass_Var_Urho3D, "XPathResultSet", "test doc");
+auto pyclass_Var_Urho3D_XPathResultSet = py::class_<Urho3D::XPathResultSet, Urho3D::ExternalPtr<Urho3D::XPathResultSet>>(pyclass_Var_Urho3D, "XPathResultSet", "test doc");
 // Type Urho3D::BiasParameters Registrations
-auto pyclass_Var_Urho3D_BiasParameters = py::class_<Urho3D::BiasParameters, std::shared_ptr<Urho3D::BiasParameters>>(pyclass_Var_Urho3D, "BiasParameters", "test doc");
+auto pyclass_Var_Urho3D_BiasParameters = py::class_<Urho3D::BiasParameters, Urho3D::ExternalPtr<Urho3D::BiasParameters>>(pyclass_Var_Urho3D, "BiasParameters", "test doc");
 // Type Urho3D::FocusParameters Registrations
-auto pyclass_Var_Urho3D_FocusParameters = py::class_<Urho3D::FocusParameters, std::shared_ptr<Urho3D::FocusParameters>>(pyclass_Var_Urho3D, "FocusParameters", "test doc");
+auto pyclass_Var_Urho3D_FocusParameters = py::class_<Urho3D::FocusParameters, Urho3D::ExternalPtr<Urho3D::FocusParameters>>(pyclass_Var_Urho3D, "FocusParameters", "test doc");
 // Type Urho3D::UIBatch Registrations
-auto pyclass_Var_Urho3D_UIBatch = py::class_<Urho3D::UIBatch, std::shared_ptr<Urho3D::UIBatch>>(pyclass_Var_Urho3D, "UIBatch", "test doc");
+auto pyclass_Var_Urho3D_UIBatch = py::class_<Urho3D::UIBatch, Urho3D::ExternalPtr<Urho3D::UIBatch>>(pyclass_Var_Urho3D, "UIBatch", "test doc");
 // Type Urho3D::BufferedSoundStream Registrations
-auto pyclass_Var_Urho3D_BufferedSoundStream = py::class_<Urho3D::BufferedSoundStream, Urho3D::SharedPtr<Urho3D::BufferedSoundStream>, Urho3D::SoundStream>(pyclass_Var_Urho3D, "BufferedSoundStream", "test doc");
+auto pyclass_Var_Urho3D_BufferedSoundStream = py::class_<Urho3D::BufferedSoundStream, Urho3D::ExternalPtr<Urho3D::BufferedSoundStream>, Urho3D::SoundStream>(pyclass_Var_Urho3D, "BufferedSoundStream", "test doc");
 // Type Urho3D::Condition Registrations
-auto pyclass_Var_Urho3D_Condition = py::class_<Urho3D::Condition, std::shared_ptr<Urho3D::Condition>>(pyclass_Var_Urho3D, "Condition", "test doc");
+auto pyclass_Var_Urho3D_Condition = py::class_<Urho3D::Condition, Urho3D::ExternalPtr<Urho3D::Condition>>(pyclass_Var_Urho3D, "Condition", "test doc");
 // Type Urho3D::ProfilerBlock Registrations
-auto pyclass_Var_Urho3D_ProfilerBlock = py::class_<Urho3D::ProfilerBlock, std::shared_ptr<Urho3D::ProfilerBlock>>(pyclass_Var_Urho3D, "ProfilerBlock", "test doc");
+auto pyclass_Var_Urho3D_ProfilerBlock = py::class_<Urho3D::ProfilerBlock, Urho3D::ExternalPtr<Urho3D::ProfilerBlock>>(pyclass_Var_Urho3D, "ProfilerBlock", "test doc");
 // Type Urho3D::AutoProfileBlock Registrations
-auto pyclass_Var_Urho3D_AutoProfileBlock = py::class_<Urho3D::AutoProfileBlock, std::shared_ptr<Urho3D::AutoProfileBlock>>(pyclass_Var_Urho3D, "AutoProfileBlock", "test doc");
+auto pyclass_Var_Urho3D_AutoProfileBlock = py::class_<Urho3D::AutoProfileBlock, Urho3D::ExternalPtr<Urho3D::AutoProfileBlock>>(pyclass_Var_Urho3D, "AutoProfileBlock", "test doc");
 // Type Urho3D::Spline Registrations
-auto pyclass_Var_Urho3D_Spline = py::class_<Urho3D::Spline, std::shared_ptr<Urho3D::Spline>>(pyclass_Var_Urho3D, "Spline", "test doc");
+auto pyclass_Var_Urho3D_Spline = py::class_<Urho3D::Spline, Urho3D::ExternalPtr<Urho3D::Spline>>(pyclass_Var_Urho3D, "Spline", "test doc");
 // Type Urho3D::Skeleton Registrations
-auto pyclass_Var_Urho3D_Skeleton = py::class_<Urho3D::Skeleton, std::shared_ptr<Urho3D::Skeleton>>(pyclass_Var_Urho3D, "Skeleton", "test doc");
+auto pyclass_Var_Urho3D_Skeleton = py::class_<Urho3D::Skeleton, Urho3D::ExternalPtr<Urho3D::Skeleton>>(pyclass_Var_Urho3D, "Skeleton", "test doc");
 // Type Urho3D::AnimationState Registrations
-auto pyclass_Var_Urho3D_AnimationState = py::class_<Urho3D::AnimationState, Urho3D::SharedPtr<Urho3D::AnimationState>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "AnimationState", "test doc");
+auto pyclass_Var_Urho3D_AnimationState = py::class_<Urho3D::AnimationState, Urho3D::ExternalPtr<Urho3D::AnimationState>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "AnimationState", "test doc");
 // Type Urho3D::AnimationTrack Registrations
-auto pyclass_Var_Urho3D_AnimationTrack = py::class_<Urho3D::AnimationTrack, std::shared_ptr<Urho3D::AnimationTrack>>(pyclass_Var_Urho3D, "AnimationTrack", "test doc");
+auto pyclass_Var_Urho3D_AnimationTrack = py::class_<Urho3D::AnimationTrack, Urho3D::ExternalPtr<Urho3D::AnimationTrack>>(pyclass_Var_Urho3D, "AnimationTrack", "test doc");
 // Type Urho3D::ShaderVariation Registrations
-auto pyclass_Var_Urho3D_ShaderVariation = py::class_<Urho3D::ShaderVariation, Urho3D::SharedPtr<Urho3D::ShaderVariation>, Urho3D::RefCounted, Urho3D::GPUObject>(pyclass_Var_Urho3D, "ShaderVariation", "test doc");
+auto pyclass_Var_Urho3D_ShaderVariation = py::class_<Urho3D::ShaderVariation, Urho3D::ExternalPtr<Urho3D::ShaderVariation>, Urho3D::RefCounted, Urho3D::GPUObject>(pyclass_Var_Urho3D, "ShaderVariation", "test doc");
 // Type Urho3D::Billboard Registrations
-auto pyclass_Var_Urho3D_Billboard = py::class_<Urho3D::Billboard, std::shared_ptr<Urho3D::Billboard>>(pyclass_Var_Urho3D, "Billboard", "test doc");
+auto pyclass_Var_Urho3D_Billboard = py::class_<Urho3D::Billboard, Urho3D::ExternalPtr<Urho3D::Billboard>>(pyclass_Var_Urho3D, "Billboard", "test doc");
 // Type Urho3D::Ray Registrations
-auto pyclass_Var_Urho3D_Ray = py::class_<Urho3D::Ray, std::shared_ptr<Urho3D::Ray>>(pyclass_Var_Urho3D, "Ray", "test doc");
+auto pyclass_Var_Urho3D_Ray = py::class_<Urho3D::Ray, Urho3D::ExternalPtr<Urho3D::Ray>>(pyclass_Var_Urho3D, "Ray", "test doc");
 // Type Urho3D::RenderSurface Registrations
-auto pyclass_Var_Urho3D_RenderSurface = py::class_<Urho3D::RenderSurface, Urho3D::SharedPtr<Urho3D::RenderSurface>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "RenderSurface", "test doc");
+auto pyclass_Var_Urho3D_RenderSurface = py::class_<Urho3D::RenderSurface, Urho3D::ExternalPtr<Urho3D::RenderSurface>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "RenderSurface", "test doc");
 // Type Urho3D::ShaderProgram Registrations
-auto pyclass_Var_Urho3D_ShaderProgram = py::class_<Urho3D::ShaderProgram, Urho3D::SharedPtr<Urho3D::ShaderProgram>, Urho3D::RefCounted, Urho3D::GPUObject>(pyclass_Var_Urho3D, "ShaderProgram", "test doc");
+auto pyclass_Var_Urho3D_ShaderProgram = py::class_<Urho3D::ShaderProgram, Urho3D::ExternalPtr<Urho3D::ShaderProgram>, Urho3D::RefCounted, Urho3D::GPUObject>(pyclass_Var_Urho3D, "ShaderProgram", "test doc");
 // Type Urho3D::OctreeQuery Registrations
-auto pyclass_Var_Urho3D_OctreeQuery = py::class_<Urho3D::OctreeQuery, std::shared_ptr<Urho3D::OctreeQuery>>(pyclass_Var_Urho3D, "OctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_OctreeQuery = py::class_<Urho3D::OctreeQuery, Urho3D::ExternalPtr<Urho3D::OctreeQuery>>(pyclass_Var_Urho3D, "OctreeQuery", "test doc");
 // Type Urho3D::SphereOctreeQuery Registrations
-auto pyclass_Var_Urho3D_SphereOctreeQuery = py::class_<Urho3D::SphereOctreeQuery, std::shared_ptr<Urho3D::SphereOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "SphereOctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_SphereOctreeQuery = py::class_<Urho3D::SphereOctreeQuery, Urho3D::ExternalPtr<Urho3D::SphereOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "SphereOctreeQuery", "test doc");
 // Type Urho3D::FrustumOctreeQuery Registrations
-auto pyclass_Var_Urho3D_FrustumOctreeQuery = py::class_<Urho3D::FrustumOctreeQuery, std::shared_ptr<Urho3D::FrustumOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "FrustumOctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_FrustumOctreeQuery = py::class_<Urho3D::FrustumOctreeQuery, Urho3D::ExternalPtr<Urho3D::FrustumOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "FrustumOctreeQuery", "test doc");
 // Type Urho3D::AllContentOctreeQuery Registrations
-auto pyclass_Var_Urho3D_AllContentOctreeQuery = py::class_<Urho3D::AllContentOctreeQuery, std::shared_ptr<Urho3D::AllContentOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "AllContentOctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_AllContentOctreeQuery = py::class_<Urho3D::AllContentOctreeQuery, Urho3D::ExternalPtr<Urho3D::AllContentOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "AllContentOctreeQuery", "test doc");
 // Type Urho3D::RenderTargetInfo Registrations
-auto pyclass_Var_Urho3D_RenderTargetInfo = py::class_<Urho3D::RenderTargetInfo, std::shared_ptr<Urho3D::RenderTargetInfo>>(pyclass_Var_Urho3D, "RenderTargetInfo", "test doc");
+auto pyclass_Var_Urho3D_RenderTargetInfo = py::class_<Urho3D::RenderTargetInfo, Urho3D::ExternalPtr<Urho3D::RenderTargetInfo>>(pyclass_Var_Urho3D, "RenderTargetInfo", "test doc");
 // Type Urho3D::RenderPath Registrations
-auto pyclass_Var_Urho3D_RenderPath = py::class_<Urho3D::RenderPath, Urho3D::SharedPtr<Urho3D::RenderPath>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "RenderPath", "test doc");
+auto pyclass_Var_Urho3D_RenderPath = py::class_<Urho3D::RenderPath, Urho3D::ExternalPtr<Urho3D::RenderPath>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "RenderPath", "test doc");
 // Type Urho3D::TrailPoint Registrations
-auto pyclass_Var_Urho3D_TrailPoint = py::class_<Urho3D::TrailPoint, std::shared_ptr<Urho3D::TrailPoint>>(pyclass_Var_Urho3D, "TrailPoint", "test doc");
+auto pyclass_Var_Urho3D_TrailPoint = py::class_<Urho3D::TrailPoint, Urho3D::ExternalPtr<Urho3D::TrailPoint>>(pyclass_Var_Urho3D, "TrailPoint", "test doc");
 // Type Urho3D::Controls Registrations
-auto pyclass_Var_Urho3D_Controls = py::class_<Urho3D::Controls, std::shared_ptr<Urho3D::Controls>>(pyclass_Var_Urho3D, "Controls", "test doc");
+auto pyclass_Var_Urho3D_Controls = py::class_<Urho3D::Controls, Urho3D::ExternalPtr<Urho3D::Controls>>(pyclass_Var_Urho3D, "Controls", "test doc");
 // Type Urho3D::LuaFunction Registrations
-auto pyclass_Var_Urho3D_LuaFunction = py::class_<Urho3D::LuaFunction, Urho3D::SharedPtr<Urho3D::LuaFunction>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "LuaFunction", "test doc");
+auto pyclass_Var_Urho3D_LuaFunction = py::class_<Urho3D::LuaFunction, Urho3D::ExternalPtr<Urho3D::LuaFunction>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "LuaFunction", "test doc");
 // Type Urho3D::AreaAllocator Registrations
-auto pyclass_Var_Urho3D_AreaAllocator = py::class_<Urho3D::AreaAllocator, std::shared_ptr<Urho3D::AreaAllocator>>(pyclass_Var_Urho3D, "AreaAllocator", "test doc");
+auto pyclass_Var_Urho3D_AreaAllocator = py::class_<Urho3D::AreaAllocator, Urho3D::ExternalPtr<Urho3D::AreaAllocator>>(pyclass_Var_Urho3D, "AreaAllocator", "test doc");
 // Type Urho3D::NavBuildData Registrations
-auto pyclass_Var_Urho3D_NavBuildData = py::class_<Urho3D::NavBuildData, std::shared_ptr<Urho3D::NavBuildData>>(pyclass_Var_Urho3D, "NavBuildData", "test doc");
+auto pyclass_Var_Urho3D_NavBuildData = py::class_<Urho3D::NavBuildData, Urho3D::ExternalPtr<Urho3D::NavBuildData>>(pyclass_Var_Urho3D, "NavBuildData", "test doc");
 // Type Urho3D::NavAreaStub Registrations
-auto pyclass_Var_Urho3D_NavAreaStub = py::class_<Urho3D::NavAreaStub, std::shared_ptr<Urho3D::NavAreaStub>>(pyclass_Var_Urho3D, "NavAreaStub", "test doc");
+auto pyclass_Var_Urho3D_NavAreaStub = py::class_<Urho3D::NavAreaStub, Urho3D::ExternalPtr<Urho3D::NavAreaStub>>(pyclass_Var_Urho3D, "NavAreaStub", "test doc");
 // Type Urho3D::SceneReplicationState Registrations
-auto pyclass_Var_Urho3D_SceneReplicationState = py::class_<Urho3D::SceneReplicationState, std::shared_ptr<Urho3D::SceneReplicationState>, Urho3D::ReplicationState>(pyclass_Var_Urho3D, "SceneReplicationState", "test doc");
+auto pyclass_Var_Urho3D_SceneReplicationState = py::class_<Urho3D::SceneReplicationState, Urho3D::ExternalPtr<Urho3D::SceneReplicationState>, Urho3D::ReplicationState>(pyclass_Var_Urho3D, "SceneReplicationState", "test doc");
 // Type Urho3D::PhysicsRaycastResult Registrations
-auto pyclass_Var_Urho3D_PhysicsRaycastResult = py::class_<Urho3D::PhysicsRaycastResult, std::shared_ptr<Urho3D::PhysicsRaycastResult>>(pyclass_Var_Urho3D, "PhysicsRaycastResult", "test doc");
+auto pyclass_Var_Urho3D_PhysicsRaycastResult = py::class_<Urho3D::PhysicsRaycastResult, Urho3D::ExternalPtr<Urho3D::PhysicsRaycastResult>>(pyclass_Var_Urho3D, "PhysicsRaycastResult", "test doc");
 // Type Urho3D::PListValue Registrations
-auto pyclass_Var_Urho3D_PListValue = py::class_<Urho3D::PListValue, std::shared_ptr<Urho3D::PListValue>>(pyclass_Var_Urho3D, "PListValue", "test doc");
+auto pyclass_Var_Urho3D_PListValue = py::class_<Urho3D::PListValue, Urho3D::ExternalPtr<Urho3D::PListValue>>(pyclass_Var_Urho3D, "PListValue", "test doc");
 // Type Urho3D::FontFace Registrations
-auto pyclass_Var_Urho3D_FontFace = py::class_<Urho3D::FontFace, Urho3D::SharedPtr<Urho3D::FontFace>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "FontFace", "test doc");
+auto pyclass_Var_Urho3D_FontFace = py::class_<Urho3D::FontFace, Urho3D::ExternalPtr<Urho3D::FontFace>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "FontFace", "test doc");
 // Type Urho3D::FontFaceBitmap Registrations
-auto pyclass_Var_Urho3D_FontFaceBitmap = py::class_<Urho3D::FontFaceBitmap, Urho3D::SharedPtr<Urho3D::FontFaceBitmap>, Urho3D::FontFace>(pyclass_Var_Urho3D, "FontFaceBitmap", "test doc");
+auto pyclass_Var_Urho3D_FontFaceBitmap = py::class_<Urho3D::FontFaceBitmap, Urho3D::ExternalPtr<Urho3D::FontFaceBitmap>, Urho3D::FontFace>(pyclass_Var_Urho3D, "FontFaceBitmap", "test doc");
 // Type Urho3D::PhysicsRaycastResult2D Registrations
-auto pyclass_Var_Urho3D_PhysicsRaycastResult2D = py::class_<Urho3D::PhysicsRaycastResult2D, std::shared_ptr<Urho3D::PhysicsRaycastResult2D>>(pyclass_Var_Urho3D, "PhysicsRaycastResult2D", "test doc");
+auto pyclass_Var_Urho3D_PhysicsRaycastResult2D = py::class_<Urho3D::PhysicsRaycastResult2D, Urho3D::ExternalPtr<Urho3D::PhysicsRaycastResult2D>>(pyclass_Var_Urho3D, "PhysicsRaycastResult2D", "test doc");
 // Type Urho3D::TileMapInfo2D Registrations
-auto pyclass_Var_Urho3D_TileMapInfo2D = py::class_<Urho3D::TileMapInfo2D, std::shared_ptr<Urho3D::TileMapInfo2D>>(pyclass_Var_Urho3D, "TileMapInfo2D", "test doc");
+auto pyclass_Var_Urho3D_TileMapInfo2D = py::class_<Urho3D::TileMapInfo2D, Urho3D::ExternalPtr<Urho3D::TileMapInfo2D>>(pyclass_Var_Urho3D, "TileMapInfo2D", "test doc");
 // Type Urho3D::Tile2D Registrations
-auto pyclass_Var_Urho3D_Tile2D = py::class_<Urho3D::Tile2D, Urho3D::SharedPtr<Urho3D::Tile2D>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Tile2D", "test doc");
+auto pyclass_Var_Urho3D_Tile2D = py::class_<Urho3D::Tile2D, Urho3D::ExternalPtr<Urho3D::Tile2D>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Tile2D", "test doc");
 // Type Urho3D::ListBase Registrations
-auto pyclass_Var_Urho3D_ListBase = py::class_<Urho3D::ListBase, std::shared_ptr<Urho3D::ListBase>>(pyclass_Var_Urho3D, "ListBase", "test doc");
+auto pyclass_Var_Urho3D_ListBase = py::class_<Urho3D::ListBase, Urho3D::ExternalPtr<Urho3D::ListBase>>(pyclass_Var_Urho3D, "ListBase", "test doc");
 // Type Urho3D::StringHash Registrations
-auto pyclass_Var_Urho3D_StringHash = py::class_<Urho3D::StringHash, std::shared_ptr<Urho3D::StringHash>>(pyclass_Var_Urho3D, "StringHash", "test doc");
+auto pyclass_Var_Urho3D_StringHash = py::class_<Urho3D::StringHash, Urho3D::ExternalPtr<Urho3D::StringHash>>(pyclass_Var_Urho3D, "StringHash", "test doc");
 // Type Urho3D::Mutex Registrations
-auto pyclass_Var_Urho3D_Mutex = py::class_<Urho3D::Mutex, std::shared_ptr<Urho3D::Mutex>>(pyclass_Var_Urho3D, "Mutex", "test doc");
+auto pyclass_Var_Urho3D_Mutex = py::class_<Urho3D::Mutex, Urho3D::ExternalPtr<Urho3D::Mutex>>(pyclass_Var_Urho3D, "Mutex", "test doc");
 // Type Urho3D::IntVector2 Registrations
-auto pyclass_Var_Urho3D_IntVector2 = py::class_<Urho3D::IntVector2, std::shared_ptr<Urho3D::IntVector2>>(pyclass_Var_Urho3D, "IntVector2", "test doc");
+auto pyclass_Var_Urho3D_IntVector2 = py::class_<Urho3D::IntVector2, Urho3D::ExternalPtr<Urho3D::IntVector2>>(pyclass_Var_Urho3D, "IntVector2", "test doc");
 // Type Urho3D::Vector4 Registrations
-auto pyclass_Var_Urho3D_Vector4 = py::class_<Urho3D::Vector4, std::shared_ptr<Urho3D::Vector4>>(pyclass_Var_Urho3D, "Vector4", "test doc");
+auto pyclass_Var_Urho3D_Vector4 = py::class_<Urho3D::Vector4, Urho3D::ExternalPtr<Urho3D::Vector4>>(pyclass_Var_Urho3D, "Vector4", "test doc");
 // Type Urho3D::Matrix3x4 Registrations
-auto pyclass_Var_Urho3D_Matrix3x4 = py::class_<Urho3D::Matrix3x4, std::shared_ptr<Urho3D::Matrix3x4>>(pyclass_Var_Urho3D, "Matrix3x4", "test doc");
+auto pyclass_Var_Urho3D_Matrix3x4 = py::class_<Urho3D::Matrix3x4, Urho3D::ExternalPtr<Urho3D::Matrix3x4>>(pyclass_Var_Urho3D, "Matrix3x4", "test doc");
 // Type Urho3D::Variant Registrations
-auto pyclass_Var_Urho3D_Variant = py::class_<Urho3D::Variant, std::shared_ptr<Urho3D::Variant>>(pyclass_Var_Urho3D, "Variant", "test doc");
+auto pyclass_Var_Urho3D_Variant = py::class_<Urho3D::Variant, Urho3D::ExternalPtr<Urho3D::Variant>>(pyclass_Var_Urho3D, "Variant", "test doc");
 // Type Urho3D::ResourceRefList Registrations
-auto pyclass_Var_Urho3D_ResourceRefList = py::class_<Urho3D::ResourceRefList, std::shared_ptr<Urho3D::ResourceRefList>>(pyclass_Var_Urho3D, "ResourceRefList", "test doc");
+auto pyclass_Var_Urho3D_ResourceRefList = py::class_<Urho3D::ResourceRefList, Urho3D::ExternalPtr<Urho3D::ResourceRefList>>(pyclass_Var_Urho3D, "ResourceRefList", "test doc");
 // Type Urho3D::Object Registrations
-auto pyclass_Var_Urho3D_Object = py::class_<Urho3D::Object, Urho3D::SharedPtr<Urho3D::Object>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Object", "test doc");
+auto pyclass_Var_Urho3D_Object = py::class_<Urho3D::Object, Urho3D::ExternalPtr<Urho3D::Object>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Object", "test doc");
 // Type Urho3D::Script Registrations
-auto pyclass_Var_Urho3D_Script = py::class_<Urho3D::Script, Urho3D::SharedPtr<Urho3D::Script>, Urho3D::Object>(pyclass_Var_Urho3D, "Script", "test doc");
+auto pyclass_Var_Urho3D_Script = py::class_<Urho3D::Script, Urho3D::ExternalPtr<Urho3D::Script>, Urho3D::Object>(pyclass_Var_Urho3D, "Script", "test doc");
 // Type Urho3D::Connection Registrations
-auto pyclass_Var_Urho3D_Connection = py::class_<Urho3D::Connection, Urho3D::SharedPtr<Urho3D::Connection>, Urho3D::Object>(pyclass_Var_Urho3D, "Connection", "test doc");
+auto pyclass_Var_Urho3D_Connection = py::class_<Urho3D::Connection, Urho3D::ExternalPtr<Urho3D::Connection>, Urho3D::Object>(pyclass_Var_Urho3D, "Connection", "test doc");
 // Type Urho3D::JSONValue Registrations
-auto pyclass_Var_Urho3D_JSONValue = py::class_<Urho3D::JSONValue, std::shared_ptr<Urho3D::JSONValue>>(pyclass_Var_Urho3D, "JSONValue", "test doc");
+auto pyclass_Var_Urho3D_JSONValue = py::class_<Urho3D::JSONValue, Urho3D::ExternalPtr<Urho3D::JSONValue>>(pyclass_Var_Urho3D, "JSONValue", "test doc");
 // Type Urho3D::Audio Registrations
-auto pyclass_Var_Urho3D_Audio = py::class_<Urho3D::Audio, Urho3D::SharedPtr<Urho3D::Audio>, Urho3D::Object>(pyclass_Var_Urho3D, "Audio", "test doc");
+auto pyclass_Var_Urho3D_Audio = py::class_<Urho3D::Audio, Urho3D::ExternalPtr<Urho3D::Audio>, Urho3D::Object>(pyclass_Var_Urho3D, "Audio", "test doc");
 // Type Urho3D::VertexElement Registrations
-auto pyclass_Var_Urho3D_VertexElement = py::class_<Urho3D::VertexElement, std::shared_ptr<Urho3D::VertexElement>>(pyclass_Var_Urho3D, "VertexElement", "test doc");
+auto pyclass_Var_Urho3D_VertexElement = py::class_<Urho3D::VertexElement, Urho3D::ExternalPtr<Urho3D::VertexElement>>(pyclass_Var_Urho3D, "VertexElement", "test doc");
 // Type Urho3D::BoundingBox Registrations
-auto pyclass_Var_Urho3D_BoundingBox = py::class_<Urho3D::BoundingBox, std::shared_ptr<Urho3D::BoundingBox>>(pyclass_Var_Urho3D, "BoundingBox", "test doc");
+auto pyclass_Var_Urho3D_BoundingBox = py::class_<Urho3D::BoundingBox, Urho3D::ExternalPtr<Urho3D::BoundingBox>>(pyclass_Var_Urho3D, "BoundingBox", "test doc");
 // Type Urho3D::Geometry Registrations
-auto pyclass_Var_Urho3D_Geometry = py::class_<Urho3D::Geometry, Urho3D::SharedPtr<Urho3D::Geometry>, Urho3D::Object>(pyclass_Var_Urho3D, "Geometry", "test doc");
+auto pyclass_Var_Urho3D_Geometry = py::class_<Urho3D::Geometry, Urho3D::ExternalPtr<Urho3D::Geometry>, Urho3D::Object>(pyclass_Var_Urho3D, "Geometry", "test doc");
 // Type Urho3D::OcclusionBuffer Registrations
-auto pyclass_Var_Urho3D_OcclusionBuffer = py::class_<Urho3D::OcclusionBuffer, Urho3D::SharedPtr<Urho3D::OcclusionBuffer>, Urho3D::Object>(pyclass_Var_Urho3D, "OcclusionBuffer", "test doc");
+auto pyclass_Var_Urho3D_OcclusionBuffer = py::class_<Urho3D::OcclusionBuffer, Urho3D::ExternalPtr<Urho3D::OcclusionBuffer>, Urho3D::Object>(pyclass_Var_Urho3D, "OcclusionBuffer", "test doc");
 // Type Urho3D::SourceBatch Registrations
-auto pyclass_Var_Urho3D_SourceBatch = py::class_<Urho3D::SourceBatch, std::shared_ptr<Urho3D::SourceBatch>>(pyclass_Var_Urho3D, "SourceBatch", "test doc");
+auto pyclass_Var_Urho3D_SourceBatch = py::class_<Urho3D::SourceBatch, Urho3D::ExternalPtr<Urho3D::SourceBatch>>(pyclass_Var_Urho3D, "SourceBatch", "test doc");
 // Type Urho3D::Graphics Registrations
-auto pyclass_Var_Urho3D_Graphics = py::class_<Urho3D::Graphics, Urho3D::SharedPtr<Urho3D::Graphics>, Urho3D::Object>(pyclass_Var_Urho3D, "Graphics", "test doc");
+auto pyclass_Var_Urho3D_Graphics = py::class_<Urho3D::Graphics, Urho3D::ExternalPtr<Urho3D::Graphics>, Urho3D::Object>(pyclass_Var_Urho3D, "Graphics", "test doc");
 // Type Urho3D::Time Registrations
-auto pyclass_Var_Urho3D_Time = py::class_<Urho3D::Time, Urho3D::SharedPtr<Urho3D::Time>, Urho3D::Object>(pyclass_Var_Urho3D, "Time", "test doc");
+auto pyclass_Var_Urho3D_Time = py::class_<Urho3D::Time, Urho3D::ExternalPtr<Urho3D::Time>, Urho3D::Object>(pyclass_Var_Urho3D, "Time", "test doc");
 // Type Urho3D::PackageFile Registrations
-auto pyclass_Var_Urho3D_PackageFile = py::class_<Urho3D::PackageFile, Urho3D::SharedPtr<Urho3D::PackageFile>, Urho3D::Object>(pyclass_Var_Urho3D, "PackageFile", "test doc");
+auto pyclass_Var_Urho3D_PackageFile = py::class_<Urho3D::PackageFile, Urho3D::ExternalPtr<Urho3D::PackageFile>, Urho3D::Object>(pyclass_Var_Urho3D, "PackageFile", "test doc");
 // Type Urho3D::NodeReplicationState Registrations
-auto pyclass_Var_Urho3D_NodeReplicationState = py::class_<Urho3D::NodeReplicationState, std::shared_ptr<Urho3D::NodeReplicationState>, Urho3D::ReplicationState>(pyclass_Var_Urho3D, "NodeReplicationState", "test doc");
+auto pyclass_Var_Urho3D_NodeReplicationState = py::class_<Urho3D::NodeReplicationState, Urho3D::ExternalPtr<Urho3D::NodeReplicationState>, Urho3D::ReplicationState>(pyclass_Var_Urho3D, "NodeReplicationState", "test doc");
 // Type Urho3D::Plane Registrations
-auto pyclass_Var_Urho3D_Plane = py::class_<Urho3D::Plane, std::shared_ptr<Urho3D::Plane>>(pyclass_Var_Urho3D, "Plane", "test doc");
+auto pyclass_Var_Urho3D_Plane = py::class_<Urho3D::Plane, Urho3D::ExternalPtr<Urho3D::Plane>>(pyclass_Var_Urho3D, "Plane", "test doc");
 // Type Urho3D::Pass Registrations
-auto pyclass_Var_Urho3D_Pass = py::class_<Urho3D::Pass, Urho3D::SharedPtr<Urho3D::Pass>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Pass", "test doc");
+auto pyclass_Var_Urho3D_Pass = py::class_<Urho3D::Pass, Urho3D::ExternalPtr<Urho3D::Pass>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "Pass", "test doc");
 // Type Urho3D::ResourceCache Registrations
-auto pyclass_Var_Urho3D_ResourceCache = py::class_<Urho3D::ResourceCache, Urho3D::SharedPtr<Urho3D::ResourceCache>, Urho3D::Object>(pyclass_Var_Urho3D, "ResourceCache", "test doc");
+auto pyclass_Var_Urho3D_ResourceCache = py::class_<Urho3D::ResourceCache, Urho3D::ExternalPtr<Urho3D::ResourceCache>, Urho3D::Object>(pyclass_Var_Urho3D, "ResourceCache", "test doc");
 // Type Urho3D::ScriptEventInvoker Registrations
-auto pyclass_Var_Urho3D_ScriptEventInvoker = py::class_<Urho3D::ScriptEventInvoker, Urho3D::SharedPtr<Urho3D::ScriptEventInvoker>, Urho3D::Object>(pyclass_Var_Urho3D, "ScriptEventInvoker", "test doc");
+auto pyclass_Var_Urho3D_ScriptEventInvoker = py::class_<Urho3D::ScriptEventInvoker, Urho3D::ExternalPtr<Urho3D::ScriptEventInvoker>, Urho3D::Object>(pyclass_Var_Urho3D, "ScriptEventInvoker", "test doc");
 // Type Urho3D::OggVorbisSoundStream Registrations
-auto pyclass_Var_Urho3D_OggVorbisSoundStream = py::class_<Urho3D::OggVorbisSoundStream, Urho3D::SharedPtr<Urho3D::OggVorbisSoundStream>, Urho3D::SoundStream>(pyclass_Var_Urho3D, "OggVorbisSoundStream", "test doc");
+auto pyclass_Var_Urho3D_OggVorbisSoundStream = py::class_<Urho3D::OggVorbisSoundStream, Urho3D::ExternalPtr<Urho3D::OggVorbisSoundStream>, Urho3D::SoundStream>(pyclass_Var_Urho3D, "OggVorbisSoundStream", "test doc");
 // Type Urho3D::Thread Registrations
-auto pyclass_Var_Urho3D_Thread = py::class_<Urho3D::Thread, std::shared_ptr<Urho3D::Thread>>(pyclass_Var_Urho3D, "Thread", "test doc");
+auto pyclass_Var_Urho3D_Thread = py::class_<Urho3D::Thread, Urho3D::ExternalPtr<Urho3D::Thread>>(pyclass_Var_Urho3D, "Thread", "test doc");
 // Type Urho3D::EventProfilerBlock Registrations
-auto pyclass_Var_Urho3D_EventProfilerBlock = py::class_<Urho3D::EventProfilerBlock, std::shared_ptr<Urho3D::EventProfilerBlock>, Urho3D::ProfilerBlock>(pyclass_Var_Urho3D, "EventProfilerBlock", "test doc");
+auto pyclass_Var_Urho3D_EventProfilerBlock = py::class_<Urho3D::EventProfilerBlock, Urho3D::ExternalPtr<Urho3D::EventProfilerBlock>, Urho3D::ProfilerBlock>(pyclass_Var_Urho3D, "EventProfilerBlock", "test doc");
 // Type Urho3D::WorkQueue Registrations
-auto pyclass_Var_Urho3D_WorkQueue = py::class_<Urho3D::WorkQueue, Urho3D::SharedPtr<Urho3D::WorkQueue>, Urho3D::Object>(pyclass_Var_Urho3D, "WorkQueue", "test doc");
+auto pyclass_Var_Urho3D_WorkQueue = py::class_<Urho3D::WorkQueue, Urho3D::ExternalPtr<Urho3D::WorkQueue>, Urho3D::Object>(pyclass_Var_Urho3D, "WorkQueue", "test doc");
 // Type Urho3D::DebugHud Registrations
-auto pyclass_Var_Urho3D_DebugHud = py::class_<Urho3D::DebugHud, Urho3D::SharedPtr<Urho3D::DebugHud>, Urho3D::Object>(pyclass_Var_Urho3D, "DebugHud", "test doc");
+auto pyclass_Var_Urho3D_DebugHud = py::class_<Urho3D::DebugHud, Urho3D::ExternalPtr<Urho3D::DebugHud>, Urho3D::Object>(pyclass_Var_Urho3D, "DebugHud", "test doc");
 // Type Urho3D::Application Registrations
-auto pyclass_Var_Urho3D_Application = py::class_<Urho3D::Application, PyApplication, Urho3D::SharedPtr<Urho3D::Application>, Urho3D::Object>(pyclass_Var_Urho3D, "Application", "test doc");
+auto pyclass_Var_Urho3D_Application = py::class_<Urho3D::Application, PyApplication, Urho3D::ExternalPtr<Urho3D::Application>, Urho3D::Object>(pyclass_Var_Urho3D, "Application", "test doc");
 // Type Urho3D::IndexBuffer Registrations
-auto pyclass_Var_Urho3D_IndexBuffer = py::class_<Urho3D::IndexBuffer, Urho3D::SharedPtr<Urho3D::IndexBuffer>, Urho3D::Object, Urho3D::GPUObject>(pyclass_Var_Urho3D, "IndexBuffer", "test doc");
+auto pyclass_Var_Urho3D_IndexBuffer = py::class_<Urho3D::IndexBuffer, Urho3D::ExternalPtr<Urho3D::IndexBuffer>, Urho3D::Object, Urho3D::GPUObject>(pyclass_Var_Urho3D, "IndexBuffer", "test doc");
 // Type Urho3D::AnimationControl Registrations
-auto pyclass_Var_Urho3D_AnimationControl = py::class_<Urho3D::AnimationControl, std::shared_ptr<Urho3D::AnimationControl>>(pyclass_Var_Urho3D, "AnimationControl", "test doc");
+auto pyclass_Var_Urho3D_AnimationControl = py::class_<Urho3D::AnimationControl, Urho3D::ExternalPtr<Urho3D::AnimationControl>>(pyclass_Var_Urho3D, "AnimationControl", "test doc");
 // Type Urho3D::View Registrations
-auto pyclass_Var_Urho3D_View = py::class_<Urho3D::View, Urho3D::SharedPtr<Urho3D::View>, Urho3D::Object>(pyclass_Var_Urho3D, "View", "test doc");
+auto pyclass_Var_Urho3D_View = py::class_<Urho3D::View, Urho3D::ExternalPtr<Urho3D::View>, Urho3D::Object>(pyclass_Var_Urho3D, "View", "test doc");
 // Type Urho3D::ConstantBuffer Registrations
-auto pyclass_Var_Urho3D_ConstantBuffer = py::class_<Urho3D::ConstantBuffer, Urho3D::SharedPtr<Urho3D::ConstantBuffer>, Urho3D::Object, Urho3D::GPUObject>(pyclass_Var_Urho3D, "ConstantBuffer", "test doc");
+auto pyclass_Var_Urho3D_ConstantBuffer = py::class_<Urho3D::ConstantBuffer, Urho3D::ExternalPtr<Urho3D::ConstantBuffer>, Urho3D::Object, Urho3D::GPUObject>(pyclass_Var_Urho3D, "ConstantBuffer", "test doc");
 // Type Urho3D::Renderer Registrations
-auto pyclass_Var_Urho3D_Renderer = py::class_<Urho3D::Renderer, Urho3D::SharedPtr<Urho3D::Renderer>, Urho3D::Object>(pyclass_Var_Urho3D, "Renderer", "test doc");
+auto pyclass_Var_Urho3D_Renderer = py::class_<Urho3D::Renderer, Urho3D::ExternalPtr<Urho3D::Renderer>, Urho3D::Object>(pyclass_Var_Urho3D, "Renderer", "test doc");
 // Type Urho3D::ShaderPrecache Registrations
-auto pyclass_Var_Urho3D_ShaderPrecache = py::class_<Urho3D::ShaderPrecache, Urho3D::SharedPtr<Urho3D::ShaderPrecache>, Urho3D::Object>(pyclass_Var_Urho3D, "ShaderPrecache", "test doc");
+auto pyclass_Var_Urho3D_ShaderPrecache = py::class_<Urho3D::ShaderPrecache, Urho3D::ExternalPtr<Urho3D::ShaderPrecache>, Urho3D::Object>(pyclass_Var_Urho3D, "ShaderPrecache", "test doc");
 // Type Urho3D::PointOctreeQuery Registrations
-auto pyclass_Var_Urho3D_PointOctreeQuery = py::class_<Urho3D::PointOctreeQuery, std::shared_ptr<Urho3D::PointOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "PointOctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_PointOctreeQuery = py::class_<Urho3D::PointOctreeQuery, Urho3D::ExternalPtr<Urho3D::PointOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "PointOctreeQuery", "test doc");
 // Type Urho3D::OctreeQueryResult Registrations
-auto pyclass_Var_Urho3D_OctreeQueryResult = py::class_<Urho3D::OctreeQueryResult, std::shared_ptr<Urho3D::OctreeQueryResult>>(pyclass_Var_Urho3D, "OctreeQueryResult", "test doc");
+auto pyclass_Var_Urho3D_OctreeQueryResult = py::class_<Urho3D::OctreeQueryResult, Urho3D::ExternalPtr<Urho3D::OctreeQueryResult>>(pyclass_Var_Urho3D, "OctreeQueryResult", "test doc");
 // Type Urho3D::RenderPathCommand Registrations
-auto pyclass_Var_Urho3D_RenderPathCommand = py::class_<Urho3D::RenderPathCommand, std::shared_ptr<Urho3D::RenderPathCommand>>(pyclass_Var_Urho3D, "RenderPathCommand", "test doc");
+auto pyclass_Var_Urho3D_RenderPathCommand = py::class_<Urho3D::RenderPathCommand, Urho3D::ExternalPtr<Urho3D::RenderPathCommand>>(pyclass_Var_Urho3D, "RenderPathCommand", "test doc");
 // Type Urho3D::FileSystem Registrations
-auto pyclass_Var_Urho3D_FileSystem = py::class_<Urho3D::FileSystem, Urho3D::SharedPtr<Urho3D::FileSystem>, Urho3D::Object>(pyclass_Var_Urho3D, "FileSystem", "test doc");
+auto pyclass_Var_Urho3D_FileSystem = py::class_<Urho3D::FileSystem, Urho3D::ExternalPtr<Urho3D::FileSystem>, Urho3D::Object>(pyclass_Var_Urho3D, "FileSystem", "test doc");
 // Type Urho3D::CursorShapeInfo Registrations
-auto pyclass_Var_Urho3D_CursorShapeInfo = py::class_<Urho3D::CursorShapeInfo, std::shared_ptr<Urho3D::CursorShapeInfo>>(pyclass_Var_Urho3D, "CursorShapeInfo", "test doc");
+auto pyclass_Var_Urho3D_CursorShapeInfo = py::class_<Urho3D::CursorShapeInfo, Urho3D::ExternalPtr<Urho3D::CursorShapeInfo>>(pyclass_Var_Urho3D, "CursorShapeInfo", "test doc");
 // Type Urho3D::LuaScriptEventListener Registrations
-auto pyclass_Var_Urho3D_LuaScriptEventListener = py::class_<Urho3D::LuaScriptEventListener, std::shared_ptr<Urho3D::LuaScriptEventListener>>(pyclass_Var_Urho3D, "LuaScriptEventListener", "test doc");
+auto pyclass_Var_Urho3D_LuaScriptEventListener = py::class_<Urho3D::LuaScriptEventListener, Urho3D::ExternalPtr<Urho3D::LuaScriptEventListener>>(pyclass_Var_Urho3D, "LuaScriptEventListener", "test doc");
 // Type Urho3D::NavigationPathPoint Registrations
-auto pyclass_Var_Urho3D_NavigationPathPoint = py::class_<Urho3D::NavigationPathPoint, std::shared_ptr<Urho3D::NavigationPathPoint>>(pyclass_Var_Urho3D, "NavigationPathPoint", "test doc");
+auto pyclass_Var_Urho3D_NavigationPathPoint = py::class_<Urho3D::NavigationPathPoint, Urho3D::ExternalPtr<Urho3D::NavigationPathPoint>>(pyclass_Var_Urho3D, "NavigationPathPoint", "test doc");
 // Type Urho3D::HttpRequest Registrations
-auto pyclass_Var_Urho3D_HttpRequest = py::class_<Urho3D::HttpRequest, Urho3D::SharedPtr<Urho3D::HttpRequest>, Urho3D::RefCounted, Urho3D::Deserializer, Urho3D::Thread>(pyclass_Var_Urho3D, "HttpRequest", "test doc");
+auto pyclass_Var_Urho3D_HttpRequest = py::class_<Urho3D::HttpRequest, Urho3D::ExternalPtr<Urho3D::HttpRequest>, Urho3D::RefCounted, Urho3D::Deserializer, Urho3D::Thread>(pyclass_Var_Urho3D, "HttpRequest", "test doc");
 // Type Urho3D::Localization Registrations
-auto pyclass_Var_Urho3D_Localization = py::class_<Urho3D::Localization, Urho3D::SharedPtr<Urho3D::Localization>, Urho3D::Object>(pyclass_Var_Urho3D, "Localization", "test doc");
+auto pyclass_Var_Urho3D_Localization = py::class_<Urho3D::Localization, Urho3D::ExternalPtr<Urho3D::Localization>, Urho3D::Object>(pyclass_Var_Urho3D, "Localization", "test doc");
 // Type Urho3D::RocketSys Registrations
-auto pyclass_Var_Urho3D_RocketSys = py::class_<Urho3D::RocketSys, Urho3D::SharedPtr<Urho3D::RocketSys>, Urho3D::Object>(pyclass_Var_Urho3D, "RocketSys", "test doc");
+auto pyclass_Var_Urho3D_RocketSys = py::class_<Urho3D::RocketSys, Urho3D::ExternalPtr<Urho3D::RocketSys>, Urho3D::Object>(pyclass_Var_Urho3D, "RocketSys", "test doc");
 // Type Urho3D::FileSelector Registrations
-auto pyclass_Var_Urho3D_FileSelector = py::class_<Urho3D::FileSelector, Urho3D::SharedPtr<Urho3D::FileSelector>, Urho3D::Object>(pyclass_Var_Urho3D, "FileSelector", "test doc");
+auto pyclass_Var_Urho3D_FileSelector = py::class_<Urho3D::FileSelector, Urho3D::ExternalPtr<Urho3D::FileSelector>, Urho3D::Object>(pyclass_Var_Urho3D, "FileSelector", "test doc");
 // Type Urho3D::FontFaceFreeType Registrations
-auto pyclass_Var_Urho3D_FontFaceFreeType = py::class_<Urho3D::FontFaceFreeType, Urho3D::SharedPtr<Urho3D::FontFaceFreeType>, Urho3D::FontFace>(pyclass_Var_Urho3D, "FontFaceFreeType", "test doc");
+auto pyclass_Var_Urho3D_FontFaceFreeType = py::class_<Urho3D::FontFaceFreeType, Urho3D::ExternalPtr<Urho3D::FontFaceFreeType>, Urho3D::FontFace>(pyclass_Var_Urho3D, "FontFaceFreeType", "test doc");
 // Type Urho3D::MessageBox Registrations
-auto pyclass_Var_Urho3D_MessageBox = py::class_<Urho3D::MessageBox, Urho3D::SharedPtr<Urho3D::MessageBox>, Urho3D::Object>(pyclass_Var_Urho3D, "MessageBox", "test doc");
+auto pyclass_Var_Urho3D_MessageBox = py::class_<Urho3D::MessageBox, Urho3D::ExternalPtr<Urho3D::MessageBox>, Urho3D::Object>(pyclass_Var_Urho3D, "MessageBox", "test doc");
 // Type Urho3D::UI Registrations
-auto pyclass_Var_Urho3D_UI = py::class_<Urho3D::UI, Urho3D::SharedPtr<Urho3D::UI>, Urho3D::Object>(pyclass_Var_Urho3D, "UI", "test doc");
+auto pyclass_Var_Urho3D_UI = py::class_<Urho3D::UI, Urho3D::ExternalPtr<Urho3D::UI>, Urho3D::Object>(pyclass_Var_Urho3D, "UI", "test doc");
 // Type Urho3D::PropertySet2D Registrations
-auto pyclass_Var_Urho3D_PropertySet2D = py::class_<Urho3D::PropertySet2D, Urho3D::SharedPtr<Urho3D::PropertySet2D>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "PropertySet2D", "test doc");
+auto pyclass_Var_Urho3D_PropertySet2D = py::class_<Urho3D::PropertySet2D, Urho3D::ExternalPtr<Urho3D::PropertySet2D>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "PropertySet2D", "test doc");
 // Type Urho3D::VectorBase Registrations
-auto pyclass_Var_Urho3D_VectorBase = py::class_<Urho3D::VectorBase, std::shared_ptr<Urho3D::VectorBase>>(pyclass_Var_Urho3D, "VectorBase", "test doc");
+auto pyclass_Var_Urho3D_VectorBase = py::class_<Urho3D::VectorBase, Urho3D::ExternalPtr<Urho3D::VectorBase>>(pyclass_Var_Urho3D, "VectorBase", "test doc");
 // Type Urho3D::LinkedListNode Registrations
-auto pyclass_Var_Urho3D_LinkedListNode = py::class_<Urho3D::LinkedListNode, std::shared_ptr<Urho3D::LinkedListNode>>(pyclass_Var_Urho3D, "LinkedListNode", "test doc");
+auto pyclass_Var_Urho3D_LinkedListNode = py::class_<Urho3D::LinkedListNode, Urho3D::ExternalPtr<Urho3D::LinkedListNode>>(pyclass_Var_Urho3D, "LinkedListNode", "test doc");
 // Type Urho3D::Matrix3 Registrations
-auto pyclass_Var_Urho3D_Matrix3 = py::class_<Urho3D::Matrix3, std::shared_ptr<Urho3D::Matrix3>>(pyclass_Var_Urho3D, "Matrix3", "test doc");
+auto pyclass_Var_Urho3D_Matrix3 = py::class_<Urho3D::Matrix3, Urho3D::ExternalPtr<Urho3D::Matrix3>>(pyclass_Var_Urho3D, "Matrix3", "test doc");
 // Type Urho3D::EventHandler Registrations
-auto pyclass_Var_Urho3D_EventHandler = py::class_<Urho3D::EventHandler, std::shared_ptr<Urho3D::EventHandler>, Urho3D::LinkedListNode>(pyclass_Var_Urho3D, "EventHandler", "test doc");
+auto pyclass_Var_Urho3D_EventHandler = py::class_<Urho3D::EventHandler, Urho3D::ExternalPtr<Urho3D::EventHandler>, Urho3D::LinkedListNode>(pyclass_Var_Urho3D, "EventHandler", "test doc");
 // Type Urho3D::Serializable Registrations
-auto pyclass_Var_Urho3D_Serializable = py::class_<Urho3D::Serializable, Urho3D::SharedPtr<Urho3D::Serializable>, Urho3D::Object>(pyclass_Var_Urho3D, "Serializable", "test doc");
+auto pyclass_Var_Urho3D_Serializable = py::class_<Urho3D::Serializable, Urho3D::ExternalPtr<Urho3D::Serializable>, Urho3D::Object>(pyclass_Var_Urho3D, "Serializable", "test doc");
 // Type Urho3D::NetworkState Registrations
-auto pyclass_Var_Urho3D_NetworkState = py::class_<Urho3D::NetworkState, std::shared_ptr<Urho3D::NetworkState>>(pyclass_Var_Urho3D, "NetworkState", "test doc");
+auto pyclass_Var_Urho3D_NetworkState = py::class_<Urho3D::NetworkState, Urho3D::ExternalPtr<Urho3D::NetworkState>>(pyclass_Var_Urho3D, "NetworkState", "test doc");
 // Type Urho3D::Animatable Registrations
-auto pyclass_Var_Urho3D_Animatable = py::class_<Urho3D::Animatable, Urho3D::SharedPtr<Urho3D::Animatable>, Urho3D::Serializable>(pyclass_Var_Urho3D, "Animatable", "test doc");
+auto pyclass_Var_Urho3D_Animatable = py::class_<Urho3D::Animatable, Urho3D::ExternalPtr<Urho3D::Animatable>, Urho3D::Serializable>(pyclass_Var_Urho3D, "Animatable", "test doc");
 // Type Urho3D::Node Registrations
-auto pyclass_Var_Urho3D_Node = py::class_<Urho3D::Node, Urho3D::SharedPtr<Urho3D::Node>, Urho3D::Animatable>(pyclass_Var_Urho3D, "Node", "test doc");
+auto pyclass_Var_Urho3D_Node = py::class_<Urho3D::Node, Urho3D::ExternalPtr<Urho3D::Node>, Urho3D::Animatable>(pyclass_Var_Urho3D, "Node", "test doc");
 // Type Urho3D::Frustum Registrations
-auto pyclass_Var_Urho3D_Frustum = py::class_<Urho3D::Frustum, std::shared_ptr<Urho3D::Frustum>>(pyclass_Var_Urho3D, "Frustum", "test doc");
+auto pyclass_Var_Urho3D_Frustum = py::class_<Urho3D::Frustum, Urho3D::ExternalPtr<Urho3D::Frustum>>(pyclass_Var_Urho3D, "Frustum", "test doc");
 // Type Urho3D::RayOctreeQuery Registrations
-auto pyclass_Var_Urho3D_RayOctreeQuery = py::class_<Urho3D::RayOctreeQuery, std::shared_ptr<Urho3D::RayOctreeQuery>>(pyclass_Var_Urho3D, "RayOctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_RayOctreeQuery = py::class_<Urho3D::RayOctreeQuery, Urho3D::ExternalPtr<Urho3D::RayOctreeQuery>>(pyclass_Var_Urho3D, "RayOctreeQuery", "test doc");
 // Type Urho3D::Timer Registrations
-auto pyclass_Var_Urho3D_Timer = py::class_<Urho3D::Timer, std::shared_ptr<Urho3D::Timer>>(pyclass_Var_Urho3D, "Timer", "test doc");
+auto pyclass_Var_Urho3D_Timer = py::class_<Urho3D::Timer, Urho3D::ExternalPtr<Urho3D::Timer>>(pyclass_Var_Urho3D, "Timer", "test doc");
 // Type Urho3D::Log Registrations
-auto pyclass_Var_Urho3D_Log = py::class_<Urho3D::Log, Urho3D::SharedPtr<Urho3D::Log>, Urho3D::Object>(pyclass_Var_Urho3D, "Log", "test doc");
+auto pyclass_Var_Urho3D_Log = py::class_<Urho3D::Log, Urho3D::ExternalPtr<Urho3D::Log>, Urho3D::Object>(pyclass_Var_Urho3D, "Log", "test doc");
 // Type Urho3D::CascadeParameters Registrations
-auto pyclass_Var_Urho3D_CascadeParameters = py::class_<Urho3D::CascadeParameters, std::shared_ptr<Urho3D::CascadeParameters>>(pyclass_Var_Urho3D, "CascadeParameters", "test doc");
+auto pyclass_Var_Urho3D_CascadeParameters = py::class_<Urho3D::CascadeParameters, Urho3D::ExternalPtr<Urho3D::CascadeParameters>>(pyclass_Var_Urho3D, "CascadeParameters", "test doc");
 // Type Urho3D::UIElement Registrations
-auto pyclass_Var_Urho3D_UIElement = py::class_<Urho3D::UIElement, Urho3D::SharedPtr<Urho3D::UIElement>, Urho3D::Animatable>(pyclass_Var_Urho3D, "UIElement", "test doc");
+auto pyclass_Var_Urho3D_UIElement = py::class_<Urho3D::UIElement, Urho3D::ExternalPtr<Urho3D::UIElement>, Urho3D::Animatable>(pyclass_Var_Urho3D, "UIElement", "test doc");
 // Type Urho3D::BorderImage Registrations
-auto pyclass_Var_Urho3D_BorderImage = py::class_<Urho3D::BorderImage, Urho3D::SharedPtr<Urho3D::BorderImage>, Urho3D::UIElement>(pyclass_Var_Urho3D, "BorderImage", "test doc");
+auto pyclass_Var_Urho3D_BorderImage = py::class_<Urho3D::BorderImage, Urho3D::ExternalPtr<Urho3D::BorderImage>, Urho3D::UIElement>(pyclass_Var_Urho3D, "BorderImage", "test doc");
 // Type Urho3D::Profiler Registrations
-auto pyclass_Var_Urho3D_Profiler = py::class_<Urho3D::Profiler, Urho3D::SharedPtr<Urho3D::Profiler>, Urho3D::Object>(pyclass_Var_Urho3D, "Profiler", "test doc");
+auto pyclass_Var_Urho3D_Profiler = py::class_<Urho3D::Profiler, Urho3D::ExternalPtr<Urho3D::Profiler>, Urho3D::Object>(pyclass_Var_Urho3D, "Profiler", "test doc");
 // Type Urho3D::Console Registrations
-auto pyclass_Var_Urho3D_Console = py::class_<Urho3D::Console, Urho3D::SharedPtr<Urho3D::Console>, Urho3D::Object>(pyclass_Var_Urho3D, "Console", "test doc");
+auto pyclass_Var_Urho3D_Console = py::class_<Urho3D::Console, Urho3D::ExternalPtr<Urho3D::Console>, Urho3D::Object>(pyclass_Var_Urho3D, "Console", "test doc");
 // Type Urho3D::Button Registrations
-auto pyclass_Var_Urho3D_Button = py::class_<Urho3D::Button, Urho3D::SharedPtr<Urho3D::Button>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Button", "test doc");
+auto pyclass_Var_Urho3D_Button = py::class_<Urho3D::Button, Urho3D::ExternalPtr<Urho3D::Button>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Button", "test doc");
 // Type Urho3D::LineEdit Registrations
-auto pyclass_Var_Urho3D_LineEdit = py::class_<Urho3D::LineEdit, Urho3D::SharedPtr<Urho3D::LineEdit>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "LineEdit", "test doc");
+auto pyclass_Var_Urho3D_LineEdit = py::class_<Urho3D::LineEdit, Urho3D::ExternalPtr<Urho3D::LineEdit>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "LineEdit", "test doc");
 // Type Urho3D::VertexBuffer Registrations
-auto pyclass_Var_Urho3D_VertexBuffer = py::class_<Urho3D::VertexBuffer, Urho3D::SharedPtr<Urho3D::VertexBuffer>, Urho3D::Object, Urho3D::GPUObject>(pyclass_Var_Urho3D, "VertexBuffer", "test doc");
+auto pyclass_Var_Urho3D_VertexBuffer = py::class_<Urho3D::VertexBuffer, Urho3D::ExternalPtr<Urho3D::VertexBuffer>, Urho3D::Object, Urho3D::GPUObject>(pyclass_Var_Urho3D, "VertexBuffer", "test doc");
 // Type Urho3D::BoxOctreeQuery Registrations
-auto pyclass_Var_Urho3D_BoxOctreeQuery = py::class_<Urho3D::BoxOctreeQuery, std::shared_ptr<Urho3D::BoxOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "BoxOctreeQuery", "test doc");
+auto pyclass_Var_Urho3D_BoxOctreeQuery = py::class_<Urho3D::BoxOctreeQuery, Urho3D::ExternalPtr<Urho3D::BoxOctreeQuery>, Urho3D::OctreeQuery>(pyclass_Var_Urho3D, "BoxOctreeQuery", "test doc");
 // Type Urho3D::Viewport Registrations
-auto pyclass_Var_Urho3D_Viewport = py::class_<Urho3D::Viewport, Urho3D::SharedPtr<Urho3D::Viewport>, Urho3D::Object>(pyclass_Var_Urho3D, "Viewport", "test doc");
+auto pyclass_Var_Urho3D_Viewport = py::class_<Urho3D::Viewport, Urho3D::ExternalPtr<Urho3D::Viewport>, Urho3D::Object>(pyclass_Var_Urho3D, "Viewport", "test doc");
 // Type Urho3D::FileWatcher Registrations
-auto pyclass_Var_Urho3D_FileWatcher = py::class_<Urho3D::FileWatcher, Urho3D::SharedPtr<Urho3D::FileWatcher>, Urho3D::Object, Urho3D::Thread>(pyclass_Var_Urho3D, "FileWatcher", "test doc");
+auto pyclass_Var_Urho3D_FileWatcher = py::class_<Urho3D::FileWatcher, Urho3D::ExternalPtr<Urho3D::FileWatcher>, Urho3D::Object, Urho3D::Thread>(pyclass_Var_Urho3D, "FileWatcher", "test doc");
 // Type Urho3D::Input Registrations
-auto pyclass_Var_Urho3D_Input = py::class_<Urho3D::Input, Urho3D::SharedPtr<Urho3D::Input>, Urho3D::Object>(pyclass_Var_Urho3D, "Input", "test doc");
+auto pyclass_Var_Urho3D_Input = py::class_<Urho3D::Input, Urho3D::ExternalPtr<Urho3D::Input>, Urho3D::Object>(pyclass_Var_Urho3D, "Input", "test doc");
 // Type Urho3D::LuaScript Registrations
-auto pyclass_Var_Urho3D_LuaScript = py::class_<Urho3D::LuaScript, Urho3D::SharedPtr<Urho3D::LuaScript>, Urho3D::Object, Urho3D::LuaScriptEventListener>(pyclass_Var_Urho3D, "LuaScript", "test doc");
+auto pyclass_Var_Urho3D_LuaScript = py::class_<Urho3D::LuaScript, Urho3D::ExternalPtr<Urho3D::LuaScript>, Urho3D::Object, Urho3D::LuaScriptEventListener>(pyclass_Var_Urho3D, "LuaScript", "test doc");
 // Type Urho3D::Matrix2 Registrations
-auto pyclass_Var_Urho3D_Matrix2 = py::class_<Urho3D::Matrix2, std::shared_ptr<Urho3D::Matrix2>>(pyclass_Var_Urho3D, "Matrix2", "test doc");
+auto pyclass_Var_Urho3D_Matrix2 = py::class_<Urho3D::Matrix2, Urho3D::ExternalPtr<Urho3D::Matrix2>>(pyclass_Var_Urho3D, "Matrix2", "test doc");
 // Type Urho3D::Network Registrations
-auto pyclass_Var_Urho3D_Network = py::class_<Urho3D::Network, Urho3D::SharedPtr<Urho3D::Network>, Urho3D::Object>(pyclass_Var_Urho3D, "Network", "test doc");
+auto pyclass_Var_Urho3D_Network = py::class_<Urho3D::Network, Urho3D::ExternalPtr<Urho3D::Network>, Urho3D::Object>(pyclass_Var_Urho3D, "Network", "test doc");
 // Type Urho3D::CheckBox Registrations
-auto pyclass_Var_Urho3D_CheckBox = py::class_<Urho3D::CheckBox, Urho3D::SharedPtr<Urho3D::CheckBox>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "CheckBox", "test doc");
+auto pyclass_Var_Urho3D_CheckBox = py::class_<Urho3D::CheckBox, Urho3D::ExternalPtr<Urho3D::CheckBox>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "CheckBox", "test doc");
 // Type Urho3D::Window Registrations
-auto pyclass_Var_Urho3D_Window = py::class_<Urho3D::Window, Urho3D::SharedPtr<Urho3D::Window>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Window", "test doc");
+auto pyclass_Var_Urho3D_Window = py::class_<Urho3D::Window, Urho3D::ExternalPtr<Urho3D::Window>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Window", "test doc");
 // Type Urho3D::ScrollBar Registrations
-auto pyclass_Var_Urho3D_ScrollBar = py::class_<Urho3D::ScrollBar, Urho3D::SharedPtr<Urho3D::ScrollBar>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "ScrollBar", "test doc");
+auto pyclass_Var_Urho3D_ScrollBar = py::class_<Urho3D::ScrollBar, Urho3D::ExternalPtr<Urho3D::ScrollBar>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "ScrollBar", "test doc");
 // Type Urho3D::UISelectable Registrations
-auto pyclass_Var_Urho3D_UISelectable = py::class_<Urho3D::UISelectable, Urho3D::SharedPtr<Urho3D::UISelectable>, Urho3D::UIElement>(pyclass_Var_Urho3D, "UISelectable", "test doc");
+auto pyclass_Var_Urho3D_UISelectable = py::class_<Urho3D::UISelectable, Urho3D::ExternalPtr<Urho3D::UISelectable>, Urho3D::UIElement>(pyclass_Var_Urho3D, "UISelectable", "test doc");
 // Type Urho3D::Slider Registrations
-auto pyclass_Var_Urho3D_Slider = py::class_<Urho3D::Slider, Urho3D::SharedPtr<Urho3D::Slider>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Slider", "test doc");
+auto pyclass_Var_Urho3D_Slider = py::class_<Urho3D::Slider, Urho3D::ExternalPtr<Urho3D::Slider>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Slider", "test doc");
 // Type Urho3D::ToolTip Registrations
-auto pyclass_Var_Urho3D_ToolTip = py::class_<Urho3D::ToolTip, Urho3D::SharedPtr<Urho3D::ToolTip>, Urho3D::UIElement>(pyclass_Var_Urho3D, "ToolTip", "test doc");
+auto pyclass_Var_Urho3D_ToolTip = py::class_<Urho3D::ToolTip, Urho3D::ExternalPtr<Urho3D::ToolTip>, Urho3D::UIElement>(pyclass_Var_Urho3D, "ToolTip", "test doc");
 // Type Urho3D::View3D Registrations
-auto pyclass_Var_Urho3D_View3D = py::class_<Urho3D::View3D, Urho3D::SharedPtr<Urho3D::View3D>, Urho3D::Window>(pyclass_Var_Urho3D, "View3D", "test doc");
+auto pyclass_Var_Urho3D_View3D = py::class_<Urho3D::View3D, Urho3D::ExternalPtr<Urho3D::View3D>, Urho3D::Window>(pyclass_Var_Urho3D, "View3D", "test doc");
 // Type Urho3D::TileMapObject2D Registrations
-auto pyclass_Var_Urho3D_TileMapObject2D = py::class_<Urho3D::TileMapObject2D, Urho3D::SharedPtr<Urho3D::TileMapObject2D>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "TileMapObject2D", "test doc");
+auto pyclass_Var_Urho3D_TileMapObject2D = py::class_<Urho3D::TileMapObject2D, Urho3D::ExternalPtr<Urho3D::TileMapObject2D>, Urho3D::RefCounted>(pyclass_Var_Urho3D, "TileMapObject2D", "test doc");
 // Type Urho3D::CScriptDictValue Registrations
-auto pyclass_Var_Urho3D_CScriptDictValue = py::class_<Urho3D::CScriptDictValue, std::shared_ptr<Urho3D::CScriptDictValue>>(pyclass_Var_Urho3D, "CScriptDictValue", "test doc");
+auto pyclass_Var_Urho3D_CScriptDictValue = py::class_<Urho3D::CScriptDictValue, Urho3D::ExternalPtr<Urho3D::CScriptDictValue>>(pyclass_Var_Urho3D, "CScriptDictValue", "test doc");
 // Type Urho3D::Rect Registrations
-auto pyclass_Var_Urho3D_Rect = py::class_<Urho3D::Rect, std::shared_ptr<Urho3D::Rect>>(pyclass_Var_Urho3D, "Rect", "test doc");
+auto pyclass_Var_Urho3D_Rect = py::class_<Urho3D::Rect, Urho3D::ExternalPtr<Urho3D::Rect>>(pyclass_Var_Urho3D, "Rect", "test doc");
 // Type Urho3D::ResourceRouter Registrations
-auto pyclass_Var_Urho3D_ResourceRouter = py::class_<Urho3D::ResourceRouter, Urho3D::SharedPtr<Urho3D::ResourceRouter>, Urho3D::Object>(pyclass_Var_Urho3D, "ResourceRouter", "test doc");
+auto pyclass_Var_Urho3D_ResourceRouter = py::class_<Urho3D::ResourceRouter, Urho3D::ExternalPtr<Urho3D::ResourceRouter>, Urho3D::Object>(pyclass_Var_Urho3D, "ResourceRouter", "test doc");
 // Type Urho3D::Serializer Registrations
-auto pyclass_Var_Urho3D_Serializer = py::class_<Urho3D::Serializer, std::shared_ptr<Urho3D::Serializer>>(pyclass_Var_Urho3D, "Serializer", "test doc");
+auto pyclass_Var_Urho3D_Serializer = py::class_<Urho3D::Serializer, Urho3D::ExternalPtr<Urho3D::Serializer>>(pyclass_Var_Urho3D, "Serializer", "test doc");
 // Type Urho3D::Component Registrations
-auto pyclass_Var_Urho3D_Component = py::class_<Urho3D::Component, Urho3D::SharedPtr<Urho3D::Component>, Urho3D::Animatable>(pyclass_Var_Urho3D, "Component", "test doc");
+auto pyclass_Var_Urho3D_Component = py::class_<Urho3D::Component, Urho3D::ExternalPtr<Urho3D::Component>, Urho3D::Animatable>(pyclass_Var_Urho3D, "Component", "test doc");
 // Type Urho3D::SoundSource Registrations
-auto pyclass_Var_Urho3D_SoundSource = py::class_<Urho3D::SoundSource, Urho3D::SharedPtr<Urho3D::SoundSource>, Urho3D::Component>(pyclass_Var_Urho3D, "SoundSource", "test doc");
+auto pyclass_Var_Urho3D_SoundSource = py::class_<Urho3D::SoundSource, Urho3D::ExternalPtr<Urho3D::SoundSource>, Urho3D::Component>(pyclass_Var_Urho3D, "SoundSource", "test doc");
 // Type Urho3D::Drawable Registrations
-auto pyclass_Var_Urho3D_Drawable = py::class_<Urho3D::Drawable, Urho3D::SharedPtr<Urho3D::Drawable>, Urho3D::Component>(pyclass_Var_Urho3D, "Drawable", "test doc");
+auto pyclass_Var_Urho3D_Drawable = py::class_<Urho3D::Drawable, Urho3D::ExternalPtr<Urho3D::Drawable>, Urho3D::Component>(pyclass_Var_Urho3D, "Drawable", "test doc");
 // Type Urho3D::StaticModel Registrations
-auto pyclass_Var_Urho3D_StaticModel = py::class_<Urho3D::StaticModel, Urho3D::SharedPtr<Urho3D::StaticModel>, Urho3D::Drawable>(pyclass_Var_Urho3D, "StaticModel", "test doc");
+auto pyclass_Var_Urho3D_StaticModel = py::class_<Urho3D::StaticModel, Urho3D::ExternalPtr<Urho3D::StaticModel>, Urho3D::Drawable>(pyclass_Var_Urho3D, "StaticModel", "test doc");
 // Type Urho3D::AbstractFile Registrations
-auto pyclass_Var_Urho3D_AbstractFile = py::class_<Urho3D::AbstractFile, std::shared_ptr<Urho3D::AbstractFile>, Urho3D::Deserializer, Urho3D::Serializer>(pyclass_Var_Urho3D, "AbstractFile", "test doc");
+auto pyclass_Var_Urho3D_AbstractFile = py::class_<Urho3D::AbstractFile, Urho3D::ExternalPtr<Urho3D::AbstractFile>, Urho3D::Deserializer, Urho3D::Serializer>(pyclass_Var_Urho3D, "AbstractFile", "test doc");
 // Type Urho3D::Cursor Registrations
-auto pyclass_Var_Urho3D_Cursor = py::class_<Urho3D::Cursor, Urho3D::SharedPtr<Urho3D::Cursor>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Cursor", "test doc");
+auto pyclass_Var_Urho3D_Cursor = py::class_<Urho3D::Cursor, Urho3D::ExternalPtr<Urho3D::Cursor>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "Cursor", "test doc");
 // Type Urho3D::SoundSource3D Registrations
-auto pyclass_Var_Urho3D_SoundSource3D = py::class_<Urho3D::SoundSource3D, Urho3D::SharedPtr<Urho3D::SoundSource3D>, Urho3D::SoundSource>(pyclass_Var_Urho3D, "SoundSource3D", "test doc");
+auto pyclass_Var_Urho3D_SoundSource3D = py::class_<Urho3D::SoundSource3D, Urho3D::ExternalPtr<Urho3D::SoundSource3D>, Urho3D::SoundSource>(pyclass_Var_Urho3D, "SoundSource3D", "test doc");
 // Type Urho3D::Engine Registrations
-auto pyclass_Var_Urho3D_Engine = py::class_<Urho3D::Engine, Urho3D::SharedPtr<Urho3D::Engine>, Urho3D::Object>(pyclass_Var_Urho3D, "Engine", "test doc");
+auto pyclass_Var_Urho3D_Engine = py::class_<Urho3D::Engine, Urho3D::ExternalPtr<Urho3D::Engine>, Urho3D::Object>(pyclass_Var_Urho3D, "Engine", "test doc");
 // Type Urho3D::Text Registrations
-auto pyclass_Var_Urho3D_Text = py::class_<Urho3D::Text, Urho3D::SharedPtr<Urho3D::Text>, Urho3D::UISelectable>(pyclass_Var_Urho3D, "Text", "test doc");
+auto pyclass_Var_Urho3D_Text = py::class_<Urho3D::Text, Urho3D::ExternalPtr<Urho3D::Text>, Urho3D::UISelectable>(pyclass_Var_Urho3D, "Text", "test doc");
 // Type Urho3D::AnimatedModel Registrations
-auto pyclass_Var_Urho3D_AnimatedModel = py::class_<Urho3D::AnimatedModel, Urho3D::SharedPtr<Urho3D::AnimatedModel>, Urho3D::StaticModel>(pyclass_Var_Urho3D, "AnimatedModel", "test doc");
+auto pyclass_Var_Urho3D_AnimatedModel = py::class_<Urho3D::AnimatedModel, Urho3D::ExternalPtr<Urho3D::AnimatedModel>, Urho3D::StaticModel>(pyclass_Var_Urho3D, "AnimatedModel", "test doc");
 // Type Urho3D::BillboardSet Registrations
-auto pyclass_Var_Urho3D_BillboardSet = py::class_<Urho3D::BillboardSet, Urho3D::SharedPtr<Urho3D::BillboardSet>, Urho3D::Drawable>(pyclass_Var_Urho3D, "BillboardSet", "test doc");
+auto pyclass_Var_Urho3D_BillboardSet = py::class_<Urho3D::BillboardSet, Urho3D::ExternalPtr<Urho3D::BillboardSet>, Urho3D::Drawable>(pyclass_Var_Urho3D, "BillboardSet", "test doc");
 // Type Urho3D::DecalSet Registrations
-auto pyclass_Var_Urho3D_DecalSet = py::class_<Urho3D::DecalSet, Urho3D::SharedPtr<Urho3D::DecalSet>, Urho3D::Drawable>(pyclass_Var_Urho3D, "DecalSet", "test doc");
+auto pyclass_Var_Urho3D_DecalSet = py::class_<Urho3D::DecalSet, Urho3D::ExternalPtr<Urho3D::DecalSet>, Urho3D::Drawable>(pyclass_Var_Urho3D, "DecalSet", "test doc");
 // Type Urho3D::Octree Registrations
-auto pyclass_Var_Urho3D_Octree = py::class_<Urho3D::Octree, Urho3D::SharedPtr<Urho3D::Octree>, Urho3D::Component, Urho3D::Octant>(pyclass_Var_Urho3D, "Octree", "test doc");
+auto pyclass_Var_Urho3D_Octree = py::class_<Urho3D::Octree, Urho3D::ExternalPtr<Urho3D::Octree>, Urho3D::Component, Urho3D::Octant>(pyclass_Var_Urho3D, "Octree", "test doc");
 // Type Urho3D::ParticleEmitter Registrations
-auto pyclass_Var_Urho3D_ParticleEmitter = py::class_<Urho3D::ParticleEmitter, Urho3D::SharedPtr<Urho3D::ParticleEmitter>, Urho3D::BillboardSet>(pyclass_Var_Urho3D, "ParticleEmitter", "test doc");
+auto pyclass_Var_Urho3D_ParticleEmitter = py::class_<Urho3D::ParticleEmitter, Urho3D::ExternalPtr<Urho3D::ParticleEmitter>, Urho3D::BillboardSet>(pyclass_Var_Urho3D, "ParticleEmitter", "test doc");
 // Type Urho3D::Skybox Registrations
-auto pyclass_Var_Urho3D_Skybox = py::class_<Urho3D::Skybox, Urho3D::SharedPtr<Urho3D::Skybox>, Urho3D::StaticModel>(pyclass_Var_Urho3D, "Skybox", "test doc");
+auto pyclass_Var_Urho3D_Skybox = py::class_<Urho3D::Skybox, Urho3D::ExternalPtr<Urho3D::Skybox>, Urho3D::StaticModel>(pyclass_Var_Urho3D, "Skybox", "test doc");
 // Type Urho3D::TerrainPatch Registrations
-auto pyclass_Var_Urho3D_TerrainPatch = py::class_<Urho3D::TerrainPatch, Urho3D::SharedPtr<Urho3D::TerrainPatch>, Urho3D::Drawable>(pyclass_Var_Urho3D, "TerrainPatch", "test doc");
+auto pyclass_Var_Urho3D_TerrainPatch = py::class_<Urho3D::TerrainPatch, Urho3D::ExternalPtr<Urho3D::TerrainPatch>, Urho3D::Drawable>(pyclass_Var_Urho3D, "TerrainPatch", "test doc");
 // Type Urho3D::IKConstraint Registrations
-auto pyclass_Var_Urho3D_IKConstraint = py::class_<Urho3D::IKConstraint, Urho3D::SharedPtr<Urho3D::IKConstraint>, Urho3D::Component>(pyclass_Var_Urho3D, "IKConstraint", "test doc");
+auto pyclass_Var_Urho3D_IKConstraint = py::class_<Urho3D::IKConstraint, Urho3D::ExternalPtr<Urho3D::IKConstraint>, Urho3D::Component>(pyclass_Var_Urho3D, "IKConstraint", "test doc");
 // Type Urho3D::IKEffector Registrations
-auto pyclass_Var_Urho3D_IKEffector = py::class_<Urho3D::IKEffector, Urho3D::SharedPtr<Urho3D::IKEffector>, Urho3D::Component>(pyclass_Var_Urho3D, "IKEffector", "test doc");
+auto pyclass_Var_Urho3D_IKEffector = py::class_<Urho3D::IKEffector, Urho3D::ExternalPtr<Urho3D::IKEffector>, Urho3D::Component>(pyclass_Var_Urho3D, "IKEffector", "test doc");
 // Type Urho3D::NamedPipe Registrations
-auto pyclass_Var_Urho3D_NamedPipe = py::class_<Urho3D::NamedPipe, Urho3D::SharedPtr<Urho3D::NamedPipe>, Urho3D::Object, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "NamedPipe", "test doc");
+auto pyclass_Var_Urho3D_NamedPipe = py::class_<Urho3D::NamedPipe, Urho3D::ExternalPtr<Urho3D::NamedPipe>, Urho3D::Object, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "NamedPipe", "test doc");
 // Type Urho3D::LuaScriptInstance Registrations
-auto pyclass_Var_Urho3D_LuaScriptInstance = py::class_<Urho3D::LuaScriptInstance, Urho3D::SharedPtr<Urho3D::LuaScriptInstance>, Urho3D::Component, Urho3D::LuaScriptEventListener>(pyclass_Var_Urho3D, "LuaScriptInstance", "test doc");
+auto pyclass_Var_Urho3D_LuaScriptInstance = py::class_<Urho3D::LuaScriptInstance, Urho3D::ExternalPtr<Urho3D::LuaScriptInstance>, Urho3D::Component, Urho3D::LuaScriptEventListener>(pyclass_Var_Urho3D, "LuaScriptInstance", "test doc");
 // Type Urho3D::NavigationMesh Registrations
-auto pyclass_Var_Urho3D_NavigationMesh = py::class_<Urho3D::NavigationMesh, Urho3D::SharedPtr<Urho3D::NavigationMesh>, Urho3D::Component>(pyclass_Var_Urho3D, "NavigationMesh", "test doc");
+auto pyclass_Var_Urho3D_NavigationMesh = py::class_<Urho3D::NavigationMesh, Urho3D::ExternalPtr<Urho3D::NavigationMesh>, Urho3D::Component>(pyclass_Var_Urho3D, "NavigationMesh", "test doc");
 // Type Urho3D::NavArea Registrations
-auto pyclass_Var_Urho3D_NavArea = py::class_<Urho3D::NavArea, Urho3D::SharedPtr<Urho3D::NavArea>, Urho3D::Component>(pyclass_Var_Urho3D, "NavArea", "test doc");
+auto pyclass_Var_Urho3D_NavArea = py::class_<Urho3D::NavArea, Urho3D::ExternalPtr<Urho3D::NavArea>, Urho3D::Component>(pyclass_Var_Urho3D, "NavArea", "test doc");
 // Type Urho3D::Obstacle Registrations
-auto pyclass_Var_Urho3D_Obstacle = py::class_<Urho3D::Obstacle, Urho3D::SharedPtr<Urho3D::Obstacle>, Urho3D::Component>(pyclass_Var_Urho3D, "Obstacle", "test doc");
+auto pyclass_Var_Urho3D_Obstacle = py::class_<Urho3D::Obstacle, Urho3D::ExternalPtr<Urho3D::Obstacle>, Urho3D::Component>(pyclass_Var_Urho3D, "Obstacle", "test doc");
 // Type Urho3D::Navigable Registrations
-auto pyclass_Var_Urho3D_Navigable = py::class_<Urho3D::Navigable, Urho3D::SharedPtr<Urho3D::Navigable>, Urho3D::Component>(pyclass_Var_Urho3D, "Navigable", "test doc");
+auto pyclass_Var_Urho3D_Navigable = py::class_<Urho3D::Navigable, Urho3D::ExternalPtr<Urho3D::Navigable>, Urho3D::Component>(pyclass_Var_Urho3D, "Navigable", "test doc");
 // Type Urho3D::PhysicsWorld Registrations
-auto pyclass_Var_Urho3D_PhysicsWorld = py::class_<Urho3D::PhysicsWorld, Urho3D::SharedPtr<Urho3D::PhysicsWorld>, Urho3D::Component>(pyclass_Var_Urho3D, "PhysicsWorld", "test doc");
+auto pyclass_Var_Urho3D_PhysicsWorld = py::class_<Urho3D::PhysicsWorld, Urho3D::ExternalPtr<Urho3D::PhysicsWorld>, Urho3D::Component>(pyclass_Var_Urho3D, "PhysicsWorld", "test doc");
 // Type Urho3D::CollisionShape Registrations
-auto pyclass_Var_Urho3D_CollisionShape = py::class_<Urho3D::CollisionShape, Urho3D::SharedPtr<Urho3D::CollisionShape>, Urho3D::Component>(pyclass_Var_Urho3D, "CollisionShape", "test doc");
+auto pyclass_Var_Urho3D_CollisionShape = py::class_<Urho3D::CollisionShape, Urho3D::ExternalPtr<Urho3D::CollisionShape>, Urho3D::Component>(pyclass_Var_Urho3D, "CollisionShape", "test doc");
 // Type Urho3D::LogicComponent Registrations
-auto pyclass_Var_Urho3D_LogicComponent = py::class_<Urho3D::LogicComponent, Urho3D::SharedPtr<Urho3D::LogicComponent>, Urho3D::Component>(pyclass_Var_Urho3D, "LogicComponent", "test doc");
+auto pyclass_Var_Urho3D_LogicComponent = py::class_<Urho3D::LogicComponent, Urho3D::ExternalPtr<Urho3D::LogicComponent>, Urho3D::Component>(pyclass_Var_Urho3D, "LogicComponent", "test doc");
 // Type Urho3D::RaycastVehicle Registrations
-auto pyclass_Var_Urho3D_RaycastVehicle = py::class_<Urho3D::RaycastVehicle, Urho3D::SharedPtr<Urho3D::RaycastVehicle>, Urho3D::LogicComponent>(pyclass_Var_Urho3D, "RaycastVehicle", "test doc");
+auto pyclass_Var_Urho3D_RaycastVehicle = py::class_<Urho3D::RaycastVehicle, Urho3D::ExternalPtr<Urho3D::RaycastVehicle>, Urho3D::LogicComponent>(pyclass_Var_Urho3D, "RaycastVehicle", "test doc");
 // Type Urho3D::SplinePath Registrations
-auto pyclass_Var_Urho3D_SplinePath = py::class_<Urho3D::SplinePath, Urho3D::SharedPtr<Urho3D::SplinePath>, Urho3D::Component>(pyclass_Var_Urho3D, "SplinePath", "test doc");
+auto pyclass_Var_Urho3D_SplinePath = py::class_<Urho3D::SplinePath, Urho3D::ExternalPtr<Urho3D::SplinePath>, Urho3D::Component>(pyclass_Var_Urho3D, "SplinePath", "test doc");
 // Type Urho3D::Menu Registrations
-auto pyclass_Var_Urho3D_Menu = py::class_<Urho3D::Menu, Urho3D::SharedPtr<Urho3D::Menu>, Urho3D::Button>(pyclass_Var_Urho3D, "Menu", "test doc");
+auto pyclass_Var_Urho3D_Menu = py::class_<Urho3D::Menu, Urho3D::ExternalPtr<Urho3D::Menu>, Urho3D::Button>(pyclass_Var_Urho3D, "Menu", "test doc");
 // Type Urho3D::ScrollView Registrations
-auto pyclass_Var_Urho3D_ScrollView = py::class_<Urho3D::ScrollView, Urho3D::SharedPtr<Urho3D::ScrollView>, Urho3D::UIElement>(pyclass_Var_Urho3D, "ScrollView", "test doc");
+auto pyclass_Var_Urho3D_ScrollView = py::class_<Urho3D::ScrollView, Urho3D::ExternalPtr<Urho3D::ScrollView>, Urho3D::UIElement>(pyclass_Var_Urho3D, "ScrollView", "test doc");
 // Type Urho3D::Sprite Registrations
-auto pyclass_Var_Urho3D_Sprite = py::class_<Urho3D::Sprite, Urho3D::SharedPtr<Urho3D::Sprite>, Urho3D::UIElement>(pyclass_Var_Urho3D, "Sprite", "test doc");
+auto pyclass_Var_Urho3D_Sprite = py::class_<Urho3D::Sprite, Urho3D::ExternalPtr<Urho3D::Sprite>, Urho3D::UIElement>(pyclass_Var_Urho3D, "Sprite", "test doc");
 // Type Urho3D::UIComponent Registrations
-auto pyclass_Var_Urho3D_UIComponent = py::class_<Urho3D::UIComponent, Urho3D::SharedPtr<Urho3D::UIComponent>, Urho3D::Component>(pyclass_Var_Urho3D, "UIComponent", "test doc");
+auto pyclass_Var_Urho3D_UIComponent = py::class_<Urho3D::UIComponent, Urho3D::ExternalPtr<Urho3D::UIComponent>, Urho3D::Component>(pyclass_Var_Urho3D, "UIComponent", "test doc");
 // Type Urho3D::Renderer2D Registrations
-auto pyclass_Var_Urho3D_Renderer2D = py::class_<Urho3D::Renderer2D, Urho3D::SharedPtr<Urho3D::Renderer2D>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Renderer2D", "test doc");
+auto pyclass_Var_Urho3D_Renderer2D = py::class_<Urho3D::Renderer2D, Urho3D::ExternalPtr<Urho3D::Renderer2D>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Renderer2D", "test doc");
 // Type Urho3D::RigidBody2D Registrations
-auto pyclass_Var_Urho3D_RigidBody2D = py::class_<Urho3D::RigidBody2D, Urho3D::SharedPtr<Urho3D::RigidBody2D>, Urho3D::Component>(pyclass_Var_Urho3D, "RigidBody2D", "test doc");
+auto pyclass_Var_Urho3D_RigidBody2D = py::class_<Urho3D::RigidBody2D, Urho3D::ExternalPtr<Urho3D::RigidBody2D>, Urho3D::Component>(pyclass_Var_Urho3D, "RigidBody2D", "test doc");
 // Type Urho3D::PhysicsWorld2D Registrations
-auto pyclass_Var_Urho3D_PhysicsWorld2D = py::class_<Urho3D::PhysicsWorld2D, Urho3D::SharedPtr<Urho3D::PhysicsWorld2D>, Urho3D::Component>(pyclass_Var_Urho3D, "PhysicsWorld2D", "test doc");
+auto pyclass_Var_Urho3D_PhysicsWorld2D = py::class_<Urho3D::PhysicsWorld2D, Urho3D::ExternalPtr<Urho3D::PhysicsWorld2D>, Urho3D::Component>(pyclass_Var_Urho3D, "PhysicsWorld2D", "test doc");
 // Type Urho3D::TileMapLayer2D Registrations
-auto pyclass_Var_Urho3D_TileMapLayer2D = py::class_<Urho3D::TileMapLayer2D, Urho3D::SharedPtr<Urho3D::TileMapLayer2D>, Urho3D::Component>(pyclass_Var_Urho3D, "TileMapLayer2D", "test doc");
+auto pyclass_Var_Urho3D_TileMapLayer2D = py::class_<Urho3D::TileMapLayer2D, Urho3D::ExternalPtr<Urho3D::TileMapLayer2D>, Urho3D::Component>(pyclass_Var_Urho3D, "TileMapLayer2D", "test doc");
 // Type Urho3D::TileMap2D Registrations
-auto pyclass_Var_Urho3D_TileMap2D = py::class_<Urho3D::TileMap2D, Urho3D::SharedPtr<Urho3D::TileMap2D>, Urho3D::Component>(pyclass_Var_Urho3D, "TileMap2D", "test doc");
+auto pyclass_Var_Urho3D_TileMap2D = py::class_<Urho3D::TileMap2D, Urho3D::ExternalPtr<Urho3D::TileMap2D>, Urho3D::Component>(pyclass_Var_Urho3D, "TileMap2D", "test doc");
 // Type Urho3D::IntVector3 Registrations
-auto pyclass_Var_Urho3D_IntVector3 = py::class_<Urho3D::IntVector3, std::shared_ptr<Urho3D::IntVector3>>(pyclass_Var_Urho3D, "IntVector3", "test doc");
+auto pyclass_Var_Urho3D_IntVector3 = py::class_<Urho3D::IntVector3, Urho3D::ExternalPtr<Urho3D::IntVector3>>(pyclass_Var_Urho3D, "IntVector3", "test doc");
 // Type Urho3D::Scene Registrations
-auto pyclass_Var_Urho3D_Scene = py::class_<Urho3D::Scene, Urho3D::SharedPtr<Urho3D::Scene>, Urho3D::Node>(pyclass_Var_Urho3D, "Scene", "test doc");
+auto pyclass_Var_Urho3D_Scene = py::class_<Urho3D::Scene, Urho3D::ExternalPtr<Urho3D::Scene>, Urho3D::Node>(pyclass_Var_Urho3D, "Scene", "test doc");
 // Type Urho3D::ScriptInstance Registrations
-auto pyclass_Var_Urho3D_ScriptInstance = py::class_<Urho3D::ScriptInstance, Urho3D::SharedPtr<Urho3D::ScriptInstance>, Urho3D::Component, Urho3D::ScriptEventListener>(pyclass_Var_Urho3D, "ScriptInstance", "test doc");
+auto pyclass_Var_Urho3D_ScriptInstance = py::class_<Urho3D::ScriptInstance, Urho3D::ExternalPtr<Urho3D::ScriptInstance>, Urho3D::Component, Urho3D::ScriptEventListener>(pyclass_Var_Urho3D, "ScriptInstance", "test doc");
 // Type Urho3D::DebugRenderer Registrations
-auto pyclass_Var_Urho3D_DebugRenderer = py::class_<Urho3D::DebugRenderer, Urho3D::SharedPtr<Urho3D::DebugRenderer>, Urho3D::Component>(pyclass_Var_Urho3D, "DebugRenderer", "test doc");
+auto pyclass_Var_Urho3D_DebugRenderer = py::class_<Urho3D::DebugRenderer, Urho3D::ExternalPtr<Urho3D::DebugRenderer>, Urho3D::Component>(pyclass_Var_Urho3D, "DebugRenderer", "test doc");
 // Type Urho3D::Camera Registrations
-auto pyclass_Var_Urho3D_Camera = py::class_<Urho3D::Camera, Urho3D::SharedPtr<Urho3D::Camera>, Urho3D::Component>(pyclass_Var_Urho3D, "Camera", "test doc");
+auto pyclass_Var_Urho3D_Camera = py::class_<Urho3D::Camera, Urho3D::ExternalPtr<Urho3D::Camera>, Urho3D::Component>(pyclass_Var_Urho3D, "Camera", "test doc");
 // Type Urho3D::Light Registrations
-auto pyclass_Var_Urho3D_Light = py::class_<Urho3D::Light, Urho3D::SharedPtr<Urho3D::Light>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Light", "test doc");
+auto pyclass_Var_Urho3D_Light = py::class_<Urho3D::Light, Urho3D::ExternalPtr<Urho3D::Light>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Light", "test doc");
 // Type Urho3D::Zone Registrations
-auto pyclass_Var_Urho3D_Zone = py::class_<Urho3D::Zone, Urho3D::SharedPtr<Urho3D::Zone>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Zone", "test doc");
+auto pyclass_Var_Urho3D_Zone = py::class_<Urho3D::Zone, Urho3D::ExternalPtr<Urho3D::Zone>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Zone", "test doc");
 // Type Urho3D::Resource Registrations
-auto pyclass_Var_Urho3D_Resource = py::class_<Urho3D::Resource, Urho3D::SharedPtr<Urho3D::Resource>, Urho3D::Object>(pyclass_Var_Urho3D, "Resource", "test doc");
+auto pyclass_Var_Urho3D_Resource = py::class_<Urho3D::Resource, Urho3D::ExternalPtr<Urho3D::Resource>, Urho3D::Object>(pyclass_Var_Urho3D, "Resource", "test doc");
 // Type Urho3D::XMLFile Registrations
-auto pyclass_Var_Urho3D_XMLFile = py::class_<Urho3D::XMLFile, Urho3D::SharedPtr<Urho3D::XMLFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "XMLFile", "test doc");
+auto pyclass_Var_Urho3D_XMLFile = py::class_<Urho3D::XMLFile, Urho3D::ExternalPtr<Urho3D::XMLFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "XMLFile", "test doc");
 // Type Urho3D::XPathQuery Registrations
-auto pyclass_Var_Urho3D_XPathQuery = py::class_<Urho3D::XPathQuery, std::shared_ptr<Urho3D::XPathQuery>>(pyclass_Var_Urho3D, "XPathQuery", "test doc");
+auto pyclass_Var_Urho3D_XPathQuery = py::class_<Urho3D::XPathQuery, Urho3D::ExternalPtr<Urho3D::XPathQuery>>(pyclass_Var_Urho3D, "XPathQuery", "test doc");
 // Type Urho3D::JSONFile Registrations
-auto pyclass_Var_Urho3D_JSONFile = py::class_<Urho3D::JSONFile, Urho3D::SharedPtr<Urho3D::JSONFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "JSONFile", "test doc");
+auto pyclass_Var_Urho3D_JSONFile = py::class_<Urho3D::JSONFile, Urho3D::ExternalPtr<Urho3D::JSONFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "JSONFile", "test doc");
 // Type Urho3D::EventProfiler Registrations
-auto pyclass_Var_Urho3D_EventProfiler = py::class_<Urho3D::EventProfiler, Urho3D::SharedPtr<Urho3D::EventProfiler>, Urho3D::Profiler>(pyclass_Var_Urho3D, "EventProfiler", "test doc");
+auto pyclass_Var_Urho3D_EventProfiler = py::class_<Urho3D::EventProfiler, Urho3D::ExternalPtr<Urho3D::EventProfiler>, Urho3D::Profiler>(pyclass_Var_Urho3D, "EventProfiler", "test doc");
 // Type Urho3D::Font Registrations
-auto pyclass_Var_Urho3D_Font = py::class_<Urho3D::Font, Urho3D::SharedPtr<Urho3D::Font>, Urho3D::Resource>(pyclass_Var_Urho3D, "Font", "test doc");
+auto pyclass_Var_Urho3D_Font = py::class_<Urho3D::Font, Urho3D::ExternalPtr<Urho3D::Font>, Urho3D::Resource>(pyclass_Var_Urho3D, "Font", "test doc");
 // Type Urho3D::AnimationController Registrations
-auto pyclass_Var_Urho3D_AnimationController = py::class_<Urho3D::AnimationController, Urho3D::SharedPtr<Urho3D::AnimationController>, Urho3D::Component>(pyclass_Var_Urho3D, "AnimationController", "test doc");
+auto pyclass_Var_Urho3D_AnimationController = py::class_<Urho3D::AnimationController, Urho3D::ExternalPtr<Urho3D::AnimationController>, Urho3D::Component>(pyclass_Var_Urho3D, "AnimationController", "test doc");
 // Type Urho3D::Shader Registrations
-auto pyclass_Var_Urho3D_Shader = py::class_<Urho3D::Shader, Urho3D::SharedPtr<Urho3D::Shader>, Urho3D::Resource>(pyclass_Var_Urho3D, "Shader", "test doc");
+auto pyclass_Var_Urho3D_Shader = py::class_<Urho3D::Shader, Urho3D::ExternalPtr<Urho3D::Shader>, Urho3D::Resource>(pyclass_Var_Urho3D, "Shader", "test doc");
 // Type Urho3D::ParticleEffect Registrations
-auto pyclass_Var_Urho3D_ParticleEffect = py::class_<Urho3D::ParticleEffect, Urho3D::SharedPtr<Urho3D::ParticleEffect>, Urho3D::Resource>(pyclass_Var_Urho3D, "ParticleEffect", "test doc");
+auto pyclass_Var_Urho3D_ParticleEffect = py::class_<Urho3D::ParticleEffect, Urho3D::ExternalPtr<Urho3D::ParticleEffect>, Urho3D::Resource>(pyclass_Var_Urho3D, "ParticleEffect", "test doc");
 // Type Urho3D::StaticModelGroup Registrations
-auto pyclass_Var_Urho3D_StaticModelGroup = py::class_<Urho3D::StaticModelGroup, Urho3D::SharedPtr<Urho3D::StaticModelGroup>, Urho3D::StaticModel>(pyclass_Var_Urho3D, "StaticModelGroup", "test doc");
+auto pyclass_Var_Urho3D_StaticModelGroup = py::class_<Urho3D::StaticModelGroup, Urho3D::ExternalPtr<Urho3D::StaticModelGroup>, Urho3D::StaticModel>(pyclass_Var_Urho3D, "StaticModelGroup", "test doc");
 // Type Urho3D::IKSolver Registrations
-auto pyclass_Var_Urho3D_IKSolver = py::class_<Urho3D::IKSolver, Urho3D::SharedPtr<Urho3D::IKSolver>, Urho3D::Component>(pyclass_Var_Urho3D, "IKSolver", "test doc");
+auto pyclass_Var_Urho3D_IKSolver = py::class_<Urho3D::IKSolver, Urho3D::ExternalPtr<Urho3D::IKSolver>, Urho3D::Component>(pyclass_Var_Urho3D, "IKSolver", "test doc");
 // Type Urho3D::LuaFile Registrations
-auto pyclass_Var_Urho3D_LuaFile = py::class_<Urho3D::LuaFile, Urho3D::SharedPtr<Urho3D::LuaFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "LuaFile", "test doc");
+auto pyclass_Var_Urho3D_LuaFile = py::class_<Urho3D::LuaFile, Urho3D::ExternalPtr<Urho3D::LuaFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "LuaFile", "test doc");
 // Type Urho3D::CrowdManager Registrations
-auto pyclass_Var_Urho3D_CrowdManager = py::class_<Urho3D::CrowdManager, Urho3D::SharedPtr<Urho3D::CrowdManager>, Urho3D::Component>(pyclass_Var_Urho3D, "CrowdManager", "test doc");
+auto pyclass_Var_Urho3D_CrowdManager = py::class_<Urho3D::CrowdManager, Urho3D::ExternalPtr<Urho3D::CrowdManager>, Urho3D::Component>(pyclass_Var_Urho3D, "CrowdManager", "test doc");
 // Type Urho3D::DynamicNavigationMesh Registrations
-auto pyclass_Var_Urho3D_DynamicNavigationMesh = py::class_<Urho3D::DynamicNavigationMesh, Urho3D::SharedPtr<Urho3D::DynamicNavigationMesh>, Urho3D::NavigationMesh>(pyclass_Var_Urho3D, "DynamicNavigationMesh", "test doc");
+auto pyclass_Var_Urho3D_DynamicNavigationMesh = py::class_<Urho3D::DynamicNavigationMesh, Urho3D::ExternalPtr<Urho3D::DynamicNavigationMesh>, Urho3D::NavigationMesh>(pyclass_Var_Urho3D, "DynamicNavigationMesh", "test doc");
 // Type Urho3D::RigidBody Registrations
-auto pyclass_Var_Urho3D_RigidBody = py::class_<Urho3D::RigidBody, Urho3D::SharedPtr<Urho3D::RigidBody>, Urho3D::Component>(pyclass_Var_Urho3D, "RigidBody", "test doc");
+auto pyclass_Var_Urho3D_RigidBody = py::class_<Urho3D::RigidBody, Urho3D::ExternalPtr<Urho3D::RigidBody>, Urho3D::Component>(pyclass_Var_Urho3D, "RigidBody", "test doc");
 // Type Urho3D::SmoothedTransform Registrations
-auto pyclass_Var_Urho3D_SmoothedTransform = py::class_<Urho3D::SmoothedTransform, Urho3D::SharedPtr<Urho3D::SmoothedTransform>, Urho3D::Component>(pyclass_Var_Urho3D, "SmoothedTransform", "test doc");
+auto pyclass_Var_Urho3D_SmoothedTransform = py::class_<Urho3D::SmoothedTransform, Urho3D::ExternalPtr<Urho3D::SmoothedTransform>, Urho3D::Component>(pyclass_Var_Urho3D, "SmoothedTransform", "test doc");
 // Type Urho3D::UnknownComponent Registrations
-auto pyclass_Var_Urho3D_UnknownComponent = py::class_<Urho3D::UnknownComponent, Urho3D::SharedPtr<Urho3D::UnknownComponent>, Urho3D::Component>(pyclass_Var_Urho3D, "UnknownComponent", "test doc");
+auto pyclass_Var_Urho3D_UnknownComponent = py::class_<Urho3D::UnknownComponent, Urho3D::ExternalPtr<Urho3D::UnknownComponent>, Urho3D::Component>(pyclass_Var_Urho3D, "UnknownComponent", "test doc");
 // Type Urho3D::ProgressBar Registrations
-auto pyclass_Var_Urho3D_ProgressBar = py::class_<Urho3D::ProgressBar, Urho3D::SharedPtr<Urho3D::ProgressBar>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "ProgressBar", "test doc");
+auto pyclass_Var_Urho3D_ProgressBar = py::class_<Urho3D::ProgressBar, Urho3D::ExternalPtr<Urho3D::ProgressBar>, Urho3D::BorderImage>(pyclass_Var_Urho3D, "ProgressBar", "test doc");
 // Type Urho3D::Drawable2D Registrations
-auto pyclass_Var_Urho3D_Drawable2D = py::class_<Urho3D::Drawable2D, Urho3D::SharedPtr<Urho3D::Drawable2D>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Drawable2D", "test doc");
+auto pyclass_Var_Urho3D_Drawable2D = py::class_<Urho3D::Drawable2D, Urho3D::ExternalPtr<Urho3D::Drawable2D>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Drawable2D", "test doc");
 // Type Urho3D::StaticSprite2D Registrations
-auto pyclass_Var_Urho3D_StaticSprite2D = py::class_<Urho3D::StaticSprite2D, Urho3D::SharedPtr<Urho3D::StaticSprite2D>, Urho3D::Drawable2D>(pyclass_Var_Urho3D, "StaticSprite2D", "test doc");
+auto pyclass_Var_Urho3D_StaticSprite2D = py::class_<Urho3D::StaticSprite2D, Urho3D::ExternalPtr<Urho3D::StaticSprite2D>, Urho3D::Drawable2D>(pyclass_Var_Urho3D, "StaticSprite2D", "test doc");
 // Type Urho3D::AnimatedSprite2D Registrations
-auto pyclass_Var_Urho3D_AnimatedSprite2D = py::class_<Urho3D::AnimatedSprite2D, Urho3D::SharedPtr<Urho3D::AnimatedSprite2D>, Urho3D::StaticSprite2D>(pyclass_Var_Urho3D, "AnimatedSprite2D", "test doc");
+auto pyclass_Var_Urho3D_AnimatedSprite2D = py::class_<Urho3D::AnimatedSprite2D, Urho3D::ExternalPtr<Urho3D::AnimatedSprite2D>, Urho3D::StaticSprite2D>(pyclass_Var_Urho3D, "AnimatedSprite2D", "test doc");
 // Type Urho3D::CollisionShape2D Registrations
-auto pyclass_Var_Urho3D_CollisionShape2D = py::class_<Urho3D::CollisionShape2D, Urho3D::SharedPtr<Urho3D::CollisionShape2D>, Urho3D::Component>(pyclass_Var_Urho3D, "CollisionShape2D", "test doc");
+auto pyclass_Var_Urho3D_CollisionShape2D = py::class_<Urho3D::CollisionShape2D, Urho3D::ExternalPtr<Urho3D::CollisionShape2D>, Urho3D::Component>(pyclass_Var_Urho3D, "CollisionShape2D", "test doc");
 // Type Urho3D::CollisionChain2D Registrations
-auto pyclass_Var_Urho3D_CollisionChain2D = py::class_<Urho3D::CollisionChain2D, Urho3D::SharedPtr<Urho3D::CollisionChain2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionChain2D", "test doc");
+auto pyclass_Var_Urho3D_CollisionChain2D = py::class_<Urho3D::CollisionChain2D, Urho3D::ExternalPtr<Urho3D::CollisionChain2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionChain2D", "test doc");
 // Type Urho3D::CollisionEdge2D Registrations
-auto pyclass_Var_Urho3D_CollisionEdge2D = py::class_<Urho3D::CollisionEdge2D, Urho3D::SharedPtr<Urho3D::CollisionEdge2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionEdge2D", "test doc");
+auto pyclass_Var_Urho3D_CollisionEdge2D = py::class_<Urho3D::CollisionEdge2D, Urho3D::ExternalPtr<Urho3D::CollisionEdge2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionEdge2D", "test doc");
 // Type Urho3D::Constraint2D Registrations
-auto pyclass_Var_Urho3D_Constraint2D = py::class_<Urho3D::Constraint2D, Urho3D::SharedPtr<Urho3D::Constraint2D>, Urho3D::Component>(pyclass_Var_Urho3D, "Constraint2D", "test doc");
+auto pyclass_Var_Urho3D_Constraint2D = py::class_<Urho3D::Constraint2D, Urho3D::ExternalPtr<Urho3D::Constraint2D>, Urho3D::Component>(pyclass_Var_Urho3D, "Constraint2D", "test doc");
 // Type Urho3D::ConstraintFriction2D Registrations
-auto pyclass_Var_Urho3D_ConstraintFriction2D = py::class_<Urho3D::ConstraintFriction2D, Urho3D::SharedPtr<Urho3D::ConstraintFriction2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintFriction2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintFriction2D = py::class_<Urho3D::ConstraintFriction2D, Urho3D::ExternalPtr<Urho3D::ConstraintFriction2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintFriction2D", "test doc");
 // Type Urho3D::ConstraintMotor2D Registrations
-auto pyclass_Var_Urho3D_ConstraintMotor2D = py::class_<Urho3D::ConstraintMotor2D, Urho3D::SharedPtr<Urho3D::ConstraintMotor2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintMotor2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintMotor2D = py::class_<Urho3D::ConstraintMotor2D, Urho3D::ExternalPtr<Urho3D::ConstraintMotor2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintMotor2D", "test doc");
 // Type Urho3D::ConstraintPrismatic2D Registrations
-auto pyclass_Var_Urho3D_ConstraintPrismatic2D = py::class_<Urho3D::ConstraintPrismatic2D, Urho3D::SharedPtr<Urho3D::ConstraintPrismatic2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintPrismatic2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintPrismatic2D = py::class_<Urho3D::ConstraintPrismatic2D, Urho3D::ExternalPtr<Urho3D::ConstraintPrismatic2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintPrismatic2D", "test doc");
 // Type Urho3D::ConstraintRevolute2D Registrations
-auto pyclass_Var_Urho3D_ConstraintRevolute2D = py::class_<Urho3D::ConstraintRevolute2D, Urho3D::SharedPtr<Urho3D::ConstraintRevolute2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintRevolute2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintRevolute2D = py::class_<Urho3D::ConstraintRevolute2D, Urho3D::ExternalPtr<Urho3D::ConstraintRevolute2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintRevolute2D", "test doc");
 // Type Urho3D::ConstraintWeld2D Registrations
-auto pyclass_Var_Urho3D_ConstraintWeld2D = py::class_<Urho3D::ConstraintWeld2D, Urho3D::SharedPtr<Urho3D::ConstraintWeld2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintWeld2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintWeld2D = py::class_<Urho3D::ConstraintWeld2D, Urho3D::ExternalPtr<Urho3D::ConstraintWeld2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintWeld2D", "test doc");
 // Type Urho3D::ParticleEffect2D Registrations
-auto pyclass_Var_Urho3D_ParticleEffect2D = py::class_<Urho3D::ParticleEffect2D, Urho3D::SharedPtr<Urho3D::ParticleEffect2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "ParticleEffect2D", "test doc");
+auto pyclass_Var_Urho3D_ParticleEffect2D = py::class_<Urho3D::ParticleEffect2D, Urho3D::ExternalPtr<Urho3D::ParticleEffect2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "ParticleEffect2D", "test doc");
 // Type Urho3D::StretchableSprite2D Registrations
-auto pyclass_Var_Urho3D_StretchableSprite2D = py::class_<Urho3D::StretchableSprite2D, Urho3D::SharedPtr<Urho3D::StretchableSprite2D>, Urho3D::StaticSprite2D>(pyclass_Var_Urho3D, "StretchableSprite2D", "test doc");
+auto pyclass_Var_Urho3D_StretchableSprite2D = py::class_<Urho3D::StretchableSprite2D, Urho3D::ExternalPtr<Urho3D::StretchableSprite2D>, Urho3D::StaticSprite2D>(pyclass_Var_Urho3D, "StretchableSprite2D", "test doc");
 // Type Urho3D::VectorBuffer Registrations
-auto pyclass_Var_Urho3D_VectorBuffer = py::class_<Urho3D::VectorBuffer, std::shared_ptr<Urho3D::VectorBuffer>, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "VectorBuffer", "test doc");
+auto pyclass_Var_Urho3D_VectorBuffer = py::class_<Urho3D::VectorBuffer, Urho3D::ExternalPtr<Urho3D::VectorBuffer>, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "VectorBuffer", "test doc");
 // Type Urho3D::ValueAnimation Registrations
-auto pyclass_Var_Urho3D_ValueAnimation = py::class_<Urho3D::ValueAnimation, Urho3D::SharedPtr<Urho3D::ValueAnimation>, Urho3D::Resource>(pyclass_Var_Urho3D, "ValueAnimation", "test doc");
+auto pyclass_Var_Urho3D_ValueAnimation = py::class_<Urho3D::ValueAnimation, Urho3D::ExternalPtr<Urho3D::ValueAnimation>, Urho3D::Resource>(pyclass_Var_Urho3D, "ValueAnimation", "test doc");
 // Type Urho3D::File Registrations
-auto pyclass_Var_Urho3D_File = py::class_<Urho3D::File, Urho3D::SharedPtr<Urho3D::File>, Urho3D::Object, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "File", "test doc");
+auto pyclass_Var_Urho3D_File = py::class_<Urho3D::File, Urho3D::ExternalPtr<Urho3D::File>, Urho3D::Object, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "File", "test doc");
 // Type Urho3D::ResourceWithMetadata Registrations
-auto pyclass_Var_Urho3D_ResourceWithMetadata = py::class_<Urho3D::ResourceWithMetadata, Urho3D::SharedPtr<Urho3D::ResourceWithMetadata>, Urho3D::Resource>(pyclass_Var_Urho3D, "ResourceWithMetadata", "test doc");
+auto pyclass_Var_Urho3D_ResourceWithMetadata = py::class_<Urho3D::ResourceWithMetadata, Urho3D::ExternalPtr<Urho3D::ResourceWithMetadata>, Urho3D::Resource>(pyclass_Var_Urho3D, "ResourceWithMetadata", "test doc");
 // Type Urho3D::Technique Registrations
-auto pyclass_Var_Urho3D_Technique = py::class_<Urho3D::Technique, Urho3D::SharedPtr<Urho3D::Technique>, Urho3D::Resource>(pyclass_Var_Urho3D, "Technique", "test doc");
+auto pyclass_Var_Urho3D_Technique = py::class_<Urho3D::Technique, Urho3D::ExternalPtr<Urho3D::Technique>, Urho3D::Resource>(pyclass_Var_Urho3D, "Technique", "test doc");
 // Type Urho3D::SoundListener Registrations
-auto pyclass_Var_Urho3D_SoundListener = py::class_<Urho3D::SoundListener, Urho3D::SharedPtr<Urho3D::SoundListener>, Urho3D::Component>(pyclass_Var_Urho3D, "SoundListener", "test doc");
+auto pyclass_Var_Urho3D_SoundListener = py::class_<Urho3D::SoundListener, Urho3D::ExternalPtr<Urho3D::SoundListener>, Urho3D::Component>(pyclass_Var_Urho3D, "SoundListener", "test doc");
 // Type Urho3D::ListView Registrations
-auto pyclass_Var_Urho3D_ListView = py::class_<Urho3D::ListView, Urho3D::SharedPtr<Urho3D::ListView>, Urho3D::ScrollView>(pyclass_Var_Urho3D, "ListView", "test doc");
+auto pyclass_Var_Urho3D_ListView = py::class_<Urho3D::ListView, Urho3D::ExternalPtr<Urho3D::ListView>, Urho3D::ScrollView>(pyclass_Var_Urho3D, "ListView", "test doc");
 // Type Urho3D::CustomGeometry Registrations
-auto pyclass_Var_Urho3D_CustomGeometry = py::class_<Urho3D::CustomGeometry, Urho3D::SharedPtr<Urho3D::CustomGeometry>, Urho3D::Drawable>(pyclass_Var_Urho3D, "CustomGeometry", "test doc");
+auto pyclass_Var_Urho3D_CustomGeometry = py::class_<Urho3D::CustomGeometry, Urho3D::ExternalPtr<Urho3D::CustomGeometry>, Urho3D::Drawable>(pyclass_Var_Urho3D, "CustomGeometry", "test doc");
 // Type Urho3D::RibbonTrail Registrations
-auto pyclass_Var_Urho3D_RibbonTrail = py::class_<Urho3D::RibbonTrail, Urho3D::SharedPtr<Urho3D::RibbonTrail>, Urho3D::Drawable>(pyclass_Var_Urho3D, "RibbonTrail", "test doc");
+auto pyclass_Var_Urho3D_RibbonTrail = py::class_<Urho3D::RibbonTrail, Urho3D::ExternalPtr<Urho3D::RibbonTrail>, Urho3D::Drawable>(pyclass_Var_Urho3D, "RibbonTrail", "test doc");
 // Type Urho3D::MemoryBuffer Registrations
-auto pyclass_Var_Urho3D_MemoryBuffer = py::class_<Urho3D::MemoryBuffer, std::shared_ptr<Urho3D::MemoryBuffer>, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "MemoryBuffer", "test doc");
+auto pyclass_Var_Urho3D_MemoryBuffer = py::class_<Urho3D::MemoryBuffer, Urho3D::ExternalPtr<Urho3D::MemoryBuffer>, Urho3D::AbstractFile>(pyclass_Var_Urho3D, "MemoryBuffer", "test doc");
 // Type Urho3D::OffMeshConnection Registrations
-auto pyclass_Var_Urho3D_OffMeshConnection = py::class_<Urho3D::OffMeshConnection, Urho3D::SharedPtr<Urho3D::OffMeshConnection>, Urho3D::Component>(pyclass_Var_Urho3D, "OffMeshConnection", "test doc");
+auto pyclass_Var_Urho3D_OffMeshConnection = py::class_<Urho3D::OffMeshConnection, Urho3D::ExternalPtr<Urho3D::OffMeshConnection>, Urho3D::Component>(pyclass_Var_Urho3D, "OffMeshConnection", "test doc");
 // Type Urho3D::Constraint Registrations
-auto pyclass_Var_Urho3D_Constraint = py::class_<Urho3D::Constraint, Urho3D::SharedPtr<Urho3D::Constraint>, Urho3D::Component>(pyclass_Var_Urho3D, "Constraint", "test doc");
+auto pyclass_Var_Urho3D_Constraint = py::class_<Urho3D::Constraint, Urho3D::ExternalPtr<Urho3D::Constraint>, Urho3D::Component>(pyclass_Var_Urho3D, "Constraint", "test doc");
 // Type Urho3D::FontGlyph Registrations
-auto pyclass_Var_Urho3D_FontGlyph = py::class_<Urho3D::FontGlyph, std::shared_ptr<Urho3D::FontGlyph>>(pyclass_Var_Urho3D, "FontGlyph", "test doc");
+auto pyclass_Var_Urho3D_FontGlyph = py::class_<Urho3D::FontGlyph, Urho3D::ExternalPtr<Urho3D::FontGlyph>>(pyclass_Var_Urho3D, "FontGlyph", "test doc");
 // Type Urho3D::Sprite2D Registrations
-auto pyclass_Var_Urho3D_Sprite2D = py::class_<Urho3D::Sprite2D, Urho3D::SharedPtr<Urho3D::Sprite2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "Sprite2D", "test doc");
+auto pyclass_Var_Urho3D_Sprite2D = py::class_<Urho3D::Sprite2D, Urho3D::ExternalPtr<Urho3D::Sprite2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "Sprite2D", "test doc");
 // Type Urho3D::SpriteSheet2D Registrations
-auto pyclass_Var_Urho3D_SpriteSheet2D = py::class_<Urho3D::SpriteSheet2D, Urho3D::SharedPtr<Urho3D::SpriteSheet2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "SpriteSheet2D", "test doc");
+auto pyclass_Var_Urho3D_SpriteSheet2D = py::class_<Urho3D::SpriteSheet2D, Urho3D::ExternalPtr<Urho3D::SpriteSheet2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "SpriteSheet2D", "test doc");
 // Type Urho3D::CollisionCircle2D Registrations
-auto pyclass_Var_Urho3D_CollisionCircle2D = py::class_<Urho3D::CollisionCircle2D, Urho3D::SharedPtr<Urho3D::CollisionCircle2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionCircle2D", "test doc");
+auto pyclass_Var_Urho3D_CollisionCircle2D = py::class_<Urho3D::CollisionCircle2D, Urho3D::ExternalPtr<Urho3D::CollisionCircle2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionCircle2D", "test doc");
 // Type Urho3D::ConstraintDistance2D Registrations
-auto pyclass_Var_Urho3D_ConstraintDistance2D = py::class_<Urho3D::ConstraintDistance2D, Urho3D::SharedPtr<Urho3D::ConstraintDistance2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintDistance2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintDistance2D = py::class_<Urho3D::ConstraintDistance2D, Urho3D::ExternalPtr<Urho3D::ConstraintDistance2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintDistance2D", "test doc");
 // Type Urho3D::ConstraintMouse2D Registrations
-auto pyclass_Var_Urho3D_ConstraintMouse2D = py::class_<Urho3D::ConstraintMouse2D, Urho3D::SharedPtr<Urho3D::ConstraintMouse2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintMouse2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintMouse2D = py::class_<Urho3D::ConstraintMouse2D, Urho3D::ExternalPtr<Urho3D::ConstraintMouse2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintMouse2D", "test doc");
 // Type Urho3D::ConstraintRope2D Registrations
-auto pyclass_Var_Urho3D_ConstraintRope2D = py::class_<Urho3D::ConstraintRope2D, Urho3D::SharedPtr<Urho3D::ConstraintRope2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintRope2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintRope2D = py::class_<Urho3D::ConstraintRope2D, Urho3D::ExternalPtr<Urho3D::ConstraintRope2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintRope2D", "test doc");
 // Type Urho3D::ParticleEmitter2D Registrations
-auto pyclass_Var_Urho3D_ParticleEmitter2D = py::class_<Urho3D::ParticleEmitter2D, Urho3D::SharedPtr<Urho3D::ParticleEmitter2D>, Urho3D::Drawable2D>(pyclass_Var_Urho3D, "ParticleEmitter2D", "test doc");
+auto pyclass_Var_Urho3D_ParticleEmitter2D = py::class_<Urho3D::ParticleEmitter2D, Urho3D::ExternalPtr<Urho3D::ParticleEmitter2D>, Urho3D::Drawable2D>(pyclass_Var_Urho3D, "ParticleEmitter2D", "test doc");
 // Type Urho3D::ScriptFile Registrations
-auto pyclass_Var_Urho3D_ScriptFile = py::class_<Urho3D::ScriptFile, Urho3D::SharedPtr<Urho3D::ScriptFile>, Urho3D::Resource, Urho3D::ScriptEventListener>(pyclass_Var_Urho3D, "ScriptFile", "test doc");
+auto pyclass_Var_Urho3D_ScriptFile = py::class_<Urho3D::ScriptFile, Urho3D::ExternalPtr<Urho3D::ScriptFile>, Urho3D::Resource, Urho3D::ScriptEventListener>(pyclass_Var_Urho3D, "ScriptFile", "test doc");
 // Type Urho3D::Sound Registrations
-auto pyclass_Var_Urho3D_Sound = py::class_<Urho3D::Sound, Urho3D::SharedPtr<Urho3D::Sound>, Urho3D::ResourceWithMetadata>(pyclass_Var_Urho3D, "Sound", "test doc");
+auto pyclass_Var_Urho3D_Sound = py::class_<Urho3D::Sound, Urho3D::ExternalPtr<Urho3D::Sound>, Urho3D::ResourceWithMetadata>(pyclass_Var_Urho3D, "Sound", "test doc");
 // Type Urho3D::Model Registrations
-auto pyclass_Var_Urho3D_Model = py::class_<Urho3D::Model, Urho3D::SharedPtr<Urho3D::Model>, Urho3D::ResourceWithMetadata>(pyclass_Var_Urho3D, "Model", "test doc");
+auto pyclass_Var_Urho3D_Model = py::class_<Urho3D::Model, Urho3D::ExternalPtr<Urho3D::Model>, Urho3D::ResourceWithMetadata>(pyclass_Var_Urho3D, "Model", "test doc");
 // Type Urho3D::DropDownList Registrations
-auto pyclass_Var_Urho3D_DropDownList = py::class_<Urho3D::DropDownList, Urho3D::SharedPtr<Urho3D::DropDownList>, Urho3D::Menu>(pyclass_Var_Urho3D, "DropDownList", "test doc");
+auto pyclass_Var_Urho3D_DropDownList = py::class_<Urho3D::DropDownList, Urho3D::ExternalPtr<Urho3D::DropDownList>, Urho3D::Menu>(pyclass_Var_Urho3D, "DropDownList", "test doc");
 // Type Urho3D::Image Registrations
-auto pyclass_Var_Urho3D_Image = py::class_<Urho3D::Image, Urho3D::SharedPtr<Urho3D::Image>, Urho3D::Resource>(pyclass_Var_Urho3D, "Image", "test doc");
+auto pyclass_Var_Urho3D_Image = py::class_<Urho3D::Image, Urho3D::ExternalPtr<Urho3D::Image>, Urho3D::Resource>(pyclass_Var_Urho3D, "Image", "test doc");
 // Type Urho3D::Terrain Registrations
-auto pyclass_Var_Urho3D_Terrain = py::class_<Urho3D::Terrain, Urho3D::SharedPtr<Urho3D::Terrain>, Urho3D::Component>(pyclass_Var_Urho3D, "Terrain", "test doc");
+auto pyclass_Var_Urho3D_Terrain = py::class_<Urho3D::Terrain, Urho3D::ExternalPtr<Urho3D::Terrain>, Urho3D::Component>(pyclass_Var_Urho3D, "Terrain", "test doc");
 // Type Urho3D::CrowdAgent Registrations
-auto pyclass_Var_Urho3D_CrowdAgent = py::class_<Urho3D::CrowdAgent, Urho3D::SharedPtr<Urho3D::CrowdAgent>, Urho3D::Component>(pyclass_Var_Urho3D, "CrowdAgent", "test doc");
+auto pyclass_Var_Urho3D_CrowdAgent = py::class_<Urho3D::CrowdAgent, Urho3D::ExternalPtr<Urho3D::CrowdAgent>, Urho3D::Component>(pyclass_Var_Urho3D, "CrowdAgent", "test doc");
 // Type Urho3D::PListFile Registrations
-auto pyclass_Var_Urho3D_PListFile = py::class_<Urho3D::PListFile, Urho3D::SharedPtr<Urho3D::PListFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "PListFile", "test doc");
+auto pyclass_Var_Urho3D_PListFile = py::class_<Urho3D::PListFile, Urho3D::ExternalPtr<Urho3D::PListFile>, Urho3D::Resource>(pyclass_Var_Urho3D, "PListFile", "test doc");
 // Type Urho3D::AnimationSet2D Registrations
-auto pyclass_Var_Urho3D_AnimationSet2D = py::class_<Urho3D::AnimationSet2D, Urho3D::SharedPtr<Urho3D::AnimationSet2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "AnimationSet2D", "test doc");
+auto pyclass_Var_Urho3D_AnimationSet2D = py::class_<Urho3D::AnimationSet2D, Urho3D::ExternalPtr<Urho3D::AnimationSet2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "AnimationSet2D", "test doc");
 // Type Urho3D::CollisionPolygon2D Registrations
-auto pyclass_Var_Urho3D_CollisionPolygon2D = py::class_<Urho3D::CollisionPolygon2D, Urho3D::SharedPtr<Urho3D::CollisionPolygon2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionPolygon2D", "test doc");
+auto pyclass_Var_Urho3D_CollisionPolygon2D = py::class_<Urho3D::CollisionPolygon2D, Urho3D::ExternalPtr<Urho3D::CollisionPolygon2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionPolygon2D", "test doc");
 // Type Urho3D::ConstraintPulley2D Registrations
-auto pyclass_Var_Urho3D_ConstraintPulley2D = py::class_<Urho3D::ConstraintPulley2D, Urho3D::SharedPtr<Urho3D::ConstraintPulley2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintPulley2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintPulley2D = py::class_<Urho3D::ConstraintPulley2D, Urho3D::ExternalPtr<Urho3D::ConstraintPulley2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintPulley2D", "test doc");
 // Type Urho3D::TmxFile2D Registrations
-auto pyclass_Var_Urho3D_TmxFile2D = py::class_<Urho3D::TmxFile2D, Urho3D::SharedPtr<Urho3D::TmxFile2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "TmxFile2D", "test doc");
+auto pyclass_Var_Urho3D_TmxFile2D = py::class_<Urho3D::TmxFile2D, Urho3D::ExternalPtr<Urho3D::TmxFile2D>, Urho3D::Resource>(pyclass_Var_Urho3D, "TmxFile2D", "test doc");
 // Type Urho3D::ObjectAnimation Registrations
-auto pyclass_Var_Urho3D_ObjectAnimation = py::class_<Urho3D::ObjectAnimation, Urho3D::SharedPtr<Urho3D::ObjectAnimation>, Urho3D::Resource>(pyclass_Var_Urho3D, "ObjectAnimation", "test doc");
+auto pyclass_Var_Urho3D_ObjectAnimation = py::class_<Urho3D::ObjectAnimation, Urho3D::ExternalPtr<Urho3D::ObjectAnimation>, Urho3D::Resource>(pyclass_Var_Urho3D, "ObjectAnimation", "test doc");
 // Type Urho3D::Texture Registrations
-auto pyclass_Var_Urho3D_Texture = py::class_<Urho3D::Texture, Urho3D::SharedPtr<Urho3D::Texture>, Urho3D::ResourceWithMetadata, Urho3D::GPUObject>(pyclass_Var_Urho3D, "Texture", "test doc");
+auto pyclass_Var_Urho3D_Texture = py::class_<Urho3D::Texture, Urho3D::ExternalPtr<Urho3D::Texture>, Urho3D::ResourceWithMetadata, Urho3D::GPUObject>(pyclass_Var_Urho3D, "Texture", "test doc");
 // Type Urho3D::TextureCube Registrations
-auto pyclass_Var_Urho3D_TextureCube = py::class_<Urho3D::TextureCube, Urho3D::SharedPtr<Urho3D::TextureCube>, Urho3D::Texture>(pyclass_Var_Urho3D, "TextureCube", "test doc");
+auto pyclass_Var_Urho3D_TextureCube = py::class_<Urho3D::TextureCube, Urho3D::ExternalPtr<Urho3D::TextureCube>, Urho3D::Texture>(pyclass_Var_Urho3D, "TextureCube", "test doc");
 // Type Urho3D::Texture2DArray Registrations
-auto pyclass_Var_Urho3D_Texture2DArray = py::class_<Urho3D::Texture2DArray, Urho3D::SharedPtr<Urho3D::Texture2DArray>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture2DArray", "test doc");
+auto pyclass_Var_Urho3D_Texture2DArray = py::class_<Urho3D::Texture2DArray, Urho3D::ExternalPtr<Urho3D::Texture2DArray>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture2DArray", "test doc");
 // Type Urho3D::NetworkPriority Registrations
-auto pyclass_Var_Urho3D_NetworkPriority = py::class_<Urho3D::NetworkPriority, Urho3D::SharedPtr<Urho3D::NetworkPriority>, Urho3D::Component>(pyclass_Var_Urho3D, "NetworkPriority", "test doc");
+auto pyclass_Var_Urho3D_NetworkPriority = py::class_<Urho3D::NetworkPriority, Urho3D::ExternalPtr<Urho3D::NetworkPriority>, Urho3D::Component>(pyclass_Var_Urho3D, "NetworkPriority", "test doc");
 // Type Urho3D::CollisionBox2D Registrations
-auto pyclass_Var_Urho3D_CollisionBox2D = py::class_<Urho3D::CollisionBox2D, Urho3D::SharedPtr<Urho3D::CollisionBox2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionBox2D", "test doc");
+auto pyclass_Var_Urho3D_CollisionBox2D = py::class_<Urho3D::CollisionBox2D, Urho3D::ExternalPtr<Urho3D::CollisionBox2D>, Urho3D::CollisionShape2D>(pyclass_Var_Urho3D, "CollisionBox2D", "test doc");
 // Type Urho3D::ConstraintWheel2D Registrations
-auto pyclass_Var_Urho3D_ConstraintWheel2D = py::class_<Urho3D::ConstraintWheel2D, Urho3D::SharedPtr<Urho3D::ConstraintWheel2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintWheel2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintWheel2D = py::class_<Urho3D::ConstraintWheel2D, Urho3D::ExternalPtr<Urho3D::ConstraintWheel2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintWheel2D", "test doc");
 // Type Urho3D::Material Registrations
-auto pyclass_Var_Urho3D_Material = py::class_<Urho3D::Material, Urho3D::SharedPtr<Urho3D::Material>, Urho3D::Resource>(pyclass_Var_Urho3D, "Material", "test doc");
+auto pyclass_Var_Urho3D_Material = py::class_<Urho3D::Material, Urho3D::ExternalPtr<Urho3D::Material>, Urho3D::Resource>(pyclass_Var_Urho3D, "Material", "test doc");
 // Type Urho3D::Animation Registrations
-auto pyclass_Var_Urho3D_Animation = py::class_<Urho3D::Animation, Urho3D::SharedPtr<Urho3D::Animation>, Urho3D::ResourceWithMetadata>(pyclass_Var_Urho3D, "Animation", "test doc");
+auto pyclass_Var_Urho3D_Animation = py::class_<Urho3D::Animation, Urho3D::ExternalPtr<Urho3D::Animation>, Urho3D::ResourceWithMetadata>(pyclass_Var_Urho3D, "Animation", "test doc");
 // Type Urho3D::Text3D Registrations
-auto pyclass_Var_Urho3D_Text3D = py::class_<Urho3D::Text3D, Urho3D::SharedPtr<Urho3D::Text3D>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Text3D", "test doc");
+auto pyclass_Var_Urho3D_Text3D = py::class_<Urho3D::Text3D, Urho3D::ExternalPtr<Urho3D::Text3D>, Urho3D::Drawable>(pyclass_Var_Urho3D, "Text3D", "test doc");
 // Type Urho3D::Texture2D Registrations
-auto pyclass_Var_Urho3D_Texture2D = py::class_<Urho3D::Texture2D, Urho3D::SharedPtr<Urho3D::Texture2D>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture2D", "test doc");
+auto pyclass_Var_Urho3D_Texture2D = py::class_<Urho3D::Texture2D, Urho3D::ExternalPtr<Urho3D::Texture2D>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture2D", "test doc");
 // Type Urho3D::ConstraintGear2D Registrations
-auto pyclass_Var_Urho3D_ConstraintGear2D = py::class_<Urho3D::ConstraintGear2D, Urho3D::SharedPtr<Urho3D::ConstraintGear2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintGear2D", "test doc");
+auto pyclass_Var_Urho3D_ConstraintGear2D = py::class_<Urho3D::ConstraintGear2D, Urho3D::ExternalPtr<Urho3D::ConstraintGear2D>, Urho3D::Constraint2D>(pyclass_Var_Urho3D, "ConstraintGear2D", "test doc");
 // Type Urho3D::Texture3D Registrations
-auto pyclass_Var_Urho3D_Texture3D = py::class_<Urho3D::Texture3D, Urho3D::SharedPtr<Urho3D::Texture3D>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture3D", "test doc");
+auto pyclass_Var_Urho3D_Texture3D = py::class_<Urho3D::Texture3D, Urho3D::ExternalPtr<Urho3D::Texture3D>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture3D", "test doc");
 
     //================================================
     // Implement Classes
@@ -12511,4 +12501,8 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
 
 
 }
+
+
+/*{'Urho3D::ShaderVariation': ['@Urho3D::GPUObject'], 'Urho3D::ShaderProgram': ['@Urho3D::GPUObject'], 'Urho3D::IndexBuffer': ['@Urho3D::GPUObject'], 'Urho3D::ConstantBuffer': ['@Urho3D::GPUObject'], 'Urho3D::HttpRequest': ['@Urho3D::Deserializer', '@Urho3D::Thread'], 'Urho3D::RocketSys': ['Rocket::Core::RenderInterface'], 'Urho3D::VertexBuffer': ['@Urho3D::GPUObject'], 'Urho3D::FileWatcher': ['@Urho3D::Thread'], 'Urho3D::LuaScript': ['@Urho3D::LuaScriptEventListener'], 'Urho3D::Octree': ['@Urho3D::Octant'], 'Urho3D::NamedPipe': ['@Urho3D::AbstractFile'], 'Urho3D::LuaScriptInstance': ['@Urho3D::LuaScriptEventListener'], 'Urho3D::PhysicsWorld': ['btIDebugDraw'], 'Urho3D::PhysicsWorld2D': ['b2ContactListener', 'b2Draw'], 'Urho3D::ScriptInstance': ['@Urho3D::ScriptEventListener'], 'Urho3D::RigidBody': ['btMotionState'], 'Urho3D::File': ['@Urho3D::AbstractFile'], 'Urho3D::ScriptFile': ['@Urho3D::ScriptEventListener'], 'Urho3D::Texture': ['@Urho3D::GPUObject']}*/
+
 

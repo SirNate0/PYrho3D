@@ -57853,7 +57853,7 @@ public:
 
     Vector<T>& operator =(Vector<T> && rhs)
     {
-        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 119, __PRETTY_FUNCTION__));
+        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 119, __PRETTY_FUNCTION__));
         Swap(rhs);
         return *this;
     }
@@ -57925,28 +57925,28 @@ public:
 
     T& operator [](unsigned index)
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 191, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 191, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
 
     const T& operator [](unsigned index) const
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 198, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 198, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
 
     T& At(unsigned index)
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 205, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 205, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
 
     const T& At(unsigned index) const
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 212, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 212, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
@@ -58249,28 +58249,28 @@ public:
 
     T& Front()
     {
-        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 526, __PRETTY_FUNCTION__));
+        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 526, __PRETTY_FUNCTION__));
         return Buffer()[0];
     }
 
 
     const T& Front() const
     {
-        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 533, __PRETTY_FUNCTION__));
+        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 533, __PRETTY_FUNCTION__));
         return Buffer()[0];
     }
 
 
     T& Back()
     {
-        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 540, __PRETTY_FUNCTION__));
+        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 540, __PRETTY_FUNCTION__));
         return Buffer()[size_ - 1];
     }
 
 
     const T& Back() const
     {
-        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 547, __PRETTY_FUNCTION__));
+        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 547, __PRETTY_FUNCTION__));
         return Buffer()[size_ - 1];
     }
 
@@ -58409,8 +58409,8 @@ private:
 
     Iterator DoEraseElements(unsigned pos, unsigned count)
     {
-        ((count > 0) ? static_cast<void> (0) : __assert_fail ("count > 0", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 686, __PRETTY_FUNCTION__));
-        ((pos + count <= size_) ? static_cast<void> (0) : __assert_fail ("pos + count <= size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 687, __PRETTY_FUNCTION__));
+        ((count > 0) ? static_cast<void> (0) : __assert_fail ("count > 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 686, __PRETTY_FUNCTION__));
+        ((pos + count <= size_) ? static_cast<void> (0) : __assert_fail ("pos + count <= size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 687, __PRETTY_FUNCTION__));
         T* buffer = Buffer();
         std::move(buffer + pos + count, buffer + size_, buffer + pos);
         Resize(size_ - count);
@@ -58558,28 +58558,28 @@ public:
 
     T& operator [](unsigned index)
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 835, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 835, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
 
     const T& operator [](unsigned index) const
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 842, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 842, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
 
     T& At(unsigned index)
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 849, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 849, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
 
     const T& At(unsigned index) const
     {
-        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 856, __PRETTY_FUNCTION__));
+        ((index < size_) ? static_cast<void> (0) : __assert_fail ("index < size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 856, __PRETTY_FUNCTION__));
         return Buffer()[index];
     }
 
@@ -58598,7 +58598,7 @@ public:
     {
         unsigned oldSize = size_;
         Resize(size_ + vector.size_);
-        CopyElements(Buffer() + oldSize, vector.Buffer(), (this == &vector) ? oldSize : vector.size_);
+        CopyElements(Buffer() + oldSize, vector.Buffer(), vector.size_);
     }
 
 
@@ -58898,14 +58898,14 @@ public:
 
     T& Back()
     {
-        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 1175, __PRETTY_FUNCTION__));
+        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 1175, __PRETTY_FUNCTION__));
         return Buffer()[size_ - 1];
     }
 
 
     const T& Back() const
     {
-        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/usr/local/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 1182, __PRETTY_FUNCTION__));
+        ((size_) ? static_cast<void> (0) : __assert_fail ("size_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/../Container/Vector.h", 1182, __PRETTY_FUNCTION__));
         return Buffer()[size_ - 1];
     }
 
@@ -59203,7 +59203,7 @@ public:
 
     HashMap& operator =(HashMap<T, U> && rhs) noexcept
     {
-        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/usr/local/include/Urho3D/AngelScript/../Container/HashMap.h", 276, __PRETTY_FUNCTION__));
+        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/HashMap.h", 276, __PRETTY_FUNCTION__));
         Swap(rhs);
         return *this;
     }
@@ -59375,7 +59375,7 @@ public:
             current = current->Down();
         }
 
-        ((current == node) ? static_cast<void> (0) : __assert_fail ("current == node", "/usr/local/include/Urho3D/AngelScript/../Container/HashMap.h", 448, __PRETTY_FUNCTION__));
+        ((current == node) ? static_cast<void> (0) : __assert_fail ("current == node", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/HashMap.h", 448, __PRETTY_FUNCTION__));
 
         if (previous)
             previous->down_ = node->down_;
@@ -59883,7 +59883,7 @@ public:
 
     String& operator =(String && rhs) noexcept
     {
-        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 185, __PRETTY_FUNCTION__));
+        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 185, __PRETTY_FUNCTION__));
         Swap(rhs);
         return *this;
     }
@@ -60003,28 +60003,28 @@ public:
 
     char& operator [](unsigned index)
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 305, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 305, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
 
     const char& operator [](unsigned index) const
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 312, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 312, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
 
     char& At(unsigned index)
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 319, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 319, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
 
     const char& At(unsigned index) const
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 326, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 326, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
@@ -60274,28 +60274,28 @@ public:
 
     wchar_t& operator [](unsigned index)
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 584, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 584, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
 
     const wchar_t& operator [](unsigned index) const
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 591, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 591, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
 
     wchar_t& At(unsigned index)
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 598, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 598, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
 
     const wchar_t& At(unsigned index) const
     {
-        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/usr/local/include/Urho3D/AngelScript/../Container/Str.h", 605, __PRETTY_FUNCTION__));
+        ((index < length_) ? static_cast<void> (0) : __assert_fail ("index < length_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Container/Str.h", 605, __PRETTY_FUNCTION__));
         return buffer_[index];
     }
 
@@ -60317,14 +60317,6 @@ private:
 
     wchar_t* buffer_;
 };
-
-inline Urho3D::String::ConstIterator begin(const Urho3D::String& s) { return s.Begin(); }
-
-inline Urho3D::String::ConstIterator end(const Urho3D::String& s) { return s.End(); }
-
-inline Urho3D::String::Iterator begin(Urho3D::String& s) { return s.Begin(); }
-
-inline Urho3D::String::Iterator end(Urho3D::String& s) { return s.End(); }
 
 }
 
@@ -62680,21 +62672,21 @@ public:
 
     T* operator ->() const
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 117, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 117, __PRETTY_FUNCTION__));
         return ptr_;
     }
 
 
     T& operator *() const
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 124, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 124, __PRETTY_FUNCTION__));
         return *ptr_;
     }
 
 
-    T& operator [](int index)
+    T& operator [](const int index)
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 131, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 131, __PRETTY_FUNCTION__));
         return ptr_[index];
     }
 
@@ -62806,6 +62798,192 @@ template <class T, class U> SharedPtr<T> DynamicCast(const SharedPtr<U>& ptr)
 }
 
 
+template <class T> class ExternalPtr
+{
+public:
+
+    ExternalPtr() noexcept {}
+
+
+    ExternalPtr(std::nullptr_t) noexcept {}
+
+
+    template <class U> ExternalPtr(const SharedPtr<U>& rhs) :
+        ptr_(rhs.Get()),
+        refCount_(rhs.RefCountPtr())
+    {
+        AddRef();
+    }
+
+
+    ExternalPtr(const ExternalPtr<T>& rhs) noexcept :
+        ptr_(rhs.ptr_),
+        refCount_(rhs.refCount_)
+    {
+        AddRef();
+    }
+
+
+    template <class U> explicit ExternalPtr(const ExternalPtr<U>& rhs) noexcept :
+        ptr_(rhs.ptr_),
+        refCount_(rhs.refCount_)
+    {
+        AddRef();
+    }
+
+
+    ExternalPtr(T* ptr, RefCount* refCount) noexcept :
+        ptr_(ptr),
+        refCount_(refCount)
+    {
+        AddRef();
+    }
+
+
+    ~ExternalPtr() noexcept
+    {
+        ReleaseRef();
+    }
+
+
+    ExternalPtr<T>& operator =(const ExternalPtr<T>& rhs)
+    {
+        if (ptr_ == rhs.ptr_)
+            return *this;
+
+        ExternalPtr<T> copy(rhs);
+        Swap(copy);
+
+        return *this;
+    }
+
+
+    template <class U> ExternalPtr<T>& operator =(const ExternalPtr<U>& rhs)
+    {
+        if (ptr_ == rhs.ptr_)
+            return *this;
+
+        ExternalPtr<T> copy(rhs);
+        Swap(copy);
+
+        return *this;
+    }
+
+
+    template <class U> ExternalPtr<T>& operator =(const SharedPtr<U>& rhs)
+    {
+        if (ptr_ == rhs.ptr_)
+            return *this;
+
+        ExternalPtr<T> copy(rhs);
+        Swap(copy);
+
+        return *this;
+    }
+
+
+    T* operator ->() const
+    {
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 329, __PRETTY_FUNCTION__));
+        return ptr_;
+    }
+
+
+    T& operator *() const
+    {
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 336, __PRETTY_FUNCTION__));
+        return *ptr_;
+    }
+
+
+    template <class U> bool operator <(const ExternalPtr<U>& rhs) const { return ptr_ < rhs.ptr_; }
+
+
+    template <class U> bool operator ==(const ExternalPtr<U>& rhs) const { return ptr_ == rhs.ptr_; }
+
+
+    template <class U> bool operator !=(const ExternalPtr<U>& rhs) const { return ptr_ != rhs.ptr_; }
+
+
+    void Swap(ExternalPtr& rhs)
+    {
+        Urho3D::Swap(ptr_, rhs.ptr_);
+        Urho3D::Swap(refCount_, rhs.refCount_);
+    }
+
+
+    void Reset() { ReleaseRef(); }
+
+
+    bool Null() const { return ptr_ == 0; }
+
+
+    bool NotNull() const { return ptr_ != 0; }
+
+
+    T* Get() const { return ptr_; }
+
+
+    int Refs() const { return refCount_ ? refCount_->refs_ : 0; }
+
+
+    int WeakRefs() const { return refCount_ ? refCount_->weakRefs_ : 0; }
+
+
+    RefCount* RefCountPtr() const { return refCount_; }
+
+
+    unsigned ToHash() const { return (unsigned)((size_t)ptr_ / sizeof(T)); }
+
+private:
+    template <class U> friend class ExternalPtr;
+
+
+    void AddRef()
+    {
+        if (ptr_)
+        {
+
+            ++refCount_->weakRefs_;
+
+
+            ++refCount_->refs_;
+        }
+    }
+
+
+    void ReleaseRef()
+    {
+        if (ptr_)
+        {
+            ((refCount_->refs_ > 0) ? static_cast<void> (0) : __assert_fail ("refCount_->refs_ > 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 401, __PRETTY_FUNCTION__));
+            ((refCount_->weakRefs_ > 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ > 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 402, __PRETTY_FUNCTION__));
+
+
+            --refCount_->refs_;
+            if (!refCount_->refs_)
+            {
+                delete ptr_;
+                refCount_->refs_ = -1;
+            }
+
+
+            --refCount_->weakRefs_;
+            if (!refCount_->weakRefs_)
+                delete refCount_;
+
+            ptr_ = nullptr;
+            refCount_ = nullptr;
+        }
+    }
+
+
+    T* ptr_ = nullptr;
+
+    RefCount* refCount_ = nullptr;
+};
+
+
 template <class T> class WeakPtr
 {
 public:
@@ -62863,6 +63041,20 @@ public:
 
 
     WeakPtr<T>& operator =(const SharedPtr<T>& rhs)
+    {
+        if (ptr_ == rhs.Get() && refCount_ == rhs.RefCountPtr())
+            return *this;
+
+        ReleaseRef();
+        ptr_ = rhs.Get();
+        refCount_ = rhs.RefCountPtr();
+        AddRef();
+
+        return *this;
+    }
+
+
+    WeakPtr<T>& operator =(const ExternalPtr<T>& rhs)
     {
         if (ptr_ == rhs.Get() && refCount_ == rhs.RefCountPtr())
             return *this;
@@ -62938,7 +63130,7 @@ public:
     T* operator ->() const
     {
         T* rawPtr = Get();
-        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 375, __PRETTY_FUNCTION__));
+        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 575, __PRETTY_FUNCTION__));
         return rawPtr;
     }
 
@@ -62946,15 +63138,15 @@ public:
     T& operator *() const
     {
         T* rawPtr = Get();
-        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 383, __PRETTY_FUNCTION__));
+        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 583, __PRETTY_FUNCTION__));
         return *rawPtr;
     }
 
 
-    T& operator [](int index)
+    T& operator [](const int index)
     {
         T* rawPtr = Get();
-        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 391, __PRETTY_FUNCTION__));
+        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 591, __PRETTY_FUNCTION__));
         return (*rawPtr)[index];
     }
 
@@ -63032,7 +63224,7 @@ private:
     {
         if (refCount_)
         {
-            ((refCount_->weakRefs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ >= 0", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 469, __PRETTY_FUNCTION__));
+            ((refCount_->weakRefs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ >= 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 669, __PRETTY_FUNCTION__));
             ++(refCount_->weakRefs_);
         }
     }
@@ -63042,7 +63234,7 @@ private:
     {
         if (refCount_)
         {
-            ((refCount_->weakRefs_ > 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ > 0", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 479, __PRETTY_FUNCTION__));
+            ((refCount_->weakRefs_ > 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ > 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 679, __PRETTY_FUNCTION__));
             --(refCount_->weakRefs_);
 
             if (Expired() && !refCount_->weakRefs_)
@@ -63123,14 +63315,14 @@ public:
 
     T* operator ->() const
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 560, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 760, __PRETTY_FUNCTION__));
         return ptr_;
     }
 
 
     T& operator *() const
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 567, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/../Container/Ptr.h", 767, __PRETTY_FUNCTION__));
         return *ptr_;
     }
 
@@ -72554,7 +72746,7 @@ public:
     explicit ObjectFactory(Context* context) :
         context_(context)
     {
-        ((context_) ? static_cast<void> (0) : __assert_fail ("context_", "/usr/local/include/Urho3D/AngelScript/../Core/Object.h", 206, __PRETTY_FUNCTION__));
+        ((context_) ? static_cast<void> (0) : __assert_fail ("context_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/Object.h", 206, __PRETTY_FUNCTION__));
     }
 
 
@@ -72655,8 +72847,8 @@ public:
         EventHandler(receiver, userData),
         function_(function)
     {
-        ((receiver_) ? static_cast<void> (0) : __assert_fail ("receiver_", "/usr/local/include/Urho3D/AngelScript/../Core/Object.h", 307, __PRETTY_FUNCTION__));
-        ((function_) ? static_cast<void> (0) : __assert_fail ("function_", "/usr/local/include/Urho3D/AngelScript/../Core/Object.h", 308, __PRETTY_FUNCTION__));
+        ((receiver_) ? static_cast<void> (0) : __assert_fail ("receiver_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/Object.h", 307, __PRETTY_FUNCTION__));
+        ((function_) ? static_cast<void> (0) : __assert_fail ("function_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/Object.h", 308, __PRETTY_FUNCTION__));
     }
 
 
@@ -72686,7 +72878,7 @@ public:
         EventHandler(nullptr, userData),
         function_(std::move(function))
     {
-        ((function_) ? static_cast<void> (0) : __assert_fail ("function_", "/usr/local/include/Urho3D/AngelScript/../Core/Object.h", 338, __PRETTY_FUNCTION__));
+        ((function_) ? static_cast<void> (0) : __assert_fail ("function_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Core/Object.h", 338, __PRETTY_FUNCTION__));
     }
 
 
@@ -73097,7 +73289,7 @@ public:
 
     HashSet& operator =(HashSet<T> && rhs) noexcept
     {
-        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/usr/local/include/Urho3D/AngelScript/../Scene/../Container/HashSet.h", 233, __PRETTY_FUNCTION__));
+        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Scene/../Container/HashSet.h", 233, __PRETTY_FUNCTION__));
         Swap(rhs);
         return *this;
     }
@@ -73245,7 +73437,7 @@ public:
             current = current->Down();
         }
 
-        ((current == node) ? static_cast<void> (0) : __assert_fail ("current == node", "/usr/local/include/Urho3D/AngelScript/../Scene/../Container/HashSet.h", 381, __PRETTY_FUNCTION__));
+        ((current == node) ? static_cast<void> (0) : __assert_fail ("current == node", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Scene/../Container/HashSet.h", 381, __PRETTY_FUNCTION__));
 
         if (previous)
             previous->down_ = node->down_;
@@ -74006,7 +74198,7 @@ public:
 
     void Get(const Serializable* ptr, Variant& value) const override
     {
-        ((ptr) ? static_cast<void> (0) : __assert_fail ("ptr", "/usr/local/include/Urho3D/AngelScript/../Scene/../Scene/Serializable.h", 167, __PRETTY_FUNCTION__));
+        ((ptr) ? static_cast<void> (0) : __assert_fail ("ptr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Scene/../Scene/Serializable.h", 167, __PRETTY_FUNCTION__));
         const auto classPtr = static_cast<const TClassType*>(ptr);
         getFunction_(*classPtr, value);
     }
@@ -74014,7 +74206,7 @@ public:
 
     void Set(Serializable* ptr, const Variant& value) override
     {
-        ((ptr) ? static_cast<void> (0) : __assert_fail ("ptr", "/usr/local/include/Urho3D/AngelScript/../Scene/../Scene/Serializable.h", 175, __PRETTY_FUNCTION__));
+        ((ptr) ? static_cast<void> (0) : __assert_fail ("ptr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../Scene/../Scene/Serializable.h", 175, __PRETTY_FUNCTION__));
         auto classPtr = static_cast<TClassType*>(ptr);
         setFunction_(*classPtr, value);
     }
@@ -77121,21 +77313,21 @@ public:
 
     T* operator ->() const
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 101, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 101, __PRETTY_FUNCTION__));
         return ptr_;
     }
 
 
     T& operator *() const
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 108, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 108, __PRETTY_FUNCTION__));
         return *ptr_;
     }
 
 
     T& operator [](int index)
     {
-        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 115, __PRETTY_FUNCTION__));
+        ((ptr_) ? static_cast<void> (0) : __assert_fail ("ptr_", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 115, __PRETTY_FUNCTION__));
         return ptr_[index];
     }
 
@@ -77202,7 +77394,7 @@ private:
     {
         if (refCount_)
         {
-            ((refCount_->refs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->refs_ >= 0", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 182, __PRETTY_FUNCTION__));
+            ((refCount_->refs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->refs_ >= 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 182, __PRETTY_FUNCTION__));
             ++(refCount_->refs_);
         }
     }
@@ -77212,7 +77404,7 @@ private:
     {
         if (refCount_)
         {
-            ((refCount_->refs_ > 0) ? static_cast<void> (0) : __assert_fail ("refCount_->refs_ > 0", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 192, __PRETTY_FUNCTION__));
+            ((refCount_->refs_ > 0) ? static_cast<void> (0) : __assert_fail ("refCount_->refs_ > 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 192, __PRETTY_FUNCTION__));
             --(refCount_->refs_);
             if (!refCount_->refs_)
             {
@@ -77333,7 +77525,7 @@ public:
     T* operator ->() const
     {
         T* rawPtr = Get();
-        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 313, __PRETTY_FUNCTION__));
+        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 313, __PRETTY_FUNCTION__));
         return rawPtr;
     }
 
@@ -77341,7 +77533,7 @@ public:
     T& operator *() const
     {
         T* rawPtr = Get();
-        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 321, __PRETTY_FUNCTION__));
+        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 321, __PRETTY_FUNCTION__));
         return *rawPtr;
     }
 
@@ -77349,7 +77541,7 @@ public:
     T& operator [](const int index)
     {
         T* rawPtr = Get();
-        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 329, __PRETTY_FUNCTION__));
+        ((rawPtr) ? static_cast<void> (0) : __assert_fail ("rawPtr", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 329, __PRETTY_FUNCTION__));
         return (*rawPtr)[index];
     }
 
@@ -77422,7 +77614,7 @@ private:
     {
         if (refCount_)
         {
-            ((refCount_->weakRefs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ >= 0", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 402, __PRETTY_FUNCTION__));
+            ((refCount_->weakRefs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ >= 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 402, __PRETTY_FUNCTION__));
             ++(refCount_->weakRefs_);
         }
     }
@@ -77432,7 +77624,7 @@ private:
     {
         if (refCount_)
         {
-            ((refCount_->weakRefs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ >= 0", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 412, __PRETTY_FUNCTION__));
+            ((refCount_->weakRefs_ >= 0) ? static_cast<void> (0) : __assert_fail ("refCount_->weakRefs_ >= 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/ArrayPtr.h", 412, __PRETTY_FUNCTION__));
 
             if (refCount_->weakRefs_ > 0)
                 --(refCount_->weakRefs_);
@@ -78114,7 +78306,7 @@ public:
 
     List& operator =(List<T> && rhs) noexcept
     {
-        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/usr/local/include/Urho3D/AngelScript/../IO/../Container/List.h", 222, __PRETTY_FUNCTION__));
+        ((&rhs != this) ? static_cast<void> (0) : __assert_fail ("&rhs != this", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/AngelScript/../IO/../Container/List.h", 222, __PRETTY_FUNCTION__));
         Swap(rhs);
         return *this;
     }
@@ -98211,7 +98403,7 @@ private:
             break;
 
         default:
-            ((false) ? static_cast<void> (0) : __assert_fail ("false", "/usr/local/include/Urho3D/IO/RWOpsWrapper.h", 83, __PRETTY_FUNCTION__));
+            ((false) ? static_cast<void> (0) : __assert_fail ("false", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/IO/RWOpsWrapper.h", 83, __PRETTY_FUNCTION__));
             break;
         }
 
@@ -113125,7 +113317,7 @@ StringBase< T >::StringBase(size_type UNUSED_max_length __attribute__((unused)),
 
  value[0] = 0;
 
- if (!Rocket::Core::Assert("Not implemented.", "/usr/local/include/Rocket/Core/StringBase.inl", 84)) { {__builtin_trap();}; };
+ if (!Rocket::Core::Assert("Not implemented.", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 84)) { {__builtin_trap();}; };
 }
 
 template< typename T >
@@ -113207,7 +113399,7 @@ void StringBase< T >::Reserve(size_type size)
  if (value == (T*)local_buffer)
  {
   T* new_value = (T*)realloc(__null, new_size);
-  if (!(new_value)) { if (!Rocket::Core::Assert("Could not reserve memory for String, realloc failed.", "/usr/local/include/Rocket/Core/StringBase.inl", 166 )) { {__builtin_trap();}; } };
+  if (!(new_value)) { if (!Rocket::Core::Assert("Could not reserve memory for String, realloc failed.", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 166 )) { {__builtin_trap();}; } };
   if(new_value != __null)
   {
    buffer_size = new_size;
@@ -113218,7 +113410,7 @@ void StringBase< T >::Reserve(size_type size)
  else
  {
   T* new_value = (T*)realloc(value, new_size);
-  if (!(new_value)) { if (!Rocket::Core::Assert("Could not reserve memory for String, realloc failed.", "/usr/local/include/Rocket/Core/StringBase.inl", 177 )) { {__builtin_trap();}; } };
+  if (!(new_value)) { if (!Rocket::Core::Assert("Could not reserve memory for String, realloc failed.", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 177 )) { {__builtin_trap();}; } };
   if(new_value != __null)
   {
    buffer_size = new_size;
@@ -113365,7 +113557,7 @@ int StringBase< T >::FormatString(size_type UNUSED_max_length __attribute__((unu
                           ;
                    ;
 
- if (!Rocket::Core::Assert("Not implemented.", "/usr/local/include/Rocket/Core/StringBase.inl", 324)) { {__builtin_trap();}; };
+ if (!Rocket::Core::Assert("Not implemented.", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 324)) { {__builtin_trap();}; };
  return -1;
 }
 
@@ -113569,14 +113761,14 @@ StringBase< T >& StringBase< T >::operator+=(const T& add)
 template< typename T >
 const T& StringBase< T >::operator[](size_type index) const
 {
- if (!(index < length)) { if (!Rocket::Core::Assert("ROCKET_ASSERT(""index < length"")", "/usr/local/include/Rocket/Core/StringBase.inl", 528 )) { {__builtin_trap();}; } };
+ if (!(index < length)) { if (!Rocket::Core::Assert("ROCKET_ASSERT(""index < length"")", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 528 )) { {__builtin_trap();}; } };
  return value[index];
 }
 
 template< typename T >
 T& StringBase< T >::operator[](size_type index)
 {
- if (!(index < length)) { if (!Rocket::Core::Assert("ROCKET_ASSERT(""index < length"")", "/usr/local/include/Rocket/Core/StringBase.inl", 535 )) { {__builtin_trap();}; } };
+ if (!(index < length)) { if (!Rocket::Core::Assert("ROCKET_ASSERT(""index < length"")", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 535 )) { {__builtin_trap();}; } };
  return value[index];
 }
 
@@ -113645,7 +113837,7 @@ typename StringBase< T >::size_type StringBase< T >::_Find(const T* find, size_t
 template< typename T >
 typename StringBase< T >::size_type StringBase< T >::_RFind(const T* find, size_type find_length, size_type offset) const
 {
- if (!(find_length > 0)) { if (!Rocket::Core::Assert("ROCKET_ASSERT(""find_length > 0"")", "/usr/local/include/Rocket/Core/StringBase.inl", 604 )) { {__builtin_trap();}; } };
+ if (!(find_length > 0)) { if (!Rocket::Core::Assert("ROCKET_ASSERT(""find_length > 0"")", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/StringBase.inl", 604 )) { {__builtin_trap();}; } };
 
  size_type needle_index = 0;
  size_type haystack_index = (offset < length ? offset : length) - find_length;
@@ -116212,7 +116404,7 @@ public:
 template <typename SourceType, typename DestType>
 bool TypeConverter<SourceType, DestType>::Convert(const SourceType& , DestType& )
 {
- if (!Rocket::Core::Assert("No converter specified.", "/usr/local/include/Rocket/Core/TypeConverter.inl", 31)) { {__builtin_trap();}; };
+ if (!Rocket::Core::Assert("No converter specified.", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/TypeConverter.inl", 31)) { {__builtin_trap();}; };
  return false;
 }
 
@@ -117602,7 +117794,7 @@ template < typename T >
 T Element::GetProperty(const String& name)
 {
  const Property* property = GetProperty(name);
- if (!(property)) { if (!Rocket::Core::Assert("Invalid property name.", "/usr/local/include/Rocket/Core/Element.inl", 34 )) { {__builtin_trap();}; } };
+ if (!(property)) { if (!Rocket::Core::Assert("Invalid property name.", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Rocket/Core/Element.inl", 34 )) { {__builtin_trap();}; } };
  return property->Get< T >();
 }
 
@@ -137272,7 +137464,7 @@ inline void b2Sweep::GetTransform(b2Transform* xf, float32 beta) const
 
 inline void b2Sweep::Advance(float32 alpha)
 {
- ((alpha0 < 1.0f) ? static_cast<void> (0) : __assert_fail ("alpha0 < 1.0f", "/usr/local/include/Urho3D/ThirdParty/Box2D/Common/b2Math.h", 709, __PRETTY_FUNCTION__));
+ ((alpha0 < 1.0f) ? static_cast<void> (0) : __assert_fail ("alpha0 < 1.0f", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Common/b2Math.h", 709, __PRETTY_FUNCTION__));
  float32 beta = (alpha - alpha0) / (1.0f - alpha0);
  c0 += beta * (c - c0);
  a0 += beta * (a - a0);
@@ -137780,7 +137972,7 @@ inline const b2Vec2& b2CircleShape::GetSupportVertex(const b2Vec2 &d) const
 inline const b2Vec2& b2CircleShape::GetVertex(int32 index) const
 {
  ((void)(index));
- ((index == 0) ? static_cast<void> (0) : __assert_fail ("index == 0", "/usr/local/include/Urho3D/ThirdParty/Box2D/Collision/Shapes/b2CircleShape.h", 87, __PRETTY_FUNCTION__));
+ ((index == 0) ? static_cast<void> (0) : __assert_fail ("index == 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Collision/Shapes/b2CircleShape.h", 87, __PRETTY_FUNCTION__));
  return m_p;
 }
 class b2EdgeShape : public b2Shape
@@ -137978,7 +138170,7 @@ inline b2PolygonShape::b2PolygonShape()
 
 inline const b2Vec2& b2PolygonShape::GetVertex(int32 index) const
 {
- ((0 <= index && index < m_count) ? static_cast<void> (0) : __assert_fail ("0 <= index && index < m_count", "/usr/local/include/Urho3D/ThirdParty/Box2D/Collision/Shapes/b2PolygonShape.h", 97, __PRETTY_FUNCTION__));
+ ((0 <= index && index < m_count) ? static_cast<void> (0) : __assert_fail ("0 <= index && index < m_count", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Collision/Shapes/b2PolygonShape.h", 97, __PRETTY_FUNCTION__));
  return m_vertices[index];
 }
 
@@ -138022,7 +138214,7 @@ public:
 
  T Pop()
  {
-  ((m_count > 0) ? static_cast<void> (0) : __assert_fail ("m_count > 0", "/usr/local/include/Urho3D/ThirdParty/Box2D/Common/b2GrowableStack.h", 67, __PRETTY_FUNCTION__));
+  ((m_count > 0) ? static_cast<void> (0) : __assert_fail ("m_count > 0", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Common/b2GrowableStack.h", 67, __PRETTY_FUNCTION__));
   --m_count;
   return m_stack[m_count];
  }
@@ -138155,13 +138347,13 @@ private:
 
 inline void* b2DynamicTree::GetUserData(int32 proxyId) const
 {
- ((0 <= proxyId && proxyId < m_nodeCapacity) ? static_cast<void> (0) : __assert_fail ("0 <= proxyId && proxyId < m_nodeCapacity", "/usr/local/include/Urho3D/ThirdParty/Box2D/Collision/b2DynamicTree.h", 158, __PRETTY_FUNCTION__));
+ ((0 <= proxyId && proxyId < m_nodeCapacity) ? static_cast<void> (0) : __assert_fail ("0 <= proxyId && proxyId < m_nodeCapacity", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Collision/b2DynamicTree.h", 158, __PRETTY_FUNCTION__));
  return m_nodes[proxyId].userData;
 }
 
 inline const b2AABB& b2DynamicTree::GetFatAABB(int32 proxyId) const
 {
- ((0 <= proxyId && proxyId < m_nodeCapacity) ? static_cast<void> (0) : __assert_fail ("0 <= proxyId && proxyId < m_nodeCapacity", "/usr/local/include/Urho3D/ThirdParty/Box2D/Collision/b2DynamicTree.h", 164, __PRETTY_FUNCTION__));
+ ((0 <= proxyId && proxyId < m_nodeCapacity) ? static_cast<void> (0) : __assert_fail ("0 <= proxyId && proxyId < m_nodeCapacity", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Collision/b2DynamicTree.h", 164, __PRETTY_FUNCTION__));
  return m_nodes[proxyId].aabb;
 }
 
@@ -138206,7 +138398,7 @@ inline void b2DynamicTree::RayCast(T* callback, const b2RayCastInput& input) con
  b2Vec2 p1 = input.p1;
  b2Vec2 p2 = input.p2;
  b2Vec2 r = p2 - p1;
- ((r.LengthSquared() > 0.0f) ? static_cast<void> (0) : __assert_fail ("r.LengthSquared() > 0.0f", "/usr/local/include/Urho3D/ThirdParty/Box2D/Collision/b2DynamicTree.h", 209, __PRETTY_FUNCTION__));
+ ((r.LengthSquared() > 0.0f) ? static_cast<void> (0) : __assert_fail ("r.LengthSquared() > 0.0f", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Collision/b2DynamicTree.h", 209, __PRETTY_FUNCTION__));
  r.Normalize();
 
 
@@ -138586,7 +138778,7 @@ inline int32 b2DistanceProxy::GetVertexCount() const
 
 inline const b2Vec2& b2DistanceProxy::GetVertex(int32 index) const
 {
- ((0 <= index && index < m_count) ? static_cast<void> (0) : __assert_fail ("0 <= index && index < m_count", "/usr/local/include/Urho3D/ThirdParty/Box2D/Collision/b2Distance.h", 103, __PRETTY_FUNCTION__));
+ ((0 <= index && index < m_count) ? static_cast<void> (0) : __assert_fail ("0 <= index && index < m_count", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Collision/b2Distance.h", 103, __PRETTY_FUNCTION__));
  return m_vertices[index];
 }
 
@@ -139751,7 +139943,7 @@ inline const b2Fixture* b2Fixture::GetNext() const
 
 inline void b2Fixture::SetDensity(float32 density)
 {
- ((b2IsValid(density) && density >= 0.0f) ? static_cast<void> (0) : __assert_fail ("b2IsValid(density) && density >= 0.0f", "/usr/local/include/Urho3D/ThirdParty/Box2D/Dynamics/b2Fixture.h", 295, __PRETTY_FUNCTION__));
+ ((b2IsValid(density) && density >= 0.0f) ? static_cast<void> (0) : __assert_fail ("b2IsValid(density) && density >= 0.0f", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Dynamics/b2Fixture.h", 295, __PRETTY_FUNCTION__));
  m_density = density;
 }
 
@@ -139797,7 +139989,7 @@ inline void b2Fixture::GetMassData(b2MassData* massData) const
 
 inline const b2AABB& b2Fixture::GetAABB(int32 childIndex) const
 {
- ((0 <= childIndex && childIndex < m_proxyCount) ? static_cast<void> (0) : __assert_fail ("0 <= childIndex && childIndex < m_proxyCount", "/usr/local/include/Urho3D/ThirdParty/Box2D/Dynamics/b2Fixture.h", 341, __PRETTY_FUNCTION__));
+ ((0 <= childIndex && childIndex < m_proxyCount) ? static_cast<void> (0) : __assert_fail ("0 <= childIndex && childIndex < m_proxyCount", "/home/nathan/Projects/Urho/Urho3D/Build/include/Urho3D/ThirdParty/Box2D/Dynamics/b2Fixture.h", 341, __PRETTY_FUNCTION__));
  return m_proxies[childIndex].aabb;
 }
 struct b2Vec2;

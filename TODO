@@ -1,0 +1,14 @@
+TODO: Need to mark ExternalPtr as being non-intrusive in general, and switch  
+to SharedPtr for the types that support it.
+
+Concerining Base classes that are not RefCounted derived that RefCounted's derive from
+GPUObject good -- can ignore, leave it to internals to handle (if needed can handle with implicitly_convertible, probably)
+Thread as well
+Deserializer should be doable with an implicitly_convertible?
+not sure we can expose VectorBuffer and MemoryBuffer, though (maybe they don't get the implicitly convertible...?). Could also just create explicit overloads with all teh derived types of Deserializer with lambda functions. Will test if there are any instances of the holder actually made for those with a ThrowingPtr holder type.
+Need to check about the (Lua)ScriptEventListener classes.
+May need to handle btMotionState, possibly btIDebugDraw and b2Draw, b2ContactListener
+No idea if Octant is needed
+TODO: Later: libRocket stuff
+
+Leak a reference to the context and then clean it up at the end (or switch to a singleton pattern for it) so that we don't end up with crashes on exiting from freeing the context first.
