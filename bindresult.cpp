@@ -76,10 +76,10 @@ pyclass_Var_Urho3D_WString
   .def(py::init<const Urho3D::String &>(), "todo: constructor docstring")
   //.def("~WString", (void (Urho3D::WString::*)()) &Urho3D::WString::~WString, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (wchar_t & (Urho3D::WString::*)(unsigned int)) &Urho3D::WString::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (const wchar_t & (Urho3D::WString::*)(unsigned int) const) &Urho3D::WString::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(wchar_t & operator[](unsigned int index=None), "todo: docstring").def("__index__", (wchar_t & (Urho3D::WString::*)(unsigned int)) &Urho3D::WString::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(const wchar_t & operator[](unsigned int index=None), "todo: docstring").def("__index__", (const wchar_t & (Urho3D::WString::*)(unsigned int) const) &Urho3D::WString::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("At", (wchar_t & (Urho3D::WString::*)(unsigned int)) &Urho3D::WString::At, "todo: docstring", py::arg("index"))
   .def("At", (const wchar_t & (Urho3D::WString::*)(unsigned int) const) &Urho3D::WString::At, "todo: docstring", py::arg("index"))
   .def("Resize", (void (Urho3D::WString::*)(unsigned int)) &Urho3D::WString::Resize, "todo: docstring", py::arg("newLength"))
@@ -127,7 +127,7 @@ pyclass_Var_Urho3D_MutexLock
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   //.def(py::init<const Urho3D::MutexLock &>(), "todo: constructor docstring")
     //['Urho3D::MutexLock']; op False, ctor True, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::MutexLock & (Urho3D::MutexLock::*)(const Urho3D::MutexLock &)) &Urho3D::MutexLock::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::MutexLock(), "todo: docstring").def("__assign__", (Urho3D::MutexLock & (Urho3D::MutexLock::*)(const Urho3D::MutexLock &)) &Urho3D::MutexLock::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::MutexLock']; op =, ctor False, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
 // Class Variables:
 ;
@@ -142,7 +142,7 @@ pyclass_Var_Urho3D_RefCounted
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   //.def(py::init<const Urho3D::RefCounted &>(), "todo: constructor docstring")
     //['Urho3D::RefCounted']; op False, ctor True, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::RefCounted & (Urho3D::RefCounted::*)(const Urho3D::RefCounted &)) &Urho3D::RefCounted::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::RefCounted(), "todo: docstring").def("__assign__", (Urho3D::RefCounted & (Urho3D::RefCounted::*)(const Urho3D::RefCounted &)) &Urho3D::RefCounted::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::RefCounted']; op =, ctor False, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
   .def("AddRef", (void (Urho3D::RefCounted::*)()) &Urho3D::RefCounted::AddRef, "todo: docstring")
   .def("ReleaseRef", (void (Urho3D::RefCounted::*)()) &Urho3D::RefCounted::ReleaseRef, "todo: docstring")
@@ -163,37 +163,37 @@ pyclass_Var_Urho3D_Vector2
   .def(py::init<const Urho3D::IntVector2 &>(), "todo: constructor docstring")
   .def(py::init<float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(const Urho3D::Vector2 &)) &Urho3D::Vector2::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector2(), "todo: docstring").def("__assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(const Urho3D::Vector2 &)) &Urho3D::Vector2::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector2']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Vector2::*)(const Urho3D::Vector2 &) const) &Urho3D::Vector2::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Vector2::*)(const Urho3D::Vector2 &) const) &Urho3D::Vector2::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Vector2 (Urho3D::Vector2::*)(const Urho3D::Vector2 &) const) &Urho3D::Vector2::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector2']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Vector2 (Urho3D::Vector2::*)() const) &Urho3D::Vector2::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self + Urho3D::Vector2(), "todo: docstring")
+    //['Urho3D::Vector2']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Vector2 (Urho3D::Vector2::*)(const Urho3D::Vector2 &) const) &Urho3D::Vector2::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector2']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector2 (Urho3D::Vector2::*)(float) const) &Urho3D::Vector2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector2 (Urho3D::Vector2::*)(const Urho3D::Vector2 &) const) &Urho3D::Vector2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector2']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Vector2 (Urho3D::Vector2::*)(float) const) &Urho3D::Vector2::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self - Urho3D::Vector2(), "todo: docstring")
+    //['Urho3D::Vector2']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector2(), "todo: docstring")
+    //['Urho3D::Vector2']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self / float(), "todo: docstring")
     //['float']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Vector2 (Urho3D::Vector2::*)(const Urho3D::Vector2 &) const) &Urho3D::Vector2::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(const Urho3D::Vector2 &)) &Urho3D::Vector2::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(const Urho3D::Vector2 &)) &Urho3D::Vector2::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(float)) &Urho3D::Vector2::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= float(), "todo: docstring")
     //['float']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(const Urho3D::Vector2 &)) &Urho3D::Vector2::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(float)) &Urho3D::Vector2::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= float(), "todo: docstring")
     //['float']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Vector2 & (Urho3D::Vector2::*)(const Urho3D::Vector2 &)) &Urho3D::Vector2::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Normalize", (void (Urho3D::Vector2::*)()) &Urho3D::Vector2::Normalize, "todo: docstring")
   .def("Length", (float (Urho3D::Vector2::*)() const) &Urho3D::Vector2::Length, "todo: docstring")
@@ -209,6 +209,8 @@ pyclass_Var_Urho3D_Vector2
   .def("Normalized", (Urho3D::Vector2 (Urho3D::Vector2::*)() const) &Urho3D::Vector2::Normalized, "todo: docstring")
   .def("Data", (const float * (Urho3D::Vector2::*)() const) &Urho3D::Vector2::Data, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::Vector2::*)() const) &Urho3D::Vector2::ToString, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("x",&Urho3D::Vector2::x_, "todo: var docstring")//float
   .def_readwrite("y",&Urho3D::Vector2::y_, "todo: var docstring")//float
@@ -233,37 +235,37 @@ pyclass_Var_Urho3D_Vector3
   .def(py::init<float, float, float>(), "todo: constructor docstring")
   .def(py::init<float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(const Urho3D::Vector3 &)) &Urho3D::Vector3::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector3(), "todo: docstring").def("__assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(const Urho3D::Vector3 &)) &Urho3D::Vector3::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Vector3::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector3::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Vector3::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector3::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Vector3 (Urho3D::Vector3::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector3::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Vector3 (Urho3D::Vector3::*)() const) &Urho3D::Vector3::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self + Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Vector3 (Urho3D::Vector3::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector3::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Vector3::*)(float) const) &Urho3D::Vector3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Vector3::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Vector3 (Urho3D::Vector3::*)(float) const) &Urho3D::Vector3::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self - Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self / float(), "todo: docstring")
     //['float']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Vector3 (Urho3D::Vector3::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector3::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(const Urho3D::Vector3 &)) &Urho3D::Vector3::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(const Urho3D::Vector3 &)) &Urho3D::Vector3::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(float)) &Urho3D::Vector3::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= float(), "todo: docstring")
     //['float']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(const Urho3D::Vector3 &)) &Urho3D::Vector3::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(float)) &Urho3D::Vector3::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= float(), "todo: docstring")
     //['float']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Vector3 & (Urho3D::Vector3::*)(const Urho3D::Vector3 &)) &Urho3D::Vector3::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Normalize", (void (Urho3D::Vector3::*)()) &Urho3D::Vector3::Normalize, "todo: docstring")
   .def("Length", (float (Urho3D::Vector3::*)() const) &Urho3D::Vector3::Length, "todo: docstring")
@@ -286,6 +288,8 @@ pyclass_Var_Urho3D_Vector3
   .def("Data", (const float * (Urho3D::Vector3::*)() const) &Urho3D::Vector3::Data, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::Vector3::*)() const) &Urho3D::Vector3::ToString, "todo: docstring")
   .def("ToHash", (unsigned int (Urho3D::Vector3::*)() const) &Urho3D::Vector3::ToHash, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("x",&Urho3D::Vector3::x_, "todo: var docstring")//float
   .def_readwrite("y",&Urho3D::Vector3::y_, "todo: var docstring")//float
@@ -311,21 +315,21 @@ pyclass_Var_Urho3D_Color
   .def(py::init<float, float, float>(), "todo: constructor docstring")
   .def(py::init<float, float, float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Color & (Urho3D::Color::*)(const Urho3D::Color &)) &Urho3D::Color::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Color(), "todo: docstring").def("__assign__", (Urho3D::Color & (Urho3D::Color::*)(const Urho3D::Color &)) &Urho3D::Color::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Color']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Color::*)(const Urho3D::Color &) const) &Urho3D::Color::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Color(), "todo: docstring")
     //['Urho3D::Color']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Color::*)(const Urho3D::Color &) const) &Urho3D::Color::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Color(), "todo: docstring")
     //['Urho3D::Color']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Color (Urho3D::Color::*)(float) const) &Urho3D::Color::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Color (Urho3D::Color::*)(const Urho3D::Color &) const) &Urho3D::Color::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Color']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Color (Urho3D::Color::*)() const) &Urho3D::Color::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Color(), "todo: docstring")
+    //['Urho3D::Color']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Color (Urho3D::Color::*)(const Urho3D::Color &) const) &Urho3D::Color::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Color']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::Color & (Urho3D::Color::*)(const Urho3D::Color &)) &Urho3D::Color::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self - Urho3D::Color(), "todo: docstring")
+    //['Urho3D::Color']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self += Urho3D::Color(), "todo: docstring")
     //['Urho3D::Color']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Data", (const float * (Urho3D::Color::*)() const) &Urho3D::Color::Data, "todo: docstring")
   .def("ToUInt", (unsigned int (Urho3D::Color::*)() const) &Urho3D::Color::ToUInt, "todo: docstring")
@@ -356,6 +360,8 @@ pyclass_Var_Urho3D_Color
   .def("Equals", (bool (Urho3D::Color::*)(const Urho3D::Color &) const) &Urho3D::Color::Equals, "todo: docstring", py::arg("rhs"))
   .def("ToString", (Urho3D::String (Urho3D::Color::*)() const) &Urho3D::Color::ToString, "todo: docstring")
   .def("ToHash", (unsigned int (Urho3D::Color::*)() const) &Urho3D::Color::ToHash, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("r",&Urho3D::Color::r_, "todo: var docstring")//float
   .def_readwrite("g",&Urho3D::Color::g_, "todo: var docstring")//float
@@ -390,28 +396,28 @@ pyclass_Var_Urho3D_Quaternion
   .def(py::init<const Urho3D::Matrix3 &>(), "todo: constructor docstring")
   //.def(py::init<__attribute__((__vector_size__(4 * sizeof(float)))) float>(), "todo: constructor docstring")
     //['__attribute__']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("__assign__", (Urho3D::Quaternion & (Urho3D::Quaternion::*)(const Urho3D::Quaternion &)) &Urho3D::Quaternion::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Quaternion(), "todo: docstring").def("__assign__", (Urho3D::Quaternion & (Urho3D::Quaternion::*)(const Urho3D::Quaternion &)) &Urho3D::Quaternion::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Quaternion']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::Quaternion & (Urho3D::Quaternion::*)(const Urho3D::Quaternion &)) &Urho3D::Quaternion::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::Quaternion(), "todo: docstring")
     //['Urho3D::Quaternion']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Quaternion & (Urho3D::Quaternion::*)(float)) &Urho3D::Quaternion::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= float(), "todo: docstring")
     //['float']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Quaternion::*)(const Urho3D::Quaternion &) const) &Urho3D::Quaternion::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Quaternion(), "todo: docstring")
     //['Urho3D::Quaternion']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Quaternion::*)(const Urho3D::Quaternion &) const) &Urho3D::Quaternion::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Quaternion(), "todo: docstring")
     //['Urho3D::Quaternion']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Quaternion (Urho3D::Quaternion::*)(float) const) &Urho3D::Quaternion::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Quaternion (Urho3D::Quaternion::*)() const) &Urho3D::Quaternion::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Quaternion (Urho3D::Quaternion::*)(const Urho3D::Quaternion &) const) &Urho3D::Quaternion::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Quaternion']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Quaternion (Urho3D::Quaternion::*)(const Urho3D::Quaternion &) const) &Urho3D::Quaternion::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Quaternion']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Quaternion (Urho3D::Quaternion::*)(const Urho3D::Quaternion &) const) &Urho3D::Quaternion::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Quaternion']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Quaternion::*)(const Urho3D::Vector3 &) const) &Urho3D::Quaternion::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Quaternion(), "todo: docstring")
+    //['Urho3D::Quaternion']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::Quaternion(), "todo: docstring")
+    //['Urho3D::Quaternion']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Quaternion(), "todo: docstring")
+    //['Urho3D::Quaternion']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("FromAngleAxis", (void (Urho3D::Quaternion::*)(float, const Urho3D::Vector3 &)) &Urho3D::Quaternion::FromAngleAxis, "todo: docstring", py::arg("angle"), py::arg("axis"))
   .def("FromEulerAngles", (void (Urho3D::Quaternion::*)(float, float, float)) &Urho3D::Quaternion::FromEulerAngles, "todo: docstring", py::arg("x"), py::arg("y"), py::arg("z"))
   .def("FromRotationTo", (void (Urho3D::Quaternion::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::Quaternion::FromRotationTo, "todo: docstring", py::arg("start"), py::arg("end"))
@@ -455,28 +461,28 @@ pyclass_Var_Urho3D_Matrix4
   .def(py::init<const Urho3D::Matrix3 &>(), "todo: constructor docstring")
   .def(py::init<float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Matrix4 & (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &)) &Urho3D::Matrix4::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix4(), "todo: docstring").def("__assign__", (Urho3D::Matrix4 & (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &)) &Urho3D::Matrix4::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Matrix4 & (Urho3D::Matrix4::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix4::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix3(), "todo: docstring").def("__assign__", (Urho3D::Matrix4 & (Urho3D::Matrix4::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix4::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &) const) &Urho3D::Matrix4::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix4(), "todo: docstring")
     //['Urho3D::Matrix4']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &) const) &Urho3D::Matrix4::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix4(), "todo: docstring")
     //['Urho3D::Matrix4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Matrix4::*)(const Urho3D::Vector3 &) const) &Urho3D::Matrix4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector4 (Urho3D::Matrix4::*)(const Urho3D::Vector4 &) const) &Urho3D::Matrix4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Matrix4 (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &) const) &Urho3D::Matrix4::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix4']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Matrix4 (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &) const) &Urho3D::Matrix4::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix4']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix4 (Urho3D::Matrix4::*)(float) const) &Urho3D::Matrix4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix4 (Urho3D::Matrix4::*)(const Urho3D::Matrix4 &) const) &Urho3D::Matrix4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix4 (Urho3D::Matrix4::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Matrix4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3x4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector4(), "todo: docstring")
+    //['Urho3D::Vector4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Matrix4(), "todo: docstring")
+    //['Urho3D::Matrix4']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::Matrix4(), "todo: docstring")
+    //['Urho3D::Matrix4']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Matrix4(), "todo: docstring")
+    //['Urho3D::Matrix4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Matrix3x4(), "todo: docstring")
+    //['Urho3D::Matrix3x4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetTranslation", (void (Urho3D::Matrix4::*)(const Urho3D::Vector3 &)) &Urho3D::Matrix4::SetTranslation, "todo: docstring", py::arg("translation"))
   .def("SetRotation", (void (Urho3D::Matrix4::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix4::SetRotation, "todo: docstring", py::arg("rotation"))
   .def("SetScale", (void (Urho3D::Matrix4::*)(const Urho3D::Vector3 &)) &Urho3D::Matrix4::SetScale, "todo: docstring", py::arg("scale"))
@@ -496,6 +502,8 @@ pyclass_Var_Urho3D_Matrix4
   .def("Row", (Urho3D::Vector4 (Urho3D::Matrix4::*)(unsigned int) const) &Urho3D::Matrix4::Row, "todo: docstring", py::arg("i"))
   .def("Column", (Urho3D::Vector4 (Urho3D::Matrix4::*)(unsigned int) const) &Urho3D::Matrix4::Column, "todo: docstring", py::arg("j"))
   .def("ToString", (Urho3D::String (Urho3D::Matrix4::*)() const) &Urho3D::Matrix4::ToString, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("m00",&Urho3D::Matrix4::m00_, "todo: var docstring")//float
   .def_readwrite("m01",&Urho3D::Matrix4::m01_, "todo: var docstring")//float
@@ -526,26 +534,26 @@ pyclass_Var_Urho3D_IntRect
   .def(py::init<const Urho3D::IntVector2 &, const Urho3D::IntVector2 &>(), "todo: constructor docstring")
   .def(py::init<int, int, int, int>(), "todo: constructor docstring")
   .def(py::init<const int *>(), "todo: constructor docstring")
-  //.def("__eq__", (bool (Urho3D::IntRect::*)(const Urho3D::IntRect &) const) &Urho3D::IntRect::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::IntRect(), "todo: docstring")
     //['Urho3D::IntRect']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::IntRect::*)(const Urho3D::IntRect &) const) &Urho3D::IntRect::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::IntRect(), "todo: docstring")
     //['Urho3D::IntRect']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::IntRect & (Urho3D::IntRect::*)(const Urho3D::IntRect &)) &Urho3D::IntRect::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::IntRect(), "todo: docstring")
     //['Urho3D::IntRect']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::IntRect & (Urho3D::IntRect::*)(const Urho3D::IntRect &)) &Urho3D::IntRect::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::IntRect(), "todo: docstring")
     //['Urho3D::IntRect']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::IntRect & (Urho3D::IntRect::*)(float)) &Urho3D::IntRect::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= float(), "todo: docstring")
     //['float']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::IntRect & (Urho3D::IntRect::*)(float)) &Urho3D::IntRect::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= float(), "todo: docstring")
     //['float']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::IntRect (Urho3D::IntRect::*)(float) const) &Urho3D::IntRect::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / float(), "todo: docstring")
     //['float']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::IntRect (Urho3D::IntRect::*)(float) const) &Urho3D::IntRect::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::IntRect (Urho3D::IntRect::*)(const Urho3D::IntRect &) const) &Urho3D::IntRect::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntRect']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::IntRect (Urho3D::IntRect::*)(const Urho3D::IntRect &) const) &Urho3D::IntRect::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntRect']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::IntRect(), "todo: docstring")
+    //['Urho3D::IntRect']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::IntRect(), "todo: docstring")
+    //['Urho3D::IntRect']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Size", (Urho3D::IntVector2 (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Size, "todo: docstring")
   .def("Width", (int (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Width, "todo: docstring")
   .def("Height", (int (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Height, "todo: docstring")
@@ -580,9 +588,9 @@ pyclass_Var_Urho3D_ResourceRef
   .def(py::init<const Urho3D::String &, const Urho3D::String &>(), "todo: constructor docstring")
   .def(py::init<const char *, const char *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::ResourceRef &>(), "todo: constructor docstring")
-  //.def("__eq__", (bool (Urho3D::ResourceRef::*)(const Urho3D::ResourceRef &) const) &Urho3D::ResourceRef::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::ResourceRef(), "todo: docstring")
     //['Urho3D::ResourceRef']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::ResourceRef::*)(const Urho3D::ResourceRef &) const) &Urho3D::ResourceRef::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::ResourceRef(), "todo: docstring")
     //['Urho3D::ResourceRef']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("type",&Urho3D::ResourceRef::type_, "todo: var docstring")//Urho3D::StringHash
@@ -760,10 +768,8 @@ pyclass_Var_Urho3D_Deserializer
   .def("ReadVariant", (Urho3D::Variant (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariant, "todo: docstring")
   //.def("ReadVariant", (Urho3D::Variant (Urho3D::Deserializer::*)(Urho3D::VariantType)) &Urho3D::Deserializer::ReadVariant, "todo: docstring", py::arg("type"))
     //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("ReadVariantVector", (Urho3D::VariantVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("ReadStringVector", (Urho3D::StringVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadStringVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("ReadVariantVector", (Urho3D::VariantVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantVector, "todo: docstring")
+  .def("ReadStringVector", (Urho3D::StringVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadStringVector, "todo: docstring")
   .def("ReadVariantMap", (Urho3D::VariantMap (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantMap, "todo: docstring")
   .def("ReadVLE", (unsigned int (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVLE, "todo: docstring")
   .def("ReadNetID", (unsigned int (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadNetID, "todo: docstring")
@@ -784,7 +790,7 @@ pyclass_Var_Urho3D_XMLElement
   .def(py::init<const Urho3D::XMLElement &>(), "todo: constructor docstring")
   //.def("~XMLElement", (void (Urho3D::XMLElement::*)()) &Urho3D::XMLElement::~XMLElement, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::XMLElement & (Urho3D::XMLElement::*)(const Urho3D::XMLElement &)) &Urho3D::XMLElement::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::XMLElement(), "todo: docstring").def("__assign__", (Urho3D::XMLElement & (Urho3D::XMLElement::*)(const Urho3D::XMLElement &)) &Urho3D::XMLElement::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::XMLElement']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("CreateChild", (Urho3D::XMLElement (Urho3D::XMLElement::*)(const Urho3D::String &)) &Urho3D::XMLElement::CreateChild, "todo: docstring", py::arg("name"))
   .def("CreateChild", (Urho3D::XMLElement (Urho3D::XMLElement::*)(const char *)) &Urho3D::XMLElement::CreateChild, "todo: docstring", py::arg("name"))
@@ -814,8 +820,7 @@ pyclass_Var_Urho3D_XMLElement
   .def("SetBool", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, bool)) &Urho3D::XMLElement::SetBool, "todo: docstring", py::arg("name"), py::arg("value"))
   .def("SetBoundingBox", (bool (Urho3D::XMLElement::*)(const Urho3D::BoundingBox &)) &Urho3D::XMLElement::SetBoundingBox, "todo: docstring", py::arg("value"))
   .def("SetBuffer", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, const void *, unsigned int)) &Urho3D::XMLElement::SetBuffer, "todo: docstring", py::arg("name"), py::arg("data"), py::arg("size"))
-  //.def("SetBuffer", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, const Urho3D::PODVector<unsigned char> &)) &Urho3D::XMLElement::SetBuffer, "todo: docstring", py::arg("name"), py::arg("value"))
-    //['Urho3D::String', 'Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBuffer", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, const Urho3D::PODVector<unsigned char> &)) &Urho3D::XMLElement::SetBuffer, "todo: docstring", py::arg("name"), py::arg("value"))
   .def("SetColor", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, const Urho3D::Color &)) &Urho3D::XMLElement::SetColor, "todo: docstring", py::arg("name"), py::arg("value"))
   .def("SetFloat", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, float)) &Urho3D::XMLElement::SetFloat, "todo: docstring", py::arg("name"), py::arg("value"))
   .def("SetDouble", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, double)) &Urho3D::XMLElement::SetDouble, "todo: docstring", py::arg("name"), py::arg("value"))
@@ -834,8 +839,7 @@ pyclass_Var_Urho3D_XMLElement
   .def("SetResourceRef", (bool (Urho3D::XMLElement::*)(const Urho3D::ResourceRef &)) &Urho3D::XMLElement::SetResourceRef, "todo: docstring", py::arg("value"))
   .def("SetResourceRefList", (bool (Urho3D::XMLElement::*)(const Urho3D::ResourceRefList &)) &Urho3D::XMLElement::SetResourceRefList, "todo: docstring", py::arg("value"))
   .def("SetVariantVector", (bool (Urho3D::XMLElement::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::XMLElement::SetVariantVector, "todo: docstring", py::arg("value"))
-  //.def("SetStringVector", (bool (Urho3D::XMLElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::XMLElement::SetStringVector, "todo: docstring", py::arg("value"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetStringVector", (bool (Urho3D::XMLElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::XMLElement::SetStringVector, "todo: docstring", py::arg("value"))
   .def("SetVariantMap", (bool (Urho3D::XMLElement::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &)) &Urho3D::XMLElement::SetVariantMap, "todo: docstring", py::arg("value"))
   .def("SetVector2", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, const Urho3D::Vector2 &)) &Urho3D::XMLElement::SetVector2, "todo: docstring", py::arg("name"), py::arg("value"))
   .def("SetVector3", (bool (Urho3D::XMLElement::*)(const Urho3D::String &, const Urho3D::Vector3 &)) &Urho3D::XMLElement::SetVector3, "todo: docstring", py::arg("name"), py::arg("value"))
@@ -889,10 +893,8 @@ pyclass_Var_Urho3D_XMLElement
     //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("GetResourceRef", (Urho3D::ResourceRef (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetResourceRef, "todo: docstring")
   .def("GetResourceRefList", (Urho3D::ResourceRefList (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetResourceRefList, "todo: docstring")
-  //.def("GetVariantVector", (Urho3D::VariantVector (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariantVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetStringVector", (Urho3D::StringVector (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetStringVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVariantVector", (Urho3D::VariantVector (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariantVector, "todo: docstring")
+  .def("GetStringVector", (Urho3D::StringVector (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetStringVector, "todo: docstring")
   .def("GetVariantMap", (Urho3D::VariantMap (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariantMap, "todo: docstring")
   .def("GetVector2", (Urho3D::Vector2 (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetVector2, "todo: docstring", py::arg("name"))
   .def("GetVector3", (Urho3D::Vector3 (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetVector3, "todo: docstring", py::arg("name"))
@@ -1023,7 +1025,7 @@ pyclass_Var_Urho3D_Polyhedron
     //['Urho3D::Vector<Urho3D::PODVector<Urho3D::Vector3> >']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def(py::init<const Urho3D::BoundingBox &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Frustum &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Polyhedron & (Urho3D::Polyhedron::*)(const Urho3D::Polyhedron &)) &Urho3D::Polyhedron::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Polyhedron(), "todo: docstring").def("__assign__", (Urho3D::Polyhedron & (Urho3D::Polyhedron::*)(const Urho3D::Polyhedron &)) &Urho3D::Polyhedron::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Polyhedron']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::Polyhedron::*)(const Urho3D::BoundingBox &)) &Urho3D::Polyhedron::Define, "todo: docstring", py::arg("box"))
   .def("Define", (void (Urho3D::Polyhedron::*)(const Urho3D::Frustum &)) &Urho3D::Polyhedron::Define, "todo: docstring", py::arg("frustum"))
@@ -1056,11 +1058,11 @@ pyclass_Var_Urho3D_Sphere
   .def(py::init<const Urho3D::BoundingBox &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Frustum &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Polyhedron &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Sphere & (Urho3D::Sphere::*)(const Urho3D::Sphere &)) &Urho3D::Sphere::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Sphere(), "todo: docstring").def("__assign__", (Urho3D::Sphere & (Urho3D::Sphere::*)(const Urho3D::Sphere &)) &Urho3D::Sphere::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Sphere']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Sphere::*)(const Urho3D::Sphere &) const) &Urho3D::Sphere::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Sphere(), "todo: docstring")
     //['Urho3D::Sphere']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Sphere::*)(const Urho3D::Sphere &) const) &Urho3D::Sphere::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Sphere(), "todo: docstring")
     //['Urho3D::Sphere']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::Sphere::*)(const Urho3D::Sphere &)) &Urho3D::Sphere::Define, "todo: docstring", py::arg("sphere"))
   .def("Define", (void (Urho3D::Sphere::*)(const Urho3D::Vector3 &, float)) &Urho3D::Sphere::Define, "todo: docstring", py::arg("center"), py::arg("radius"))
@@ -1126,7 +1128,7 @@ void Implement_Urho3D_RayQueryResult(py::class_<Urho3D::RayQueryResult, Urho3D::
     // Class RayQueryResult Implementation
 pyclass_Var_Urho3D_RayQueryResult
   .def(py::init<>(), "todo: constructor docstring")
-  //.def("__neq__", (bool (Urho3D::RayQueryResult::*)(const Urho3D::RayQueryResult &) const) &Urho3D::RayQueryResult::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::RayQueryResult(), "todo: docstring")
     //['Urho3D::RayQueryResult']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("position",&Urho3D::RayQueryResult::position_, "todo: var docstring")//Urho3D::Vector3
@@ -1206,10 +1208,10 @@ pyclass_Var_Urho3D_XPathResultSet
   .def(py::init<const Urho3D::XPathResultSet &>(), "todo: constructor docstring")
   //.def("~XPathResultSet", (void (Urho3D::XPathResultSet::*)()) &Urho3D::XPathResultSet::~XPathResultSet, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::XPathResultSet & (Urho3D::XPathResultSet::*)(const Urho3D::XPathResultSet &)) &Urho3D::XPathResultSet::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::XPathResultSet(), "todo: docstring").def("__assign__", (Urho3D::XPathResultSet & (Urho3D::XPathResultSet::*)(const Urho3D::XPathResultSet &)) &Urho3D::XPathResultSet::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::XPathResultSet']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (Urho3D::XMLElement (Urho3D::XPathResultSet::*)(unsigned int) const) &Urho3D::XPathResultSet::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(Urho3D::XMLElement operator[](unsigned int index=None), "todo: docstring").def("__index__", (Urho3D::XMLElement (Urho3D::XPathResultSet::*)(unsigned int) const) &Urho3D::XPathResultSet::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("FirstResult", (Urho3D::XMLElement (Urho3D::XPathResultSet::*)()) &Urho3D::XPathResultSet::FirstResult, "todo: docstring")
   .def("Size", (unsigned int (Urho3D::XPathResultSet::*)() const) &Urho3D::XPathResultSet::Size, "todo: docstring")
   .def("Empty", (bool (Urho3D::XPathResultSet::*)() const) &Urho3D::XPathResultSet::Empty, "todo: docstring")
@@ -1361,16 +1363,15 @@ pyclass_Var_Urho3D_Spline
   //.def(py::init<const Urho3D::Vector<Urho3D::Variant> &, Urho3D::InterpolationMode>(), "todo: constructor docstring")
     //['Urho3D::Vector<Urho3D::Variant>', 'Urho3D::InterpolationMode']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def(py::init<const Urho3D::Spline &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Spline & (Urho3D::Spline::*)(const Urho3D::Spline &)) &Urho3D::Spline::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Spline(), "todo: docstring").def("__assign__", (Urho3D::Spline & (Urho3D::Spline::*)(const Urho3D::Spline &)) &Urho3D::Spline::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Spline']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Spline::*)(const Urho3D::Spline &) const) &Urho3D::Spline::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Spline(), "todo: docstring")
     //['Urho3D::Spline']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Spline::*)(const Urho3D::Spline &) const) &Urho3D::Spline::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Spline(), "todo: docstring")
     //['Urho3D::Spline']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   //.def("GetInterpolationMode", (Urho3D::InterpolationMode (Urho3D::Spline::*)() const) &Urho3D::Spline::GetInterpolationMode, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetKnots", (const Urho3D::VariantVector & (Urho3D::Spline::*)() const) &Urho3D::Spline::GetKnots, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetKnots", (const Urho3D::VariantVector & (Urho3D::Spline::*)() const) &Urho3D::Spline::GetKnots, "todo: docstring")
   .def("GetKnot", (Urho3D::Variant (Urho3D::Spline::*)(unsigned int) const) &Urho3D::Spline::GetKnot, "todo: docstring", py::arg("index"))
   .def("GetPoint", (Urho3D::Variant (Urho3D::Spline::*)(float) const) &Urho3D::Spline::GetPoint, "todo: docstring", py::arg("f"))
   //.def("SetInterpolationMode", (void (Urho3D::Spline::*)(Urho3D::InterpolationMode)) &Urho3D::Spline::SetInterpolationMode, "todo: docstring", py::arg("interpolationMode"))
@@ -1553,11 +1554,11 @@ pyclass_Var_Urho3D_Ray
   .def(py::init<>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Vector3 &, const Urho3D::Vector3 &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Ray &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Ray & (Urho3D::Ray::*)(const Urho3D::Ray &)) &Urho3D::Ray::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Ray(), "todo: docstring").def("__assign__", (Urho3D::Ray & (Urho3D::Ray::*)(const Urho3D::Ray &)) &Urho3D::Ray::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Ray']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Ray::*)(const Urho3D::Ray &) const) &Urho3D::Ray::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Ray(), "todo: docstring")
     //['Urho3D::Ray']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Ray::*)(const Urho3D::Ray &) const) &Urho3D::Ray::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Ray(), "todo: docstring")
     //['Urho3D::Ray']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::Ray::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::Ray::Define, "todo: docstring", py::arg("origin"), py::arg("direction"))
   .def("Project", (Urho3D::Vector3 (Urho3D::Ray::*)(const Urho3D::Vector3 &) const) &Urho3D::Ray::Project, "todo: docstring", py::arg("point"))
@@ -1665,7 +1666,7 @@ pyclass_Var_Urho3D_OctreeQuery
   //.def(py::init<const Urho3D::OctreeQuery &>(), "todo: constructor docstring")
     //['Urho3D::OctreeQuery']; op False, ctor True, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
     // Abstract class OctreeQuery -> no init
-  //.def("__assign__", (Urho3D::OctreeQuery & (Urho3D::OctreeQuery::*)(const Urho3D::OctreeQuery &)) &Urho3D::OctreeQuery::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::OctreeQuery(), "todo: docstring").def("__assign__", (Urho3D::OctreeQuery & (Urho3D::OctreeQuery::*)(const Urho3D::OctreeQuery &)) &Urho3D::OctreeQuery::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::OctreeQuery']; op =, ctor False, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
   //.def("TestOctant", (Urho3D::Intersection (Urho3D::OctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::OctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
     //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -1901,7 +1902,7 @@ void Implement_Urho3D_PhysicsRaycastResult(py::class_<Urho3D::PhysicsRaycastResu
 {
     // Class PhysicsRaycastResult Implementation
 pyclass_Var_Urho3D_PhysicsRaycastResult
-  //.def("__neq__", (bool (Urho3D::PhysicsRaycastResult::*)(const Urho3D::PhysicsRaycastResult &) const) &Urho3D::PhysicsRaycastResult::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::PhysicsRaycastResult(), "todo: docstring")
     //['Urho3D::PhysicsRaycastResult']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("position",&Urho3D::PhysicsRaycastResult::position_, "todo: var docstring")//Urho3D::Vector3
@@ -1927,7 +1928,7 @@ pyclass_Var_Urho3D_PListValue
   .def(py::init<const Urho3D::PListValue &>(), "todo: constructor docstring")
   //.def("~PListValue", (void (Urho3D::PListValue::*)()) &Urho3D::PListValue::~PListValue, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::PListValue & (Urho3D::PListValue::*)(const Urho3D::PListValue &)) &Urho3D::PListValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::PListValue(), "todo: docstring").def("__assign__", (Urho3D::PListValue & (Urho3D::PListValue::*)(const Urho3D::PListValue &)) &Urho3D::PListValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::PListValue']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetInt", (void (Urho3D::PListValue::*)(int)) &Urho3D::PListValue::SetInt, "todo: docstring", py::arg("value"))
   .def("SetBool", (void (Urho3D::PListValue::*)(bool)) &Urho3D::PListValue::SetBool, "todo: docstring", py::arg("value"))
@@ -1997,7 +1998,7 @@ void Implement_Urho3D_PhysicsRaycastResult2D(py::class_<Urho3D::PhysicsRaycastRe
 {
     // Class PhysicsRaycastResult2D Implementation
 pyclass_Var_Urho3D_PhysicsRaycastResult2D
-  //.def("__neq__", (bool (Urho3D::PhysicsRaycastResult2D::*)(const Urho3D::PhysicsRaycastResult2D &) const) &Urho3D::PhysicsRaycastResult2D::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::PhysicsRaycastResult2D(), "todo: docstring")
     //['Urho3D::PhysicsRaycastResult2D']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("position",&Urho3D::PhysicsRaycastResult2D::position_, "todo: var docstring")//Urho3D::Vector2
@@ -2059,19 +2060,19 @@ pyclass_Var_Urho3D_StringHash
   .def(py::init<unsigned int>(), "todo: constructor docstring")
   .def(py::init<const char *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::String &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::StringHash & (Urho3D::StringHash::*)(const Urho3D::StringHash &)) &Urho3D::StringHash::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::StringHash(), "todo: docstring").def("__assign__", (Urho3D::StringHash & (Urho3D::StringHash::*)(const Urho3D::StringHash &)) &Urho3D::StringHash::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::StringHash']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::StringHash (Urho3D::StringHash::*)(const Urho3D::StringHash &) const) &Urho3D::StringHash::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::StringHash']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::StringHash & (Urho3D::StringHash::*)(const Urho3D::StringHash &)) &Urho3D::StringHash::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self + Urho3D::StringHash(), "todo: docstring")
+    //['Urho3D::StringHash']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self += Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::StringHash::*)(const Urho3D::StringHash &) const) &Urho3D::StringHash::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::StringHash::*)(const Urho3D::StringHash &) const) &Urho3D::StringHash::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__lt__", (bool (Urho3D::StringHash::*)(const Urho3D::StringHash &) const) &Urho3D::StringHash::operator<, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self < Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op <, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__gt__", (bool (Urho3D::StringHash::*)(const Urho3D::StringHash &) const) &Urho3D::StringHash::operator>, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self > Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op >, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Value", (unsigned int (Urho3D::StringHash::*)() const) &Urho3D::StringHash::Value, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::StringHash::*)() const) &Urho3D::StringHash::ToString, "todo: docstring")
@@ -2105,42 +2106,44 @@ pyclass_Var_Urho3D_IntVector2
   .def(py::init<const int *>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::IntVector2 &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &)) &Urho3D::IntVector2::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::IntVector2(), "todo: docstring").def("__assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &)) &Urho3D::IntVector2::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::IntVector2']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntVector2::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntVector2::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntVector2::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntVector2']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)() const) &Urho3D::IntVector2::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self + Urho3D::IntVector2(), "todo: docstring")
+    //['Urho3D::IntVector2']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntVector2::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntVector2']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)(int) const) &Urho3D::IntVector2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['int']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntVector2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntVector2']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)(int) const) &Urho3D::IntVector2::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self - Urho3D::IntVector2(), "todo: docstring")
+    //['Urho3D::IntVector2']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * int(), "todo: docstring")
+    //['int']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::IntVector2(), "todo: docstring")
+    //['Urho3D::IntVector2']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self / int(), "todo: docstring")
     //['int']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::IntVector2 (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntVector2::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &)) &Urho3D::IntVector2::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &)) &Urho3D::IntVector2::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(int)) &Urho3D::IntVector2::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= int(), "todo: docstring")
     //['int']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &)) &Urho3D::IntVector2::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(int)) &Urho3D::IntVector2::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= int(), "todo: docstring")
     //['int']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::IntVector2 & (Urho3D::IntVector2::*)(const Urho3D::IntVector2 &)) &Urho3D::IntVector2::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Data", (const int * (Urho3D::IntVector2::*)() const) &Urho3D::IntVector2::Data, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::IntVector2::*)() const) &Urho3D::IntVector2::ToString, "todo: docstring")
   .def("ToHash", (unsigned int (Urho3D::IntVector2::*)() const) &Urho3D::IntVector2::ToHash, "todo: docstring")
   .def("Length", (float (Urho3D::IntVector2::*)() const) &Urho3D::IntVector2::Length, "todo: docstring")
+// External Operators:
+  .def(int() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("x",&Urho3D::IntVector2::x_, "todo: var docstring")//int
   .def_readwrite("y",&Urho3D::IntVector2::y_, "todo: var docstring")//int
@@ -2162,42 +2165,42 @@ pyclass_Var_Urho3D_Vector4
   .def(py::init<const Urho3D::Vector3 &, float>(), "todo: constructor docstring")
   .def(py::init<float, float, float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(const Urho3D::Vector4 &)) &Urho3D::Vector4::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector4(), "todo: docstring").def("__assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(const Urho3D::Vector4 &)) &Urho3D::Vector4::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Vector4 (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector4']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Vector4 (Urho3D::Vector4::*)() const) &Urho3D::Vector4::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self + Urho3D::Vector4(), "todo: docstring")
+    //['Urho3D::Vector4']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Vector4 (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector4']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector4 (Urho3D::Vector4::*)(float) const) &Urho3D::Vector4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector4 (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Vector4 (Urho3D::Vector4::*)(float) const) &Urho3D::Vector4::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self - Urho3D::Vector4(), "todo: docstring")
+    //['Urho3D::Vector4']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector4(), "todo: docstring")
+    //['Urho3D::Vector4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self / float(), "todo: docstring")
     //['float']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Vector4 (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(const Urho3D::Vector4 &)) &Urho3D::Vector4::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(const Urho3D::Vector4 &)) &Urho3D::Vector4::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(float)) &Urho3D::Vector4::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= float(), "todo: docstring")
     //['float']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(const Urho3D::Vector4 &)) &Urho3D::Vector4::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(float)) &Urho3D::Vector4::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= float(), "todo: docstring")
     //['float']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Vector4 & (Urho3D::Vector4::*)(const Urho3D::Vector4 &)) &Urho3D::Vector4::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (float (Urho3D::Vector4::*)(unsigned int) const) &Urho3D::Vector4::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (float & (Urho3D::Vector4::*)(unsigned int)) &Urho3D::Vector4::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(float operator[](unsigned int index=None), "todo: docstring").def("__index__", (float (Urho3D::Vector4::*)(unsigned int) const) &Urho3D::Vector4::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(float & operator[](unsigned int index=None), "todo: docstring").def("__index__", (float & (Urho3D::Vector4::*)(unsigned int)) &Urho3D::Vector4::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("DotProduct", (float (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::DotProduct, "todo: docstring", py::arg("rhs"))
   .def("AbsDotProduct", (float (Urho3D::Vector4::*)(const Urho3D::Vector4 &) const) &Urho3D::Vector4::AbsDotProduct, "todo: docstring", py::arg("rhs"))
   .def("ProjectOntoAxis", (float (Urho3D::Vector4::*)(const Urho3D::Vector3 &) const) &Urho3D::Vector4::ProjectOntoAxis, "todo: docstring", py::arg("axis"))
@@ -2208,6 +2211,8 @@ pyclass_Var_Urho3D_Vector4
   .def("Data", (const float * (Urho3D::Vector4::*)() const) &Urho3D::Vector4::Data, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::Vector4::*)() const) &Urho3D::Vector4::ToString, "todo: docstring")
   .def("ToHash", (unsigned int (Urho3D::Vector4::*)() const) &Urho3D::Vector4::ToHash, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("x",&Urho3D::Vector4::x_, "todo: var docstring")//float
   .def_readwrite("y",&Urho3D::Vector4::y_, "todo: var docstring")//float
@@ -2230,30 +2235,30 @@ pyclass_Var_Urho3D_Matrix3x4
   .def(py::init<const float *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Vector3 &, const Urho3D::Quaternion &, float>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Vector3 &, const Urho3D::Quaternion &, const Urho3D::Vector3 &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Matrix3x4 & (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &)) &Urho3D::Matrix3x4::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix3x4(), "todo: docstring").def("__assign__", (Urho3D::Matrix3x4 & (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &)) &Urho3D::Matrix3x4::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix3x4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Matrix3x4 & (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix3x4::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix3(), "todo: docstring").def("__assign__", (Urho3D::Matrix3x4 & (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix3x4::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Matrix3x4 & (Urho3D::Matrix3x4::*)(const Urho3D::Matrix4 &)) &Urho3D::Matrix3x4::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix4(), "todo: docstring").def("__assign__", (Urho3D::Matrix3x4 & (Urho3D::Matrix3x4::*)(const Urho3D::Matrix4 &)) &Urho3D::Matrix3x4::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Matrix3x4::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix3x4(), "todo: docstring")
     //['Urho3D::Matrix3x4']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Matrix3x4::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix3x4(), "todo: docstring")
     //['Urho3D::Matrix3x4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Matrix3x4::*)(const Urho3D::Vector3 &) const) &Urho3D::Matrix3x4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Matrix3x4::*)(const Urho3D::Vector4 &) const) &Urho3D::Matrix3x4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Matrix3x4 (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Matrix3x4::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3x4']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Matrix3x4 (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Matrix3x4::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3x4']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix3x4 (Urho3D::Matrix3x4::*)(float) const) &Urho3D::Matrix3x4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix3x4 (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Matrix3x4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3x4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix4 (Urho3D::Matrix3x4::*)(const Urho3D::Matrix4 &) const) &Urho3D::Matrix3x4::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix4']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector4(), "todo: docstring")
+    //['Urho3D::Vector4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Matrix3x4(), "todo: docstring")
+    //['Urho3D::Matrix3x4']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::Matrix3x4(), "todo: docstring")
+    //['Urho3D::Matrix3x4']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Matrix3x4(), "todo: docstring")
+    //['Urho3D::Matrix3x4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Matrix4(), "todo: docstring")
+    //['Urho3D::Matrix4']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetTranslation", (void (Urho3D::Matrix3x4::*)(const Urho3D::Vector3 &)) &Urho3D::Matrix3x4::SetTranslation, "todo: docstring", py::arg("translation"))
   .def("SetRotation", (void (Urho3D::Matrix3x4::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix3x4::SetRotation, "todo: docstring", py::arg("rotation"))
   .def("SetScale", (void (Urho3D::Matrix3x4::*)(const Urho3D::Vector3 &)) &Urho3D::Matrix3x4::SetScale, "todo: docstring", py::arg("scale"))
@@ -2273,6 +2278,8 @@ pyclass_Var_Urho3D_Matrix3x4
   .def("Row", (Urho3D::Vector4 (Urho3D::Matrix3x4::*)(unsigned int) const) &Urho3D::Matrix3x4::Row, "todo: docstring", py::arg("i"))
   .def("Column", (Urho3D::Vector3 (Urho3D::Matrix3x4::*)(unsigned int) const) &Urho3D::Matrix3x4::Column, "todo: docstring", py::arg("j"))
   .def("ToString", (Urho3D::String (Urho3D::Matrix3x4::*)() const) &Urho3D::Matrix3x4::ToString, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("m00",&Urho3D::Matrix3x4::m00_, "todo: var docstring")//float
   .def_readwrite("m01",&Urho3D::Matrix3x4::m01_, "todo: var docstring")//float
@@ -2311,16 +2318,14 @@ pyclass_Var_Urho3D_Variant
   .def(py::init<const Urho3D::Color &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::String &>(), "todo: constructor docstring")
   .def(py::init<const char *>(), "todo: constructor docstring")
-  //.def(py::init<const Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<const Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::VectorBuffer &>(), "todo: constructor docstring")
   .def(py::init<void *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::ResourceRef &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::ResourceRefList &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Vector<Urho3D::Variant> &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &>(), "todo: constructor docstring")
-  //.def(py::init<const Urho3D::Vector<Urho3D::String> &>(), "todo: constructor docstring")
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<const Urho3D::Vector<Urho3D::String> &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Rect &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::IntRect &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::IntVector2 &>(), "todo: constructor docstring")
@@ -2339,191 +2344,191 @@ pyclass_Var_Urho3D_Variant
   //.def("~Variant", (void (Urho3D::Variant::*)()) &Urho3D::Variant::~Variant, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Clear", (void (Urho3D::Variant::*)()) &Urho3D::Variant::Clear, "todo: docstring")
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Variant &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Variant(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Variant &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Variant']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(int)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = int(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(int)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['int']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(long long)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = longlong(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(long long)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['long long']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(unsigned long long)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = unsignedlonglong(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(unsigned long long)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['unsigned long long']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(unsigned int)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = unsignedint(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(unsigned int)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['unsigned int']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::StringHash &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::StringHash(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::StringHash &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::StringHash']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(bool)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = bool(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(bool)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['bool']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(float)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = float(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(float)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['float']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(double)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = double(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(double)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['double']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector2 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector2(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector2 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector2']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector3 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector3(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector3 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector4 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector4(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector4 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Quaternion &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Quaternion(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Quaternion &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Quaternion']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Color &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Color(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Color &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Color']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::String &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::String(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::String &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::String']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const char *)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = (char *)(0), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const char *)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['char']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::PODVector<unsigned char>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::VectorBuffer &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::PODVector<unsigned char>(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
+    //['Urho3D::PODVector<unsigned char>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(py::self = Urho3D::VectorBuffer(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::VectorBuffer &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::VectorBuffer']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(void *)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = (void *)(0), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(void *)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['void']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::ResourceRef &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::ResourceRef(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::ResourceRef &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::ResourceRef']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::ResourceRefList &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::ResourceRefList(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::ResourceRefList &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::ResourceRefList']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector<Urho3D::Variant>(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector<Urho3D::Variant>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector<Urho3D::String>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector<Urho3D::String>(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
+    //['Urho3D::Vector<Urho3D::String>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(py::self = Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Rect &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Rect(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Rect &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Rect']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::IntRect &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::IntRect(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::IntRect &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::IntRect']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::IntVector2 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::IntVector2(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::IntVector2 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::IntVector2']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::IntVector3 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::IntVector3(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::IntVector3 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::IntVector3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(Urho3D::RefCounted *)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = (Urho3D::RefCounted *)(0), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(Urho3D::RefCounted *)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::RefCounted']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Matrix3 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix3(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Matrix3 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Matrix3x4 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix3x4(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Matrix3x4 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix3x4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Matrix4 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix4(), "todo: docstring").def("__assign__", (Urho3D::Variant & (Urho3D::Variant::*)(const Urho3D::Matrix4 &)) &Urho3D::Variant::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix4']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Variant &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Variant(), "todo: docstring")
     //['Urho3D::Variant']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(int) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == int(), "todo: docstring")
     //['int']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(unsigned int) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == unsignedint(), "todo: docstring")
     //['unsigned int']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(long long) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == longlong(), "todo: docstring")
     //['long long']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(unsigned long long) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == unsignedlonglong(), "todo: docstring")
     //['unsigned long long']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(bool) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == bool(), "todo: docstring")
     //['bool']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(float) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == float(), "todo: docstring")
     //['float']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(double) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == double(), "todo: docstring")
     //['double']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector2 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector3 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector4 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Quaternion &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Quaternion(), "todo: docstring")
     //['Urho3D::Quaternion']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Color &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Color(), "todo: docstring")
     //['Urho3D::Color']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::String &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::String(), "todo: docstring")
     //['Urho3D::String']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::PODVector<unsigned char> &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::PODVector<unsigned char>']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::VectorBuffer &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::PODVector<unsigned char>(), "todo: docstring")
+    //['Urho3D::PODVector<unsigned char>']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self == Urho3D::VectorBuffer(), "todo: docstring")
     //['Urho3D::VectorBuffer']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(void *) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == (void *)(0), "todo: docstring")
     //['void']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::ResourceRef &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::ResourceRef(), "todo: docstring")
     //['Urho3D::ResourceRef']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::ResourceRefList &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::ResourceRefList(), "todo: docstring")
     //['Urho3D::ResourceRefList']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::Variant> &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector<Urho3D::Variant>(), "todo: docstring")
     //['Urho3D::Vector<Urho3D::Variant>']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::String> &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector<Urho3D::String>']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Vector<Urho3D::String>(), "todo: docstring")
+    //['Urho3D::Vector<Urho3D::String>']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self == Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>(), "todo: docstring")
     //['Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Rect &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Rect(), "todo: docstring")
     //['Urho3D::Rect']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::IntRect &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::IntRect(), "todo: docstring")
     //['Urho3D::IntRect']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::IntVector2 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::IntVector3 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::StringHash &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(Urho3D::RefCounted *) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == (Urho3D::RefCounted *)(0), "todo: docstring")
     //['Urho3D::RefCounted']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Matrix3 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix3(), "todo: docstring")
     //['Urho3D::Matrix3']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix3x4(), "todo: docstring")
     //['Urho3D::Matrix3x4']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Variant::*)(const Urho3D::Matrix4 &) const) &Urho3D::Variant::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix4(), "todo: docstring")
     //['Urho3D::Matrix4']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Variant &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Variant(), "todo: docstring")
     //['Urho3D::Variant']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(int) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != int(), "todo: docstring")
     //['int']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(unsigned int) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != unsignedint(), "todo: docstring")
     //['unsigned int']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(long long) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != longlong(), "todo: docstring")
     //['long long']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(unsigned long long) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != unsignedlonglong(), "todo: docstring")
     //['unsigned long long']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(bool) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != bool(), "todo: docstring")
     //['bool']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(float) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != float(), "todo: docstring")
     //['float']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(double) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != double(), "todo: docstring")
     //['double']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector2 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector2(), "todo: docstring")
     //['Urho3D::Vector2']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector3 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector3(), "todo: docstring")
     //['Urho3D::Vector3']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector4 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector4(), "todo: docstring")
     //['Urho3D::Vector4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Quaternion &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Quaternion(), "todo: docstring")
     //['Urho3D::Quaternion']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::String &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::String(), "todo: docstring")
     //['Urho3D::String']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::PODVector<unsigned char> &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::PODVector<unsigned char>']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::VectorBuffer &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::PODVector<unsigned char>(), "todo: docstring")
+    //['Urho3D::PODVector<unsigned char>']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self != Urho3D::VectorBuffer(), "todo: docstring")
     //['Urho3D::VectorBuffer']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(void *) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != (void *)(0), "todo: docstring")
     //['void']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::ResourceRef &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::ResourceRef(), "todo: docstring")
     //['Urho3D::ResourceRef']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::ResourceRefList &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::ResourceRefList(), "todo: docstring")
     //['Urho3D::ResourceRefList']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::Variant> &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector<Urho3D::Variant>(), "todo: docstring")
     //['Urho3D::Vector<Urho3D::Variant>']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Vector<Urho3D::String> &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector<Urho3D::String>']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Vector<Urho3D::String>(), "todo: docstring")
+    //['Urho3D::Vector<Urho3D::String>']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self != Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>(), "todo: docstring")
     //['Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Rect &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Rect(), "todo: docstring")
     //['Urho3D::Rect']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::IntRect &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::IntRect(), "todo: docstring")
     //['Urho3D::IntRect']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::IntVector2 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::IntVector2(), "todo: docstring")
     //['Urho3D::IntVector2']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::IntVector3 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::StringHash &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::StringHash(), "todo: docstring")
     //['Urho3D::StringHash']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(Urho3D::RefCounted *) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != (Urho3D::RefCounted *)(0), "todo: docstring")
     //['Urho3D::RefCounted']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Matrix3 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix3(), "todo: docstring")
     //['Urho3D::Matrix3']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix3x4(), "todo: docstring")
     //['Urho3D::Matrix3x4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Variant::*)(const Urho3D::Matrix4 &) const) &Urho3D::Variant::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix4(), "todo: docstring")
     //['Urho3D::Matrix4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("FromString", (void (Urho3D::Variant::*)(const Urho3D::String &, const Urho3D::String &)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
   .def("FromString", (void (Urho3D::Variant::*)(const char *, const char *)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
@@ -2554,10 +2559,8 @@ pyclass_Var_Urho3D_Variant
   .def("GetVoidPtr", (void * (Urho3D::Variant::*)() const) &Urho3D::Variant::GetVoidPtr, "todo: docstring")
   .def("GetResourceRef", (const Urho3D::ResourceRef & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetResourceRef, "todo: docstring")
   .def("GetResourceRefList", (const Urho3D::ResourceRefList & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetResourceRefList, "todo: docstring")
-  //.def("GetVariantVector", (const Urho3D::VariantVector & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetVariantVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetStringVector", (const Urho3D::StringVector & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetStringVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVariantVector", (const Urho3D::VariantVector & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetVariantVector, "todo: docstring")
+  .def("GetStringVector", (const Urho3D::StringVector & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetStringVector, "todo: docstring")
   .def("GetVariantMap", (const Urho3D::VariantMap & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetVariantMap, "todo: docstring")
   .def("GetRect", (const Urho3D::Rect & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetRect, "todo: docstring")
   .def("GetIntRect", (const Urho3D::IntRect & (Urho3D::Variant::*)() const) &Urho3D::Variant::GetIntRect, "todo: docstring")
@@ -2580,10 +2583,8 @@ pyclass_Var_Urho3D_Variant
   .def("IsCustom", (bool (Urho3D::Variant::*)() const) &Urho3D::Variant::IsCustom, "todo: docstring")
   //.def("GetBufferPtr", (PODVector<unsigned char> * (Urho3D::Variant::*)()) &Urho3D::Variant::GetBufferPtr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("GetVariantVectorPtr", (Urho3D::VariantVector * (Urho3D::Variant::*)()) &Urho3D::Variant::GetVariantVectorPtr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("GetStringVectorPtr", (Urho3D::StringVector * (Urho3D::Variant::*)()) &Urho3D::Variant::GetStringVectorPtr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
+  .def("GetVariantVectorPtr", (Urho3D::VariantVector * (Urho3D::Variant::*)()) &Urho3D::Variant::GetVariantVectorPtr, "todo: docstring")
+  .def("GetStringVectorPtr", (Urho3D::StringVector * (Urho3D::Variant::*)()) &Urho3D::Variant::GetStringVectorPtr, "todo: docstring")
   .def("GetVariantMapPtr", (Urho3D::VariantMap * (Urho3D::Variant::*)()) &Urho3D::Variant::GetVariantMapPtr, "todo: docstring")
 // Class Variables:
   .def_readonly_static("emptyBuffer",&Urho3D::Variant::emptyBuffer, "todo: var docstring")//const Urho3D::PODVector<unsigned char>
@@ -2601,11 +2602,10 @@ void Implement_Urho3D_ResourceRefList(py::class_<Urho3D::ResourceRefList, Urho3D
 pyclass_Var_Urho3D_ResourceRefList
   .def(py::init<>(), "todo: constructor docstring")
   .def(py::init<Urho3D::StringHash>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::StringHash, const Urho3D::Vector<Urho3D::String> &>(), "todo: constructor docstring")
-    //['Urho3D::StringHash', 'Urho3D::Vector<Urho3D::String>']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__eq__", (bool (Urho3D::ResourceRefList::*)(const Urho3D::ResourceRefList &) const) &Urho3D::ResourceRefList::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::init<Urho3D::StringHash, const Urho3D::Vector<Urho3D::String> &>(), "todo: constructor docstring")
+  .def(py::self == Urho3D::ResourceRefList(), "todo: docstring")
     //['Urho3D::ResourceRefList']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::ResourceRefList::*)(const Urho3D::ResourceRefList &) const) &Urho3D::ResourceRefList::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::ResourceRefList(), "todo: docstring")
     //['Urho3D::ResourceRefList']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("type",&Urho3D::ResourceRefList::type_, "todo: var docstring")//Urho3D::StringHash
@@ -2781,25 +2781,25 @@ pyclass_Var_Urho3D_JSONValue
   .def(py::init<const Urho3D::JSONValue &>(), "todo: constructor docstring")
   //.def("~JSONValue", (void (Urho3D::JSONValue::*)()) &Urho3D::JSONValue::~JSONValue, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(bool)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = bool(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(bool)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['bool']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(int)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = int(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(int)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['int']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(unsigned int)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = unsignedint(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(unsigned int)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['unsigned int']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(float)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = float(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(float)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['float']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(double)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = double(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(double)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['double']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::String(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::String']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const char *)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = (char *)(0), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const char *)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['char']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 1
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::Vector<Urho3D::JSONValue> &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Vector<Urho3D::JSONValue>(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::Vector<Urho3D::JSONValue> &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Vector<Urho3D::JSONValue>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::HashMap<Urho3D::String, Urho3D::JSONValue> &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::HashMap<Urho3D::String, Urho3D::JSONValue>(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::HashMap<Urho3D::String, Urho3D::JSONValue> &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::HashMap<Urho3D::String, Urho3D::JSONValue>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::JSONValue &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::JSONValue(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::JSONValue &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::JSONValue']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   //.def("GetValueType", (Urho3D::JSONValueType (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetValueType, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -2824,20 +2824,20 @@ pyclass_Var_Urho3D_JSONValue
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetObject", (const Urho3D::JSONObject & (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetObject, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("__index__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(unsigned int)) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (const Urho3D::JSONValue & (Urho3D::JSONValue::*)(unsigned int) const) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(Urho3D::JSONValue & operator[](unsigned int index=None), "todo: docstring").def("__index__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(unsigned int)) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(const Urho3D::JSONValue & operator[](unsigned int index=None), "todo: docstring").def("__index__", (const Urho3D::JSONValue & (Urho3D::JSONValue::*)(unsigned int) const) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['unsigned int']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Push", (void (Urho3D::JSONValue::*)(const Urho3D::JSONValue &)) &Urho3D::JSONValue::Push, "todo: docstring", py::arg("value"))
   .def("Pop", (void (Urho3D::JSONValue::*)()) &Urho3D::JSONValue::Pop, "todo: docstring")
   .def("Insert", (void (Urho3D::JSONValue::*)(unsigned int, const Urho3D::JSONValue &)) &Urho3D::JSONValue::Insert, "todo: docstring", py::arg("pos"), py::arg("value"))
   .def("Erase", (void (Urho3D::JSONValue::*)(unsigned int, unsigned int)) &Urho3D::JSONValue::Erase, "todo: docstring", py::arg("pos"), py::arg("length")=1)
   .def("Resize", (void (Urho3D::JSONValue::*)(unsigned int)) &Urho3D::JSONValue::Resize, "todo: docstring", py::arg("newSize"))
   .def("Size", (unsigned int (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::Size, "todo: docstring")
-  //.def("__index__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &)) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::String']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__index__", (const Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &) const) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::String']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(Urho3D::JSONValue & operator[](const Urho3D::String & key=None), "todo: docstring").def("__index__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &)) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['Urho3D::String']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  //  .def(const Urho3D::JSONValue & operator[](const Urho3D::String & key=None), "todo: docstring").def("__index__", (const Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &) const) &Urho3D::JSONValue::operator[], py::operator, "todo: operator docstring. Switch to py: :self ops.")
+//Unhandled call style []     //['Urho3D::String']; op [], ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Set", (void (Urho3D::JSONValue::*)(const Urho3D::String &, const Urho3D::JSONValue &)) &Urho3D::JSONValue::Set, "todo: docstring", py::arg("key"), py::arg("value"))
   .def("Get", (const Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::String &) const) &Urho3D::JSONValue::Get, "todo: docstring", py::arg("key"))
   .def("Erase", (bool (Urho3D::JSONValue::*)(const Urho3D::String &)) &Urho3D::JSONValue::Erase, "todo: docstring", py::arg("key"))
@@ -2861,8 +2861,7 @@ pyclass_Var_Urho3D_JSONValue
   .def("SetVariantMap", (void (Urho3D::JSONValue::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantMap, "todo: docstring", py::arg("variantMap"), py::arg("context")=nullptr)
   .def("GetVariantMap", (Urho3D::VariantMap (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantMap, "todo: docstring")
   .def("SetVariantVector", (void (Urho3D::JSONValue::*)(const Urho3D::Vector<Urho3D::Variant> &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantVector, "todo: docstring", py::arg("variantVector"), py::arg("context")=nullptr)
-  //.def("GetVariantVector", (Urho3D::VariantVector (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantVector, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetVariantVector", (Urho3D::VariantVector (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantVector, "todo: docstring")
 // Class Variables:
   .def_readonly_static("emptyArray",&Urho3D::JSONValue::emptyArray, "todo: var docstring")//const Urho3D::Vector<Urho3D::JSONValue>
   .def_readonly_static("emptyObject",&Urho3D::JSONValue::emptyObject, "todo: var docstring")//const Urho3D::HashMap<Urho3D::String, Urho3D::JSONValue>
@@ -2917,9 +2916,9 @@ pyclass_Var_Urho3D_VertexElement
   .def(py::init<>(), "todo: constructor docstring")
   //.def(py::init<Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char, bool>(), "todo: constructor docstring")
     //['Urho3D::VertexElementType', 'Urho3D::VertexElementSemantic', 'unsigned char', 'bool']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("__eq__", (bool (Urho3D::VertexElement::*)(const Urho3D::VertexElement &) const) &Urho3D::VertexElement::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::VertexElement(), "todo: docstring")
     //['Urho3D::VertexElement']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::VertexElement::*)(const Urho3D::VertexElement &) const) &Urho3D::VertexElement::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::VertexElement(), "todo: docstring")
     //['Urho3D::VertexElement']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("type",&Urho3D::VertexElement::type_, "todo: var docstring")//Urho3D::VertexElementType
@@ -2945,13 +2944,13 @@ pyclass_Var_Urho3D_BoundingBox
   .def(py::init<const Urho3D::Frustum &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Polyhedron &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Sphere &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::BoundingBox & (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &)) &Urho3D::BoundingBox::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::BoundingBox(), "todo: docstring").def("__assign__", (Urho3D::BoundingBox & (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &)) &Urho3D::BoundingBox::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::BoundingBox']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::BoundingBox & (Urho3D::BoundingBox::*)(const Urho3D::Rect &)) &Urho3D::BoundingBox::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Rect(), "todo: docstring").def("__assign__", (Urho3D::BoundingBox & (Urho3D::BoundingBox::*)(const Urho3D::Rect &)) &Urho3D::BoundingBox::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Rect']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &) const) &Urho3D::BoundingBox::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::BoundingBox(), "todo: docstring")
     //['Urho3D::BoundingBox']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &) const) &Urho3D::BoundingBox::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::BoundingBox(), "todo: docstring")
     //['Urho3D::BoundingBox']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &)) &Urho3D::BoundingBox::Define, "todo: docstring", py::arg("box"))
   .def("Define", (void (Urho3D::BoundingBox::*)(const Urho3D::Rect &)) &Urho3D::BoundingBox::Define, "todo: docstring", py::arg("rect"))
@@ -3096,7 +3095,7 @@ pyclass_Var_Urho3D_SourceBatch
   .def(py::init<const Urho3D::SourceBatch &>(), "todo: constructor docstring")
   //.def("~SourceBatch", (void (Urho3D::SourceBatch::*)()) &Urho3D::SourceBatch::~SourceBatch, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::SourceBatch & (Urho3D::SourceBatch::*)(const Urho3D::SourceBatch &)) &Urho3D::SourceBatch::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::SourceBatch(), "todo: docstring").def("__assign__", (Urho3D::SourceBatch & (Urho3D::SourceBatch::*)(const Urho3D::SourceBatch &)) &Urho3D::SourceBatch::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::SourceBatch']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("distance",&Urho3D::SourceBatch::distance_, "todo: var docstring")//float
@@ -3410,7 +3409,7 @@ pyclass_Var_Urho3D_Plane
   .def(py::init<const Urho3D::Vector3 &, const Urho3D::Vector3 &, const Urho3D::Vector3 &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Vector3 &, const Urho3D::Vector3 &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Vector4 &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Plane & (Urho3D::Plane::*)(const Urho3D::Plane &)) &Urho3D::Plane::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Plane(), "todo: docstring").def("__assign__", (Urho3D::Plane & (Urho3D::Plane::*)(const Urho3D::Plane &)) &Urho3D::Plane::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Plane']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::Plane::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::Plane::Define, "todo: docstring", py::arg("v0"), py::arg("v1"), py::arg("v2"))
   .def("Define", (void (Urho3D::Plane::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::Plane::Define, "todo: docstring", py::arg("normal"), py::arg("point"))
@@ -3992,7 +3991,7 @@ void Implement_Urho3D_OctreeQueryResult(py::class_<Urho3D::OctreeQueryResult, Ur
     // Class OctreeQueryResult Implementation
 pyclass_Var_Urho3D_OctreeQueryResult
   .def(py::init<>(), "todo: constructor docstring")
-  //.def("__neq__", (bool (Urho3D::OctreeQueryResult::*)(const Urho3D::OctreeQueryResult &) const) &Urho3D::OctreeQueryResult::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::OctreeQueryResult(), "todo: docstring")
     //['Urho3D::OctreeQueryResult']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
 // Class Variables:
 ;
@@ -4065,11 +4064,9 @@ pyclass_Var_Urho3D_FileSystem
   .def("CreateDir", (bool (Urho3D::FileSystem::*)(const Urho3D::String &)) &Urho3D::FileSystem::CreateDir, "todo: docstring", py::arg("pathName"))
   .def("SetExecuteConsoleCommands", (void (Urho3D::FileSystem::*)(bool)) &Urho3D::FileSystem::SetExecuteConsoleCommands, "todo: docstring", py::arg("enable"))
   .def("SystemCommand", (int (Urho3D::FileSystem::*)(const Urho3D::String &, bool)) &Urho3D::FileSystem::SystemCommand, "todo: docstring", py::arg("commandLine"), py::arg("redirectStdOutToLog")=false)
-  //.def("SystemRun", (int (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &)) &Urho3D::FileSystem::SystemRun, "todo: docstring", py::arg("fileName"), py::arg("arguments"))
-    //['Urho3D::String', 'Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SystemRun", (int (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &)) &Urho3D::FileSystem::SystemRun, "todo: docstring", py::arg("fileName"), py::arg("arguments"))
   .def("SystemCommandAsync", (unsigned int (Urho3D::FileSystem::*)(const Urho3D::String &)) &Urho3D::FileSystem::SystemCommandAsync, "todo: docstring", py::arg("commandLine"))
-  //.def("SystemRunAsync", (unsigned int (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &)) &Urho3D::FileSystem::SystemRunAsync, "todo: docstring", py::arg("fileName"), py::arg("arguments"))
-    //['Urho3D::String', 'Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SystemRunAsync", (unsigned int (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &)) &Urho3D::FileSystem::SystemRunAsync, "todo: docstring", py::arg("fileName"), py::arg("arguments"))
   .def("SystemOpen", (bool (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::String &)) &Urho3D::FileSystem::SystemOpen, "todo: docstring", py::arg("fileName"), py::arg("mode")=String::EMPTY)
   .def("Copy", (bool (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::String &)) &Urho3D::FileSystem::Copy, "todo: docstring", py::arg("srcFileName"), py::arg("destFileName"))
   .def("Rename", (bool (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::String &)) &Urho3D::FileSystem::Rename, "todo: docstring", py::arg("srcFileName"), py::arg("destFileName"))
@@ -4083,8 +4080,7 @@ pyclass_Var_Urho3D_FileSystem
   .def("GetLastModifiedTime", (unsigned int (Urho3D::FileSystem::*)(const Urho3D::String &) const) &Urho3D::FileSystem::GetLastModifiedTime, "todo: docstring", py::arg("fileName"))
   .def("FileExists", (bool (Urho3D::FileSystem::*)(const Urho3D::String &) const) &Urho3D::FileSystem::FileExists, "todo: docstring", py::arg("fileName"))
   .def("DirExists", (bool (Urho3D::FileSystem::*)(const Urho3D::String &) const) &Urho3D::FileSystem::DirExists, "todo: docstring", py::arg("pathName"))
-  //.def("ScanDir", (void (Urho3D::FileSystem::*)(Urho3D::Vector<Urho3D::String> &, const Urho3D::String &, const Urho3D::String &, unsigned int, bool) const) &Urho3D::FileSystem::ScanDir, "todo: docstring", py::arg("result"), py::arg("pathName"), py::arg("filter"), py::arg("flags"), py::arg("recursive"))
-    //['Urho3D::Vector<Urho3D::String>', 'Urho3D::String', 'Urho3D::String', 'unsigned int', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("ScanDir", (void (Urho3D::FileSystem::*)(Urho3D::Vector<Urho3D::String> &, const Urho3D::String &, const Urho3D::String &, unsigned int, bool) const) &Urho3D::FileSystem::ScanDir, "todo: docstring", py::arg("result"), py::arg("pathName"), py::arg("filter"), py::arg("flags"), py::arg("recursive"))
   .def("GetProgramDir", (Urho3D::String (Urho3D::FileSystem::*)() const) &Urho3D::FileSystem::GetProgramDir, "todo: docstring")
   .def("GetUserDocumentsDir", (Urho3D::String (Urho3D::FileSystem::*)() const) &Urho3D::FileSystem::GetUserDocumentsDir, "todo: docstring")
   .def("GetAppPreferencesDir", (Urho3D::String (Urho3D::FileSystem::*)(const Urho3D::String &, const Urho3D::String &) const) &Urho3D::FileSystem::GetAppPreferencesDir, "todo: docstring", py::arg("org"), py::arg("app"))
@@ -4123,8 +4119,7 @@ pyclass_Var_Urho3D_LuaScriptEventListener
   .def("RemoveEventHandler", (void (Urho3D::LuaScriptEventListener::*)(Urho3D::Object *, const Urho3D::String &)) &Urho3D::LuaScriptEventListener::RemoveEventHandler, "todo: docstring", py::arg("sender"), py::arg("eventName"))
   .def("RemoveEventHandlers", (void (Urho3D::LuaScriptEventListener::*)(Urho3D::Object *)) &Urho3D::LuaScriptEventListener::RemoveEventHandlers, "todo: docstring", py::arg("sender"))
   .def("RemoveAllEventHandlers", (void (Urho3D::LuaScriptEventListener::*)()) &Urho3D::LuaScriptEventListener::RemoveAllEventHandlers, "todo: docstring")
-  //.def("RemoveEventHandlersExcept", (void (Urho3D::LuaScriptEventListener::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::LuaScriptEventListener::RemoveEventHandlersExcept, "todo: docstring", py::arg("exceptionNames"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("RemoveEventHandlersExcept", (void (Urho3D::LuaScriptEventListener::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::LuaScriptEventListener::RemoveEventHandlersExcept, "todo: docstring", py::arg("exceptionNames"))
   .def("HasEventHandler", (bool (Urho3D::LuaScriptEventListener::*)(const Urho3D::String &) const) &Urho3D::LuaScriptEventListener::HasEventHandler, "todo: docstring", py::arg("eventName"))
   .def("HasEventHandler", (bool (Urho3D::LuaScriptEventListener::*)(Urho3D::Object *, const Urho3D::String &) const) &Urho3D::LuaScriptEventListener::HasEventHandler, "todo: docstring", py::arg("sender"), py::arg("eventName"))
 // Class Variables:
@@ -4146,8 +4141,7 @@ void Implement_Urho3D_HttpRequest(py::class_<Urho3D::HttpRequest, Urho3D::Shared
 {
     // Class HttpRequest Implementation
 pyclass_Var_Urho3D_HttpRequest
-  //.def(py::init<const Urho3D::String &, const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &, const Urho3D::String &>(), "todo: constructor docstring")
-    //['Urho3D::String', 'Urho3D::String', 'Urho3D::Vector<Urho3D::String>', 'Urho3D::String']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<const Urho3D::String &, const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &, const Urho3D::String &>(), "todo: constructor docstring")
   //.def("~HttpRequest", (void (Urho3D::HttpRequest::*)()) &Urho3D::HttpRequest::~HttpRequest, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("ThreadFunction", (void (Urho3D::HttpRequest::*)()) &Urho3D::HttpRequest::ThreadFunction, "todo: docstring")
@@ -4240,8 +4234,7 @@ pyclass_Var_Urho3D_FileSelector
   .def("SetButtonTexts", (void (Urho3D::FileSelector::*)(const Urho3D::String &, const Urho3D::String &)) &Urho3D::FileSelector::SetButtonTexts, "todo: docstring", py::arg("okText"), py::arg("cancelText"))
   .def("SetPath", (void (Urho3D::FileSelector::*)(const Urho3D::String &)) &Urho3D::FileSelector::SetPath, "todo: docstring", py::arg("path"))
   .def("SetFileName", (void (Urho3D::FileSelector::*)(const Urho3D::String &)) &Urho3D::FileSelector::SetFileName, "todo: docstring", py::arg("fileName"))
-  //.def("SetFilters", (void (Urho3D::FileSelector::*)(const Urho3D::Vector<Urho3D::String> &, unsigned int)) &Urho3D::FileSelector::SetFilters, "todo: docstring", py::arg("filters"), py::arg("defaultIndex"))
-    //['Urho3D::Vector<Urho3D::String>', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFilters", (void (Urho3D::FileSelector::*)(const Urho3D::Vector<Urho3D::String> &, unsigned int)) &Urho3D::FileSelector::SetFilters, "todo: docstring", py::arg("filters"), py::arg("defaultIndex"))
   .def("SetDirectoryMode", (void (Urho3D::FileSelector::*)(bool)) &Urho3D::FileSelector::SetDirectoryMode, "todo: docstring", py::arg("enable"))
   .def("UpdateElements", (void (Urho3D::FileSelector::*)()) &Urho3D::FileSelector::UpdateElements, "todo: docstring")
   .def("GetDefaultStyle", (Urho3D::XMLFile * (Urho3D::FileSelector::*)() const) &Urho3D::FileSelector::GetDefaultStyle, "todo: docstring")
@@ -4420,22 +4413,22 @@ pyclass_Var_Urho3D_Matrix3
   .def(py::init<const Urho3D::Matrix3 &>(), "todo: constructor docstring")
   .def(py::init<float, float, float, float, float, float, float, float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Matrix3 & (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix3::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix3(), "todo: docstring").def("__assign__", (Urho3D::Matrix3 & (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &)) &Urho3D::Matrix3::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &) const) &Urho3D::Matrix3::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix3(), "todo: docstring")
     //['Urho3D::Matrix3']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &) const) &Urho3D::Matrix3::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix3(), "todo: docstring")
     //['Urho3D::Matrix3']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector3 (Urho3D::Matrix3::*)(const Urho3D::Vector3 &) const) &Urho3D::Matrix3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Matrix3 (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &) const) &Urho3D::Matrix3::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Matrix3 (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &) const) &Urho3D::Matrix3::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix3 (Urho3D::Matrix3::*)(float) const) &Urho3D::Matrix3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix3 (Urho3D::Matrix3::*)(const Urho3D::Matrix3 &) const) &Urho3D::Matrix3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector3(), "todo: docstring")
+    //['Urho3D::Vector3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Matrix3(), "todo: docstring")
+    //['Urho3D::Matrix3']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::Matrix3(), "todo: docstring")
+    //['Urho3D::Matrix3']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Matrix3(), "todo: docstring")
+    //['Urho3D::Matrix3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetScale", (void (Urho3D::Matrix3::*)(const Urho3D::Vector3 &)) &Urho3D::Matrix3::SetScale, "todo: docstring", py::arg("scale"))
   .def("SetScale", (void (Urho3D::Matrix3::*)(float)) &Urho3D::Matrix3::SetScale, "todo: docstring", py::arg("scale"))
   .def("Scale", (Urho3D::Vector3 (Urho3D::Matrix3::*)() const) &Urho3D::Matrix3::Scale, "todo: docstring")
@@ -4449,6 +4442,8 @@ pyclass_Var_Urho3D_Matrix3
   .def("Row", (Urho3D::Vector3 (Urho3D::Matrix3::*)(unsigned int) const) &Urho3D::Matrix3::Row, "todo: docstring", py::arg("i"))
   .def("Column", (Urho3D::Vector3 (Urho3D::Matrix3::*)(unsigned int) const) &Urho3D::Matrix3::Column, "todo: docstring", py::arg("j"))
   .def("ToString", (Urho3D::String (Urho3D::Matrix3::*)() const) &Urho3D::Matrix3::ToString, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("m00",&Urho3D::Matrix3::m00_, "todo: var docstring")//float
   .def_readwrite("m01",&Urho3D::Matrix3::m01_, "todo: var docstring")//float
@@ -4613,12 +4608,10 @@ pyclass_Var_Urho3D_Node
   .def("SaveJSON", (bool (Urho3D::Node::*)(Urho3D::Serializer &, const Urho3D::String &) const) &Urho3D::Node::SaveJSON, "todo: docstring", py::arg("dest"), py::arg("indentation")="\t")
   .def("SetName", (void (Urho3D::Node::*)(const Urho3D::String &)) &Urho3D::Node::SetName, "todo: docstring", py::arg("name"))
   .def("SetBasePath", (void (Urho3D::Node::*)(const Urho3D::String &)) &Urho3D::Node::SetBasePath, "todo: docstring", py::arg("basePath"))
-  //.def("SetTags", (void (Urho3D::Node::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Node::SetTags, "todo: docstring", py::arg("tags"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTags", (void (Urho3D::Node::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Node::SetTags, "todo: docstring", py::arg("tags"))
   .def("AddTag", (void (Urho3D::Node::*)(const Urho3D::String &)) &Urho3D::Node::AddTag, "todo: docstring", py::arg("tag"))
   .def("AddTags", (void (Urho3D::Node::*)(const Urho3D::String &, char)) &Urho3D::Node::AddTags, "todo: docstring", py::arg("tags"), py::arg("separator")=';')
-  //.def("AddTags", (void (Urho3D::Node::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Node::AddTags, "todo: docstring", py::arg("tags"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("AddTags", (void (Urho3D::Node::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Node::AddTags, "todo: docstring", py::arg("tags"))
   .def("RemoveTag", (bool (Urho3D::Node::*)(const Urho3D::String &)) &Urho3D::Node::RemoveTag, "todo: docstring", py::arg("tag"))
   .def("RemoveAllTags", (void (Urho3D::Node::*)()) &Urho3D::Node::RemoveAllTags, "todo: docstring")
   .def("SetPosition", (void (Urho3D::Node::*)(const Urho3D::Vector3 &)) &Urho3D::Node::SetPosition, "todo: docstring", py::arg("position"))
@@ -4716,8 +4709,7 @@ pyclass_Var_Urho3D_Node
   .def("GetName", (const Urho3D::String & (Urho3D::Node::*)() const) &Urho3D::Node::GetName, "todo: docstring")
   .def("GetNameHash", (Urho3D::StringHash (Urho3D::Node::*)() const) &Urho3D::Node::GetNameHash, "todo: docstring")
   .def("GetBasePath", (const Urho3D::String & (Urho3D::Node::*)() const) &Urho3D::Node::GetBasePath, "todo: docstring")
-  //.def("GetTags", (const Urho3D::StringVector & (Urho3D::Node::*)() const) &Urho3D::Node::GetTags, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTags", (const Urho3D::StringVector & (Urho3D::Node::*)() const) &Urho3D::Node::GetTags, "todo: docstring")
   .def("HasTag", (bool (Urho3D::Node::*)(const Urho3D::String &) const) &Urho3D::Node::HasTag, "todo: docstring", py::arg("tag"))
   .def("GetParent", (Urho3D::Node * (Urho3D::Node::*)() const) &Urho3D::Node::GetParent, "todo: docstring")
   .def("GetScene", (Urho3D::Scene * (Urho3D::Node::*)() const) &Urho3D::Node::GetScene, "todo: docstring")
@@ -4789,10 +4781,8 @@ pyclass_Var_Urho3D_Node
   .def("SetScene", (void (Urho3D::Node::*)(Urho3D::Scene *)) &Urho3D::Node::SetScene, "todo: docstring", py::arg("scene"))
   .def("ResetScene", (void (Urho3D::Node::*)()) &Urho3D::Node::ResetScene, "todo: docstring")
   .def("SetNetPositionAttr", (void (Urho3D::Node::*)(const Urho3D::Vector3 &)) &Urho3D::Node::SetNetPositionAttr, "todo: docstring", py::arg("value"))
-  //.def("SetNetRotationAttr", (void (Urho3D::Node::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Node::SetNetRotationAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetNetParentAttr", (void (Urho3D::Node::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Node::SetNetParentAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNetRotationAttr", (void (Urho3D::Node::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Node::SetNetRotationAttr, "todo: docstring", py::arg("value"))
+  .def("SetNetParentAttr", (void (Urho3D::Node::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Node::SetNetParentAttr, "todo: docstring", py::arg("value"))
   .def("GetNetPositionAttr", (const Urho3D::Vector3 & (Urho3D::Node::*)() const) &Urho3D::Node::GetNetPositionAttr, "todo: docstring")
   //.def("GetNetRotationAttr", (const PODVector<unsigned char> & (Urho3D::Node::*)() const) &Urho3D::Node::GetNetRotationAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -4829,7 +4819,7 @@ void Implement_Urho3D_Frustum(py::class_<Urho3D::Frustum, Urho3D::ExternalPtr<Ur
 pyclass_Var_Urho3D_Frustum
   .def(py::init<>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Frustum &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Frustum & (Urho3D::Frustum::*)(const Urho3D::Frustum &)) &Urho3D::Frustum::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Frustum(), "todo: docstring").def("__assign__", (Urho3D::Frustum & (Urho3D::Frustum::*)(const Urho3D::Frustum &)) &Urho3D::Frustum::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Frustum']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::Frustum::*)(float, float, float, float, float, const Urho3D::Matrix3x4 &)) &Urho3D::Frustum::Define, "todo: docstring", py::arg("fov"), py::arg("aspectRatio"), py::arg("zoom"), py::arg("nearZ"), py::arg("farZ"), py::arg("transform")=Matrix3x4::IDENTITY)
   .def("Define", (void (Urho3D::Frustum::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &, const Urho3D::Matrix3x4 &)) &Urho3D::Frustum::Define, "todo: docstring", py::arg("near"), py::arg("far"), py::arg("transform")=Matrix3x4::IDENTITY)
@@ -4866,7 +4856,7 @@ pyclass_Var_Urho3D_RayOctreeQuery
     //['Urho3D::PODVector<Urho3D::RayQueryResult>', 'Urho3D::Ray', 'Urho3D::RayQueryLevel', 'float', 'unsigned char', 'unsigned int']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def(py::init<const Urho3D::RayOctreeQuery &>(), "todo: constructor docstring")
     //['Urho3D::RayOctreeQuery']; op False, ctor True, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
-  //.def("__assign__", (Urho3D::RayOctreeQuery & (Urho3D::RayOctreeQuery::*)(const Urho3D::RayOctreeQuery &)) &Urho3D::RayOctreeQuery::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::RayOctreeQuery(), "todo: docstring").def("__assign__", (Urho3D::RayOctreeQuery & (Urho3D::RayOctreeQuery::*)(const Urho3D::RayOctreeQuery &)) &Urho3D::RayOctreeQuery::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::RayOctreeQuery']; op =, ctor False, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
 // Class Variables:
   .def_readwrite("ray",&Urho3D::RayOctreeQuery::ray_, "todo: var docstring")//Urho3D::Ray
@@ -5062,12 +5052,10 @@ pyclass_Var_Urho3D_UIElement
     //['Urho3D::TraversalMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("SetElementEventSender", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetElementEventSender, "todo: docstring", py::arg("flag"))
   .def("SetBasePath", (void (Urho3D::UIElement::*)(const Urho3D::String &)) &Urho3D::UIElement::SetBasePath, "todo: docstring", py::arg("basePath"))
-  //.def("SetTags", (void (Urho3D::UIElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::UIElement::SetTags, "todo: docstring", py::arg("tags"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTags", (void (Urho3D::UIElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::UIElement::SetTags, "todo: docstring", py::arg("tags"))
   .def("AddTag", (void (Urho3D::UIElement::*)(const Urho3D::String &)) &Urho3D::UIElement::AddTag, "todo: docstring", py::arg("tag"))
   .def("AddTags", (void (Urho3D::UIElement::*)(const Urho3D::String &, char)) &Urho3D::UIElement::AddTags, "todo: docstring", py::arg("tags"), py::arg("separator")=';')
-  //.def("AddTags", (void (Urho3D::UIElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::UIElement::AddTags, "todo: docstring", py::arg("tags"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("AddTags", (void (Urho3D::UIElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::UIElement::AddTags, "todo: docstring", py::arg("tags"))
   .def("RemoveTag", (bool (Urho3D::UIElement::*)(const Urho3D::String &)) &Urho3D::UIElement::RemoveTag, "todo: docstring", py::arg("tag"))
   .def("RemoveAllTags", (void (Urho3D::UIElement::*)()) &Urho3D::UIElement::RemoveAllTags, "todo: docstring")
   .def("GetName", (const Urho3D::String & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetName, "todo: docstring")
@@ -5143,8 +5131,7 @@ pyclass_Var_Urho3D_UIElement
   .def("GetVars", (const Urho3D::VariantMap & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetVars, "todo: docstring")
   .def("GetBasePath", (const Urho3D::String & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetBasePath, "todo: docstring")
   .def("HasTag", (bool (Urho3D::UIElement::*)(const Urho3D::String &) const) &Urho3D::UIElement::HasTag, "todo: docstring", py::arg("tag"))
-  //.def("GetTags", (const Urho3D::StringVector & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetTags, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTags", (const Urho3D::StringVector & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetTags, "todo: docstring")
   //.def("GetChildrenWithTag", (void (Urho3D::UIElement::*)(Urho3D::PODVector<Urho3D::UIElement *> &, const Urho3D::String &, bool) const) &Urho3D::UIElement::GetChildrenWithTag, "todo: docstring", py::arg("dest"), py::arg("tag"), py::arg("recursive")=false)
     //['Urho3D::PODVector<Urho3D::UIElement', 'Urho3D::String', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   //.def("GetChildrenWithTag", (PODVector<Urho3D::UIElement *> (Urho3D::UIElement::*)(const Urho3D::String &, bool) const) &Urho3D::UIElement::GetChildrenWithTag, "todo: docstring", py::arg("tag"), py::arg("recursive")=false)
@@ -5591,8 +5578,7 @@ pyclass_Var_Urho3D_LuaScript
   .def("RemoveEventHandler", (void (Urho3D::LuaScript::*)(Urho3D::Object *, const Urho3D::String &)) &Urho3D::LuaScript::RemoveEventHandler, "todo: docstring", py::arg("sender"), py::arg("eventName"))
   .def("RemoveEventHandlers", (void (Urho3D::LuaScript::*)(Urho3D::Object *)) &Urho3D::LuaScript::RemoveEventHandlers, "todo: docstring", py::arg("sender"))
   .def("RemoveAllEventHandlers", (void (Urho3D::LuaScript::*)()) &Urho3D::LuaScript::RemoveAllEventHandlers, "todo: docstring")
-  //.def("RemoveEventHandlersExcept", (void (Urho3D::LuaScript::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::LuaScript::RemoveEventHandlersExcept, "todo: docstring", py::arg("exceptionNames"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("RemoveEventHandlersExcept", (void (Urho3D::LuaScript::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::LuaScript::RemoveEventHandlersExcept, "todo: docstring", py::arg("exceptionNames"))
   .def("HasEventHandler", (bool (Urho3D::LuaScript::*)(const Urho3D::String &) const) &Urho3D::LuaScript::HasEventHandler, "todo: docstring", py::arg("eventName"))
   .def("HasEventHandler", (bool (Urho3D::LuaScript::*)(Urho3D::Object *, const Urho3D::String &) const) &Urho3D::LuaScript::HasEventHandler, "todo: docstring", py::arg("sender"), py::arg("eventName"))
   .def("ExecuteFile", (bool (Urho3D::LuaScript::*)(const Urho3D::String &)) &Urho3D::LuaScript::ExecuteFile, "todo: docstring", py::arg("fileName"))
@@ -5618,22 +5604,22 @@ pyclass_Var_Urho3D_Matrix2
   .def(py::init<const Urho3D::Matrix2 &>(), "todo: constructor docstring")
   .def(py::init<float, float, float, float>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Matrix2 & (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &)) &Urho3D::Matrix2::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Matrix2(), "todo: docstring").def("__assign__", (Urho3D::Matrix2 & (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &)) &Urho3D::Matrix2::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Matrix2']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &) const) &Urho3D::Matrix2::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Matrix2(), "todo: docstring")
     //['Urho3D::Matrix2']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &) const) &Urho3D::Matrix2::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Matrix2(), "todo: docstring")
     //['Urho3D::Matrix2']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Vector2 (Urho3D::Matrix2::*)(const Urho3D::Vector2 &) const) &Urho3D::Matrix2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Vector2']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Matrix2 (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &) const) &Urho3D::Matrix2::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix2']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Matrix2 (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &) const) &Urho3D::Matrix2::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix2']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix2 (Urho3D::Matrix2::*)(float) const) &Urho3D::Matrix2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Matrix2 (Urho3D::Matrix2::*)(const Urho3D::Matrix2 &) const) &Urho3D::Matrix2::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Matrix2']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Vector2(), "todo: docstring")
+    //['Urho3D::Vector2']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Matrix2(), "todo: docstring")
+    //['Urho3D::Matrix2']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::Matrix2(), "todo: docstring")
+    //['Urho3D::Matrix2']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::Matrix2(), "todo: docstring")
+    //['Urho3D::Matrix2']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetScale", (void (Urho3D::Matrix2::*)(const Urho3D::Vector2 &)) &Urho3D::Matrix2::SetScale, "todo: docstring", py::arg("scale"))
   .def("SetScale", (void (Urho3D::Matrix2::*)(float)) &Urho3D::Matrix2::SetScale, "todo: docstring", py::arg("scale"))
   .def("Scale", (Urho3D::Vector2 (Urho3D::Matrix2::*)() const) &Urho3D::Matrix2::Scale, "todo: docstring")
@@ -5643,6 +5629,8 @@ pyclass_Var_Urho3D_Matrix2
   .def("Inverse", (Urho3D::Matrix2 (Urho3D::Matrix2::*)() const) &Urho3D::Matrix2::Inverse, "todo: docstring")
   .def("Data", (const float * (Urho3D::Matrix2::*)() const) &Urho3D::Matrix2::Data, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::Matrix2::*)() const) &Urho3D::Matrix2::ToString, "todo: docstring")
+// External Operators:
+  .def(float() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("m00",&Urho3D::Matrix2::m00_, "todo: var docstring")//float
   .def_readwrite("m01",&Urho3D::Matrix2::m01_, "todo: var docstring")//float
@@ -5694,7 +5682,7 @@ pyclass_Var_Urho3D_Network
   .def("SetPackageCacheDir", (void (Urho3D::Network::*)(const Urho3D::String &)) &Urho3D::Network::SetPackageCacheDir, "todo: docstring", py::arg("path"))
   .def("SendPackageToClients", (void (Urho3D::Network::*)(Urho3D::Scene *, Urho3D::PackageFile *)) &Urho3D::Network::SendPackageToClients, "todo: docstring", py::arg("scene"), py::arg("package"))
   //.def("MakeHttpRequest", (SharedPtr<Urho3D::HttpRequest> (Urho3D::Network::*)(const Urho3D::String &, const Urho3D::String &, const Urho3D::Vector<Urho3D::String> &, const Urho3D::String &)) &Urho3D::Network::MakeHttpRequest, "todo: docstring", py::arg("url"), py::arg("verb")=String::EMPTY, py::arg("headers")=Vector<String>(), py::arg("postData")=String::EMPTY)
-    //['Urho3D::String', 'Urho3D::String', 'Urho3D::Vector<Urho3D::String>', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad True, max ptr 0
+    //['Urho3D::String', 'Urho3D::String', 'Urho3D::Vector<Urho3D::String>', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("BanAddress", (void (Urho3D::Network::*)(const Urho3D::String &)) &Urho3D::Network::BanAddress, "todo: docstring", py::arg("address"))
   .def("GetUpdateFps", (int (Urho3D::Network::*)() const) &Urho3D::Network::GetUpdateFps, "todo: docstring")
   .def("GetSimulatedLatency", (int (Urho3D::Network::*)() const) &Urho3D::Network::GetSimulatedLatency, "todo: docstring")
@@ -5974,28 +5962,28 @@ pyclass_Var_Urho3D_Rect
   .def(py::init<const Urho3D::Vector4 &>(), "todo: constructor docstring")
   .def(py::init<const float *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Rect &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::Rect & (Urho3D::Rect::*)(const Urho3D::Rect &)) &Urho3D::Rect::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::Rect(), "todo: docstring").def("__assign__", (Urho3D::Rect & (Urho3D::Rect::*)(const Urho3D::Rect &)) &Urho3D::Rect::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Rect']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::Rect(), "todo: docstring")
     //['Urho3D::Rect']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::Rect(), "todo: docstring")
     //['Urho3D::Rect']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::Rect & (Urho3D::Rect::*)(const Urho3D::Rect &)) &Urho3D::Rect::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::Rect(), "todo: docstring")
     //['Urho3D::Rect']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::Rect & (Urho3D::Rect::*)(const Urho3D::Rect &)) &Urho3D::Rect::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::Rect(), "todo: docstring")
     //['Urho3D::Rect']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::Rect & (Urho3D::Rect::*)(float)) &Urho3D::Rect::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= float(), "todo: docstring")
     //['float']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::Rect & (Urho3D::Rect::*)(float)) &Urho3D::Rect::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= float(), "todo: docstring")
     //['float']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::Rect (Urho3D::Rect::*)(float) const) &Urho3D::Rect::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / float(), "todo: docstring")
     //['float']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::Rect (Urho3D::Rect::*)(float) const) &Urho3D::Rect::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['float']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::Rect (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Rect']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::Rect (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::Rect']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * float(), "todo: docstring")
+    //['float']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self + Urho3D::Rect(), "todo: docstring")
+    //['Urho3D::Rect']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self - Urho3D::Rect(), "todo: docstring")
+    //['Urho3D::Rect']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Define", (void (Urho3D::Rect::*)(const Urho3D::Rect &)) &Urho3D::Rect::Define, "todo: docstring", py::arg("rect"))
   .def("Define", (void (Urho3D::Rect::*)(const Urho3D::Vector2 &, const Urho3D::Vector2 &)) &Urho3D::Rect::Define, "todo: docstring", py::arg("min"), py::arg("max"))
   .def("Define", (void (Urho3D::Rect::*)(const Urho3D::Vector2 &)) &Urho3D::Rect::Define, "todo: docstring", py::arg("point"))
@@ -6080,15 +6068,13 @@ pyclass_Var_Urho3D_Serializer
   .def("WriteString", (bool (Urho3D::Serializer::*)(const Urho3D::String &)) &Urho3D::Serializer::WriteString, "todo: docstring", py::arg("value"))
   .def("WriteFileID", (bool (Urho3D::Serializer::*)(const Urho3D::String &)) &Urho3D::Serializer::WriteFileID, "todo: docstring", py::arg("value"))
   .def("WriteStringHash", (bool (Urho3D::Serializer::*)(const Urho3D::StringHash &)) &Urho3D::Serializer::WriteStringHash, "todo: docstring", py::arg("value"))
-  //.def("WriteBuffer", (bool (Urho3D::Serializer::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Serializer::WriteBuffer, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("WriteBuffer", (bool (Urho3D::Serializer::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::Serializer::WriteBuffer, "todo: docstring", py::arg("value"))
   .def("WriteResourceRef", (bool (Urho3D::Serializer::*)(const Urho3D::ResourceRef &)) &Urho3D::Serializer::WriteResourceRef, "todo: docstring", py::arg("value"))
   .def("WriteResourceRefList", (bool (Urho3D::Serializer::*)(const Urho3D::ResourceRefList &)) &Urho3D::Serializer::WriteResourceRefList, "todo: docstring", py::arg("value"))
   .def("WriteVariant", (bool (Urho3D::Serializer::*)(const Urho3D::Variant &)) &Urho3D::Serializer::WriteVariant, "todo: docstring", py::arg("value"))
   .def("WriteVariantData", (bool (Urho3D::Serializer::*)(const Urho3D::Variant &)) &Urho3D::Serializer::WriteVariantData, "todo: docstring", py::arg("value"))
   .def("WriteVariantVector", (bool (Urho3D::Serializer::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::Serializer::WriteVariantVector, "todo: docstring", py::arg("value"))
-  //.def("WriteStringVector", (bool (Urho3D::Serializer::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Serializer::WriteStringVector, "todo: docstring", py::arg("value"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("WriteStringVector", (bool (Urho3D::Serializer::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::Serializer::WriteStringVector, "todo: docstring", py::arg("value"))
   .def("WriteVariantMap", (bool (Urho3D::Serializer::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &)) &Urho3D::Serializer::WriteVariantMap, "todo: docstring", py::arg("value"))
   .def("WriteVLE", (bool (Urho3D::Serializer::*)(unsigned int)) &Urho3D::Serializer::WriteVLE, "todo: docstring", py::arg("value"))
   .def("WriteNetID", (bool (Urho3D::Serializer::*)(unsigned int)) &Urho3D::Serializer::WriteNetID, "todo: docstring", py::arg("value"))
@@ -6344,8 +6330,7 @@ pyclass_Var_Urho3D_Cursor
   .def("GetShape", (const Urho3D::String & (Urho3D::Cursor::*)() const) &Urho3D::Cursor::GetShape, "todo: docstring")
   .def("GetUseSystemShapes", (bool (Urho3D::Cursor::*)() const) &Urho3D::Cursor::GetUseSystemShapes, "todo: docstring")
   .def("SetShapesAttr", (void (Urho3D::Cursor::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::Cursor::SetShapesAttr, "todo: docstring", py::arg("value"))
-  //.def("GetShapesAttr", (Urho3D::VariantVector (Urho3D::Cursor::*)() const) &Urho3D::Cursor::GetShapesAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetShapesAttr", (Urho3D::VariantVector (Urho3D::Cursor::*)() const) &Urho3D::Cursor::GetShapesAttr, "todo: docstring")
   .def("ApplyOSCursorShape", (void (Urho3D::Cursor::*)()) &Urho3D::Cursor::ApplyOSCursorShape, "todo: docstring")
 // Class Variables:
 ;
@@ -6547,13 +6532,10 @@ pyclass_Var_Urho3D_AnimatedModel
   .def("SetModelAttr", (void (Urho3D::AnimatedModel::*)(const Urho3D::ResourceRef &)) &Urho3D::AnimatedModel::SetModelAttr, "todo: docstring", py::arg("value"))
   .def("SetBonesEnabledAttr", (void (Urho3D::AnimatedModel::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::AnimatedModel::SetBonesEnabledAttr, "todo: docstring", py::arg("value"))
   .def("SetAnimationStatesAttr", (void (Urho3D::AnimatedModel::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::AnimatedModel::SetAnimationStatesAttr, "todo: docstring", py::arg("value"))
-  //.def("SetMorphsAttr", (void (Urho3D::AnimatedModel::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::AnimatedModel::SetMorphsAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetMorphsAttr", (void (Urho3D::AnimatedModel::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::AnimatedModel::SetMorphsAttr, "todo: docstring", py::arg("value"))
   .def("GetModelAttr", (Urho3D::ResourceRef (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetModelAttr, "todo: docstring")
-  //.def("GetBonesEnabledAttr", (Urho3D::VariantVector (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetBonesEnabledAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetAnimationStatesAttr", (Urho3D::VariantVector (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetAnimationStatesAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBonesEnabledAttr", (Urho3D::VariantVector (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetBonesEnabledAttr, "todo: docstring")
+  .def("GetAnimationStatesAttr", (Urho3D::VariantVector (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetAnimationStatesAttr, "todo: docstring")
   //.def("GetMorphsAttr", (const PODVector<unsigned char> & (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetMorphsAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetGeometryBoneMappings", (const Vector<PODVector<unsigned int> > & (Urho3D::AnimatedModel::*)() const) &Urho3D::AnimatedModel::GetGeometryBoneMappings, "todo: docstring")
@@ -6609,11 +6591,9 @@ pyclass_Var_Urho3D_BillboardSet
   .def("GetAnimationLodBias", (float (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetAnimationLodBias, "todo: docstring")
   .def("SetMaterialAttr", (void (Urho3D::BillboardSet::*)(const Urho3D::ResourceRef &)) &Urho3D::BillboardSet::SetMaterialAttr, "todo: docstring", py::arg("value"))
   .def("SetBillboardsAttr", (void (Urho3D::BillboardSet::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::BillboardSet::SetBillboardsAttr, "todo: docstring", py::arg("value"))
-  //.def("SetNetBillboardsAttr", (void (Urho3D::BillboardSet::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::BillboardSet::SetNetBillboardsAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNetBillboardsAttr", (void (Urho3D::BillboardSet::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::BillboardSet::SetNetBillboardsAttr, "todo: docstring", py::arg("value"))
   .def("GetMaterialAttr", (Urho3D::ResourceRef (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetMaterialAttr, "todo: docstring")
-  //.def("GetBillboardsAttr", (Urho3D::VariantVector (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetBillboardsAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBillboardsAttr", (Urho3D::VariantVector (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetBillboardsAttr, "todo: docstring")
   //.def("GetNetBillboardsAttr", (const PODVector<unsigned char> & (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetNetBillboardsAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
 // Class Variables:
@@ -6655,8 +6635,7 @@ pyclass_Var_Urho3D_DecalSet
   .def("GetMaxIndices", (unsigned int (Urho3D::DecalSet::*)() const) &Urho3D::DecalSet::GetMaxIndices, "todo: docstring")
   .def("GetOptimizeBufferSize", (bool (Urho3D::DecalSet::*)() const) &Urho3D::DecalSet::GetOptimizeBufferSize, "todo: docstring")
   .def("SetMaterialAttr", (void (Urho3D::DecalSet::*)(const Urho3D::ResourceRef &)) &Urho3D::DecalSet::SetMaterialAttr, "todo: docstring", py::arg("value"))
-  //.def("SetDecalsAttr", (void (Urho3D::DecalSet::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::DecalSet::SetDecalsAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetDecalsAttr", (void (Urho3D::DecalSet::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::DecalSet::SetDecalsAttr, "todo: docstring", py::arg("value"))
   .def("GetMaterialAttr", (Urho3D::ResourceRef (Urho3D::DecalSet::*)() const) &Urho3D::DecalSet::GetMaterialAttr, "todo: docstring")
   //.def("GetDecalsAttr", (PODVector<unsigned char> (Urho3D::DecalSet::*)() const) &Urho3D::DecalSet::GetDecalsAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -6723,10 +6702,8 @@ pyclass_Var_Urho3D_ParticleEmitter
   .def("SetEffectAttr", (void (Urho3D::ParticleEmitter::*)(const Urho3D::ResourceRef &)) &Urho3D::ParticleEmitter::SetEffectAttr, "todo: docstring", py::arg("value"))
   .def("GetEffectAttr", (Urho3D::ResourceRef (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetEffectAttr, "todo: docstring")
   .def("SetParticlesAttr", (void (Urho3D::ParticleEmitter::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::ParticleEmitter::SetParticlesAttr, "todo: docstring", py::arg("value"))
-  //.def("GetParticlesAttr", (Urho3D::VariantVector (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetParticlesAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetParticleBillboardsAttr", (Urho3D::VariantVector (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetParticleBillboardsAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetParticlesAttr", (Urho3D::VariantVector (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetParticlesAttr, "todo: docstring")
+  .def("GetParticleBillboardsAttr", (Urho3D::VariantVector (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetParticleBillboardsAttr, "todo: docstring")
 // Class Variables:
 ;
 }
@@ -6906,18 +6883,15 @@ pyclass_Var_Urho3D_LuaScriptInstance
   .def("RemoveEventHandler", (void (Urho3D::LuaScriptInstance::*)(Urho3D::Object *, const Urho3D::String &)) &Urho3D::LuaScriptInstance::RemoveEventHandler, "todo: docstring", py::arg("sender"), py::arg("eventName"))
   .def("RemoveEventHandlers", (void (Urho3D::LuaScriptInstance::*)(Urho3D::Object *)) &Urho3D::LuaScriptInstance::RemoveEventHandlers, "todo: docstring", py::arg("sender"))
   .def("RemoveAllEventHandlers", (void (Urho3D::LuaScriptInstance::*)()) &Urho3D::LuaScriptInstance::RemoveAllEventHandlers, "todo: docstring")
-  //.def("RemoveEventHandlersExcept", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::LuaScriptInstance::RemoveEventHandlersExcept, "todo: docstring", py::arg("exceptionNames"))
-    //['Urho3D::Vector<Urho3D::String>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("RemoveEventHandlersExcept", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::LuaScriptInstance::RemoveEventHandlersExcept, "todo: docstring", py::arg("exceptionNames"))
   .def("HasEventHandler", (bool (Urho3D::LuaScriptInstance::*)(const Urho3D::String &) const) &Urho3D::LuaScriptInstance::HasEventHandler, "todo: docstring", py::arg("eventName"))
   .def("HasEventHandler", (bool (Urho3D::LuaScriptInstance::*)(Urho3D::Object *, const Urho3D::String &) const) &Urho3D::LuaScriptInstance::HasEventHandler, "todo: docstring", py::arg("sender"), py::arg("eventName"))
   .def("CreateObject", (bool (Urho3D::LuaScriptInstance::*)(const Urho3D::String &)) &Urho3D::LuaScriptInstance::CreateObject, "todo: docstring", py::arg("scriptObjectType"))
   .def("CreateObject", (bool (Urho3D::LuaScriptInstance::*)(Urho3D::LuaFile *, const Urho3D::String &)) &Urho3D::LuaScriptInstance::CreateObject, "todo: docstring", py::arg("scriptFile"), py::arg("scriptObjectType"))
   .def("SetScriptFile", (void (Urho3D::LuaScriptInstance::*)(Urho3D::LuaFile *)) &Urho3D::LuaScriptInstance::SetScriptFile, "todo: docstring", py::arg("scriptFile"))
   .def("SetScriptObjectType", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::String &)) &Urho3D::LuaScriptInstance::SetScriptObjectType, "todo: docstring", py::arg("scriptObjectType"))
-  //.def("SetScriptDataAttr", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::LuaScriptInstance::SetScriptDataAttr, "todo: docstring", py::arg("data"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetScriptNetworkDataAttr", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::LuaScriptInstance::SetScriptNetworkDataAttr, "todo: docstring", py::arg("data"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetScriptDataAttr", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::LuaScriptInstance::SetScriptDataAttr, "todo: docstring", py::arg("data"))
+  .def("SetScriptNetworkDataAttr", (void (Urho3D::LuaScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::LuaScriptInstance::SetScriptNetworkDataAttr, "todo: docstring", py::arg("data"))
   .def("GetScriptFile", (Urho3D::LuaFile * (Urho3D::LuaScriptInstance::*)() const) &Urho3D::LuaScriptInstance::GetScriptFile, "todo: docstring")
   .def("GetScriptObjectType", (const Urho3D::String & (Urho3D::LuaScriptInstance::*)() const) &Urho3D::LuaScriptInstance::GetScriptObjectType, "todo: docstring")
   .def("GetScriptObjectRef", (int (Urho3D::LuaScriptInstance::*)() const) &Urho3D::LuaScriptInstance::GetScriptObjectRef, "todo: docstring")
@@ -6964,8 +6938,7 @@ pyclass_Var_Urho3D_NavigationMesh
   .def("Build", (bool (Urho3D::NavigationMesh::*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &)) &Urho3D::NavigationMesh::Build, "todo: docstring", py::arg("from"), py::arg("to"))
   //.def("GetTileData", (PODVector<unsigned char> (Urho3D::NavigationMesh::*)(const Urho3D::IntVector2 &) const) &Urho3D::NavigationMesh::GetTileData, "todo: docstring", py::arg("tile"))
     //['Urho3D::IntVector2']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("AddTile", (bool (Urho3D::NavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::NavigationMesh::AddTile, "todo: docstring", py::arg("tileData"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("AddTile", (bool (Urho3D::NavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::NavigationMesh::AddTile, "todo: docstring", py::arg("tileData"))
   .def("RemoveTile", (void (Urho3D::NavigationMesh::*)(const Urho3D::IntVector2 &)) &Urho3D::NavigationMesh::RemoveTile, "todo: docstring", py::arg("tile"))
   .def("RemoveAllTiles", (void (Urho3D::NavigationMesh::*)()) &Urho3D::NavigationMesh::RemoveAllTiles, "todo: docstring")
   .def("HasTile", (bool (Urho3D::NavigationMesh::*)(const Urho3D::IntVector2 &) const) &Urho3D::NavigationMesh::HasTile, "todo: docstring", py::arg("tile"))
@@ -7013,8 +6986,7 @@ pyclass_Var_Urho3D_NavigationMesh
     //['Urho3D::NavmeshPartitionType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("GetPartitionType", (Urho3D::NavmeshPartitionType (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetPartitionType, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("SetNavigationDataAttr", (void (Urho3D::NavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::NavigationMesh::SetNavigationDataAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNavigationDataAttr", (void (Urho3D::NavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::NavigationMesh::SetNavigationDataAttr, "todo: docstring", py::arg("value"))
   //.def("GetNavigationDataAttr", (PODVector<unsigned char> (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetNavigationDataAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("SetDrawOffMeshConnections", (void (Urho3D::NavigationMesh::*)(bool)) &Urho3D::NavigationMesh::SetDrawOffMeshConnections, "todo: docstring", py::arg("enable"))
@@ -7320,8 +7292,7 @@ pyclass_Var_Urho3D_RaycastVehicle
   .def("GetContactNormal", (Urho3D::Vector3 (Urho3D::RaycastVehicle::*)(int) const) &Urho3D::RaycastVehicle::GetContactNormal, "todo: docstring", py::arg("wheel"))
   .def("GetInAirRPM", (float (Urho3D::RaycastVehicle::*)() const) &Urho3D::RaycastVehicle::GetInAirRPM, "todo: docstring")
   .def("GetCoordinateSystem", (Urho3D::IntVector3 (Urho3D::RaycastVehicle::*)() const) &Urho3D::RaycastVehicle::GetCoordinateSystem, "todo: docstring")
-  //.def("GetWheelDataAttr", (Urho3D::VariantVector (Urho3D::RaycastVehicle::*)() const) &Urho3D::RaycastVehicle::GetWheelDataAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetWheelDataAttr", (Urho3D::VariantVector (Urho3D::RaycastVehicle::*)() const) &Urho3D::RaycastVehicle::GetWheelDataAttr, "todo: docstring")
   .def("SetWheelDataAttr", (void (Urho3D::RaycastVehicle::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::RaycastVehicle::SetWheelDataAttr, "todo: docstring", py::arg("value"))
 // Class Variables:
   .def_readonly_static("RIGHT_UP_FORWARD",&Urho3D::RaycastVehicle::RIGHT_UP_FORWARD, "todo: var docstring")//const Urho3D::IntVector3
@@ -7364,8 +7335,7 @@ pyclass_Var_Urho3D_SplinePath
   .def("Reset", (void (Urho3D::SplinePath::*)()) &Urho3D::SplinePath::Reset, "todo: docstring")
   .def("IsFinished", (bool (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::IsFinished, "todo: docstring")
   .def("SetControlPointIdsAttr", (void (Urho3D::SplinePath::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::SplinePath::SetControlPointIdsAttr, "todo: docstring", py::arg("value"))
-  //.def("GetControlPointIdsAttr", (const Urho3D::VariantVector & (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetControlPointIdsAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetControlPointIdsAttr", (const Urho3D::VariantVector & (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetControlPointIdsAttr, "todo: docstring")
   .def("SetControlledIdAttr", (void (Urho3D::SplinePath::*)(unsigned int)) &Urho3D::SplinePath::SetControlledIdAttr, "todo: docstring", py::arg("value"))
   .def("GetControlledIdAttr", (unsigned int (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetControlledIdAttr, "todo: docstring")
 // Class Variables:
@@ -7754,42 +7724,44 @@ pyclass_Var_Urho3D_IntVector3
   .def(py::init<int, int, int>(), "todo: constructor docstring")
   .def(py::init<const int *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::IntVector3 &>(), "todo: constructor docstring")
-  //.def("__assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &)) &Urho3D::IntVector3::operator=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  //  .def(py::self = Urho3D::IntVector3(), "todo: docstring").def("__assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &)) &Urho3D::IntVector3::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::IntVector3']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__eq__", (bool (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &) const) &Urho3D::IntVector3::operator==, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self == Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neq__", (bool (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &) const) &Urho3D::IntVector3::operator!=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self != Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__pos__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &) const) &Urho3D::IntVector3::operator+, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntVector3']; op +@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)() const) &Urho3D::IntVector3::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self + Urho3D::IntVector3(), "todo: docstring")
+    //['Urho3D::IntVector3']; op +, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(-py::self, "todo: docstring")
     //[]; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__neg__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &) const) &Urho3D::IntVector3::operator-, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntVector3']; op -@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)(int) const) &Urho3D::IntVector3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['int']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__deref__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &) const) &Urho3D::IntVector3::operator*, py::operator, "todo: operator docstring. Switch to py::self ops.")
-    //['Urho3D::IntVector3']; op *@, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)(int) const) &Urho3D::IntVector3::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self - Urho3D::IntVector3(), "todo: docstring")
+    //['Urho3D::IntVector3']; op -, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * int(), "todo: docstring")
+    //['int']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self * Urho3D::IntVector3(), "todo: docstring")
+    //['Urho3D::IntVector3']; op *, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
+  .def(py::self / int(), "todo: docstring")
     //['int']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div__", (Urho3D::IntVector3 (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &) const) &Urho3D::IntVector3::operator/, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self / Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op /, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__add_assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &)) &Urho3D::IntVector3::operator+=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self += Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op +=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__sub_assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &)) &Urho3D::IntVector3::operator-=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self -= Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op -=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(int)) &Urho3D::IntVector3::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= int(), "todo: docstring")
     //['int']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__mul_assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &)) &Urho3D::IntVector3::operator*=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self *= Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op *=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(int)) &Urho3D::IntVector3::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= int(), "todo: docstring")
     //['int']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("__div_assign__", (Urho3D::IntVector3 & (Urho3D::IntVector3::*)(const Urho3D::IntVector3 &)) &Urho3D::IntVector3::operator/=, py::operator, "todo: operator docstring. Switch to py::self ops.")
+  .def(py::self /= Urho3D::IntVector3(), "todo: docstring")
     //['Urho3D::IntVector3']; op /=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Data", (const int * (Urho3D::IntVector3::*)() const) &Urho3D::IntVector3::Data, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::IntVector3::*)() const) &Urho3D::IntVector3::ToString, "todo: docstring")
   .def("ToHash", (unsigned int (Urho3D::IntVector3::*)() const) &Urho3D::IntVector3::ToHash, "todo: docstring")
   .def("Length", (float (Urho3D::IntVector3::*)() const) &Urho3D::IntVector3::Length, "todo: docstring")
+// External Operators:
+  .def(int() * py::self, "todo: docstring")
 // Class Variables:
   .def_readwrite("x",&Urho3D::IntVector3::x_, "todo: var docstring")//int
   .def_readwrite("y",&Urho3D::IntVector3::y_, "todo: var docstring")//int
@@ -7942,12 +7914,9 @@ pyclass_Var_Urho3D_ScriptInstance
   .def("IsA", (bool (Urho3D::ScriptInstance::*)(const Urho3D::String &) const) &Urho3D::ScriptInstance::IsA, "todo: docstring", py::arg("className"))
   .def("HasMethod", (bool (Urho3D::ScriptInstance::*)(const Urho3D::String &) const) &Urho3D::ScriptInstance::HasMethod, "todo: docstring", py::arg("declaration"))
   .def("SetScriptFileAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::ResourceRef &)) &Urho3D::ScriptInstance::SetScriptFileAttr, "todo: docstring", py::arg("value"))
-  //.def("SetDelayedCallsAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::ScriptInstance::SetDelayedCallsAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetScriptDataAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::ScriptInstance::SetScriptDataAttr, "todo: docstring", py::arg("data"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetScriptNetworkDataAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::ScriptInstance::SetScriptNetworkDataAttr, "todo: docstring", py::arg("data"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetDelayedCallsAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::ScriptInstance::SetDelayedCallsAttr, "todo: docstring", py::arg("value"))
+  .def("SetScriptDataAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::ScriptInstance::SetScriptDataAttr, "todo: docstring", py::arg("data"))
+  .def("SetScriptNetworkDataAttr", (void (Urho3D::ScriptInstance::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::ScriptInstance::SetScriptNetworkDataAttr, "todo: docstring", py::arg("data"))
   .def("GetScriptFileAttr", (Urho3D::ResourceRef (Urho3D::ScriptInstance::*)() const) &Urho3D::ScriptInstance::GetScriptFileAttr, "todo: docstring")
   //.def("GetDelayedCallsAttr", (PODVector<unsigned char> (Urho3D::ScriptInstance::*)() const) &Urho3D::ScriptInstance::GetDelayedCallsAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -8413,15 +8382,12 @@ pyclass_Var_Urho3D_AnimationController
   //.def("GetAnimations", (const Vector<Urho3D::AnimationControl> & (Urho3D::AnimationController::*)() const) &Urho3D::AnimationController::GetAnimations, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("SetAnimationsAttr", (void (Urho3D::AnimationController::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::AnimationController::SetAnimationsAttr, "todo: docstring", py::arg("value"))
-  //.def("SetNetAnimationsAttr", (void (Urho3D::AnimationController::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::AnimationController::SetNetAnimationsAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNetAnimationsAttr", (void (Urho3D::AnimationController::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::AnimationController::SetNetAnimationsAttr, "todo: docstring", py::arg("value"))
   .def("SetNodeAnimationStatesAttr", (void (Urho3D::AnimationController::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::AnimationController::SetNodeAnimationStatesAttr, "todo: docstring", py::arg("value"))
-  //.def("GetAnimationsAttr", (Urho3D::VariantVector (Urho3D::AnimationController::*)() const) &Urho3D::AnimationController::GetAnimationsAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAnimationsAttr", (Urho3D::VariantVector (Urho3D::AnimationController::*)() const) &Urho3D::AnimationController::GetAnimationsAttr, "todo: docstring")
   //.def("GetNetAnimationsAttr", (const PODVector<unsigned char> & (Urho3D::AnimationController::*)() const) &Urho3D::AnimationController::GetNetAnimationsAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetNodeAnimationStatesAttr", (Urho3D::VariantVector (Urho3D::AnimationController::*)() const) &Urho3D::AnimationController::GetNodeAnimationStatesAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetNodeAnimationStatesAttr", (Urho3D::VariantVector (Urho3D::AnimationController::*)() const) &Urho3D::AnimationController::GetNodeAnimationStatesAttr, "todo: docstring")
 // Class Variables:
 ;
 }
@@ -8595,8 +8561,7 @@ pyclass_Var_Urho3D_StaticModelGroup
   .def("GetNumInstanceNodes", (unsigned int (Urho3D::StaticModelGroup::*)() const) &Urho3D::StaticModelGroup::GetNumInstanceNodes, "todo: docstring")
   .def("GetInstanceNode", (Urho3D::Node * (Urho3D::StaticModelGroup::*)(unsigned int) const) &Urho3D::StaticModelGroup::GetInstanceNode, "todo: docstring", py::arg("index"))
   .def("SetNodeIDsAttr", (void (Urho3D::StaticModelGroup::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::StaticModelGroup::SetNodeIDsAttr, "todo: docstring", py::arg("value"))
-  //.def("GetNodeIDsAttr", (const Urho3D::VariantVector & (Urho3D::StaticModelGroup::*)() const) &Urho3D::StaticModelGroup::GetNodeIDsAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetNodeIDsAttr", (const Urho3D::VariantVector & (Urho3D::StaticModelGroup::*)() const) &Urho3D::StaticModelGroup::GetNodeIDsAttr, "todo: docstring")
 // Class Variables:
 ;
 }
@@ -8713,14 +8678,12 @@ pyclass_Var_Urho3D_CrowdManager
   .def("GetNavigationMesh", (Urho3D::NavigationMesh * (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetNavigationMesh, "todo: docstring")
   .def("GetNumQueryFilterTypes", (unsigned int (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetNumQueryFilterTypes, "todo: docstring")
   .def("GetNumAreas", (unsigned int (Urho3D::CrowdManager::*)(unsigned int) const) &Urho3D::CrowdManager::GetNumAreas, "todo: docstring", py::arg("queryFilterType"))
-  //.def("GetQueryFilterTypesAttr", (Urho3D::VariantVector (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetQueryFilterTypesAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetQueryFilterTypesAttr", (Urho3D::VariantVector (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetQueryFilterTypesAttr, "todo: docstring")
   .def("GetIncludeFlags", (unsigned short (Urho3D::CrowdManager::*)(unsigned int) const) &Urho3D::CrowdManager::GetIncludeFlags, "todo: docstring", py::arg("queryFilterType"))
   .def("GetExcludeFlags", (unsigned short (Urho3D::CrowdManager::*)(unsigned int) const) &Urho3D::CrowdManager::GetExcludeFlags, "todo: docstring", py::arg("queryFilterType"))
   .def("GetAreaCost", (float (Urho3D::CrowdManager::*)(unsigned int, unsigned int) const) &Urho3D::CrowdManager::GetAreaCost, "todo: docstring", py::arg("queryFilterType"), py::arg("areaID"))
   .def("GetNumObstacleAvoidanceTypes", (unsigned int (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetNumObstacleAvoidanceTypes, "todo: docstring")
-  //.def("GetObstacleAvoidanceTypesAttr", (Urho3D::VariantVector (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetObstacleAvoidanceTypesAttr, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetObstacleAvoidanceTypesAttr", (Urho3D::VariantVector (Urho3D::CrowdManager::*)() const) &Urho3D::CrowdManager::GetObstacleAvoidanceTypesAttr, "todo: docstring")
   //.def("GetObstacleAvoidanceParams", (const Urho3D::CrowdObstacleAvoidanceParams & (Urho3D::CrowdManager::*)(unsigned int) const) &Urho3D::CrowdManager::GetObstacleAvoidanceParams, "todo: docstring", py::arg("obstacleAvoidanceType"))
     //['unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
 // Class Variables:
@@ -8744,14 +8707,12 @@ pyclass_Var_Urho3D_DynamicNavigationMesh
   //.def("GetTileData", (PODVector<unsigned char> (Urho3D::DynamicNavigationMesh::*)(const Urho3D::IntVector2 &) const) &Urho3D::DynamicNavigationMesh::GetTileData, "todo: docstring", py::arg("tile"))
     //['Urho3D::IntVector2']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("IsObstacleInTile", (bool (Urho3D::DynamicNavigationMesh::*)(Urho3D::Obstacle *, const Urho3D::IntVector2 &) const) &Urho3D::DynamicNavigationMesh::IsObstacleInTile, "todo: docstring", py::arg("obstacle"), py::arg("tile"))
-  //.def("AddTile", (bool (Urho3D::DynamicNavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::DynamicNavigationMesh::AddTile, "todo: docstring", py::arg("tileData"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("AddTile", (bool (Urho3D::DynamicNavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::DynamicNavigationMesh::AddTile, "todo: docstring", py::arg("tileData"))
   .def("RemoveTile", (void (Urho3D::DynamicNavigationMesh::*)(const Urho3D::IntVector2 &)) &Urho3D::DynamicNavigationMesh::RemoveTile, "todo: docstring", py::arg("tile"))
   .def("RemoveAllTiles", (void (Urho3D::DynamicNavigationMesh::*)()) &Urho3D::DynamicNavigationMesh::RemoveAllTiles, "todo: docstring")
   .def("DrawDebugGeometry", (void (Urho3D::DynamicNavigationMesh::*)(Urho3D::DebugRenderer *, bool)) &Urho3D::DynamicNavigationMesh::DrawDebugGeometry, "todo: docstring", py::arg("debug"), py::arg("depthTest"))
   .def("DrawDebugGeometry", (void (Urho3D::DynamicNavigationMesh::*)(bool)) &Urho3D::DynamicNavigationMesh::DrawDebugGeometry, "todo: docstring", py::arg("depthTest"))
-  //.def("SetNavigationDataAttr", (void (Urho3D::DynamicNavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::DynamicNavigationMesh::SetNavigationDataAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNavigationDataAttr", (void (Urho3D::DynamicNavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::DynamicNavigationMesh::SetNavigationDataAttr, "todo: docstring", py::arg("value"))
   //.def("GetNavigationDataAttr", (PODVector<unsigned char> (Urho3D::DynamicNavigationMesh::*)() const) &Urho3D::DynamicNavigationMesh::GetNavigationDataAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("SetMaxObstacles", (void (Urho3D::DynamicNavigationMesh::*)(unsigned int)) &Urho3D::DynamicNavigationMesh::SetMaxObstacles, "todo: docstring", py::arg("maxObstacles"))
@@ -8859,8 +8820,7 @@ pyclass_Var_Urho3D_RigidBody
   .def("ApplyWorldTransform", (void (Urho3D::RigidBody::*)(const Urho3D::Vector3 &, const Urho3D::Quaternion &)) &Urho3D::RigidBody::ApplyWorldTransform, "todo: docstring", py::arg("newWorldPosition"), py::arg("newWorldRotation"))
   .def("UpdateMass", (void (Urho3D::RigidBody::*)()) &Urho3D::RigidBody::UpdateMass, "todo: docstring")
   .def("UpdateGravity", (void (Urho3D::RigidBody::*)()) &Urho3D::RigidBody::UpdateGravity, "todo: docstring")
-  //.def("SetNetAngularVelocityAttr", (void (Urho3D::RigidBody::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::RigidBody::SetNetAngularVelocityAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNetAngularVelocityAttr", (void (Urho3D::RigidBody::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::RigidBody::SetNetAngularVelocityAttr, "todo: docstring", py::arg("value"))
   //.def("GetNetAngularVelocityAttr", (const PODVector<unsigned char> & (Urho3D::RigidBody::*)() const) &Urho3D::RigidBody::GetNetAngularVelocityAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("AddConstraint", (void (Urho3D::RigidBody::*)(Urho3D::Constraint *)) &Urho3D::RigidBody::AddConstraint, "todo: docstring", py::arg("constraint"))
@@ -9103,8 +9063,7 @@ pyclass_Var_Urho3D_CollisionChain2D
   .def("SetVertex", (void (Urho3D::CollisionChain2D::*)(unsigned int, const Urho3D::Vector2 &)) &Urho3D::CollisionChain2D::SetVertex, "todo: docstring", py::arg("index"), py::arg("vertex"))
   //.def("SetVertices", (void (Urho3D::CollisionChain2D::*)(const Urho3D::PODVector<Urho3D::Vector2> &)) &Urho3D::CollisionChain2D::SetVertices, "todo: docstring", py::arg("vertices"))
     //['Urho3D::PODVector<Urho3D::Vector2>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetVerticesAttr", (void (Urho3D::CollisionChain2D::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::CollisionChain2D::SetVerticesAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetVerticesAttr", (void (Urho3D::CollisionChain2D::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::CollisionChain2D::SetVerticesAttr, "todo: docstring", py::arg("value"))
   .def("GetLoop", (bool (Urho3D::CollisionChain2D::*)() const) &Urho3D::CollisionChain2D::GetLoop, "todo: docstring")
   .def("GetVertexCount", (unsigned int (Urho3D::CollisionChain2D::*)() const) &Urho3D::CollisionChain2D::GetVertexCount, "todo: docstring")
   .def("GetVertex", (const Urho3D::Vector2 & (Urho3D::CollisionChain2D::*)(unsigned int) const) &Urho3D::CollisionChain2D::GetVertex, "todo: docstring", py::arg("index"))
@@ -9396,15 +9355,13 @@ void Implement_Urho3D_VectorBuffer(py::class_<Urho3D::VectorBuffer, Urho3D::Exte
     // Class VectorBuffer Implementation
 pyclass_Var_Urho3D_VectorBuffer
   .def(py::init<>(), "todo: constructor docstring")
-  //.def(py::init<const Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<const Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
   .def(py::init<const void *, unsigned int>(), "todo: constructor docstring")
   .def(py::init<Urho3D::Deserializer &, unsigned int>(), "todo: constructor docstring")
   .def("Read", (unsigned int (Urho3D::VectorBuffer::*)(void *, unsigned int)) &Urho3D::VectorBuffer::Read, "todo: docstring", py::arg("dest"), py::arg("size"))
   .def("Seek", (unsigned int (Urho3D::VectorBuffer::*)(unsigned int)) &Urho3D::VectorBuffer::Seek, "todo: docstring", py::arg("position"))
   .def("Write", (unsigned int (Urho3D::VectorBuffer::*)(const void *, unsigned int)) &Urho3D::VectorBuffer::Write, "todo: docstring", py::arg("data"), py::arg("size"))
-  //.def("SetData", (void (Urho3D::VectorBuffer::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::VectorBuffer::SetData, "todo: docstring", py::arg("data"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetData", (void (Urho3D::VectorBuffer::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::VectorBuffer::SetData, "todo: docstring", py::arg("data"))
   .def("SetData", (void (Urho3D::VectorBuffer::*)(const void *, unsigned int)) &Urho3D::VectorBuffer::SetData, "todo: docstring", py::arg("data"), py::arg("size"))
   .def("SetData", (void (Urho3D::VectorBuffer::*)(Urho3D::Deserializer &, unsigned int)) &Urho3D::VectorBuffer::SetData, "todo: docstring", py::arg("source"), py::arg("size"))
   .def("Clear", (void (Urho3D::VectorBuffer::*)()) &Urho3D::VectorBuffer::Clear, "todo: docstring")
@@ -9671,8 +9628,7 @@ pyclass_Var_Urho3D_CustomGeometry
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetVertex", (Urho3D::CustomGeometryVertex * (Urho3D::CustomGeometry::*)(unsigned int, unsigned int)) &Urho3D::CustomGeometry::GetVertex, "todo: docstring", py::arg("geometryIndex"), py::arg("vertexNum"))
     //['unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("SetGeometryDataAttr", (void (Urho3D::CustomGeometry::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::CustomGeometry::SetGeometryDataAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetGeometryDataAttr", (void (Urho3D::CustomGeometry::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::CustomGeometry::SetGeometryDataAttr, "todo: docstring", py::arg("value"))
   .def("SetMaterialsAttr", (void (Urho3D::CustomGeometry::*)(const Urho3D::ResourceRefList &)) &Urho3D::CustomGeometry::SetMaterialsAttr, "todo: docstring", py::arg("value"))
   //.def("GetGeometryDataAttr", (PODVector<unsigned char> (Urho3D::CustomGeometry::*)() const) &Urho3D::CustomGeometry::GetGeometryDataAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -9747,10 +9703,8 @@ void Implement_Urho3D_MemoryBuffer(py::class_<Urho3D::MemoryBuffer, Urho3D::Exte
 pyclass_Var_Urho3D_MemoryBuffer
   .def(py::init<void *, unsigned int>(), "todo: constructor docstring")
   .def(py::init<const void *, unsigned int>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def(py::init<const Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
+  .def(py::init<const Urho3D::PODVector<unsigned char> &>(), "todo: constructor docstring")
   .def("Read", (unsigned int (Urho3D::MemoryBuffer::*)(void *, unsigned int)) &Urho3D::MemoryBuffer::Read, "todo: docstring", py::arg("dest"), py::arg("size"))
   .def("Seek", (unsigned int (Urho3D::MemoryBuffer::*)(unsigned int)) &Urho3D::MemoryBuffer::Seek, "todo: docstring", py::arg("position"))
   .def("Write", (unsigned int (Urho3D::MemoryBuffer::*)(const void *, unsigned int)) &Urho3D::MemoryBuffer::Write, "todo: docstring", py::arg("data"), py::arg("size"))
@@ -10488,8 +10442,7 @@ pyclass_Var_Urho3D_CollisionPolygon2D
   .def("GetVertex", (const Urho3D::Vector2 & (Urho3D::CollisionPolygon2D::*)(unsigned int) const) &Urho3D::CollisionPolygon2D::GetVertex, "todo: docstring", py::arg("index"))
   //.def("GetVertices", (const PODVector<Urho3D::Vector2> & (Urho3D::CollisionPolygon2D::*)() const) &Urho3D::CollisionPolygon2D::GetVertices, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("SetVerticesAttr", (void (Urho3D::CollisionPolygon2D::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::CollisionPolygon2D::SetVerticesAttr, "todo: docstring", py::arg("value"))
-    //['Urho3D::PODVector<unsigned char>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetVerticesAttr", (void (Urho3D::CollisionPolygon2D::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::CollisionPolygon2D::SetVerticesAttr, "todo: docstring", py::arg("value"))
   //.def("GetVerticesAttr", (PODVector<unsigned char> (Urho3D::CollisionPolygon2D::*)() const) &Urho3D::CollisionPolygon2D::GetVerticesAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
 // Class Variables:
@@ -11904,7 +11857,11 @@ auto pyclass_Var_Rocket_Core_Font = py::class_<PythonBindingsFakeModule_Rocket_C
     // Bind Container classes
     auto pyclass_Var_Urho3D_Vector__int_ = py::bind_Vector<Urho3D::Vector<int>>(pyclass_Var_Urho3D,"Vector_int");
 
+    auto pyclass_Var_Urho3D_Vector__unsigned_char_ = py::bind_Vector<Urho3D::PODVector<unsigned char>>(pyclass_Var_Urho3D,"ByteVector");
+
     auto pyclass_Var_Urho3D_VariantVector = py::bind_Vector<Urho3D::Vector<Variant>>(pyclass_Var_Urho3D,"VariantVector");
+
+    auto pyclass_Var_Urho3D_StringVector = py::bind_Vector<Urho3D::StringVector>(pyclass_Var_Urho3D,"StringVector");
     
     auto pyclass_Var_Urho3D_VariantMap = py::bind_Map<Urho3D::VariantMap>(pyclass_Var_Urho3D,"VariantMap");
 
@@ -12793,8 +12750,8 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   .def("Swap", (void (*)(Urho3D::VectorBase &, Urho3D::VectorBase &)) &Urho3D::Swap, "todo: docstring", py::arg("first"), py::arg("second"))
   .def("Swap", (void (*)(Urho3D::ListBase &, Urho3D::ListBase &)) &Urho3D::Swap, "todo: docstring", py::arg("first"), py::arg("second"))
   .def("Swap", (void (*)(Urho3D::HashBase &, Urho3D::HashBase &)) &Urho3D::Swap, "todo: docstring", py::arg("first"), py::arg("second"))
-  // Operator +@ implemented in None
-  // Operator +@ implemented in None
+  // Operator Urho3D::String operator+(const char * lhs=None, const Urho3D::String & rhs=None) implemented in Urho3D::String
+  // Operator Urho3D::String operator+(const wchar_t * lhs=None, const Urho3D::String & rhs=None) implemented in Urho3D::String
   .def("FloatToRawIntBits", (unsigned int (*)(float)) &Urho3D::FloatToRawIntBits, "todo: docstring", py::arg("value"))
   .def("IsPowerOfTwo", (bool (*)(unsigned int)) &Urho3D::IsPowerOfTwo, "todo: docstring", py::arg("value"))
   .def("NextPowerOfTwo", (unsigned int (*)(unsigned int)) &Urho3D::NextPowerOfTwo, "todo: docstring", py::arg("value"))
@@ -12809,8 +12766,8 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   .def("RandomNormal", (float (*)(float, float)) &Urho3D::RandomNormal, "todo: docstring", py::arg("meanValue"), py::arg("variance"))
   .def("FloatToHalf", (unsigned short (*)(float)) &Urho3D::FloatToHalf, "todo: docstring", py::arg("value"))
   .def("HalfToFloat", (float (*)(unsigned short)) &Urho3D::HalfToFloat, "todo: docstring", py::arg("value"))
-  // Operator *@ implemented in None
-  // Operator *@ implemented in None
+  // Operator Urho3D::Vector2 operator*(float lhs=None, const Urho3D::Vector2 & rhs=None) implemented in Urho3D::Vector2
+  // Operator Urho3D::IntVector2 operator*(int lhs=None, const Urho3D::IntVector2 & rhs=None) implemented in Urho3D::IntVector2
   .def("VectorLerp", (Urho3D::Vector2 (*)(const Urho3D::Vector2 &, const Urho3D::Vector2 &, const Urho3D::Vector2 &)) &Urho3D::VectorLerp, "todo: docstring", py::arg("lhs"), py::arg("rhs"), py::arg("t"))
   .def("VectorMin", (Urho3D::Vector2 (*)(const Urho3D::Vector2 &, const Urho3D::Vector2 &)) &Urho3D::VectorMin, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("VectorMax", (Urho3D::Vector2 (*)(const Urho3D::Vector2 &, const Urho3D::Vector2 &)) &Urho3D::VectorMax, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
@@ -12824,8 +12781,8 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   .def("VectorMax", (Urho3D::IntVector2 (*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &)) &Urho3D::VectorMax, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("StableRandom", (float (*)(const Urho3D::Vector2 &)) &Urho3D::StableRandom, "todo: docstring", py::arg("seed"))
   .def("StableRandom", (float (*)(float)) &Urho3D::StableRandom, "todo: docstring", py::arg("seed"))
-  // Operator *@ implemented in None
-  // Operator *@ implemented in None
+  // Operator Urho3D::Vector3 operator*(float lhs=None, const Urho3D::Vector3 & rhs=None) implemented in Urho3D::Vector3
+  // Operator Urho3D::IntVector3 operator*(int lhs=None, const Urho3D::IntVector3 & rhs=None) implemented in Urho3D::IntVector3
   .def("VectorLerp", (Urho3D::Vector3 (*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::VectorLerp, "todo: docstring", py::arg("lhs"), py::arg("rhs"), py::arg("t"))
   .def("VectorMin", (Urho3D::Vector3 (*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::VectorMin, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("VectorMax", (Urho3D::Vector3 (*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::VectorMax, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
@@ -12838,17 +12795,17 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   .def("VectorMin", (Urho3D::IntVector3 (*)(const Urho3D::IntVector3 &, const Urho3D::IntVector3 &)) &Urho3D::VectorMin, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("VectorMax", (Urho3D::IntVector3 (*)(const Urho3D::IntVector3 &, const Urho3D::IntVector3 &)) &Urho3D::VectorMax, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("StableRandom", (float (*)(const Urho3D::Vector3 &)) &Urho3D::StableRandom, "todo: docstring", py::arg("seed"))
-  // Operator *@ implemented in None
+  // Operator Urho3D::Vector4 operator*(float lhs=None, const Urho3D::Vector4 & rhs=None) implemented in Urho3D::Vector4
   .def("VectorLerp", (Urho3D::Vector4 (*)(const Urho3D::Vector4 &, const Urho3D::Vector4 &, const Urho3D::Vector4 &)) &Urho3D::VectorLerp, "todo: docstring", py::arg("lhs"), py::arg("rhs"), py::arg("t"))
   .def("VectorMin", (Urho3D::Vector4 (*)(const Urho3D::Vector4 &, const Urho3D::Vector4 &)) &Urho3D::VectorMin, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("VectorMax", (Urho3D::Vector4 (*)(const Urho3D::Vector4 &, const Urho3D::Vector4 &)) &Urho3D::VectorMax, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("VectorFloor", (Urho3D::Vector4 (*)(const Urho3D::Vector4 &)) &Urho3D::VectorFloor, "todo: docstring", py::arg("vec"))
   .def("VectorRound", (Urho3D::Vector4 (*)(const Urho3D::Vector4 &)) &Urho3D::VectorRound, "todo: docstring", py::arg("vec"))
   .def("VectorCeil", (Urho3D::Vector4 (*)(const Urho3D::Vector4 &)) &Urho3D::VectorCeil, "todo: docstring", py::arg("vec"))
-  // Operator *@ implemented in None
-  // Operator *@ implemented in None
-  // Operator *@ implemented in None
-  // Operator *@ implemented in None
+  // Operator Urho3D::Color operator*(float lhs=None, const Urho3D::Color & rhs=None) implemented in Urho3D::Color
+  // Operator Urho3D::Matrix3 operator*(float lhs=None, const Urho3D::Matrix3 & rhs=None) implemented in Urho3D::Matrix3
+  // Operator Urho3D::Matrix4 operator*(float lhs=None, const Urho3D::Matrix4 & rhs=None) implemented in Urho3D::Matrix4
+  // Operator Urho3D::Matrix3x4 operator*(float lhs=None, const Urho3D::Matrix3x4 & rhs=None) implemented in Urho3D::Matrix3x4
   //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
@@ -12930,7 +12887,7 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   .def("CompareLights", (bool (*)(Urho3D::Light *, Urho3D::Light *)) &Urho3D::CompareLights, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   //.def("MakeHash", (unsigned int (*)(const Urho3D::TextureUnit &)) &Urho3D::MakeHash, "todo: docstring", py::arg("value"))
     //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  // Operator *@ implemented in None
+  // Operator Urho3D::Matrix2 operator*(float lhs=None, const Urho3D::Matrix2 & rhs=None) implemented in Urho3D::Matrix2
   //.def("ToBtVector3", (btVector3 (*)(const Urho3D::Vector3 &)) &Urho3D::ToBtVector3, "todo: docstring", py::arg("vector"))
     //['Urho3D::Vector3']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("ToBtQuaternion", (btQuaternion (*)(const Urho3D::Quaternion &)) &Urho3D::ToBtQuaternion, "todo: docstring", py::arg("quaternion"))
@@ -12963,6 +12920,9 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
     py::implicitly_convertible<Urho3D::String, Urho3D::Variant>();
     py::implicitly_convertible<Urho3D::String, Urho3D::StringHash>();
 
+/*
+{'btVector3': [(btVector3 operator+(const btVector3 & v1=None, const btVector3 & v2=None), False), (btVector3 operator*(const btVector3 & v1=None, const btVector3 & v2=None), False), (btVector3 operator-(const btVector3 & v1=None, const btVector3 & v2=None), False), (btVector3 operator-(const btVector3 & v=None), False), (btVector3 operator*(const btVector3 & v=None, const float & s=None), False), (btVector3 operator*(const float & s=None, const btVector3 & v=None), True), (btVector3 operator/(const btVector3 & v=None, const float & s=None), False), (btVector3 operator/(const btVector3 & v1=None, const btVector3 & v2=None), False), (btQuaternion operator*(const btVector3 & w=None, const btQuaternion & q=None), False), (btVector3 operator*(const btVector3 & v=None, const btMatrix3x3 & m=None), False)], 'btQuaternion': [(btQuaternion operator*(const btQuaternion & q1=None, const btQuaternion & q2=None), False), (btQuaternion operator*(const btQuaternion & q=None, const btVector3 & w=None), False)], 'btMatrix3x3': [(btMatrix3x3 operator*(const btMatrix3x3 & m=None, const float & k=None), False), (btMatrix3x3 operator+(const btMatrix3x3 & m1=None, const btMatrix3x3 & m2=None), False), (btMatrix3x3 operator-(const btMatrix3x3 & m1=None, const btMatrix3x3 & m2=None), False), (btVector3 operator*(const btMatrix3x3 & m=None, const btVector3 & v=None), False), (btMatrix3x3 operator*(const btMatrix3x3 & m1=None, const btMatrix3x3 & m2=None), False), (bool operator==(const btMatrix3x3 & m1=None, const btMatrix3x3 & m2=None), False)], 'btTransform': [(bool operator==(const btTransform & t1=None, const btTransform & t2=None), False)], 'b2Vec2': [(b2Vec2 operator+(const b2Vec2 & a=None, const b2Vec2 & b=None), False), (b2Vec2 operator-(const b2Vec2 & a=None, const b2Vec2 & b=None), False), (b2Vec2 operator*(float s=None, const b2Vec2 & a=None), True), (bool operator==(const b2Vec2 & a=None, const b2Vec2 & b=None), False), (bool operator!=(const b2Vec2 & a=None, const b2Vec2 & b=None), False)], 'b2Vec3': [(b2Vec3 operator*(float s=None, const b2Vec3 & a=None), True), (b2Vec3 operator+(const b2Vec3 & a=None, const b2Vec3 & b=None), False), (b2Vec3 operator-(const b2Vec3 & a=None, const b2Vec3 & b=None), False)], 'b2Mat22': [(b2Mat22 operator+(const b2Mat22 & A=None, const b2Mat22 & B=None), False)], 'Urho3D::String': [(Urho3D::String operator+(const char * lhs=None, const Urho3D::String & rhs=None), True), (Urho3D::String operator+(const wchar_t * lhs=None, const Urho3D::String & rhs=None), True)], 'Urho3D::Vector2': [(Urho3D::Vector2 operator*(float lhs=None, const Urho3D::Vector2 & rhs=None), True)], 'Urho3D::IntVector2': [(Urho3D::IntVector2 operator*(int lhs=None, const Urho3D::IntVector2 & rhs=None), True)], 'Urho3D::Vector3': [(Urho3D::Vector3 operator*(float lhs=None, const Urho3D::Vector3 & rhs=None), True)], 'Urho3D::IntVector3': [(Urho3D::IntVector3 operator*(int lhs=None, const Urho3D::IntVector3 & rhs=None), True)], 'Urho3D::Vector4': [(Urho3D::Vector4 operator*(float lhs=None, const Urho3D::Vector4 & rhs=None), True)], 'Urho3D::Color': [(Urho3D::Color operator*(float lhs=None, const Urho3D::Color & rhs=None), True)], 'Urho3D::Matrix3': [(Urho3D::Matrix3 operator*(float lhs=None, const Urho3D::Matrix3 & rhs=None), True)], 'Urho3D::Matrix4': [(Urho3D::Matrix4 operator*(float lhs=None, const Urho3D::Matrix4 & rhs=None), True)], 'Urho3D::Matrix3x4': [(Urho3D::Matrix3x4 operator*(float lhs=None, const Urho3D::Matrix3x4 & rhs=None), True)], 'Urho3D::Matrix2': [(Urho3D::Matrix2 operator*(float lhs=None, const Urho3D::Matrix2 & rhs=None), True)]}
+*/
 
 }
 

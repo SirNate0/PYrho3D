@@ -212,12 +212,21 @@ class Type(object):
 
     @property
     def stripped(self):
-        # strip = re.match(r'^(const )?([\w:<>, *]+)( &)?',self.name)
+        # strip = re.match(r'^(const )?([\w:<>, *]+)( &*)?',self.name)
         strip = re.match(r'^(const )?([\w:<>, ]+)( [&*])?',self.name)
         if strip:
             return strip.group(2).strip(' ')
         else:
             return '/*COULD NOT STRIP TYPE*/' + self.name
+
+    @property
+    def stripped_const_ref(self):
+        strip = re.match(r'^(const )?([\w:<>, *]+)( &)?',self.name)
+        # strip = re.match(r'^(const )?([\w:<>, ]+)( [&*])?',self.name)
+        if strip:
+            return strip.group(2).strip(' ')
+        else:
+            return '/*COULD NOT STRIP CONST-REF TYPE*/' + self.name
 
     @property
     def stripped_type(self):
@@ -491,7 +500,7 @@ class Operator(object):
                 self.op = '@'+op
             else:
                 self.op = op+'@'
-        elif op+'@' in Operator.operator_args:
+        elif is_unary and op+'@' in Operator.operator_args:
             self.op = op+'@'
         else:
             self.op = op

@@ -39,7 +39,7 @@ for td in operator_typedefs:
 
 # function to get the typename with overrides applied
 def typename(t):
-    return override_dict[t] if override_dict.has_key(t) else t
+    return override_dict.get(t,t)#override_dict[t] if override_dict.has_key(t) else t
 
 
 
@@ -240,9 +240,14 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     class_names = [cls.canonical for cls in classes]
     complete_names = class_names[:] + Type._primitive_types
     complete_names.append('Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>')
-    complete_names.append('Urho3D::Vector<Urho3D::Variant>')
     complete_names.append('Urho3D::VariantMap')
+    complete_names.append('Urho3D::HashMap<Urho3D::StringHash, Urho3D::String>')
     complete_names.append('Urho3D::StringMap')
+    complete_names.append('Urho3D::Vector<Urho3D::Variant>')
+    complete_names.append('Urho3D::VariantVector')
+    complete_names.append('Urho3D::Vector<Urho3D::String>')
+    complete_names.append('Urho3D::StringVector')
+    complete_names.append('Urho3D::PODVector<unsigned char>')
 
     if 'Urho3D::String' in canon:
         classes.remove(canon['Urho3D::String']) #Because we handle it in String_binding.h with a type caster
@@ -313,8 +318,8 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
                     owner = f.params[1 if useSecond else 0].type.get_canonical()
 
                     if owner is not None:
-                        globalClassOperators.get(owner.canonical,[]).append((f,useSecond))
-                    impl += f'  // Operator {f.operator} implemented in {owner if owner is None else owner.name}\n'
+                        globalClassOperators.setdefault(owner.canonical,[]).append((f,useSecond))
+                    impl += f'  // Operator {f} implemented in {owner if owner is None else owner.canonical}\n'
                 else:
                     comment = '//' if bad else ''
                     impl += f'  {comment}.def{static_state}("{f.name}", ({f.fnptr_type}) &{f.canonical}, "todo: docstring"{args})\n{bad}'
@@ -388,8 +393,42 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
 
                 elif f.operator:
                     op = f.operator
-                    pyfn = '__%s__' % op.name
-                    impl += f'  //.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py::self ops.")\n{bad}'
+                    assert isinstance(op,Operator)
+                    good = True
+                    if op.post_unary:
+                        pyselfOP = 'py::self'+str(op).replace('@',0)
+                    elif op.unary:
+                        pyselfOP = str(op).replace('@','')+'py::self'
+                    elif op.binary:
+                        otherType = f.params[0].type
+                        other = otherType.get_canonical()
+                        if other == cls.canonical:
+                            pyselfOP = f'py::self {op} py::self'
+                        else:
+                            makeOther = typename(otherType.stripped_const_ref)
+                            if '*' in makeOther:
+                                makeOther = f'({makeOther})(0)'
+                            else:
+                                makeOther += '()'
+                            # makeOther = 'std::declval<{otherType}>()'
+                            pyselfOP = f'py::self {op} {makeOther}'
+                    else:
+                        pyselfOP = str(f)
+                        bad = f'//Unhandled call style {op} {bad}'
+                        good = False
+
+                    if op.op == '=':
+                        good = False #TODO: add an __assign__ function
+
+                    opimpl = f'  .def({pyselfOP}, "todo: docstring")'
+                    if not good:
+                        pyfn = '__%s__' % op.name
+                        impl += f'  //{opimpl}.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py: :self ops.")\n{bad}'
+                    else:
+                        impl += f'{opimpl}\n{bad}'
+                    # op = f.operator
+                    # pyfn = '__%s__' % op.name
+                    # impl += f'  //.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py: :self ops.")\n{bad}'
 
                 else:
                     comment = '//' if bad else ''
@@ -403,30 +442,25 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
                 if op.post_unary:
                     pyselfOP = 'py::self'+str(op).replace('@',0)
                 elif op.unary:
-                    pyselfOP = str(op).replace('@',0)+'py::self'
+                    pyselfOP = str(op).replace('@','')+'py::self'
                 elif op.binary:
                     other = f.params[0 if useSecond else 1].type.get_canonical()
                     otherType = f.params[0 if useSecond else 1].type
-                    if other == owner:
+                    if other == cls.canonical:
                         pyselfOP = f'py::self {op} py::self'
+                    elif useSecond:
+                        pyselfOP = f'{typename(otherType)}() {op} py::self'
                     else:
-                        if useSecond:
-                            pyselfOp = '{otherType}() {op} py::self'
-                        else:
-                            pyselfOp = 'py::self {op} {otherType}()'
+                        pyselfOP = f'py::self {op} {otherType.stripped}()'
                 else:
+                    pyselfOP = str(f)
                     bad = f'//Unhandled call style {op} {bad}'
                     good = False
 
                 opimpl = f'  .def({pyselfOP}, "todo: docstring")'
-
-                if owner is None:
-                    bad = '// Could not identify type to add operator to: ' + bad
+                if not good:
                     pyfn = '__%s__' % op.name
-                    impl += f'  //.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py::self ops.")\n{bad}'
-                elif not good:
-                    pyfn = '__%s__' % op.name
-                    impl += f'  //.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py::self ops.")\n{bad}'
+                    impl += f'  //{opimpl}.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py: :self ops.")\n{bad}'
                 else:
                     impl += f'{opimpl}\n{bad}'
 
@@ -528,7 +562,11 @@ PYBIND11_MODULE(urho, m) {{
     // Bind Container classes
     auto pyclass_Var_Urho3D_Vector__int_ = py::bind_Vector<Urho3D::Vector<int>>(pyclass_Var_Urho3D,"Vector_int");
 
+    auto pyclass_Var_Urho3D_Vector__unsigned_char_ = py::bind_Vector<Urho3D::PODVector<unsigned char>>(pyclass_Var_Urho3D,"ByteVector");
+
     auto pyclass_Var_Urho3D_VariantVector = py::bind_Vector<Urho3D::Vector<Variant>>(pyclass_Var_Urho3D,"VariantVector");
+
+    auto pyclass_Var_Urho3D_StringVector = py::bind_Vector<Urho3D::StringVector>(pyclass_Var_Urho3D,"StringVector");
     
     auto pyclass_Var_Urho3D_VariantMap = py::bind_Map<Urho3D::VariantMap>(pyclass_Var_Urho3D,"VariantMap");
 
@@ -561,6 +599,9 @@ PYBIND11_MODULE(urho, m) {{
     py::implicitly_convertible<Urho3D::String, Urho3D::Variant>();
     py::implicitly_convertible<Urho3D::String, Urho3D::StringHash>();
 
+/*
+{globalClassOperators}
+*/
 
 }}
 
