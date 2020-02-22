@@ -138,6 +138,8 @@ def clang_parse_function(cursor, scope):
             t = c.type.get_canonical()
 
             self.params.append(Parameter(clang_parse_type(t), name, default))
+        elif c.kind is clang.cindex.CursorKind.ANNOTATE_ATTR:
+            self.annotations.append(c.spelling)
 
     # Process whether it is variadic
     s = cursor.type.spelling
@@ -165,7 +167,10 @@ def clang_parse_function(cursor, scope):
     updateReturnStr = []
     doneUpdating = False
     foundEquals = False
-    for t in cursor.get_tokens():
+    for i,t in enumerate(cursor.get_tokens()):
+        if i > 300:
+            print('TOO MANY TOKENS: ', self.name)
+            break
 #            print('parent token: ' + t.spelling)
 #            print(t.kind)
         if updateReturn and not doneUpdating:
@@ -181,22 +186,28 @@ def clang_parse_function(cursor, scope):
         #    print(t.kind,t.spelling)
     if updateReturn:
         updateReturnStr = ' '.join(updateReturnStr)
+        origUpdate = updateReturnStr
         for keyword in ['static','virtual']:
             updateReturnStr = updateReturnStr.replace(keyword,'')
+        updateReturnStr = re.sub(r'__attribute__\s+\(.*\)','',updateReturnStr)
         updateReturnStr = updateReturnStr.strip()
         if updateReturnStr != 'int' and not updateReturnStr.endswith(' int'):
-            print(updateReturnStr)
-            print(self.ret.__dict__)
-            print(type(self.ret))
-            print('Faking Return Type: ',
+            print(updateReturnStr,'should be from v')
+            print(origUpdate)
+            print('Faking Return Type in {}: {} FOR {}'.format(
+                  self.name,
                   updateReturnStr,
-                  self.ret.name)
+                  self.ret.name))
             self.ret = Type(updateReturnStr)
 
     return self
 
 def clang_append_namespace(self, cursor):
     assert isinstance(cursor, clang.cindex.Cursor)
+
+    if self.name in ['__extern_C_']:
+        return
+
     for c in cursor.get_children():
         assert isinstance(c, clang.cindex.Cursor)
         if c.kind is CursorKind.NAMESPACE:
@@ -210,6 +221,11 @@ def clang_append_namespace(self, cursor):
                 clang_append_class(canon[clang_get_canonical(c, self)],c)
             else:
                 self.classes.append(clang_parse_class(c,self))
+        elif c.kind in [CursorKind.FUNCTION_DECL]:#CursorKind.CXX_METHOD, CursorKind.CONSTRUCTOR, CursorKind.DESTRUCTOR, CursorKind.FUNCTION_DECL]: #, CursorKind.FUNCTION_TEMPLATE
+            self.functions.append(clang_parse_function(c, self))
+
+        elif c.kind in [CursorKind.VAR_DECL]:#CursorKind.FIELD_DECL, CursorKind.VAR_DECL]:
+            self.vars.append(clang_parse_variable(c, self))
         # else:
         #     print(c.kind)
         #     print(c.displayname)
@@ -294,6 +310,8 @@ parser.add_argument('-i', '--include', dest='include_override', metavar='Include
 parser.add_argument('-o', '--output', dest='output', required=False, default='result.cpp', metavar='result.cpp',  help='The output filename (default: result.cpp)')
 parser.add_argument('-p', '--prefix', dest='prefix', required=False, metavar='/* Prefixed Comment */',  help='The text prefixed to the start of the file')
 
+parser.add_argument('-v', '--parse-output', dest='parse_output', required=False, default=None, metavar='result.cpp',  help='File to output parsed file to.')
+
 args = parser.parse_args()
 # print(args)
 
@@ -316,12 +334,15 @@ args = parser.parse_args()
 
 tu = None
 
+import time
+
 include = args.include #sys.argv[1]
 with open(include) as f:
     file_data = """
 #pragma once
 #ifdef __BINDING_GENERATOR__
     #define friend __attribute__((annotate("friend"))) static
+    //#define inline __attribute__((annotate("inline")))
 #endif
 
 //#include "%s"
@@ -330,22 +351,71 @@ with open(include) as f:
 // BEGIN SOURCE
 //----------------------------------------------------
 """.format(include)
-    for l in f:
-        # l = re.sub(r"\bfriend\s+\b(!class|struct)"), '__attribute__((annotate("friend"))) \1'
-        # annotation must be class [annotation] name
-        #TODO: Could actually replace the regex with a class NextIsFriend_uniqueInt
-        l = re.sub(r"\bfriend\s+\b(class|struct)\b", "//\1 friend", l)
-        file_data += l
-    print(file_data)
+
+    # t = time.time()
+    # for l in f:
+    #     # l = re.sub(r"\bfriend\s+\b(!class|struct)"), '__attribute__((annotate("friend"))) \1'
+    #     # annotation must be class [annotation] name
+    #     #TODO: Could actually replace the regex with a class NextIsFriend_uniqueInt
+    #
+    #     l = re.sub(r"\bfriend\s+\b(class|struct)\b", "//\1 friend", l)
+    #     l = re.sub(r'\bextern\s+"C"',"namespace __extern_C_",l)
+    #     file_data += l
+    # print('Read line by line in', time.time() - t,'seconds') # 0.38 seconds vs 0.16 for all at once
+
+    tt = time.time()
+    f.seek(0)
+    l = f.read()
+    # l = re.sub(r"\bfriend\s+\b(!class|struct)"), '__attribute__((annotate("friend"))) \1'
+    # annotation must be class [annotation] name
+    #TODO: Could actually replace the regex with a class NextIsFriend_uniqueInt
+    t = time.time()
+    l = re.sub(r"\bfriend\s+\b(class|struct)\b", "//\1 friend", l)
+    print('Substituted friend in', time.time() - t,'seconds')
+    t = time.time()
+
+    # about 80 ms for re.sub vs about 4 ms for str.replace, but we'll keep re.sub since it is more generic
+    l = re.sub(r'\bextern\s+"C"',"namespace __extern_C_",l)
+    print('Substituted (re) extern "C" in', time.time() - t,'seconds')
+
+    t = time.time()
+    l = re.sub(r"(\s)\binline\b(\s)", r'\1__attribute__((annotate("inline")))\2', l)
+    print('Substituted inline in', time.time() - t,'seconds')
+
+    t = time.time()
+    file_data += l
+    print('Read all lines in', time.time() - tt,'seconds')
+
+
+    # tt = time.time()
+    # ll = l
+    # f.seek(0)
+    # l = f.read()
+    # # l = re.sub(r"\bfriend\s+\b(!class|struct)"), '__attribute__((annotate("friend"))) \1'
+    # # annotation must be class [annotation] name
+    # #TODO: Could actually replace the regex with a class NextIsFriend_uniqueInt
+    # t = time.time()
+    # l = re.sub(r"\bfriend\s+\b(class|struct)\b", "//\1 friend", l)
+    # print('Substituted friend in', time.time() - t,'seconds')
+    # t = time.time()
+    # l = l.replace('extern "C"',"namespace __extern_C_")
+    # print('Replaced extern "C" in', time.time() - t,'seconds')
+    # file_data += l
+    # print('Read all lines in', time.time() - tt,'seconds')
+    # print('Strings match ',l==ll)
+    # exit()
+
+    # print(file_data)
     tu = index.parse(include, args=['-x', 'c++', '-std=c++14', '-D__BINDING_GENERATOR__',
            '-I/home/nathan/Projects/Urho/Urho3D/Build/include', '-ferror-limit=0'],unsaved_files=[(include,file_data)],
          options=clang.cindex.TranslationUnit.PARSE_INCOMPLETE |
-                 clang.cindex.TranslationUnit.PARSE_DETAILED_PROCESSING_RECORD |
+                 #clang.cindex.TranslationUnit.PARSE_DETAILED_PROCESSING_RECORD |
                  clang.cindex.TranslationUnit.PARSE_SKIP_FUNCTION_BODIES)
 
     for d in tu.diagnostics:
         print(str(d))
 # tu = index.parse(sys.argv[1], ['-x', 'c++', '-std=c++14', '-D__BINDING_GENERATOR__'])
+
 print('Translation unit:', tu.spelling)
 print('================================')
 
@@ -367,6 +437,13 @@ dict = {'default_namespace' : default_namespace,
         'canon' : canon}
 
 prefix = args.prefix
+
+if args.parse_output is not None:
+    with open(args.parse_output,'w') as f:
+        print('Translation unit:', tu.spelling, file=f) # to long for pycharm to output nicely
+        print(toJSON(canon), file=f)
+        pprint(toJSON(canon))
+        exit()
 
 # print(Visibility.HIDDEN)
 # print(Visibility['HIDDEN'])

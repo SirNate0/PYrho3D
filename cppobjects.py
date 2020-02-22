@@ -219,6 +219,10 @@ class Type(object):
         else:
             return '/*COULD NOT STRIP TYPE*/' + self.name
 
+    @property
+    def stripped_type(self):
+        return Type(self.stripped.replace('/*COULD NOT STRIP TYPE*/',''))
+
     _primitive_types = [
         'void', #don't know if it should be included
 
@@ -267,7 +271,15 @@ class Type(object):
 
     @property
     def in_canon(self):
-        return self.name in canon
+        return self.name in canon or self.stripped in canon
+
+    def get_canonical(self):
+        if self.name in canon:
+            return canon[self.name]
+        elif self.stripped in canon:
+            return canon[self.stripped]
+        else:
+            return None
 
     def __repr__(self):
         return self.name

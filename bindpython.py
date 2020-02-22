@@ -256,7 +256,10 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     includes = '\n'.join('#include <{}>'.format(i) for i in includeThese)
     typedefs = '\n'.join('typedef {t} {override};'.format(t = td, override=override_dict[td]) for td in override_dict)
     namespaceVars = []
+    namespaceImpls = []
+    globalClassOperators = {}
     for ns in namespaces:
+        impl = ''
         if ns.name: # find the default namsepace
             comment = f'// Export {ns.canonical} namespace as a class'
         else:
@@ -276,7 +279,52 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
         else:
             binding = f'auto {pyns} = m;'
         namespaceVars.append(comment + '\n' + binding)
+
+        for f in ns.functions:
+            assert isinstance(f,Function)
+            if f.access is Access.PUBLIC or f.inline:
+                args = ''
+                for arg in f.params:
+                    if arg.default is not None:
+                        args += ', py::arg("%s")=%s' % (arg.name, arg.default)
+                    else:
+                        args += ', py::arg("%s")' % arg.name
+                # incomplete_params =  any([bad in [a.type.stripped for a in f.params] for bad in incomplete_types])
+                # return_incomplete = f.return_type.stripped in incomplete_types
+                incomplete_params = any([a.type.stripped not in complete_names for a in f.params])
+                max_ptr = max(max(a.type.pointer for a in f.params) if len(f.params) else 0,f.return_type.pointer)
+                return_incomplete = f.return_type.stripped not in complete_names
+                static_state = '_static' if f.static else ''
+                #if True or incomplete_ or return_incomplete:
+                #    print([(a.type.stripped not in complete_names,a.type.stripped) for a in f.params])
+                #    print(f.return_type.stripped not in complete_names,f.return_type.stripped)
+                if not any([f.operator, f.destructor, f.variadic, f.deleted,  return_incomplete, incomplete_params, max_ptr > 1]):
+                    bad = ''
+                else:
+                    bad = f'    //{str([a.type.stripped for a in f.params])}; op {f.operator}, ctor {f.constructor}, dtor {f.destructor}, variadic {f.variadic}, deleted {f.deleted}, ret bad {return_incomplete}, param bad {incomplete_params}, max ptr {max_ptr}\n'
+
+
+                if f.constructor:
+                    impl += f'// ERROR: CANNOT HAVE NAMESPACE CONSTRUCTOR {f.canonical}\n'
+
+                elif f.operator:
+                    # Identify operators we that are right-operators (like float*Vector3)
+                    useSecond = f.operator.binary and (f.params[0].type.primitive or not f.params[0].type.in_canon)
+                    owner = f.params[1 if useSecond else 0].type.get_canonical()
+
+                    if owner is not None:
+                        globalClassOperators.get(owner.canonical,[]).append((f,useSecond))
+                    impl += f'  // Operator {f.operator} implemented in {owner if owner is None else owner.name}\n'
+                else:
+                    comment = '//' if bad else ''
+                    impl += f'  {comment}.def{static_state}("{f.name}", ({f.fnptr_type}) &{f.canonical}, "todo: docstring"{args})\n{bad}'
+
+        if impl and ns.name: # exclude the global namespace
+            namespaceImpls.append(f'{pyns}\n{impl};')
+
+
     namespaceVars = '\n\n'.join(namespaceVars)
+    namespaceImpls = '\n\n'.join(namespaceImpls)
 
     classesMixedHolder = {}
 
@@ -346,7 +394,44 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
                 else:
                     comment = '//' if bad else ''
                     impl += f'  {comment}.def{static_state}("{f.name}", ({f.fnptr_type}) &{f.canonical}, "todo: docstring"{args})\n{bad}'
+        if cls.canonical in globalClassOperators:
+            impl += '// External Operators:\n'
+            for f,useSecond in globalClassOperators[cls.canonical]:
+                op = f.operator
+                assert isinstance(op,Operator)
+                good = True
+                if op.post_unary:
+                    pyselfOP = 'py::self'+str(op).replace('@',0)
+                elif op.unary:
+                    pyselfOP = str(op).replace('@',0)+'py::self'
+                elif op.binary:
+                    other = f.params[0 if useSecond else 1].type.get_canonical()
+                    otherType = f.params[0 if useSecond else 1].type
+                    if other == owner:
+                        pyselfOP = f'py::self {op} py::self'
+                    else:
+                        if useSecond:
+                            pyselfOp = '{otherType}() {op} py::self'
+                        else:
+                            pyselfOp = 'py::self {op} {otherType}()'
+                else:
+                    bad = f'//Unhandled call style {op} {bad}'
+                    good = False
 
+                opimpl = f'  .def({pyselfOP}, "todo: docstring")'
+
+                if owner is None:
+                    bad = '// Could not identify type to add operator to: ' + bad
+                    pyfn = '__%s__' % op.name
+                    impl += f'  //.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py::self ops.")\n{bad}'
+                elif not good:
+                    pyfn = '__%s__' % op.name
+                    impl += f'  //.def("{pyfn}", ({f.fnptr_type}) &{f.canonical}, py::operator, "todo: operator docstring. Switch to py::self ops.")\n{bad}'
+                else:
+                    impl += f'{opimpl}\n{bad}'
+
+
+        impl += '// Class Variables:\n'
         for v in cls.vars:
             if v.access is Access.PUBLIC and v.canonical not in has_override:
                 write_state = 'only' if v.const else 'write'
@@ -459,6 +544,11 @@ PYBIND11_MODULE(urho, m) {{
     // Implement Classes
     //================================================
     {classImpls}
+
+    //================================================
+    // Implement Namespaces
+    //================================================
+    {namespaceImpls}
 
 
     //================================================
