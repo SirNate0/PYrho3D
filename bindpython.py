@@ -192,6 +192,26 @@ def sort_classes(unsorted, namespaces):
         raise Exception("Could not sort classes. %d remaining. %s" % (len(unsorted),str([c.canonical for c in unsorted])))
     return sorted
 
+
+# Better Urho specific version
+def add_enums(ns, enums):
+    if ns.name.startswith('__') or ns.name == 'std' or ns.canonical in exclude_incomplete:
+        return
+    if type(ns) is Enumeration:
+        print('Found enum')
+        if 'Urho3D' in ns.canonical and ns.access in [Access.PUBLIC, Access.NONE] and ns.visibility in [Visibility.EXPORTED, Visibility.DEFAULT]:
+            enums.append(ns)
+    elif type(ns) is Class:
+        if 'Urho3D' in ns.canonical and ns.access in [Access.PUBLIC, Access.NONE] and ns.visibility in [Visibility.EXPORTED, Visibility.DEFAULT]:
+            for cls in ns.classes + ns.enums:
+                add_enums(cls, enums)
+    elif type(ns) is Namespace:
+        for cls in ns.namespaces + ns.classes + ns.enums:
+            add_enums(cls, enums)
+    else:
+        raise Exception("Failed to add enum of type {} != [{},{}]".format(type(ns),Enumeration,Class,Namespace) )
+
+
 def patch_canon(canon):
     try:
         #canon['Urho3D::Application'].vars.append[Variable(None,)]
@@ -214,6 +234,11 @@ def patch_canon(canon):
                             a.default = None # Because we can't get the type
                         elif a.default == 'VariantMap':
                             a.default = 'Urho3D::VariantMap()'
+
+        # TODO: Support template functions. For now, we'll just
+        # del canon['Urho3D::GetVariantType'] <- doesn't exclude function as it is based on the namespace functions
+        scope = canon['Urho3D']
+        scope.functions = [f for f in scope.functions if f.name != 'GetVariantType']
 
     except KeyError as e:
         print("KEY ERROR")
@@ -238,7 +263,18 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     classes = sort_classes(classes, namespaces)
 
     class_names = [cls.canonical for cls in classes]
-    complete_names = class_names[:] + Type._primitive_types
+
+    if 'Urho3D::String' in canon:
+        classes.remove(canon['Urho3D::String']) #Because we handle it in String_binding.h with a type caster
+
+    print('Adding enums')
+    enums = []
+    add_enums(default_namespace, enums)
+
+    enum_names = [e.canonical for e in enums]
+
+
+    complete_names = class_names[:] + enum_names[:] + Type._primitive_types
     complete_names.append('Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant>')
     complete_names.append('Urho3D::VariantMap')
     complete_names.append('Urho3D::HashMap<Urho3D::StringHash, Urho3D::String>')
@@ -248,10 +284,6 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     complete_names.append('Urho3D::Vector<Urho3D::String>')
     complete_names.append('Urho3D::StringVector')
     complete_names.append('Urho3D::PODVector<unsigned char>')
-
-    if 'Urho3D::String' in canon:
-        classes.remove(canon['Urho3D::String']) #Because we handle it in String_binding.h with a type caster
-
 
     #module scope means certain different behaviours for variables and things
     module_scope = [canon[s] for s in force_global if s in canon]
@@ -495,9 +527,46 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
         classImplFuns.append(fn_impl)
         classImpls.append(f'Implement_{varsafe(fullclass)}({pyclass});')
 
+
     classVars = '\n'.join(classVars)
     classImpls = '\n'.join(classImpls)
     classImplFuns = '\n\n'.join(classImplFuns)
+
+
+
+    enumImpls = []
+    for e in enums:
+        assert isinstance(e,Enumeration)
+        fakemodule = 'PythonBindingsFakeModule' + varsafe(cls.canonical)
+        pyclass = 'pyclass_Var_' + varsafe(e.canonical)
+        baseclass = 'pyclass_Var_' + varsafe(e.scope.canonical)
+
+        # TODO: Actually determine which Urho Enums use math (FlagSets?)
+        def enumUsesMath(e):
+            return True
+
+        pyarith = 'py::arithmetic(), ' if enumUsesMath(e) else ''
+
+        comment = f'// Enum {e.canonical} Registrations'
+        binding = f'auto {pyclass} = py::enum_<{e.canonical}>({baseclass}, "{e.name}", {pyarith}"test doc")\n'
+
+        for v in e.values:
+            binding += f'  .value("{v.name}", {v.canonical})\n'
+
+        if not e.enum_class:
+            binding += '  .export_values()\n'
+
+        binding += ';'
+
+        enumImpls.append(comment + '\n' + binding)
+
+    enumImpls = '\n\n'.join(enumImpls)
+
+    if not enumImpls:
+        enumImpls = f'// {len(enums)}'
+
+
+
     out = f'''{preamble}
 
 
@@ -577,6 +646,11 @@ PYBIND11_MODULE(urho, m) {{
     // Declare Classes
     //================================================
     {classVars}
+
+    //================================================
+    // Declare and Implement Enumerations
+    //================================================
+    {enumImpls}
 
     //================================================
     // Implement Classes

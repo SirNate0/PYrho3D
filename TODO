@@ -1,6 +1,9 @@
 DONE: Need to mark ExternalPtr as being non-intrusive in general, and switch  
 to SharedPtr for the types that support it.
 
+DONE: Enums: https://pybind11.readthedocs.io/en/stable/classes.html#enumerations-and-internal-types
+TODO: Determine which enums don't need py::arithmetic
+
 Concerining Base classes that are not RefCounted derived that RefCounted's derive from
 GPUObject good -- can ignore, leave it to internals to handle (if needed can handle with implicitly_convertible, probably)
 Thread as well
@@ -11,4 +14,11 @@ May need to handle btMotionState, possibly btIDebugDraw and b2Draw, b2ContactLis
 No idea if Octant is needed
 TODO: Later: libRocket stuff
 
+TODO: I could also tro specializing SharedPtr for the derived class issue bases (like Deserializer), then we just assert in all of the Functions rather than doing anything, and that should tell us if PyBind11 ever makes one of them.
+
 Leak a reference to the context and then clean it up at the end (or switch to a singleton pattern for it) so that we don't end up with crashes on exiting from freeing the context first.
+
+ grep bindresult.cpp -B 1 -e "max ptr [^01]"
+ 
+ Function pointer type support (it's often getting flagged as being a higher pointer number than 1)
+

@@ -82,6 +82,7 @@ class Class(object):
         self.vars = []
         self.bases = []
         self.classes = []
+        self.enums = []
         self.annotations = []
         # self.visibility = Visibility.DEFAULT
         self.visibility = Visibility.HIDDEN
@@ -624,6 +625,7 @@ class Namespace(object):
 
 
         self.classes = []
+        self.enums = []
         self.functions = []
         self.vars = []
         self.annotations = []
@@ -632,8 +634,8 @@ class Namespace(object):
 
 
     def __repr__(self):
-        return """Namespace %s: %d classes, %d functions, %d vars\n""" \
-               % (self.canonical, len(self.classes), len(self.functions), len(self.vars)) \
+        return """Namespace %s: %d classes, %d enums, %d functions, %d vars\n""" \
+               % (self.canonical, len(self.classes), len(self.enums), len(self.functions), len(self.vars)) \
                 + ('\n'.join([repr(c) for c in self.classes])) \
                 + ('\n'.join([repr(n) for n in self.namespaces])) + '\n'
 
@@ -662,6 +664,54 @@ class Variable(object):
     def __repr__(self):
         return '{} {}'.format(self.type,self.canonical)
 
+
+class EnumerationValue(object):
+
+    def __init__(self, name, value, enumeration):
+        self.name = name
+        self.value = value
+        self.enumeration = enumeration
+
+    @property
+    def scoped(self):
+        return self.enumeration.name + '::' + self.name
+
+    @property
+    def canonical(self):
+        return self.enumeration.canonical + '::' + self.name
+
+    def __repr__(self):
+        return '{} = {}'.format(self.name,self.value)
+
+class Enumeration(object):
+
+    def __init__(self, name, scope, canonical=None):
+        self.scope = scope
+        self.name = name
+
+        self.canonical = canonical if canonical is not None else get_canonical(name,scope)
+
+        if self.canonical in canon:
+            printerr('Ignoring duplicate canonical variable entry %s' % self.canonical)
+        else:
+            canon[self.canonical] = self
+
+        # False if not an enum class, otherwise use the class type as a string (which is truthy)
+        self.enum_class = False
+        # the underly integral type for the enum
+        self.enum_type = None
+        self.values = []
+
+        # TODO: These may not be needed???
+        self.annotations = []
+        self.visibility = Visibility.DEFAULT
+        self.access = Access.NONE
+
+    def add_value(self,name,value):
+        self.values.append(EnumerationValue(name,value,self))
+
+    def __repr__(self):
+        return 'Enumeration {} {{ {} }}'.format(self.name,', '.join(str(v) for v in self.values))
 
 import jsonpickle
 

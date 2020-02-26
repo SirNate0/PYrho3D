@@ -557,8 +557,7 @@ pyclass_Var_Urho3D_IntRect
   .def("Size", (Urho3D::IntVector2 (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Size, "todo: docstring")
   .def("Width", (int (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Width, "todo: docstring")
   .def("Height", (int (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Height, "todo: docstring")
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::IntRect::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntRect::IsInside, "todo: docstring", py::arg("point"))
-    //['Urho3D::IntVector2']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("IsInside", (Urho3D::Intersection (Urho3D::IntRect::*)(const Urho3D::IntVector2 &) const) &Urho3D::IntRect::IsInside, "todo: docstring", py::arg("point"))
   .def("Clip", (void (Urho3D::IntRect::*)(const Urho3D::IntRect &)) &Urho3D::IntRect::Clip, "todo: docstring", py::arg("rect"))
   .def("Merge", (void (Urho3D::IntRect::*)(const Urho3D::IntRect &)) &Urho3D::IntRect::Merge, "todo: docstring", py::arg("rect"))
   .def("Data", (const int * (Urho3D::IntRect::*)() const) &Urho3D::IntRect::Data, "todo: docstring")
@@ -766,8 +765,7 @@ pyclass_Var_Urho3D_Deserializer
   .def("ReadResourceRef", (Urho3D::ResourceRef (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadResourceRef, "todo: docstring")
   .def("ReadResourceRefList", (Urho3D::ResourceRefList (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadResourceRefList, "todo: docstring")
   .def("ReadVariant", (Urho3D::Variant (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariant, "todo: docstring")
-  //.def("ReadVariant", (Urho3D::Variant (Urho3D::Deserializer::*)(Urho3D::VariantType)) &Urho3D::Deserializer::ReadVariant, "todo: docstring", py::arg("type"))
-    //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("ReadVariant", (Urho3D::Variant (Urho3D::Deserializer::*)(Urho3D::VariantType)) &Urho3D::Deserializer::ReadVariant, "todo: docstring", py::arg("type"))
   .def("ReadVariantVector", (Urho3D::VariantVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantVector, "todo: docstring")
   .def("ReadStringVector", (Urho3D::StringVector (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadStringVector, "todo: docstring")
   .def("ReadVariantMap", (Urho3D::VariantMap (Urho3D::Deserializer::*)()) &Urho3D::Deserializer::ReadVariantMap, "todo: docstring")
@@ -889,8 +887,7 @@ pyclass_Var_Urho3D_XMLElement
   .def("GetRect", (Urho3D::Rect (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetRect, "todo: docstring", py::arg("name"))
   .def("GetQuaternion", (Urho3D::Quaternion (Urho3D::XMLElement::*)(const Urho3D::String &) const) &Urho3D::XMLElement::GetQuaternion, "todo: docstring", py::arg("name"))
   .def("GetVariant", (Urho3D::Variant (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariant, "todo: docstring")
-  //.def("GetVariantValue", (Urho3D::Variant (Urho3D::XMLElement::*)(Urho3D::VariantType) const) &Urho3D::XMLElement::GetVariantValue, "todo: docstring", py::arg("type"))
-    //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetVariantValue", (Urho3D::Variant (Urho3D::XMLElement::*)(Urho3D::VariantType) const) &Urho3D::XMLElement::GetVariantValue, "todo: docstring", py::arg("type"))
   .def("GetResourceRef", (Urho3D::ResourceRef (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetResourceRef, "todo: docstring")
   .def("GetResourceRefList", (Urho3D::ResourceRefList (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetResourceRefList, "todo: docstring")
   .def("GetVariantVector", (Urho3D::VariantVector (Urho3D::XMLElement::*)() const) &Urho3D::XMLElement::GetVariantVector, "todo: docstring")
@@ -945,22 +942,18 @@ void Implement_Urho3D_ValueAnimationInfo(py::class_<Urho3D::ValueAnimationInfo, 
 {
     // Class ValueAnimationInfo Implementation
 pyclass_Var_Urho3D_ValueAnimationInfo
-  //.def(py::init<Urho3D::ValueAnimation *, Urho3D::WrapMode, float>(), "todo: constructor docstring")
-    //['Urho3D::ValueAnimation', 'Urho3D::WrapMode', 'float']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def(py::init<Urho3D::Object *, Urho3D::ValueAnimation *, Urho3D::WrapMode, float>(), "todo: constructor docstring")
-    //['Urho3D::Object', 'Urho3D::ValueAnimation', 'Urho3D::WrapMode', 'float']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def(py::init<Urho3D::ValueAnimation *, Urho3D::WrapMode, float>(), "todo: constructor docstring")
+  .def(py::init<Urho3D::Object *, Urho3D::ValueAnimation *, Urho3D::WrapMode, float>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::ValueAnimationInfo &>(), "todo: constructor docstring")
   //.def("~ValueAnimationInfo", (void (Urho3D::ValueAnimationInfo::*)()) &Urho3D::ValueAnimationInfo::~ValueAnimationInfo, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("Update", (bool (Urho3D::ValueAnimationInfo::*)(float)) &Urho3D::ValueAnimationInfo::Update, "todo: docstring", py::arg("timeStep"))
   .def("SetTime", (bool (Urho3D::ValueAnimationInfo::*)(float)) &Urho3D::ValueAnimationInfo::SetTime, "todo: docstring", py::arg("time"))
-  //.def("SetWrapMode", (void (Urho3D::ValueAnimationInfo::*)(Urho3D::WrapMode)) &Urho3D::ValueAnimationInfo::SetWrapMode, "todo: docstring", py::arg("wrapMode"))
-    //['Urho3D::WrapMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetWrapMode", (void (Urho3D::ValueAnimationInfo::*)(Urho3D::WrapMode)) &Urho3D::ValueAnimationInfo::SetWrapMode, "todo: docstring", py::arg("wrapMode"))
   .def("SetSpeed", (void (Urho3D::ValueAnimationInfo::*)(float)) &Urho3D::ValueAnimationInfo::SetSpeed, "todo: docstring", py::arg("speed"))
   .def("GetTarget", (Urho3D::Object * (Urho3D::ValueAnimationInfo::*)() const) &Urho3D::ValueAnimationInfo::GetTarget, "todo: docstring")
   .def("GetAnimation", (Urho3D::ValueAnimation * (Urho3D::ValueAnimationInfo::*)() const) &Urho3D::ValueAnimationInfo::GetAnimation, "todo: docstring")
-  //.def("GetWrapMode", (Urho3D::WrapMode (Urho3D::ValueAnimationInfo::*)() const) &Urho3D::ValueAnimationInfo::GetWrapMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetWrapMode", (Urho3D::WrapMode (Urho3D::ValueAnimationInfo::*)() const) &Urho3D::ValueAnimationInfo::GetWrapMode, "todo: docstring")
   .def("GetTime", (float (Urho3D::ValueAnimationInfo::*)() const) &Urho3D::ValueAnimationInfo::GetTime, "todo: docstring")
   .def("GetSpeed", (float (Urho3D::ValueAnimationInfo::*)() const) &Urho3D::ValueAnimationInfo::GetSpeed, "todo: docstring")
 // Class Variables:
@@ -1078,16 +1071,11 @@ pyclass_Var_Urho3D_Sphere
   .def("Merge", (void (Urho3D::Sphere::*)(const Urho3D::Sphere &)) &Urho3D::Sphere::Merge, "todo: docstring", py::arg("sphere"))
   .def("Clear", (void (Urho3D::Sphere::*)()) &Urho3D::Sphere::Clear, "todo: docstring")
   .def("Defined", (bool (Urho3D::Sphere::*)() const) &Urho3D::Sphere::Defined, "todo: docstring")
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::Vector3 &) const) &Urho3D::Sphere::IsInside, "todo: docstring", py::arg("point"))
-    //['Urho3D::Vector3']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::Sphere &) const) &Urho3D::Sphere::IsInside, "todo: docstring", py::arg("sphere"))
-    //['Urho3D::Sphere']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInsideFast", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::Sphere &) const) &Urho3D::Sphere::IsInsideFast, "todo: docstring", py::arg("sphere"))
-    //['Urho3D::Sphere']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::BoundingBox &) const) &Urho3D::Sphere::IsInside, "todo: docstring", py::arg("box"))
-    //['Urho3D::BoundingBox']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInsideFast", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::BoundingBox &) const) &Urho3D::Sphere::IsInsideFast, "todo: docstring", py::arg("box"))
-    //['Urho3D::BoundingBox']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::Vector3 &) const) &Urho3D::Sphere::IsInside, "todo: docstring", py::arg("point"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::Sphere &) const) &Urho3D::Sphere::IsInside, "todo: docstring", py::arg("sphere"))
+  .def("IsInsideFast", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::Sphere &) const) &Urho3D::Sphere::IsInsideFast, "todo: docstring", py::arg("sphere"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::BoundingBox &) const) &Urho3D::Sphere::IsInside, "todo: docstring", py::arg("box"))
+  .def("IsInsideFast", (Urho3D::Intersection (Urho3D::Sphere::*)(const Urho3D::BoundingBox &) const) &Urho3D::Sphere::IsInsideFast, "todo: docstring", py::arg("box"))
   .def("Distance", (float (Urho3D::Sphere::*)(const Urho3D::Vector3 &) const) &Urho3D::Sphere::Distance, "todo: docstring", py::arg("point"))
   .def("GetLocalPoint", (Urho3D::Vector3 (Urho3D::Sphere::*)(float, float) const) &Urho3D::Sphere::GetLocalPoint, "todo: docstring", py::arg("theta"), py::arg("phi"))
   .def("GetPoint", (Urho3D::Vector3 (Urho3D::Sphere::*)(float, float) const) &Urho3D::Sphere::GetPoint, "todo: docstring", py::arg("theta"), py::arg("phi"))
@@ -1358,10 +1346,8 @@ void Implement_Urho3D_Spline(py::class_<Urho3D::Spline, Urho3D::ExternalPtr<Urho
     // Class Spline Implementation
 pyclass_Var_Urho3D_Spline
   .def(py::init<>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::InterpolationMode>(), "todo: constructor docstring")
-    //['Urho3D::InterpolationMode']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def(py::init<const Urho3D::Vector<Urho3D::Variant> &, Urho3D::InterpolationMode>(), "todo: constructor docstring")
-    //['Urho3D::Vector<Urho3D::Variant>', 'Urho3D::InterpolationMode']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<Urho3D::InterpolationMode>(), "todo: constructor docstring")
+  .def(py::init<const Urho3D::Vector<Urho3D::Variant> &, Urho3D::InterpolationMode>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Spline &>(), "todo: constructor docstring")
   //  .def(py::self = Urho3D::Spline(), "todo: docstring").def("__assign__", (Urho3D::Spline & (Urho3D::Spline::*)(const Urho3D::Spline &)) &Urho3D::Spline::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::Spline']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
@@ -1369,13 +1355,11 @@ pyclass_Var_Urho3D_Spline
     //['Urho3D::Spline']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def(py::self != Urho3D::Spline(), "todo: docstring")
     //['Urho3D::Spline']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("GetInterpolationMode", (Urho3D::InterpolationMode (Urho3D::Spline::*)() const) &Urho3D::Spline::GetInterpolationMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetInterpolationMode", (Urho3D::InterpolationMode (Urho3D::Spline::*)() const) &Urho3D::Spline::GetInterpolationMode, "todo: docstring")
   .def("GetKnots", (const Urho3D::VariantVector & (Urho3D::Spline::*)() const) &Urho3D::Spline::GetKnots, "todo: docstring")
   .def("GetKnot", (Urho3D::Variant (Urho3D::Spline::*)(unsigned int) const) &Urho3D::Spline::GetKnot, "todo: docstring", py::arg("index"))
   .def("GetPoint", (Urho3D::Variant (Urho3D::Spline::*)(float) const) &Urho3D::Spline::GetPoint, "todo: docstring", py::arg("f"))
-  //.def("SetInterpolationMode", (void (Urho3D::Spline::*)(Urho3D::InterpolationMode)) &Urho3D::Spline::SetInterpolationMode, "todo: docstring", py::arg("interpolationMode"))
-    //['Urho3D::InterpolationMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetInterpolationMode", (void (Urho3D::Spline::*)(Urho3D::InterpolationMode)) &Urho3D::Spline::SetInterpolationMode, "todo: docstring", py::arg("interpolationMode"))
   .def("SetKnots", (void (Urho3D::Spline::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::Spline::SetKnots, "todo: docstring", py::arg("knots"))
   .def("SetKnot", (void (Urho3D::Spline::*)(const Urho3D::Variant &, unsigned int)) &Urho3D::Spline::SetKnot, "todo: docstring", py::arg("knot"), py::arg("index"))
   .def("AddKnot", (void (Urho3D::Spline::*)(const Urho3D::Variant &)) &Urho3D::Spline::AddKnot, "todo: docstring", py::arg("knot"))
@@ -1438,8 +1422,7 @@ pyclass_Var_Urho3D_AnimationState
     //['Urho3D::Bone']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   .def("SetLooped", (void (Urho3D::AnimationState::*)(bool)) &Urho3D::AnimationState::SetLooped, "todo: docstring", py::arg("looped"))
   .def("SetWeight", (void (Urho3D::AnimationState::*)(float)) &Urho3D::AnimationState::SetWeight, "todo: docstring", py::arg("weight"))
-  //.def("SetBlendMode", (void (Urho3D::AnimationState::*)(Urho3D::AnimationBlendMode)) &Urho3D::AnimationState::SetBlendMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::AnimationBlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::AnimationState::*)(Urho3D::AnimationBlendMode)) &Urho3D::AnimationState::SetBlendMode, "todo: docstring", py::arg("mode"))
   .def("SetTime", (void (Urho3D::AnimationState::*)(float)) &Urho3D::AnimationState::SetTime, "todo: docstring", py::arg("time"))
   .def("SetBoneWeight", (void (Urho3D::AnimationState::*)(unsigned int, float, bool)) &Urho3D::AnimationState::SetBoneWeight, "todo: docstring", py::arg("index"), py::arg("weight"), py::arg("recursive")=false)
   .def("SetBoneWeight", (void (Urho3D::AnimationState::*)(const Urho3D::String &, float, bool)) &Urho3D::AnimationState::SetBoneWeight, "todo: docstring", py::arg("name"), py::arg("weight"), py::arg("recursive")=false)
@@ -1461,8 +1444,7 @@ pyclass_Var_Urho3D_AnimationState
   .def("IsEnabled", (bool (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::IsEnabled, "todo: docstring")
   .def("IsLooped", (bool (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::IsLooped, "todo: docstring")
   .def("GetWeight", (float (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::GetWeight, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::AnimationBlendMode (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::AnimationBlendMode (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::GetBlendMode, "todo: docstring")
   .def("GetTime", (float (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::GetTime, "todo: docstring")
   .def("GetLength", (float (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::GetLength, "todo: docstring")
   .def("GetLayer", (unsigned char (Urho3D::AnimationState::*)() const) &Urho3D::AnimationState::GetLayer, "todo: docstring")
@@ -1500,8 +1482,7 @@ void Implement_Urho3D_ShaderVariation(py::class_<Urho3D::ShaderVariation, Urho3D
 {
     // Class ShaderVariation Implementation
 pyclass_Var_Urho3D_ShaderVariation
-  //.def(py::init<Urho3D::Shader *, Urho3D::ShaderType>(), "todo: constructor docstring")
-    //['Urho3D::Shader', 'Urho3D::ShaderType']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def(py::init<Urho3D::Shader *, Urho3D::ShaderType>(), "todo: constructor docstring")
   //.def("~ShaderVariation", (void (Urho3D::ShaderVariation::*)()) &Urho3D::ShaderVariation::~ShaderVariation, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("OnDeviceLost", (void (Urho3D::ShaderVariation::*)()) &Urho3D::ShaderVariation::OnDeviceLost, "todo: docstring")
@@ -1510,13 +1491,11 @@ pyclass_Var_Urho3D_ShaderVariation
   .def("SetName", (void (Urho3D::ShaderVariation::*)(const Urho3D::String &)) &Urho3D::ShaderVariation::SetName, "todo: docstring", py::arg("name"))
   .def("SetDefines", (void (Urho3D::ShaderVariation::*)(const Urho3D::String &)) &Urho3D::ShaderVariation::SetDefines, "todo: docstring", py::arg("defines"))
   .def("GetOwner", (Urho3D::Shader * (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetOwner, "todo: docstring")
-  //.def("GetShaderType", (Urho3D::ShaderType (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetShaderType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetShaderType", (Urho3D::ShaderType (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetShaderType, "todo: docstring")
   .def("GetName", (const Urho3D::String & (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetName, "todo: docstring")
   .def("GetFullName", (Urho3D::String (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetFullName, "todo: docstring")
   .def("HasParameter", (bool (Urho3D::ShaderVariation::*)(Urho3D::StringHash) const) &Urho3D::ShaderVariation::HasParameter, "todo: docstring", py::arg("param"))
-  //.def("HasTextureUnit", (bool (Urho3D::ShaderVariation::*)(Urho3D::TextureUnit) const) &Urho3D::ShaderVariation::HasTextureUnit, "todo: docstring", py::arg("unit"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("HasTextureUnit", (bool (Urho3D::ShaderVariation::*)(Urho3D::TextureUnit) const) &Urho3D::ShaderVariation::HasTextureUnit, "todo: docstring", py::arg("unit"))
   //.def("GetParameters", (const HashMap<Urho3D::StringHash, Urho3D::ShaderParameter> & (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetParameters, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetElementHash", (unsigned long long (Urho3D::ShaderVariation::*)() const) &Urho3D::ShaderVariation::GetElementHash, "todo: docstring")
@@ -1589,8 +1568,7 @@ pyclass_Var_Urho3D_RenderSurface
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetNumViewports", (void (Urho3D::RenderSurface::*)(unsigned int)) &Urho3D::RenderSurface::SetNumViewports, "todo: docstring", py::arg("num"))
   .def("SetViewport", (void (Urho3D::RenderSurface::*)(unsigned int, Urho3D::Viewport *)) &Urho3D::RenderSurface::SetViewport, "todo: docstring", py::arg("index"), py::arg("viewport"))
-  //.def("SetUpdateMode", (void (Urho3D::RenderSurface::*)(Urho3D::RenderSurfaceUpdateMode)) &Urho3D::RenderSurface::SetUpdateMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::RenderSurfaceUpdateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetUpdateMode", (void (Urho3D::RenderSurface::*)(Urho3D::RenderSurfaceUpdateMode)) &Urho3D::RenderSurface::SetUpdateMode, "todo: docstring", py::arg("mode"))
   .def("SetLinkedRenderTarget", (void (Urho3D::RenderSurface::*)(Urho3D::RenderSurface *)) &Urho3D::RenderSurface::SetLinkedRenderTarget, "todo: docstring", py::arg("renderTarget"))
   .def("SetLinkedDepthStencil", (void (Urho3D::RenderSurface::*)(Urho3D::RenderSurface *)) &Urho3D::RenderSurface::SetLinkedDepthStencil, "todo: docstring", py::arg("depthStencil"))
   .def("QueueUpdate", (void (Urho3D::RenderSurface::*)()) &Urho3D::RenderSurface::QueueUpdate, "todo: docstring")
@@ -1599,14 +1577,12 @@ pyclass_Var_Urho3D_RenderSurface
   .def("CreateRenderBuffer", (bool (Urho3D::RenderSurface::*)(unsigned int, unsigned int, unsigned int, int)) &Urho3D::RenderSurface::CreateRenderBuffer, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("format"), py::arg("multiSample"))
   .def("GetWidth", (int (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetWidth, "todo: docstring")
   .def("GetHeight", (int (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetHeight, "todo: docstring")
-  //.def("GetUsage", (Urho3D::TextureUsage (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetUsage, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUsage", (Urho3D::TextureUsage (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetUsage, "todo: docstring")
   .def("GetMultiSample", (int (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetMultiSample, "todo: docstring")
   .def("GetAutoResolve", (bool (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetAutoResolve, "todo: docstring")
   .def("GetNumViewports", (unsigned int (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetNumViewports, "todo: docstring")
   .def("GetViewport", (Urho3D::Viewport * (Urho3D::RenderSurface::*)(unsigned int) const) &Urho3D::RenderSurface::GetViewport, "todo: docstring", py::arg("index"))
-  //.def("GetUpdateMode", (Urho3D::RenderSurfaceUpdateMode (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetUpdateMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateMode", (Urho3D::RenderSurfaceUpdateMode (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetUpdateMode, "todo: docstring")
   .def("GetLinkedRenderTarget", (Urho3D::RenderSurface * (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetLinkedRenderTarget, "todo: docstring")
   .def("GetLinkedDepthStencil", (Urho3D::RenderSurface * (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::GetLinkedDepthStencil, "todo: docstring")
   .def("IsUpdateQueued", (bool (Urho3D::RenderSurface::*)() const) &Urho3D::RenderSurface::IsUpdateQueued, "todo: docstring")
@@ -1636,8 +1612,7 @@ pyclass_Var_Urho3D_ShaderProgram
   .def("GetVertexShader", (Urho3D::ShaderVariation * (Urho3D::ShaderProgram::*)() const) &Urho3D::ShaderProgram::GetVertexShader, "todo: docstring")
   .def("GetPixelShader", (Urho3D::ShaderVariation * (Urho3D::ShaderProgram::*)() const) &Urho3D::ShaderProgram::GetPixelShader, "todo: docstring")
   .def("HasParameter", (bool (Urho3D::ShaderProgram::*)(Urho3D::StringHash) const) &Urho3D::ShaderProgram::HasParameter, "todo: docstring", py::arg("param"))
-  //.def("HasTextureUnit", (bool (Urho3D::ShaderProgram::*)(Urho3D::TextureUnit) const) &Urho3D::ShaderProgram::HasTextureUnit, "todo: docstring", py::arg("unit"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("HasTextureUnit", (bool (Urho3D::ShaderProgram::*)(Urho3D::TextureUnit) const) &Urho3D::ShaderProgram::HasTextureUnit, "todo: docstring", py::arg("unit"))
   //.def("GetParameter", (const Urho3D::ShaderParameter * (Urho3D::ShaderProgram::*)(Urho3D::StringHash) const) &Urho3D::ShaderProgram::GetParameter, "todo: docstring", py::arg("param"))
     //['Urho3D::StringHash']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
   .def("GetLinkerOutput", (const Urho3D::String & (Urho3D::ShaderProgram::*)() const) &Urho3D::ShaderProgram::GetLinkerOutput, "todo: docstring")
@@ -1646,10 +1621,8 @@ pyclass_Var_Urho3D_ShaderProgram
   .def("GetUsedVertexAttributes", (unsigned int (Urho3D::ShaderProgram::*)() const) &Urho3D::ShaderProgram::GetUsedVertexAttributes, "todo: docstring")
   //.def("GetConstantBuffers", (const SharedPtr<Urho3D::ConstantBuffer> * (Urho3D::ShaderProgram::*)() const) &Urho3D::ShaderProgram::GetConstantBuffers, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("NeedParameterUpdate", (bool (Urho3D::ShaderProgram::*)(Urho3D::ShaderParameterGroup, const void *)) &Urho3D::ShaderProgram::NeedParameterUpdate, "todo: docstring", py::arg("group"), py::arg("source"))
-    //['Urho3D::ShaderParameterGroup', 'void']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("ClearParameterSource", (void (Urho3D::ShaderProgram::*)(Urho3D::ShaderParameterGroup)) &Urho3D::ShaderProgram::ClearParameterSource, "todo: docstring", py::arg("group"))
-    //['Urho3D::ShaderParameterGroup']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("NeedParameterUpdate", (bool (Urho3D::ShaderProgram::*)(Urho3D::ShaderParameterGroup, const void *)) &Urho3D::ShaderProgram::NeedParameterUpdate, "todo: docstring", py::arg("group"), py::arg("source"))
+  .def("ClearParameterSource", (void (Urho3D::ShaderProgram::*)(Urho3D::ShaderParameterGroup)) &Urho3D::ShaderProgram::ClearParameterSource, "todo: docstring", py::arg("group"))
 // Class Variables:
 ;
 }
@@ -1668,8 +1641,7 @@ pyclass_Var_Urho3D_OctreeQuery
     // Abstract class OctreeQuery -> no init
   //  .def(py::self = Urho3D::OctreeQuery(), "todo: docstring").def("__assign__", (Urho3D::OctreeQuery & (Urho3D::OctreeQuery::*)(const Urho3D::OctreeQuery &)) &Urho3D::OctreeQuery::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::OctreeQuery']; op =, ctor False, dtor False, variadic False, deleted True, ret bad False, param bad False, max ptr 0
-  //.def("TestOctant", (Urho3D::Intersection (Urho3D::OctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::OctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
-    //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("TestOctant", (Urho3D::Intersection (Urho3D::OctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::OctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
   //.def("TestDrawables", (void (Urho3D::OctreeQuery::*)(Urho3D::Drawable **, Urho3D::Drawable **, bool)) &Urho3D::OctreeQuery::TestDrawables, "todo: docstring", py::arg("start"), py::arg("end"), py::arg("inside"))
     //['Urho3D::Drawable', 'Urho3D::Drawable', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 2
 // Class Variables:
@@ -1684,8 +1656,7 @@ void Implement_Urho3D_SphereOctreeQuery(py::class_<Urho3D::SphereOctreeQuery, Ur
 pyclass_Var_Urho3D_SphereOctreeQuery
   //.def(py::init<Urho3D::PODVector<Urho3D::Drawable *> &, const Urho3D::Sphere &, unsigned char, unsigned int>(), "todo: constructor docstring")
     //['Urho3D::PODVector<Urho3D::Drawable', 'Urho3D::Sphere', 'unsigned char', 'unsigned int']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("TestOctant", (Urho3D::Intersection (Urho3D::SphereOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::SphereOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
-    //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("TestOctant", (Urho3D::Intersection (Urho3D::SphereOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::SphereOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
   //.def("TestDrawables", (void (Urho3D::SphereOctreeQuery::*)(Urho3D::Drawable **, Urho3D::Drawable **, bool)) &Urho3D::SphereOctreeQuery::TestDrawables, "todo: docstring", py::arg("start"), py::arg("end"), py::arg("inside"))
     //['Urho3D::Drawable', 'Urho3D::Drawable', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 2
 // Class Variables:
@@ -1699,8 +1670,7 @@ void Implement_Urho3D_FrustumOctreeQuery(py::class_<Urho3D::FrustumOctreeQuery, 
 pyclass_Var_Urho3D_FrustumOctreeQuery
   //.def(py::init<Urho3D::PODVector<Urho3D::Drawable *> &, const Urho3D::Frustum &, unsigned char, unsigned int>(), "todo: constructor docstring")
     //['Urho3D::PODVector<Urho3D::Drawable', 'Urho3D::Frustum', 'unsigned char', 'unsigned int']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("TestOctant", (Urho3D::Intersection (Urho3D::FrustumOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::FrustumOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
-    //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("TestOctant", (Urho3D::Intersection (Urho3D::FrustumOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::FrustumOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
   //.def("TestDrawables", (void (Urho3D::FrustumOctreeQuery::*)(Urho3D::Drawable **, Urho3D::Drawable **, bool)) &Urho3D::FrustumOctreeQuery::TestDrawables, "todo: docstring", py::arg("start"), py::arg("end"), py::arg("inside"))
     //['Urho3D::Drawable', 'Urho3D::Drawable', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 2
 // Class Variables:
@@ -1714,8 +1684,7 @@ void Implement_Urho3D_AllContentOctreeQuery(py::class_<Urho3D::AllContentOctreeQ
 pyclass_Var_Urho3D_AllContentOctreeQuery
   //.def(py::init<Urho3D::PODVector<Urho3D::Drawable *> &, unsigned char, unsigned int>(), "todo: constructor docstring")
     //['Urho3D::PODVector<Urho3D::Drawable', 'unsigned char', 'unsigned int']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("TestOctant", (Urho3D::Intersection (Urho3D::AllContentOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::AllContentOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
-    //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("TestOctant", (Urho3D::Intersection (Urho3D::AllContentOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::AllContentOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
   //.def("TestDrawables", (void (Urho3D::AllContentOctreeQuery::*)(Urho3D::Drawable **, Urho3D::Drawable **, bool)) &Urho3D::AllContentOctreeQuery::TestDrawables, "todo: docstring", py::arg("start"), py::arg("end"), py::arg("inside"))
     //['Urho3D::Drawable', 'Urho3D::Drawable', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 2
 // Class Variables:
@@ -1938,8 +1907,7 @@ pyclass_Var_Urho3D_PListValue
     //['Urho3D::HashMap<Urho3D::String, Urho3D::PListValue>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("SetValueVector", (void (Urho3D::PListValue::*)(const Urho3D::Vector<Urho3D::PListValue> &)) &Urho3D::PListValue::SetValueVector, "todo: docstring", py::arg("valueVector"))
     //['Urho3D::Vector<Urho3D::PListValue>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetType", (Urho3D::PListValueType (Urho3D::PListValue::*)() const) &Urho3D::PListValue::GetType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetType", (Urho3D::PListValueType (Urho3D::PListValue::*)() const) &Urho3D::PListValue::GetType, "todo: docstring")
   .def("GetInt", (int (Urho3D::PListValue::*)() const) &Urho3D::PListValue::GetInt, "todo: docstring")
   .def("GetBool", (bool (Urho3D::PListValue::*)() const) &Urho3D::PListValue::GetBool, "todo: docstring")
   .def("GetFloat", (float (Urho3D::PListValue::*)() const) &Urho3D::PListValue::GetFloat, "todo: docstring")
@@ -2335,11 +2303,9 @@ pyclass_Var_Urho3D_Variant
   .def(py::init<const Urho3D::Matrix3x4 &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Matrix4 &>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::String &, const Urho3D::String &>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::VariantType, const Urho3D::String &>(), "todo: constructor docstring")
-    //['Urho3D::VariantType', 'Urho3D::String']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<Urho3D::VariantType, const Urho3D::String &>(), "todo: constructor docstring")
   .def(py::init<const char *, const char *>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::VariantType, const char *>(), "todo: constructor docstring")
-    //['Urho3D::VariantType', 'char']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def(py::init<Urho3D::VariantType, const char *>(), "todo: constructor docstring")
   .def(py::init<const Urho3D::Variant &>(), "todo: constructor docstring")
   //.def("~Variant", (void (Urho3D::Variant::*)()) &Urho3D::Variant::~Variant, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
@@ -2532,10 +2498,8 @@ pyclass_Var_Urho3D_Variant
     //['Urho3D::Matrix4']; op !=, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("FromString", (void (Urho3D::Variant::*)(const Urho3D::String &, const Urho3D::String &)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
   .def("FromString", (void (Urho3D::Variant::*)(const char *, const char *)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
-  //.def("FromString", (void (Urho3D::Variant::*)(Urho3D::VariantType, const Urho3D::String &)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
-    //['Urho3D::VariantType', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("FromString", (void (Urho3D::Variant::*)(Urho3D::VariantType, const char *)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
-    //['Urho3D::VariantType', 'char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("FromString", (void (Urho3D::Variant::*)(Urho3D::VariantType, const Urho3D::String &)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
+  .def("FromString", (void (Urho3D::Variant::*)(Urho3D::VariantType, const char *)) &Urho3D::Variant::FromString, "todo: docstring", py::arg("type"), py::arg("value"))
   .def("SetBuffer", (void (Urho3D::Variant::*)(const void *, unsigned int)) &Urho3D::Variant::SetBuffer, "todo: docstring", py::arg("data"), py::arg("size"))
   //.def("SetCustomVariantValue", (void (Urho3D::Variant::*)(const Urho3D::CustomVariantValue &)) &Urho3D::Variant::SetCustomVariantValue, "todo: docstring", py::arg("value"))
     //['Urho3D::CustomVariantValue']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
@@ -2574,8 +2538,7 @@ pyclass_Var_Urho3D_Variant
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
   //.def("GetCustomVariantValuePtr", (const Urho3D::CustomVariantValue * (Urho3D::Variant::*)() const) &Urho3D::Variant::GetCustomVariantValuePtr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("GetType", (Urho3D::VariantType (Urho3D::Variant::*)() const) &Urho3D::Variant::GetType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetType", (Urho3D::VariantType (Urho3D::Variant::*)() const) &Urho3D::Variant::GetType, "todo: docstring")
   .def("GetTypeName", (Urho3D::String (Urho3D::Variant::*)() const) &Urho3D::Variant::GetTypeName, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::Variant::*)() const) &Urho3D::Variant::ToString, "todo: docstring")
   .def("IsZero", (bool (Urho3D::Variant::*)() const) &Urho3D::Variant::IsZero, "todo: docstring")
@@ -2673,8 +2636,7 @@ pyclass_Var_Urho3D_Script
   .def("SetDefaultScriptFile", (void (Urho3D::Script::*)(Urho3D::ScriptFile *)) &Urho3D::Script::SetDefaultScriptFile, "todo: docstring", py::arg("file"))
   .def("SetDefaultScene", (void (Urho3D::Script::*)(Urho3D::Scene *)) &Urho3D::Script::SetDefaultScene, "todo: docstring", py::arg("scene"))
   .def("SetExecuteConsoleCommands", (void (Urho3D::Script::*)(bool)) &Urho3D::Script::SetExecuteConsoleCommands, "todo: docstring", py::arg("enable"))
-  //.def("DumpAPI", (void (Urho3D::Script::*)(Urho3D::DumpMode, const Urho3D::String &)) &Urho3D::Script::DumpAPI, "todo: docstring", py::arg("mode")=DOXYGEN, py::arg("sourceTree")=String::EMPTY)
-    //['Urho3D::DumpMode', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("DumpAPI", (void (Urho3D::Script::*)(Urho3D::DumpMode, const Urho3D::String &)) &Urho3D::Script::DumpAPI, "todo: docstring", py::arg("mode")=DOXYGEN, py::arg("sourceTree")=String::EMPTY)
   //.def("MessageCallback", (void (Urho3D::Script::*)(const asSMessageInfo *)) &Urho3D::Script::MessageCallback, "todo: docstring", py::arg("msg"))
     //['asSMessageInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   //.def("ExceptionCallback", (void (Urho3D::Script::*)(asIScriptContext *)) &Urho3D::Script::ExceptionCallback, "todo: docstring", py::arg("context"))
@@ -2801,10 +2763,8 @@ pyclass_Var_Urho3D_JSONValue
     //['Urho3D::HashMap<Urho3D::String, Urho3D::JSONValue>']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //  .def(py::self = Urho3D::JSONValue(), "todo: docstring").def("__assign__", (Urho3D::JSONValue & (Urho3D::JSONValue::*)(const Urho3D::JSONValue &)) &Urho3D::JSONValue::operator=, py::operator, "todo: operator docstring. Switch to py: :self ops.")
     //['Urho3D::JSONValue']; op =, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("GetValueType", (Urho3D::JSONValueType (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetValueType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetNumberType", (Urho3D::JSONNumberType (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetNumberType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetValueType", (Urho3D::JSONValueType (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetValueType, "todo: docstring")
+  .def("GetNumberType", (Urho3D::JSONNumberType (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetNumberType, "todo: docstring")
   .def("GetValueTypeName", (Urho3D::String (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetValueTypeName, "todo: docstring")
   .def("GetNumberTypeName", (Urho3D::String (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetNumberTypeName, "todo: docstring")
   .def("IsNull", (bool (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::IsNull, "todo: docstring")
@@ -2851,13 +2811,11 @@ pyclass_Var_Urho3D_JSONValue
   //.def("End", (Urho3D::ConstJSONObjectIterator (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::End, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("Clear", (void (Urho3D::JSONValue::*)()) &Urho3D::JSONValue::Clear, "todo: docstring")
-  //.def("SetType", (void (Urho3D::JSONValue::*)(Urho3D::JSONValueType, Urho3D::JSONNumberType)) &Urho3D::JSONValue::SetType, "todo: docstring", py::arg("valueType"), py::arg("numberType")=JSONNT_NAN)
-    //['Urho3D::JSONValueType', 'Urho3D::JSONNumberType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetType", (void (Urho3D::JSONValue::*)(Urho3D::JSONValueType, Urho3D::JSONNumberType)) &Urho3D::JSONValue::SetType, "todo: docstring", py::arg("valueType"), py::arg("numberType")=JSONNT_NAN)
   .def("SetVariant", (void (Urho3D::JSONValue::*)(const Urho3D::Variant &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariant, "todo: docstring", py::arg("variant"), py::arg("context")=nullptr)
   .def("GetVariant", (Urho3D::Variant (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariant, "todo: docstring")
   .def("SetVariantValue", (void (Urho3D::JSONValue::*)(const Urho3D::Variant &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantValue, "todo: docstring", py::arg("variant"), py::arg("context")=nullptr)
-  //.def("GetVariantValue", (Urho3D::Variant (Urho3D::JSONValue::*)(Urho3D::VariantType) const) &Urho3D::JSONValue::GetVariantValue, "todo: docstring", py::arg("type"))
-    //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetVariantValue", (Urho3D::Variant (Urho3D::JSONValue::*)(Urho3D::VariantType) const) &Urho3D::JSONValue::GetVariantValue, "todo: docstring", py::arg("type"))
   .def("SetVariantMap", (void (Urho3D::JSONValue::*)(const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantMap, "todo: docstring", py::arg("variantMap"), py::arg("context")=nullptr)
   .def("GetVariantMap", (Urho3D::VariantMap (Urho3D::JSONValue::*)() const) &Urho3D::JSONValue::GetVariantMap, "todo: docstring")
   .def("SetVariantVector", (void (Urho3D::JSONValue::*)(const Urho3D::Vector<Urho3D::Variant> &, Urho3D::Context *)) &Urho3D::JSONValue::SetVariantVector, "todo: docstring", py::arg("variantVector"), py::arg("context")=nullptr)
@@ -2914,8 +2872,7 @@ void Implement_Urho3D_VertexElement(py::class_<Urho3D::VertexElement, Urho3D::Ex
     // Class VertexElement Implementation
 pyclass_Var_Urho3D_VertexElement
   .def(py::init<>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char, bool>(), "todo: constructor docstring")
-    //['Urho3D::VertexElementType', 'Urho3D::VertexElementSemantic', 'unsigned char', 'bool']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def(py::init<Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char, bool>(), "todo: constructor docstring")
   .def(py::self == Urho3D::VertexElement(), "todo: docstring")
     //['Urho3D::VertexElement']; op ==, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def(py::self != Urho3D::VertexElement(), "todo: docstring")
@@ -2979,16 +2936,11 @@ pyclass_Var_Urho3D_BoundingBox
   .def("Transformed", (Urho3D::BoundingBox (Urho3D::BoundingBox::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::BoundingBox::Transformed, "todo: docstring", py::arg("transform"))
   .def("Projected", (Urho3D::Rect (Urho3D::BoundingBox::*)(const Urho3D::Matrix4 &) const) &Urho3D::BoundingBox::Projected, "todo: docstring", py::arg("projection"))
   .def("DistanceToPoint", (float (Urho3D::BoundingBox::*)(const Urho3D::Vector3 &) const) &Urho3D::BoundingBox::DistanceToPoint, "todo: docstring", py::arg("point"))
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::Vector3 &) const) &Urho3D::BoundingBox::IsInside, "todo: docstring", py::arg("point"))
-    //['Urho3D::Vector3']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &) const) &Urho3D::BoundingBox::IsInside, "todo: docstring", py::arg("box"))
-    //['Urho3D::BoundingBox']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInsideFast", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &) const) &Urho3D::BoundingBox::IsInsideFast, "todo: docstring", py::arg("box"))
-    //['Urho3D::BoundingBox']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::Sphere &) const) &Urho3D::BoundingBox::IsInside, "todo: docstring", py::arg("sphere"))
-    //['Urho3D::Sphere']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInsideFast", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::Sphere &) const) &Urho3D::BoundingBox::IsInsideFast, "todo: docstring", py::arg("sphere"))
-    //['Urho3D::Sphere']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("IsInside", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::Vector3 &) const) &Urho3D::BoundingBox::IsInside, "todo: docstring", py::arg("point"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &) const) &Urho3D::BoundingBox::IsInside, "todo: docstring", py::arg("box"))
+  .def("IsInsideFast", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::BoundingBox &) const) &Urho3D::BoundingBox::IsInsideFast, "todo: docstring", py::arg("box"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::Sphere &) const) &Urho3D::BoundingBox::IsInside, "todo: docstring", py::arg("sphere"))
+  .def("IsInsideFast", (Urho3D::Intersection (Urho3D::BoundingBox::*)(const Urho3D::Sphere &) const) &Urho3D::BoundingBox::IsInsideFast, "todo: docstring", py::arg("sphere"))
   .def("ToString", (Urho3D::String (Urho3D::BoundingBox::*)() const) &Urho3D::BoundingBox::ToString, "todo: docstring")
 // Class Variables:
   .def_readwrite("min",&Urho3D::BoundingBox::min_, "todo: var docstring")//Urho3D::Vector3
@@ -3011,10 +2963,8 @@ pyclass_Var_Urho3D_Geometry
   .def("SetNumVertexBuffers", (bool (Urho3D::Geometry::*)(unsigned int)) &Urho3D::Geometry::SetNumVertexBuffers, "todo: docstring", py::arg("num"))
   .def("SetVertexBuffer", (bool (Urho3D::Geometry::*)(unsigned int, Urho3D::VertexBuffer *)) &Urho3D::Geometry::SetVertexBuffer, "todo: docstring", py::arg("index"), py::arg("buffer"))
   .def("SetIndexBuffer", (void (Urho3D::Geometry::*)(Urho3D::IndexBuffer *)) &Urho3D::Geometry::SetIndexBuffer, "todo: docstring", py::arg("buffer"))
-  //.def("SetDrawRange", (bool (Urho3D::Geometry::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, bool)) &Urho3D::Geometry::SetDrawRange, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("getUsedVertexRange")=true)
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetDrawRange", (bool (Urho3D::Geometry::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, bool)) &Urho3D::Geometry::SetDrawRange, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("vertexStart"), py::arg("vertexCount"), py::arg("checkIllegal")=true)
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetDrawRange", (bool (Urho3D::Geometry::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, bool)) &Urho3D::Geometry::SetDrawRange, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("getUsedVertexRange")=true)
+  .def("SetDrawRange", (bool (Urho3D::Geometry::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, bool)) &Urho3D::Geometry::SetDrawRange, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("vertexStart"), py::arg("vertexCount"), py::arg("checkIllegal")=true)
   .def("SetLodDistance", (void (Urho3D::Geometry::*)(float)) &Urho3D::Geometry::SetLodDistance, "todo: docstring", py::arg("distance"))
   //.def("SetRawVertexData", (void (Urho3D::Geometry::*)(const Urho3D::SharedArrayPtr<unsigned char> &, const Urho3D::PODVector<Urho3D::VertexElement> &)) &Urho3D::Geometry::SetRawVertexData, "todo: docstring", py::arg("data"), py::arg("elements"))
     //['Urho3D::SharedArrayPtr<unsigned char>', 'Urho3D::PODVector<Urho3D::VertexElement>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
@@ -3028,8 +2978,7 @@ pyclass_Var_Urho3D_Geometry
   .def("GetNumVertexBuffers", (unsigned int (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetNumVertexBuffers, "todo: docstring")
   .def("GetVertexBuffer", (Urho3D::VertexBuffer * (Urho3D::Geometry::*)(unsigned int) const) &Urho3D::Geometry::GetVertexBuffer, "todo: docstring", py::arg("index"))
   .def("GetIndexBuffer", (Urho3D::IndexBuffer * (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetIndexBuffer, "todo: docstring")
-  //.def("GetPrimitiveType", (Urho3D::PrimitiveType (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetPrimitiveType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetPrimitiveType", (Urho3D::PrimitiveType (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetPrimitiveType, "todo: docstring")
   .def("GetIndexStart", (unsigned int (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetIndexStart, "todo: docstring")
   .def("GetIndexCount", (unsigned int (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetIndexCount, "todo: docstring")
   .def("GetVertexStart", (unsigned int (Urho3D::Geometry::*)() const) &Urho3D::Geometry::GetVertexStart, "todo: docstring")
@@ -3060,8 +3009,7 @@ pyclass_Var_Urho3D_OcclusionBuffer
   .def("SetSize", (bool (Urho3D::OcclusionBuffer::*)(int, int, bool)) &Urho3D::OcclusionBuffer::SetSize, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("threaded"))
   .def("SetView", (void (Urho3D::OcclusionBuffer::*)(Urho3D::Camera *)) &Urho3D::OcclusionBuffer::SetView, "todo: docstring", py::arg("camera"))
   .def("SetMaxTriangles", (void (Urho3D::OcclusionBuffer::*)(unsigned int)) &Urho3D::OcclusionBuffer::SetMaxTriangles, "todo: docstring", py::arg("triangles"))
-  //.def("SetCullMode", (void (Urho3D::OcclusionBuffer::*)(Urho3D::CullMode)) &Urho3D::OcclusionBuffer::SetCullMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CullMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetCullMode", (void (Urho3D::OcclusionBuffer::*)(Urho3D::CullMode)) &Urho3D::OcclusionBuffer::SetCullMode, "todo: docstring", py::arg("mode"))
   .def("Reset", (void (Urho3D::OcclusionBuffer::*)()) &Urho3D::OcclusionBuffer::Reset, "todo: docstring")
   .def("Clear", (void (Urho3D::OcclusionBuffer::*)()) &Urho3D::OcclusionBuffer::Clear, "todo: docstring")
   .def("AddTriangles", (bool (Urho3D::OcclusionBuffer::*)(const Urho3D::Matrix3x4 &, const void *, unsigned int, unsigned int, unsigned int)) &Urho3D::OcclusionBuffer::AddTriangles, "todo: docstring", py::arg("model"), py::arg("vertexData"), py::arg("vertexSize"), py::arg("vertexStart"), py::arg("vertexCount"))
@@ -3076,8 +3024,7 @@ pyclass_Var_Urho3D_OcclusionBuffer
   .def("GetHeight", (int (Urho3D::OcclusionBuffer::*)() const) &Urho3D::OcclusionBuffer::GetHeight, "todo: docstring")
   .def("GetNumTriangles", (unsigned int (Urho3D::OcclusionBuffer::*)() const) &Urho3D::OcclusionBuffer::GetNumTriangles, "todo: docstring")
   .def("GetMaxTriangles", (unsigned int (Urho3D::OcclusionBuffer::*)() const) &Urho3D::OcclusionBuffer::GetMaxTriangles, "todo: docstring")
-  //.def("GetCullMode", (Urho3D::CullMode (Urho3D::OcclusionBuffer::*)() const) &Urho3D::OcclusionBuffer::GetCullMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetCullMode", (Urho3D::CullMode (Urho3D::OcclusionBuffer::*)() const) &Urho3D::OcclusionBuffer::GetCullMode, "todo: docstring")
   .def("IsThreaded", (bool (Urho3D::OcclusionBuffer::*)() const) &Urho3D::OcclusionBuffer::IsThreaded, "todo: docstring")
   .def("IsVisible", (bool (Urho3D::OcclusionBuffer::*)(const Urho3D::BoundingBox &) const) &Urho3D::OcclusionBuffer::IsVisible, "todo: docstring", py::arg("worldSpaceBox"))
   .def("GetUseTimer", (unsigned int (Urho3D::OcclusionBuffer::*)()) &Urho3D::OcclusionBuffer::GetUseTimer, "todo: docstring")
@@ -3137,16 +3084,11 @@ pyclass_Var_Urho3D_Graphics
   .def("ResolveToTexture", (bool (Urho3D::Graphics::*)(Urho3D::Texture2D *, const Urho3D::IntRect &)) &Urho3D::Graphics::ResolveToTexture, "todo: docstring", py::arg("destination"), py::arg("viewport"))
   .def("ResolveToTexture", (bool (Urho3D::Graphics::*)(Urho3D::Texture2D *)) &Urho3D::Graphics::ResolveToTexture, "todo: docstring", py::arg("texture"))
   .def("ResolveToTexture", (bool (Urho3D::Graphics::*)(Urho3D::TextureCube *)) &Urho3D::Graphics::ResolveToTexture, "todo: docstring", py::arg("texture"))
-  //.def("Draw", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int)) &Urho3D::Graphics::Draw, "todo: docstring", py::arg("type"), py::arg("vertexStart"), py::arg("vertexCount"))
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Draw", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::Draw, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("minVertex"), py::arg("vertexCount"))
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Draw", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::Draw, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("baseVertexIndex"), py::arg("minVertex"), py::arg("vertexCount"))
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("DrawInstanced", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::DrawInstanced, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("minVertex"), py::arg("vertexCount"), py::arg("instanceCount"))
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("DrawInstanced", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::DrawInstanced, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("baseVertexIndex"), py::arg("minVertex"), py::arg("vertexCount"), py::arg("instanceCount"))
-    //['Urho3D::PrimitiveType', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("Draw", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int)) &Urho3D::Graphics::Draw, "todo: docstring", py::arg("type"), py::arg("vertexStart"), py::arg("vertexCount"))
+  .def("Draw", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::Draw, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("minVertex"), py::arg("vertexCount"))
+  .def("Draw", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::Draw, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("baseVertexIndex"), py::arg("minVertex"), py::arg("vertexCount"))
+  .def("DrawInstanced", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::DrawInstanced, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("minVertex"), py::arg("vertexCount"), py::arg("instanceCount"))
+  .def("DrawInstanced", (void (Urho3D::Graphics::*)(Urho3D::PrimitiveType, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::DrawInstanced, "todo: docstring", py::arg("type"), py::arg("indexStart"), py::arg("indexCount"), py::arg("baseVertexIndex"), py::arg("minVertex"), py::arg("vertexCount"), py::arg("instanceCount"))
   .def("SetVertexBuffer", (void (Urho3D::Graphics::*)(Urho3D::VertexBuffer *)) &Urho3D::Graphics::SetVertexBuffer, "todo: docstring", py::arg("buffer"))
   //.def("SetVertexBuffers", (bool (Urho3D::Graphics::*)(const Urho3D::PODVector<Urho3D::VertexBuffer *> &, unsigned int)) &Urho3D::Graphics::SetVertexBuffers, "todo: docstring", py::arg("buffers"), py::arg("instanceOffset")=0)
     //['Urho3D::PODVector<Urho3D::VertexBuffer', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
@@ -3166,20 +3108,16 @@ pyclass_Var_Urho3D_Graphics
   .def("SetShaderParameter", (void (Urho3D::Graphics::*)(Urho3D::StringHash, const Urho3D::Vector4 &)) &Urho3D::Graphics::SetShaderParameter, "todo: docstring", py::arg("param"), py::arg("vector"))
   .def("SetShaderParameter", (void (Urho3D::Graphics::*)(Urho3D::StringHash, const Urho3D::Matrix3x4 &)) &Urho3D::Graphics::SetShaderParameter, "todo: docstring", py::arg("param"), py::arg("matrix"))
   .def("SetShaderParameter", (void (Urho3D::Graphics::*)(Urho3D::StringHash, const Urho3D::Variant &)) &Urho3D::Graphics::SetShaderParameter, "todo: docstring", py::arg("param"), py::arg("value"))
-  //.def("NeedParameterUpdate", (bool (Urho3D::Graphics::*)(Urho3D::ShaderParameterGroup, const void *)) &Urho3D::Graphics::NeedParameterUpdate, "todo: docstring", py::arg("group"), py::arg("source"))
-    //['Urho3D::ShaderParameterGroup', 'void']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("NeedParameterUpdate", (bool (Urho3D::Graphics::*)(Urho3D::ShaderParameterGroup, const void *)) &Urho3D::Graphics::NeedParameterUpdate, "todo: docstring", py::arg("group"), py::arg("source"))
   .def("HasShaderParameter", (bool (Urho3D::Graphics::*)(Urho3D::StringHash)) &Urho3D::Graphics::HasShaderParameter, "todo: docstring", py::arg("param"))
-  //.def("HasTextureUnit", (bool (Urho3D::Graphics::*)(Urho3D::TextureUnit)) &Urho3D::Graphics::HasTextureUnit, "todo: docstring", py::arg("unit"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("ClearParameterSource", (void (Urho3D::Graphics::*)(Urho3D::ShaderParameterGroup)) &Urho3D::Graphics::ClearParameterSource, "todo: docstring", py::arg("group"))
-    //['Urho3D::ShaderParameterGroup']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("HasTextureUnit", (bool (Urho3D::Graphics::*)(Urho3D::TextureUnit)) &Urho3D::Graphics::HasTextureUnit, "todo: docstring", py::arg("unit"))
+  .def("ClearParameterSource", (void (Urho3D::Graphics::*)(Urho3D::ShaderParameterGroup)) &Urho3D::Graphics::ClearParameterSource, "todo: docstring", py::arg("group"))
   .def("ClearParameterSources", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::ClearParameterSources, "todo: docstring")
   .def("ClearTransformSources", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::ClearTransformSources, "todo: docstring")
   .def("SetTexture", (void (Urho3D::Graphics::*)(unsigned int, Urho3D::Texture *)) &Urho3D::Graphics::SetTexture, "todo: docstring", py::arg("index"), py::arg("texture"))
   .def("SetTextureForUpdate", (void (Urho3D::Graphics::*)(Urho3D::Texture *)) &Urho3D::Graphics::SetTextureForUpdate, "todo: docstring", py::arg("texture"))
   .def("SetTextureParametersDirty", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::SetTextureParametersDirty, "todo: docstring")
-  //.def("SetDefaultTextureFilterMode", (void (Urho3D::Graphics::*)(Urho3D::TextureFilterMode)) &Urho3D::Graphics::SetDefaultTextureFilterMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::TextureFilterMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetDefaultTextureFilterMode", (void (Urho3D::Graphics::*)(Urho3D::TextureFilterMode)) &Urho3D::Graphics::SetDefaultTextureFilterMode, "todo: docstring", py::arg("mode"))
   .def("SetDefaultTextureAnisotropy", (void (Urho3D::Graphics::*)(unsigned int)) &Urho3D::Graphics::SetDefaultTextureAnisotropy, "todo: docstring", py::arg("level"))
   .def("ResetRenderTargets", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::ResetRenderTargets, "todo: docstring")
   .def("ResetRenderTarget", (void (Urho3D::Graphics::*)(unsigned int)) &Urho3D::Graphics::ResetRenderTarget, "todo: docstring", py::arg("index"))
@@ -3189,22 +3127,17 @@ pyclass_Var_Urho3D_Graphics
   .def("SetDepthStencil", (void (Urho3D::Graphics::*)(Urho3D::RenderSurface *)) &Urho3D::Graphics::SetDepthStencil, "todo: docstring", py::arg("depthStencil"))
   .def("SetDepthStencil", (void (Urho3D::Graphics::*)(Urho3D::Texture2D *)) &Urho3D::Graphics::SetDepthStencil, "todo: docstring", py::arg("texture"))
   .def("SetViewport", (void (Urho3D::Graphics::*)(const Urho3D::IntRect &)) &Urho3D::Graphics::SetViewport, "todo: docstring", py::arg("rect"))
-  //.def("SetBlendMode", (void (Urho3D::Graphics::*)(Urho3D::BlendMode, bool)) &Urho3D::Graphics::SetBlendMode, "todo: docstring", py::arg("mode"), py::arg("alphaToCoverage")=false)
-    //['Urho3D::BlendMode', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::Graphics::*)(Urho3D::BlendMode, bool)) &Urho3D::Graphics::SetBlendMode, "todo: docstring", py::arg("mode"), py::arg("alphaToCoverage")=false)
   .def("SetColorWrite", (void (Urho3D::Graphics::*)(bool)) &Urho3D::Graphics::SetColorWrite, "todo: docstring", py::arg("enable"))
-  //.def("SetCullMode", (void (Urho3D::Graphics::*)(Urho3D::CullMode)) &Urho3D::Graphics::SetCullMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CullMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetCullMode", (void (Urho3D::Graphics::*)(Urho3D::CullMode)) &Urho3D::Graphics::SetCullMode, "todo: docstring", py::arg("mode"))
   .def("SetDepthBias", (void (Urho3D::Graphics::*)(float, float)) &Urho3D::Graphics::SetDepthBias, "todo: docstring", py::arg("constantBias"), py::arg("slopeScaledBias"))
-  //.def("SetDepthTest", (void (Urho3D::Graphics::*)(Urho3D::CompareMode)) &Urho3D::Graphics::SetDepthTest, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CompareMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetDepthTest", (void (Urho3D::Graphics::*)(Urho3D::CompareMode)) &Urho3D::Graphics::SetDepthTest, "todo: docstring", py::arg("mode"))
   .def("SetDepthWrite", (void (Urho3D::Graphics::*)(bool)) &Urho3D::Graphics::SetDepthWrite, "todo: docstring", py::arg("enable"))
-  //.def("SetFillMode", (void (Urho3D::Graphics::*)(Urho3D::FillMode)) &Urho3D::Graphics::SetFillMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FillMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFillMode", (void (Urho3D::Graphics::*)(Urho3D::FillMode)) &Urho3D::Graphics::SetFillMode, "todo: docstring", py::arg("mode"))
   .def("SetLineAntiAlias", (void (Urho3D::Graphics::*)(bool)) &Urho3D::Graphics::SetLineAntiAlias, "todo: docstring", py::arg("enable"))
   .def("SetScissorTest", (void (Urho3D::Graphics::*)(bool, const Urho3D::Rect &, bool)) &Urho3D::Graphics::SetScissorTest, "todo: docstring", py::arg("enable"), py::arg("rect")=Rect::FULL, py::arg("borderInclusive")=true)
   .def("SetScissorTest", (void (Urho3D::Graphics::*)(bool, const Urho3D::IntRect &)) &Urho3D::Graphics::SetScissorTest, "todo: docstring", py::arg("enable"), py::arg("rect"))
-  //.def("SetStencilTest", (void (Urho3D::Graphics::*)(bool, Urho3D::CompareMode, Urho3D::StencilOp, Urho3D::StencilOp, Urho3D::StencilOp, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::SetStencilTest, "todo: docstring", py::arg("enable"), py::arg("mode")=CMP_ALWAYS, py::arg("pass")=OP_KEEP, py::arg("fail")=OP_KEEP, py::arg("zFail")=OP_KEEP, py::arg("stencilRef")=0, py::arg("compareMask")=M_MAX_UNSIGNED, py::arg("writeMask")=M_MAX_UNSIGNED)
-    //['bool', 'Urho3D::CompareMode', 'Urho3D::StencilOp', 'Urho3D::StencilOp', 'Urho3D::StencilOp', 'unsigned int', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetStencilTest", (void (Urho3D::Graphics::*)(bool, Urho3D::CompareMode, Urho3D::StencilOp, Urho3D::StencilOp, Urho3D::StencilOp, unsigned int, unsigned int, unsigned int)) &Urho3D::Graphics::SetStencilTest, "todo: docstring", py::arg("enable"), py::arg("mode")=CMP_ALWAYS, py::arg("pass")=OP_KEEP, py::arg("fail")=OP_KEEP, py::arg("zFail")=OP_KEEP, py::arg("stencilRef")=0, py::arg("compareMask")=M_MAX_UNSIGNED, py::arg("writeMask")=M_MAX_UNSIGNED)
   .def("SetClipPlane", (void (Urho3D::Graphics::*)(bool, const Urho3D::Plane &, const Urho3D::Matrix3x4 &, const Urho3D::Matrix4 &)) &Urho3D::Graphics::SetClipPlane, "todo: docstring", py::arg("enable"), py::arg("clipPlane")=Plane::UP, py::arg("view")=Matrix3x4::IDENTITY, py::arg("projection")=Matrix4::IDENTITY)
   .def("BeginDumpShaders", (void (Urho3D::Graphics::*)(const Urho3D::String &)) &Urho3D::Graphics::BeginDumpShaders, "todo: docstring", py::arg("fileName"))
   .def("EndDumpShaders", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::EndDumpShaders, "todo: docstring")
@@ -3259,53 +3192,39 @@ pyclass_Var_Urho3D_Graphics
   .def("GetCurrentMonitor", (int (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetCurrentMonitor, "todo: docstring")
   .def("GetMaximized", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetMaximized, "todo: docstring")
   .def("GetDisplayDPI", (Urho3D::Vector3 (Urho3D::Graphics::*)(int) const) &Urho3D::Graphics::GetDisplayDPI, "todo: docstring", py::arg("monitor")=0)
-  //.def("GetFormat", (unsigned int (Urho3D::Graphics::*)(Urho3D::CompressedFormat) const) &Urho3D::Graphics::GetFormat, "todo: docstring", py::arg("format"))
-    //['Urho3D::CompressedFormat']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetShader", (Urho3D::ShaderVariation * (Urho3D::Graphics::*)(Urho3D::ShaderType, const Urho3D::String &, const Urho3D::String &) const) &Urho3D::Graphics::GetShader, "todo: docstring", py::arg("type"), py::arg("name"), py::arg("defines")=String::EMPTY)
-    //['Urho3D::ShaderType', 'Urho3D::String', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("GetShader", (Urho3D::ShaderVariation * (Urho3D::Graphics::*)(Urho3D::ShaderType, const char *, const char *) const) &Urho3D::Graphics::GetShader, "todo: docstring", py::arg("type"), py::arg("name"), py::arg("defines"))
-    //['Urho3D::ShaderType', 'char', 'char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("GetFormat", (unsigned int (Urho3D::Graphics::*)(Urho3D::CompressedFormat) const) &Urho3D::Graphics::GetFormat, "todo: docstring", py::arg("format"))
+  .def("GetShader", (Urho3D::ShaderVariation * (Urho3D::Graphics::*)(Urho3D::ShaderType, const Urho3D::String &, const Urho3D::String &) const) &Urho3D::Graphics::GetShader, "todo: docstring", py::arg("type"), py::arg("name"), py::arg("defines")=String::EMPTY)
+  .def("GetShader", (Urho3D::ShaderVariation * (Urho3D::Graphics::*)(Urho3D::ShaderType, const char *, const char *) const) &Urho3D::Graphics::GetShader, "todo: docstring", py::arg("type"), py::arg("name"), py::arg("defines"))
   .def("GetVertexBuffer", (Urho3D::VertexBuffer * (Urho3D::Graphics::*)(unsigned int) const) &Urho3D::Graphics::GetVertexBuffer, "todo: docstring", py::arg("index"))
   .def("GetIndexBuffer", (Urho3D::IndexBuffer * (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetIndexBuffer, "todo: docstring")
   .def("GetVertexShader", (Urho3D::ShaderVariation * (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetVertexShader, "todo: docstring")
   .def("GetPixelShader", (Urho3D::ShaderVariation * (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetPixelShader, "todo: docstring")
   .def("GetShaderProgram", (Urho3D::ShaderProgram * (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetShaderProgram, "todo: docstring")
-  //.def("GetTextureUnit", (Urho3D::TextureUnit (Urho3D::Graphics::*)(const Urho3D::String &)) &Urho3D::Graphics::GetTextureUnit, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetTextureUnitName", (const Urho3D::String & (Urho3D::Graphics::*)(Urho3D::TextureUnit)) &Urho3D::Graphics::GetTextureUnitName, "todo: docstring", py::arg("unit"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetTextureUnit", (Urho3D::TextureUnit (Urho3D::Graphics::*)(const Urho3D::String &)) &Urho3D::Graphics::GetTextureUnit, "todo: docstring", py::arg("name"))
+  .def("GetTextureUnitName", (const Urho3D::String & (Urho3D::Graphics::*)(Urho3D::TextureUnit)) &Urho3D::Graphics::GetTextureUnitName, "todo: docstring", py::arg("unit"))
   .def("GetTexture", (Urho3D::Texture * (Urho3D::Graphics::*)(unsigned int) const) &Urho3D::Graphics::GetTexture, "todo: docstring", py::arg("index"))
-  //.def("GetDefaultTextureFilterMode", (Urho3D::TextureFilterMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDefaultTextureFilterMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetDefaultTextureFilterMode", (Urho3D::TextureFilterMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDefaultTextureFilterMode, "todo: docstring")
   .def("GetDefaultTextureAnisotropy", (unsigned int (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDefaultTextureAnisotropy, "todo: docstring")
   .def("GetRenderTarget", (Urho3D::RenderSurface * (Urho3D::Graphics::*)(unsigned int) const) &Urho3D::Graphics::GetRenderTarget, "todo: docstring", py::arg("index"))
   .def("GetDepthStencil", (Urho3D::RenderSurface * (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDepthStencil, "todo: docstring")
   .def("GetViewport", (Urho3D::IntRect (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetViewport, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetBlendMode, "todo: docstring")
   .def("GetAlphaToCoverage", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetAlphaToCoverage, "todo: docstring")
   .def("GetColorWrite", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetColorWrite, "todo: docstring")
-  //.def("GetCullMode", (Urho3D::CullMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetCullMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetCullMode", (Urho3D::CullMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetCullMode, "todo: docstring")
   .def("GetDepthConstantBias", (float (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDepthConstantBias, "todo: docstring")
   .def("GetDepthSlopeScaledBias", (float (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDepthSlopeScaledBias, "todo: docstring")
-  //.def("GetDepthTest", (Urho3D::CompareMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDepthTest, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetDepthTest", (Urho3D::CompareMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDepthTest, "todo: docstring")
   .def("GetDepthWrite", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetDepthWrite, "todo: docstring")
-  //.def("GetFillMode", (Urho3D::FillMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetFillMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFillMode", (Urho3D::FillMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetFillMode, "todo: docstring")
   .def("GetLineAntiAlias", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetLineAntiAlias, "todo: docstring")
   .def("GetStencilTest", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilTest, "todo: docstring")
   .def("GetScissorTest", (bool (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetScissorTest, "todo: docstring")
   .def("GetScissorRect", (const Urho3D::IntRect & (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetScissorRect, "todo: docstring")
-  //.def("GetStencilTestMode", (Urho3D::CompareMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilTestMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetStencilPass", (Urho3D::StencilOp (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilPass, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetStencilFail", (Urho3D::StencilOp (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilFail, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetStencilZFail", (Urho3D::StencilOp (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilZFail, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetStencilTestMode", (Urho3D::CompareMode (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilTestMode, "todo: docstring")
+  .def("GetStencilPass", (Urho3D::StencilOp (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilPass, "todo: docstring")
+  .def("GetStencilFail", (Urho3D::StencilOp (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilFail, "todo: docstring")
+  .def("GetStencilZFail", (Urho3D::StencilOp (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilZFail, "todo: docstring")
   .def("GetStencilRef", (unsigned int (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilRef, "todo: docstring")
   .def("GetStencilCompareMask", (unsigned int (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilCompareMask, "todo: docstring")
   .def("GetStencilWriteMask", (unsigned int (Urho3D::Graphics::*)() const) &Urho3D::Graphics::GetStencilWriteMask, "todo: docstring")
@@ -3325,8 +3244,7 @@ pyclass_Var_Urho3D_Graphics
   .def("CleanupScratchBuffers", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::CleanupScratchBuffers, "todo: docstring")
   .def("CleanupShaderPrograms", (void (Urho3D::Graphics::*)(Urho3D::ShaderVariation *)) &Urho3D::Graphics::CleanupShaderPrograms, "todo: docstring", py::arg("variation"))
   .def("CleanupRenderSurface", (void (Urho3D::Graphics::*)(Urho3D::RenderSurface *)) &Urho3D::Graphics::CleanupRenderSurface, "todo: docstring", py::arg("surface"))
-  //.def("GetOrCreateConstantBuffer", (Urho3D::ConstantBuffer * (Urho3D::Graphics::*)(Urho3D::ShaderType, unsigned int, unsigned int)) &Urho3D::Graphics::GetOrCreateConstantBuffer, "todo: docstring", py::arg("type"), py::arg("index"), py::arg("size"))
-    //['Urho3D::ShaderType', 'unsigned int', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("GetOrCreateConstantBuffer", (Urho3D::ConstantBuffer * (Urho3D::Graphics::*)(Urho3D::ShaderType, unsigned int, unsigned int)) &Urho3D::Graphics::GetOrCreateConstantBuffer, "todo: docstring", py::arg("type"), py::arg("index"), py::arg("size"))
   .def("MarkFBODirty", (void (Urho3D::Graphics::*)()) &Urho3D::Graphics::MarkFBODirty, "todo: docstring")
   .def("SetVBO", (void (Urho3D::Graphics::*)(unsigned int)) &Urho3D::Graphics::SetVBO, "todo: docstring", py::arg("object"))
   .def("SetUBO", (void (Urho3D::Graphics::*)(unsigned int)) &Urho3D::Graphics::SetUBO, "todo: docstring", py::arg("object"))
@@ -3440,14 +3358,10 @@ pyclass_Var_Urho3D_Pass
   .def(py::init<const Urho3D::String &>(), "todo: constructor docstring")
   //.def("~Pass", (void (Urho3D::Pass::*)()) &Urho3D::Pass::~Pass, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("SetBlendMode", (void (Urho3D::Pass::*)(Urho3D::BlendMode)) &Urho3D::Pass::SetBlendMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetCullMode", (void (Urho3D::Pass::*)(Urho3D::CullMode)) &Urho3D::Pass::SetCullMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CullMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetDepthTestMode", (void (Urho3D::Pass::*)(Urho3D::CompareMode)) &Urho3D::Pass::SetDepthTestMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CompareMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetLightingMode", (void (Urho3D::Pass::*)(Urho3D::PassLightingMode)) &Urho3D::Pass::SetLightingMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::PassLightingMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::Pass::*)(Urho3D::BlendMode)) &Urho3D::Pass::SetBlendMode, "todo: docstring", py::arg("mode"))
+  .def("SetCullMode", (void (Urho3D::Pass::*)(Urho3D::CullMode)) &Urho3D::Pass::SetCullMode, "todo: docstring", py::arg("mode"))
+  .def("SetDepthTestMode", (void (Urho3D::Pass::*)(Urho3D::CompareMode)) &Urho3D::Pass::SetDepthTestMode, "todo: docstring", py::arg("mode"))
+  .def("SetLightingMode", (void (Urho3D::Pass::*)(Urho3D::PassLightingMode)) &Urho3D::Pass::SetLightingMode, "todo: docstring", py::arg("mode"))
   .def("SetDepthWrite", (void (Urho3D::Pass::*)(bool)) &Urho3D::Pass::SetDepthWrite, "todo: docstring", py::arg("enable"))
   .def("SetAlphaToCoverage", (void (Urho3D::Pass::*)(bool)) &Urho3D::Pass::SetAlphaToCoverage, "todo: docstring", py::arg("enable"))
   .def("SetIsDesktop", (void (Urho3D::Pass::*)(bool)) &Urho3D::Pass::SetIsDesktop, "todo: docstring", py::arg("enable"))
@@ -3461,14 +3375,10 @@ pyclass_Var_Urho3D_Pass
   .def("MarkShadersLoaded", (void (Urho3D::Pass::*)(unsigned int)) &Urho3D::Pass::MarkShadersLoaded, "todo: docstring", py::arg("frameNumber"))
   .def("GetName", (const Urho3D::String & (Urho3D::Pass::*)() const) &Urho3D::Pass::GetName, "todo: docstring")
   .def("GetIndex", (unsigned int (Urho3D::Pass::*)() const) &Urho3D::Pass::GetIndex, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetCullMode", (Urho3D::CullMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetCullMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetDepthTestMode", (Urho3D::CompareMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetDepthTestMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetLightingMode", (Urho3D::PassLightingMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetLightingMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetBlendMode, "todo: docstring")
+  .def("GetCullMode", (Urho3D::CullMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetCullMode, "todo: docstring")
+  .def("GetDepthTestMode", (Urho3D::CompareMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetDepthTestMode, "todo: docstring")
+  .def("GetLightingMode", (Urho3D::PassLightingMode (Urho3D::Pass::*)() const) &Urho3D::Pass::GetLightingMode, "todo: docstring")
   .def("GetShadersLoadedFrameNumber", (unsigned int (Urho3D::Pass::*)() const) &Urho3D::Pass::GetShadersLoadedFrameNumber, "todo: docstring")
   .def("GetDepthWrite", (bool (Urho3D::Pass::*)() const) &Urho3D::Pass::GetDepthWrite, "todo: docstring")
   .def("GetAlphaToCoverage", (bool (Urho3D::Pass::*)() const) &Urho3D::Pass::GetAlphaToCoverage, "todo: docstring")
@@ -3848,16 +3758,12 @@ pyclass_Var_Urho3D_Renderer
   .def("SetHDRRendering", (void (Urho3D::Renderer::*)(bool)) &Urho3D::Renderer::SetHDRRendering, "todo: docstring", py::arg("enable"))
   .def("SetSpecularLighting", (void (Urho3D::Renderer::*)(bool)) &Urho3D::Renderer::SetSpecularLighting, "todo: docstring", py::arg("enable"))
   .def("SetTextureAnisotropy", (void (Urho3D::Renderer::*)(int)) &Urho3D::Renderer::SetTextureAnisotropy, "todo: docstring", py::arg("level"))
-  //.def("SetTextureFilterMode", (void (Urho3D::Renderer::*)(Urho3D::TextureFilterMode)) &Urho3D::Renderer::SetTextureFilterMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::TextureFilterMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetTextureQuality", (void (Urho3D::Renderer::*)(Urho3D::MaterialQuality)) &Urho3D::Renderer::SetTextureQuality, "todo: docstring", py::arg("quality"))
-    //['Urho3D::MaterialQuality']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetMaterialQuality", (void (Urho3D::Renderer::*)(Urho3D::MaterialQuality)) &Urho3D::Renderer::SetMaterialQuality, "todo: docstring", py::arg("quality"))
-    //['Urho3D::MaterialQuality']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTextureFilterMode", (void (Urho3D::Renderer::*)(Urho3D::TextureFilterMode)) &Urho3D::Renderer::SetTextureFilterMode, "todo: docstring", py::arg("mode"))
+  .def("SetTextureQuality", (void (Urho3D::Renderer::*)(Urho3D::MaterialQuality)) &Urho3D::Renderer::SetTextureQuality, "todo: docstring", py::arg("quality"))
+  .def("SetMaterialQuality", (void (Urho3D::Renderer::*)(Urho3D::MaterialQuality)) &Urho3D::Renderer::SetMaterialQuality, "todo: docstring", py::arg("quality"))
   .def("SetDrawShadows", (void (Urho3D::Renderer::*)(bool)) &Urho3D::Renderer::SetDrawShadows, "todo: docstring", py::arg("enable"))
   .def("SetShadowMapSize", (void (Urho3D::Renderer::*)(int)) &Urho3D::Renderer::SetShadowMapSize, "todo: docstring", py::arg("size"))
-  //.def("SetShadowQuality", (void (Urho3D::Renderer::*)(Urho3D::ShadowQuality)) &Urho3D::Renderer::SetShadowQuality, "todo: docstring", py::arg("quality"))
-    //['Urho3D::ShadowQuality']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetShadowQuality", (void (Urho3D::Renderer::*)(Urho3D::ShadowQuality)) &Urho3D::Renderer::SetShadowQuality, "todo: docstring", py::arg("quality"))
   .def("SetShadowSoftness", (void (Urho3D::Renderer::*)(float)) &Urho3D::Renderer::SetShadowSoftness, "todo: docstring", py::arg("shadowSoftness"))
   .def("SetVSMShadowParameters", (void (Urho3D::Renderer::*)(float, float)) &Urho3D::Renderer::SetVSMShadowParameters, "todo: docstring", py::arg("minVariance"), py::arg("lightBleedingReduction"))
   .def("SetVSMMultiSample", (void (Urho3D::Renderer::*)(int)) &Urho3D::Renderer::SetVSMMultiSample, "todo: docstring", py::arg("multiSample"))
@@ -3887,15 +3793,11 @@ pyclass_Var_Urho3D_Renderer
   .def("GetSpecularLighting", (bool (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetSpecularLighting, "todo: docstring")
   .def("GetDrawShadows", (bool (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetDrawShadows, "todo: docstring")
   .def("GetTextureAnisotropy", (int (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetTextureAnisotropy, "todo: docstring")
-  //.def("GetTextureFilterMode", (Urho3D::TextureFilterMode (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetTextureFilterMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetTextureQuality", (Urho3D::MaterialQuality (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetTextureQuality, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetMaterialQuality", (Urho3D::MaterialQuality (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetMaterialQuality, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTextureFilterMode", (Urho3D::TextureFilterMode (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetTextureFilterMode, "todo: docstring")
+  .def("GetTextureQuality", (Urho3D::MaterialQuality (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetTextureQuality, "todo: docstring")
+  .def("GetMaterialQuality", (Urho3D::MaterialQuality (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetMaterialQuality, "todo: docstring")
   .def("GetShadowMapSize", (int (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetShadowMapSize, "todo: docstring")
-  //.def("GetShadowQuality", (Urho3D::ShadowQuality (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetShadowQuality, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetShadowQuality", (Urho3D::ShadowQuality (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetShadowQuality, "todo: docstring")
   .def("GetShadowSoftness", (float (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetShadowSoftness, "todo: docstring")
   .def("GetVSMShadowParameters", (Urho3D::Vector2 (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetVSMShadowParameters, "todo: docstring")
   .def("GetVSMMultiSample", (int (Urho3D::Renderer::*)() const) &Urho3D::Renderer::GetVSMMultiSample, "todo: docstring")
@@ -3946,8 +3848,7 @@ pyclass_Var_Urho3D_Renderer
     //['Urho3D::Batch', 'Urho3D::Technique', 'bool', 'Urho3D::BatchQueue']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   //.def("SetLightVolumeBatchShaders", (void (Urho3D::Renderer::*)(Urho3D::Batch &, Urho3D::Camera *, const Urho3D::String &, const Urho3D::String &, const Urho3D::String &, const Urho3D::String &)) &Urho3D::Renderer::SetLightVolumeBatchShaders, "todo: docstring", py::arg("batch"), py::arg("camera"), py::arg("vsName"), py::arg("psName"), py::arg("vsDefines"), py::arg("psDefines"))
     //['Urho3D::Batch', 'Urho3D::Camera', 'Urho3D::String', 'Urho3D::String', 'Urho3D::String', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("SetCullMode", (void (Urho3D::Renderer::*)(Urho3D::CullMode, Urho3D::Camera *)) &Urho3D::Renderer::SetCullMode, "todo: docstring", py::arg("mode"), py::arg("camera"))
-    //['Urho3D::CullMode', 'Urho3D::Camera']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("SetCullMode", (void (Urho3D::Renderer::*)(Urho3D::CullMode, Urho3D::Camera *)) &Urho3D::Renderer::SetCullMode, "todo: docstring", py::arg("mode"), py::arg("camera"))
   .def("ResizeInstancingBuffer", (bool (Urho3D::Renderer::*)(unsigned int)) &Urho3D::Renderer::ResizeInstancingBuffer, "todo: docstring", py::arg("numInstances"))
   .def("OptimizeLightByScissor", (void (Urho3D::Renderer::*)(Urho3D::Light *, Urho3D::Camera *)) &Urho3D::Renderer::OptimizeLightByScissor, "todo: docstring", py::arg("light"), py::arg("camera"))
   .def("OptimizeLightByStencil", (void (Urho3D::Renderer::*)(Urho3D::Light *, Urho3D::Camera *)) &Urho3D::Renderer::OptimizeLightByStencil, "todo: docstring", py::arg("light"), py::arg("camera"))
@@ -3977,8 +3878,7 @@ void Implement_Urho3D_PointOctreeQuery(py::class_<Urho3D::PointOctreeQuery, Urho
 pyclass_Var_Urho3D_PointOctreeQuery
   //.def(py::init<Urho3D::PODVector<Urho3D::Drawable *> &, const Urho3D::Vector3 &, unsigned char, unsigned int>(), "todo: constructor docstring")
     //['Urho3D::PODVector<Urho3D::Drawable', 'Urho3D::Vector3', 'unsigned char', 'unsigned int']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("TestOctant", (Urho3D::Intersection (Urho3D::PointOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::PointOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
-    //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("TestOctant", (Urho3D::Intersection (Urho3D::PointOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::PointOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
   //.def("TestDrawables", (void (Urho3D::PointOctreeQuery::*)(Urho3D::Drawable **, Urho3D::Drawable **, bool)) &Urho3D::PointOctreeQuery::TestDrawables, "todo: docstring", py::arg("start"), py::arg("end"), py::arg("inside"))
     //['Urho3D::Drawable', 'Urho3D::Drawable', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 2
 // Class Variables:
@@ -4002,24 +3902,19 @@ void Implement_Urho3D_RenderPathCommand(py::class_<Urho3D::RenderPathCommand, Ur
     // Class RenderPathCommand Implementation
 pyclass_Var_Urho3D_RenderPathCommand
   .def("Load", (void (Urho3D::RenderPathCommand::*)(const Urho3D::XMLElement &)) &Urho3D::RenderPathCommand::Load, "todo: docstring", py::arg("element"))
-  //.def("SetTextureName", (void (Urho3D::RenderPathCommand::*)(Urho3D::TextureUnit, const Urho3D::String &)) &Urho3D::RenderPathCommand::SetTextureName, "todo: docstring", py::arg("unit"), py::arg("name"))
-    //['Urho3D::TextureUnit', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTextureName", (void (Urho3D::RenderPathCommand::*)(Urho3D::TextureUnit, const Urho3D::String &)) &Urho3D::RenderPathCommand::SetTextureName, "todo: docstring", py::arg("unit"), py::arg("name"))
   .def("SetShaderParameter", (void (Urho3D::RenderPathCommand::*)(const Urho3D::String &, const Urho3D::Variant &)) &Urho3D::RenderPathCommand::SetShaderParameter, "todo: docstring", py::arg("name"), py::arg("value"))
   .def("RemoveShaderParameter", (void (Urho3D::RenderPathCommand::*)(const Urho3D::String &)) &Urho3D::RenderPathCommand::RemoveShaderParameter, "todo: docstring", py::arg("name"))
   .def("SetNumOutputs", (void (Urho3D::RenderPathCommand::*)(unsigned int)) &Urho3D::RenderPathCommand::SetNumOutputs, "todo: docstring", py::arg("num"))
-  //.def("SetOutput", (void (Urho3D::RenderPathCommand::*)(unsigned int, const Urho3D::String &, Urho3D::CubeMapFace)) &Urho3D::RenderPathCommand::SetOutput, "todo: docstring", py::arg("index"), py::arg("name"), py::arg("face")=FACE_POSITIVE_X)
-    //['unsigned int', 'Urho3D::String', 'Urho3D::CubeMapFace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetOutput", (void (Urho3D::RenderPathCommand::*)(unsigned int, const Urho3D::String &, Urho3D::CubeMapFace)) &Urho3D::RenderPathCommand::SetOutput, "todo: docstring", py::arg("index"), py::arg("name"), py::arg("face")=FACE_POSITIVE_X)
   .def("SetOutputName", (void (Urho3D::RenderPathCommand::*)(unsigned int, const Urho3D::String &)) &Urho3D::RenderPathCommand::SetOutputName, "todo: docstring", py::arg("index"), py::arg("name"))
-  //.def("SetOutputFace", (void (Urho3D::RenderPathCommand::*)(unsigned int, Urho3D::CubeMapFace)) &Urho3D::RenderPathCommand::SetOutputFace, "todo: docstring", py::arg("index"), py::arg("face"))
-    //['unsigned int', 'Urho3D::CubeMapFace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetOutputFace", (void (Urho3D::RenderPathCommand::*)(unsigned int, Urho3D::CubeMapFace)) &Urho3D::RenderPathCommand::SetOutputFace, "todo: docstring", py::arg("index"), py::arg("face"))
   .def("SetDepthStencilName", (void (Urho3D::RenderPathCommand::*)(const Urho3D::String &)) &Urho3D::RenderPathCommand::SetDepthStencilName, "todo: docstring", py::arg("name"))
-  //.def("GetTextureName", (const Urho3D::String & (Urho3D::RenderPathCommand::*)(Urho3D::TextureUnit) const) &Urho3D::RenderPathCommand::GetTextureName, "todo: docstring", py::arg("unit"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetTextureName", (const Urho3D::String & (Urho3D::RenderPathCommand::*)(Urho3D::TextureUnit) const) &Urho3D::RenderPathCommand::GetTextureName, "todo: docstring", py::arg("unit"))
   .def("GetShaderParameter", (const Urho3D::Variant & (Urho3D::RenderPathCommand::*)(const Urho3D::String &) const) &Urho3D::RenderPathCommand::GetShaderParameter, "todo: docstring", py::arg("name"))
   .def("GetNumOutputs", (unsigned int (Urho3D::RenderPathCommand::*)() const) &Urho3D::RenderPathCommand::GetNumOutputs, "todo: docstring")
   .def("GetOutputName", (const Urho3D::String & (Urho3D::RenderPathCommand::*)(unsigned int) const) &Urho3D::RenderPathCommand::GetOutputName, "todo: docstring", py::arg("index"))
-  //.def("GetOutputFace", (Urho3D::CubeMapFace (Urho3D::RenderPathCommand::*)(unsigned int) const) &Urho3D::RenderPathCommand::GetOutputFace, "todo: docstring", py::arg("index"))
-    //['unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetOutputFace", (Urho3D::CubeMapFace (Urho3D::RenderPathCommand::*)(unsigned int) const) &Urho3D::RenderPathCommand::GetOutputFace, "todo: docstring", py::arg("index"))
   .def("GetDepthStencilName", (const Urho3D::String & (Urho3D::RenderPathCommand::*)() const) &Urho3D::RenderPathCommand::GetDepthStencilName, "todo: docstring")
 // Class Variables:
   .def_readwrite("tag",&Urho3D::RenderPathCommand::tag_, "todo: var docstring")//Urho3D::String
@@ -4151,8 +4046,7 @@ pyclass_Var_Urho3D_HttpRequest
   .def("GetURL", (const Urho3D::String & (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::GetURL, "todo: docstring")
   .def("GetVerb", (const Urho3D::String & (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::GetVerb, "todo: docstring")
   .def("GetError", (Urho3D::String (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::GetError, "todo: docstring")
-  //.def("GetState", (Urho3D::HttpRequestState (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::GetState, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetState", (Urho3D::HttpRequestState (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::GetState, "todo: docstring")
   .def("GetAvailableSize", (unsigned int (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::GetAvailableSize, "todo: docstring")
   .def("IsOpen", (bool (Urho3D::HttpRequest::*)() const) &Urho3D::HttpRequest::IsOpen, "todo: docstring")
 // Class Variables:
@@ -4325,8 +4219,7 @@ pyclass_Var_Urho3D_UI
   .def("SetUseScreenKeyboard", (void (Urho3D::UI::*)(bool)) &Urho3D::UI::SetUseScreenKeyboard, "todo: docstring", py::arg("enable"))
   .def("SetUseMutableGlyphs", (void (Urho3D::UI::*)(bool)) &Urho3D::UI::SetUseMutableGlyphs, "todo: docstring", py::arg("enable"))
   .def("SetForceAutoHint", (void (Urho3D::UI::*)(bool)) &Urho3D::UI::SetForceAutoHint, "todo: docstring", py::arg("enable"))
-  //.def("SetFontHintLevel", (void (Urho3D::UI::*)(Urho3D::FontHintLevel)) &Urho3D::UI::SetFontHintLevel, "todo: docstring", py::arg("level"))
-    //['Urho3D::FontHintLevel']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFontHintLevel", (void (Urho3D::UI::*)(Urho3D::FontHintLevel)) &Urho3D::UI::SetFontHintLevel, "todo: docstring", py::arg("level"))
   .def("SetFontSubpixelThreshold", (void (Urho3D::UI::*)(float)) &Urho3D::UI::SetFontSubpixelThreshold, "todo: docstring", py::arg("threshold"))
   .def("SetFontOversampling", (void (Urho3D::UI::*)(int)) &Urho3D::UI::SetFontOversampling, "todo: docstring", py::arg("oversampling"))
   .def("SetScale", (void (Urho3D::UI::*)(float)) &Urho3D::UI::SetScale, "todo: docstring", py::arg("scale"))
@@ -4359,8 +4252,7 @@ pyclass_Var_Urho3D_UI
   .def("GetUseScreenKeyboard", (bool (Urho3D::UI::*)() const) &Urho3D::UI::GetUseScreenKeyboard, "todo: docstring")
   .def("GetUseMutableGlyphs", (bool (Urho3D::UI::*)() const) &Urho3D::UI::GetUseMutableGlyphs, "todo: docstring")
   .def("GetForceAutoHint", (bool (Urho3D::UI::*)() const) &Urho3D::UI::GetForceAutoHint, "todo: docstring")
-  //.def("GetFontHintLevel", (Urho3D::FontHintLevel (Urho3D::UI::*)() const) &Urho3D::UI::GetFontHintLevel, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFontHintLevel", (Urho3D::FontHintLevel (Urho3D::UI::*)() const) &Urho3D::UI::GetFontHintLevel, "todo: docstring")
   .def("GetFontSubpixelThreshold", (float (Urho3D::UI::*)() const) &Urho3D::UI::GetFontSubpixelThreshold, "todo: docstring")
   .def("GetFontOversampling", (int (Urho3D::UI::*)() const) &Urho3D::UI::GetFontOversampling, "todo: docstring")
   .def("HasModalElement", (bool (Urho3D::UI::*)() const) &Urho3D::UI::HasModalElement, "todo: docstring")
@@ -4563,10 +4455,8 @@ pyclass_Var_Urho3D_Animatable
   .def("SetAnimationEnabled", (void (Urho3D::Animatable::*)(bool)) &Urho3D::Animatable::SetAnimationEnabled, "todo: docstring", py::arg("enable"))
   .def("SetAnimationTime", (void (Urho3D::Animatable::*)(float)) &Urho3D::Animatable::SetAnimationTime, "todo: docstring", py::arg("time"))
   .def("SetObjectAnimation", (void (Urho3D::Animatable::*)(Urho3D::ObjectAnimation *)) &Urho3D::Animatable::SetObjectAnimation, "todo: docstring", py::arg("objectAnimation"))
-  //.def("SetAttributeAnimation", (void (Urho3D::Animatable::*)(const Urho3D::String &, Urho3D::ValueAnimation *, Urho3D::WrapMode, float)) &Urho3D::Animatable::SetAttributeAnimation, "todo: docstring", py::arg("name"), py::arg("attributeAnimation"), py::arg("wrapMode")=WM_LOOP, py::arg("speed")=1.0f)
-    //['Urho3D::String', 'Urho3D::ValueAnimation', 'Urho3D::WrapMode', 'float']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("SetAttributeAnimationWrapMode", (void (Urho3D::Animatable::*)(const Urho3D::String &, Urho3D::WrapMode)) &Urho3D::Animatable::SetAttributeAnimationWrapMode, "todo: docstring", py::arg("name"), py::arg("wrapMode"))
-    //['Urho3D::String', 'Urho3D::WrapMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetAttributeAnimation", (void (Urho3D::Animatable::*)(const Urho3D::String &, Urho3D::ValueAnimation *, Urho3D::WrapMode, float)) &Urho3D::Animatable::SetAttributeAnimation, "todo: docstring", py::arg("name"), py::arg("attributeAnimation"), py::arg("wrapMode")=WM_LOOP, py::arg("speed")=1.0f)
+  .def("SetAttributeAnimationWrapMode", (void (Urho3D::Animatable::*)(const Urho3D::String &, Urho3D::WrapMode)) &Urho3D::Animatable::SetAttributeAnimationWrapMode, "todo: docstring", py::arg("name"), py::arg("wrapMode"))
   .def("SetAttributeAnimationSpeed", (void (Urho3D::Animatable::*)(const Urho3D::String &, float)) &Urho3D::Animatable::SetAttributeAnimationSpeed, "todo: docstring", py::arg("name"), py::arg("speed"))
   .def("SetAttributeAnimationTime", (void (Urho3D::Animatable::*)(const Urho3D::String &, float)) &Urho3D::Animatable::SetAttributeAnimationTime, "todo: docstring", py::arg("name"), py::arg("time"))
   .def("RemoveObjectAnimation", (void (Urho3D::Animatable::*)()) &Urho3D::Animatable::RemoveObjectAnimation, "todo: docstring")
@@ -4574,8 +4464,7 @@ pyclass_Var_Urho3D_Animatable
   .def("GetAnimationEnabled", (bool (Urho3D::Animatable::*)() const) &Urho3D::Animatable::GetAnimationEnabled, "todo: docstring")
   .def("GetObjectAnimation", (Urho3D::ObjectAnimation * (Urho3D::Animatable::*)() const) &Urho3D::Animatable::GetObjectAnimation, "todo: docstring")
   .def("GetAttributeAnimation", (Urho3D::ValueAnimation * (Urho3D::Animatable::*)(const Urho3D::String &) const) &Urho3D::Animatable::GetAttributeAnimation, "todo: docstring", py::arg("name"))
-  //.def("GetAttributeAnimationWrapMode", (Urho3D::WrapMode (Urho3D::Animatable::*)(const Urho3D::String &) const) &Urho3D::Animatable::GetAttributeAnimationWrapMode, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAttributeAnimationWrapMode", (Urho3D::WrapMode (Urho3D::Animatable::*)(const Urho3D::String &) const) &Urho3D::Animatable::GetAttributeAnimationWrapMode, "todo: docstring", py::arg("name"))
   .def("GetAttributeAnimationSpeed", (float (Urho3D::Animatable::*)(const Urho3D::String &) const) &Urho3D::Animatable::GetAttributeAnimationSpeed, "todo: docstring", py::arg("name"))
   .def("GetAttributeAnimationTime", (float (Urho3D::Animatable::*)(const Urho3D::String &) const) &Urho3D::Animatable::GetAttributeAnimationTime, "todo: docstring", py::arg("name"))
   .def("SetObjectAnimationAttr", (void (Urho3D::Animatable::*)(const Urho3D::ResourceRef &)) &Urho3D::Animatable::SetObjectAnimationAttr, "todo: docstring", py::arg("value"))
@@ -4647,26 +4536,16 @@ pyclass_Var_Urho3D_Node
   .def("SetWorldTransform2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, float)) &Urho3D::Node::SetWorldTransform2D, "todo: docstring", py::arg("position"), py::arg("rotation"))
   .def("SetWorldTransform2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, float, float)) &Urho3D::Node::SetWorldTransform2D, "todo: docstring", py::arg("position"), py::arg("rotation"), py::arg("scale"))
   .def("SetWorldTransform2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, float, const Urho3D::Vector2 &)) &Urho3D::Node::SetWorldTransform2D, "todo: docstring", py::arg("position"), py::arg("rotation"), py::arg("scale"))
-  //.def("Translate", (void (Urho3D::Node::*)(const Urho3D::Vector3 &, Urho3D::TransformSpace)) &Urho3D::Node::Translate, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
-    //['Urho3D::Vector3', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Translate2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, Urho3D::TransformSpace)) &Urho3D::Node::Translate2D, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
-    //['Urho3D::Vector2', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Rotate", (void (Urho3D::Node::*)(const Urho3D::Quaternion &, Urho3D::TransformSpace)) &Urho3D::Node::Rotate, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
-    //['Urho3D::Quaternion', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Rotate2D", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Rotate2D, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
-    //['float', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("RotateAround", (void (Urho3D::Node::*)(const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::TransformSpace)) &Urho3D::Node::RotateAround, "todo: docstring", py::arg("point"), py::arg("delta"), py::arg("space")=TS_LOCAL)
-    //['Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("RotateAround2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, float, Urho3D::TransformSpace)) &Urho3D::Node::RotateAround2D, "todo: docstring", py::arg("point"), py::arg("delta"), py::arg("space")=TS_LOCAL)
-    //['Urho3D::Vector2', 'float', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Pitch", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Pitch, "todo: docstring", py::arg("angle"), py::arg("space")=TS_LOCAL)
-    //['float', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Yaw", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Yaw, "todo: docstring", py::arg("angle"), py::arg("space")=TS_LOCAL)
-    //['float', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("Roll", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Roll, "todo: docstring", py::arg("angle"), py::arg("space")=TS_LOCAL)
-    //['float', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("LookAt", (bool (Urho3D::Node::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &, Urho3D::TransformSpace)) &Urho3D::Node::LookAt, "todo: docstring", py::arg("target"), py::arg("up")=Vector3::UP, py::arg("space")=TS_WORLD)
-    //['Urho3D::Vector3', 'Urho3D::Vector3', 'Urho3D::TransformSpace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("Translate", (void (Urho3D::Node::*)(const Urho3D::Vector3 &, Urho3D::TransformSpace)) &Urho3D::Node::Translate, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
+  .def("Translate2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, Urho3D::TransformSpace)) &Urho3D::Node::Translate2D, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
+  .def("Rotate", (void (Urho3D::Node::*)(const Urho3D::Quaternion &, Urho3D::TransformSpace)) &Urho3D::Node::Rotate, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
+  .def("Rotate2D", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Rotate2D, "todo: docstring", py::arg("delta"), py::arg("space")=TS_LOCAL)
+  .def("RotateAround", (void (Urho3D::Node::*)(const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::TransformSpace)) &Urho3D::Node::RotateAround, "todo: docstring", py::arg("point"), py::arg("delta"), py::arg("space")=TS_LOCAL)
+  .def("RotateAround2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &, float, Urho3D::TransformSpace)) &Urho3D::Node::RotateAround2D, "todo: docstring", py::arg("point"), py::arg("delta"), py::arg("space")=TS_LOCAL)
+  .def("Pitch", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Pitch, "todo: docstring", py::arg("angle"), py::arg("space")=TS_LOCAL)
+  .def("Yaw", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Yaw, "todo: docstring", py::arg("angle"), py::arg("space")=TS_LOCAL)
+  .def("Roll", (void (Urho3D::Node::*)(float, Urho3D::TransformSpace)) &Urho3D::Node::Roll, "todo: docstring", py::arg("angle"), py::arg("space")=TS_LOCAL)
+  .def("LookAt", (bool (Urho3D::Node::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &, Urho3D::TransformSpace)) &Urho3D::Node::LookAt, "todo: docstring", py::arg("target"), py::arg("up")=Vector3::UP, py::arg("space")=TS_WORLD)
   .def("Scale", (void (Urho3D::Node::*)(float)) &Urho3D::Node::Scale, "todo: docstring", py::arg("scale"))
   .def("Scale", (void (Urho3D::Node::*)(const Urho3D::Vector3 &)) &Urho3D::Node::Scale, "todo: docstring", py::arg("scale"))
   .def("Scale2D", (void (Urho3D::Node::*)(const Urho3D::Vector2 &)) &Urho3D::Node::Scale2D, "todo: docstring", py::arg("scale"))
@@ -4676,29 +4555,23 @@ pyclass_Var_Urho3D_Node
   .def("SetEnabledRecursive", (void (Urho3D::Node::*)(bool)) &Urho3D::Node::SetEnabledRecursive, "todo: docstring", py::arg("enable"))
   .def("SetOwner", (void (Urho3D::Node::*)(Urho3D::Connection *)) &Urho3D::Node::SetOwner, "todo: docstring", py::arg("owner"))
   .def("MarkDirty", (void (Urho3D::Node::*)()) &Urho3D::Node::MarkDirty, "todo: docstring")
-  //.def("CreateChild", (Urho3D::Node * (Urho3D::Node::*)(const Urho3D::String &, Urho3D::CreateMode, unsigned int, bool)) &Urho3D::Node::CreateChild, "todo: docstring", py::arg("name")=String::EMPTY, py::arg("mode")=REPLICATED, py::arg("id")=0, py::arg("temporary")=false)
-    //['Urho3D::String', 'Urho3D::CreateMode', 'unsigned int', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("CreateTemporaryChild", (Urho3D::Node * (Urho3D::Node::*)(const Urho3D::String &, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::CreateTemporaryChild, "todo: docstring", py::arg("name")=String::EMPTY, py::arg("mode")=REPLICATED, py::arg("id")=0)
-    //['Urho3D::String', 'Urho3D::CreateMode', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("CreateChild", (Urho3D::Node * (Urho3D::Node::*)(const Urho3D::String &, Urho3D::CreateMode, unsigned int, bool)) &Urho3D::Node::CreateChild, "todo: docstring", py::arg("name")=String::EMPTY, py::arg("mode")=REPLICATED, py::arg("id")=0, py::arg("temporary")=false)
+  .def("CreateTemporaryChild", (Urho3D::Node * (Urho3D::Node::*)(const Urho3D::String &, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::CreateTemporaryChild, "todo: docstring", py::arg("name")=String::EMPTY, py::arg("mode")=REPLICATED, py::arg("id")=0)
   .def("AddChild", (void (Urho3D::Node::*)(Urho3D::Node *, unsigned int)) &Urho3D::Node::AddChild, "todo: docstring", py::arg("node"), py::arg("index")=M_MAX_UNSIGNED)
   .def("RemoveChild", (void (Urho3D::Node::*)(Urho3D::Node *)) &Urho3D::Node::RemoveChild, "todo: docstring", py::arg("node"))
   .def("RemoveAllChildren", (void (Urho3D::Node::*)()) &Urho3D::Node::RemoveAllChildren, "todo: docstring")
   .def("RemoveChildren", (void (Urho3D::Node::*)(bool, bool, bool)) &Urho3D::Node::RemoveChildren, "todo: docstring", py::arg("removeReplicated"), py::arg("removeLocal"), py::arg("recursive"))
-  //.def("CreateComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::StringHash, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::CreateComponent, "todo: docstring", py::arg("type"), py::arg("mode")=REPLICATED, py::arg("id")=0)
-    //['Urho3D::StringHash', 'Urho3D::CreateMode', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("GetOrCreateComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::StringHash, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::GetOrCreateComponent, "todo: docstring", py::arg("type"), py::arg("mode")=REPLICATED, py::arg("id")=0)
-    //['Urho3D::StringHash', 'Urho3D::CreateMode', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("CreateComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::StringHash, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::CreateComponent, "todo: docstring", py::arg("type"), py::arg("mode")=REPLICATED, py::arg("id")=0)
+  .def("GetOrCreateComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::StringHash, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::GetOrCreateComponent, "todo: docstring", py::arg("type"), py::arg("mode")=REPLICATED, py::arg("id")=0)
   .def("CloneComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::Component *, unsigned int)) &Urho3D::Node::CloneComponent, "todo: docstring", py::arg("component"), py::arg("id")=0)
-  //.def("CloneComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::Component *, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::CloneComponent, "todo: docstring", py::arg("component"), py::arg("mode"), py::arg("id")=0)
-    //['Urho3D::Component', 'Urho3D::CreateMode', 'unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("CloneComponent", (Urho3D::Component * (Urho3D::Node::*)(Urho3D::Component *, Urho3D::CreateMode, unsigned int)) &Urho3D::Node::CloneComponent, "todo: docstring", py::arg("component"), py::arg("mode"), py::arg("id")=0)
   .def("RemoveComponent", (void (Urho3D::Node::*)(Urho3D::Component *)) &Urho3D::Node::RemoveComponent, "todo: docstring", py::arg("component"))
   .def("RemoveComponent", (void (Urho3D::Node::*)(Urho3D::StringHash)) &Urho3D::Node::RemoveComponent, "todo: docstring", py::arg("type"))
   .def("RemoveComponents", (void (Urho3D::Node::*)(bool, bool)) &Urho3D::Node::RemoveComponents, "todo: docstring", py::arg("removeReplicated"), py::arg("removeLocal"))
   .def("RemoveComponents", (void (Urho3D::Node::*)(Urho3D::StringHash)) &Urho3D::Node::RemoveComponents, "todo: docstring", py::arg("type"))
   .def("RemoveAllComponents", (void (Urho3D::Node::*)()) &Urho3D::Node::RemoveAllComponents, "todo: docstring")
   .def("ReorderComponent", (void (Urho3D::Node::*)(Urho3D::Component *, unsigned int)) &Urho3D::Node::ReorderComponent, "todo: docstring", py::arg("component"), py::arg("index"))
-  //.def("Clone", (Urho3D::Node * (Urho3D::Node::*)(Urho3D::CreateMode)) &Urho3D::Node::Clone, "todo: docstring", py::arg("mode")=REPLICATED)
-    //['Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("Clone", (Urho3D::Node * (Urho3D::Node::*)(Urho3D::CreateMode)) &Urho3D::Node::Clone, "todo: docstring", py::arg("mode")=REPLICATED)
   .def("Remove", (void (Urho3D::Node::*)()) &Urho3D::Node::Remove, "todo: docstring")
   .def("SetParent", (void (Urho3D::Node::*)(Urho3D::Node *)) &Urho3D::Node::SetParent, "todo: docstring", py::arg("parent"))
   .def("SetVar", (void (Urho3D::Node::*)(Urho3D::StringHash, const Urho3D::Variant &)) &Urho3D::Node::SetVar, "todo: docstring", py::arg("key"), py::arg("value"))
@@ -4788,21 +4661,16 @@ pyclass_Var_Urho3D_Node
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   //.def("GetNetParentAttr", (const PODVector<unsigned char> & (Urho3D::Node::*)() const) &Urho3D::Node::GetNetParentAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("Load", (bool (Urho3D::Node::*)(Urho3D::Deserializer &, Urho3D::SceneResolver &, bool, bool, Urho3D::CreateMode)) &Urho3D::Node::Load, "todo: docstring", py::arg("source"), py::arg("resolver"), py::arg("loadChildren")=true, py::arg("rewriteIDs")=false, py::arg("mode")=REPLICATED)
-    //['Urho3D::Deserializer', 'Urho3D::SceneResolver', 'bool', 'bool', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("LoadXML", (bool (Urho3D::Node::*)(const Urho3D::XMLElement &, Urho3D::SceneResolver &, bool, bool, Urho3D::CreateMode)) &Urho3D::Node::LoadXML, "todo: docstring", py::arg("source"), py::arg("resolver"), py::arg("loadChildren")=true, py::arg("rewriteIDs")=false, py::arg("mode")=REPLICATED)
-    //['Urho3D::XMLElement', 'Urho3D::SceneResolver', 'bool', 'bool', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("LoadJSON", (bool (Urho3D::Node::*)(const Urho3D::JSONValue &, Urho3D::SceneResolver &, bool, bool, Urho3D::CreateMode)) &Urho3D::Node::LoadJSON, "todo: docstring", py::arg("source"), py::arg("resolver"), py::arg("loadChildren")=true, py::arg("rewriteIDs")=false, py::arg("mode")=REPLICATED)
-    //['Urho3D::JSONValue', 'Urho3D::SceneResolver', 'bool', 'bool', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("Load", (bool (Urho3D::Node::*)(Urho3D::Deserializer &, Urho3D::SceneResolver &, bool, bool, Urho3D::CreateMode)) &Urho3D::Node::Load, "todo: docstring", py::arg("source"), py::arg("resolver"), py::arg("loadChildren")=true, py::arg("rewriteIDs")=false, py::arg("mode")=REPLICATED)
+  .def("LoadXML", (bool (Urho3D::Node::*)(const Urho3D::XMLElement &, Urho3D::SceneResolver &, bool, bool, Urho3D::CreateMode)) &Urho3D::Node::LoadXML, "todo: docstring", py::arg("source"), py::arg("resolver"), py::arg("loadChildren")=true, py::arg("rewriteIDs")=false, py::arg("mode")=REPLICATED)
+  .def("LoadJSON", (bool (Urho3D::Node::*)(const Urho3D::JSONValue &, Urho3D::SceneResolver &, bool, bool, Urho3D::CreateMode)) &Urho3D::Node::LoadJSON, "todo: docstring", py::arg("source"), py::arg("resolver"), py::arg("loadChildren")=true, py::arg("rewriteIDs")=false, py::arg("mode")=REPLICATED)
   //.def("GetDependencyNodes", (const PODVector<Urho3D::Node *> & (Urho3D::Node::*)() const) &Urho3D::Node::GetDependencyNodes, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
   .def("PrepareNetworkUpdate", (void (Urho3D::Node::*)()) &Urho3D::Node::PrepareNetworkUpdate, "todo: docstring")
   .def("CleanupConnection", (void (Urho3D::Node::*)(Urho3D::Connection *)) &Urho3D::Node::CleanupConnection, "todo: docstring", py::arg("connection"))
   .def("MarkReplicationDirty", (void (Urho3D::Node::*)()) &Urho3D::Node::MarkReplicationDirty, "todo: docstring")
-  //.def("CreateChild", (Urho3D::Node * (Urho3D::Node::*)(unsigned int, Urho3D::CreateMode, bool)) &Urho3D::Node::CreateChild, "todo: docstring", py::arg("id"), py::arg("mode"), py::arg("temporary")=false)
-    //['unsigned int', 'Urho3D::CreateMode', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("AddComponent", (void (Urho3D::Node::*)(Urho3D::Component *, unsigned int, Urho3D::CreateMode)) &Urho3D::Node::AddComponent, "todo: docstring", py::arg("component"), py::arg("id"), py::arg("mode"))
-    //['Urho3D::Component', 'unsigned int', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("CreateChild", (Urho3D::Node * (Urho3D::Node::*)(unsigned int, Urho3D::CreateMode, bool)) &Urho3D::Node::CreateChild, "todo: docstring", py::arg("id"), py::arg("mode"), py::arg("temporary")=false)
+  .def("AddComponent", (void (Urho3D::Node::*)(Urho3D::Component *, unsigned int, Urho3D::CreateMode)) &Urho3D::Node::AddComponent, "todo: docstring", py::arg("component"), py::arg("id"), py::arg("mode"))
   .def("GetNumPersistentChildren", (unsigned int (Urho3D::Node::*)() const) &Urho3D::Node::GetNumPersistentChildren, "todo: docstring")
   .def("GetNumPersistentComponents", (unsigned int (Urho3D::Node::*)() const) &Urho3D::Node::GetNumPersistentComponents, "todo: docstring")
   .def("SetPositionSilent", (void (Urho3D::Node::*)(const Urho3D::Vector3 &)) &Urho3D::Node::SetPositionSilent, "todo: docstring", py::arg("position"))
@@ -4829,16 +4697,11 @@ pyclass_Var_Urho3D_Frustum
   .def("DefineSplit", (void (Urho3D::Frustum::*)(const Urho3D::Matrix4 &, float, float)) &Urho3D::Frustum::DefineSplit, "todo: docstring", py::arg("projection"), py::arg("near"), py::arg("far"))
   .def("Transform", (void (Urho3D::Frustum::*)(const Urho3D::Matrix3 &)) &Urho3D::Frustum::Transform, "todo: docstring", py::arg("transform"))
   .def("Transform", (void (Urho3D::Frustum::*)(const Urho3D::Matrix3x4 &)) &Urho3D::Frustum::Transform, "todo: docstring", py::arg("transform"))
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::Vector3 &) const) &Urho3D::Frustum::IsInside, "todo: docstring", py::arg("point"))
-    //['Urho3D::Vector3']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::Sphere &) const) &Urho3D::Frustum::IsInside, "todo: docstring", py::arg("sphere"))
-    //['Urho3D::Sphere']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInsideFast", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::Sphere &) const) &Urho3D::Frustum::IsInsideFast, "todo: docstring", py::arg("sphere"))
-    //['Urho3D::Sphere']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::BoundingBox &) const) &Urho3D::Frustum::IsInside, "todo: docstring", py::arg("box"))
-    //['Urho3D::BoundingBox']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInsideFast", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::BoundingBox &) const) &Urho3D::Frustum::IsInsideFast, "todo: docstring", py::arg("box"))
-    //['Urho3D::BoundingBox']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::Vector3 &) const) &Urho3D::Frustum::IsInside, "todo: docstring", py::arg("point"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::Sphere &) const) &Urho3D::Frustum::IsInside, "todo: docstring", py::arg("sphere"))
+  .def("IsInsideFast", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::Sphere &) const) &Urho3D::Frustum::IsInsideFast, "todo: docstring", py::arg("sphere"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::BoundingBox &) const) &Urho3D::Frustum::IsInside, "todo: docstring", py::arg("box"))
+  .def("IsInsideFast", (Urho3D::Intersection (Urho3D::Frustum::*)(const Urho3D::BoundingBox &) const) &Urho3D::Frustum::IsInsideFast, "todo: docstring", py::arg("box"))
   .def("Distance", (float (Urho3D::Frustum::*)(const Urho3D::Vector3 &) const) &Urho3D::Frustum::Distance, "todo: docstring", py::arg("point"))
   .def("Transformed", (Urho3D::Frustum (Urho3D::Frustum::*)(const Urho3D::Matrix3 &) const) &Urho3D::Frustum::Transformed, "todo: docstring", py::arg("transform"))
   .def("Transformed", (Urho3D::Frustum (Urho3D::Frustum::*)(const Urho3D::Matrix3x4 &) const) &Urho3D::Frustum::Transformed, "todo: docstring", py::arg("transform"))
@@ -4982,12 +4845,9 @@ pyclass_Var_Urho3D_UIElement
   .def("SetFixedSize", (void (Urho3D::UIElement::*)(int, int)) &Urho3D::UIElement::SetFixedSize, "todo: docstring", py::arg("width"), py::arg("height"))
   .def("SetFixedWidth", (void (Urho3D::UIElement::*)(int)) &Urho3D::UIElement::SetFixedWidth, "todo: docstring", py::arg("width"))
   .def("SetFixedHeight", (void (Urho3D::UIElement::*)(int)) &Urho3D::UIElement::SetFixedHeight, "todo: docstring", py::arg("height"))
-  //.def("SetAlignment", (void (Urho3D::UIElement::*)(Urho3D::HorizontalAlignment, Urho3D::VerticalAlignment)) &Urho3D::UIElement::SetAlignment, "todo: docstring", py::arg("hAlign"), py::arg("vAlign"))
-    //['Urho3D::HorizontalAlignment', 'Urho3D::VerticalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetHorizontalAlignment", (void (Urho3D::UIElement::*)(Urho3D::HorizontalAlignment)) &Urho3D::UIElement::SetHorizontalAlignment, "todo: docstring", py::arg("align"))
-    //['Urho3D::HorizontalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetVerticalAlignment", (void (Urho3D::UIElement::*)(Urho3D::VerticalAlignment)) &Urho3D::UIElement::SetVerticalAlignment, "todo: docstring", py::arg("align"))
-    //['Urho3D::VerticalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetAlignment", (void (Urho3D::UIElement::*)(Urho3D::HorizontalAlignment, Urho3D::VerticalAlignment)) &Urho3D::UIElement::SetAlignment, "todo: docstring", py::arg("hAlign"), py::arg("vAlign"))
+  .def("SetHorizontalAlignment", (void (Urho3D::UIElement::*)(Urho3D::HorizontalAlignment)) &Urho3D::UIElement::SetHorizontalAlignment, "todo: docstring", py::arg("align"))
+  .def("SetVerticalAlignment", (void (Urho3D::UIElement::*)(Urho3D::VerticalAlignment)) &Urho3D::UIElement::SetVerticalAlignment, "todo: docstring", py::arg("align"))
   .def("SetEnableAnchor", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetEnableAnchor, "todo: docstring", py::arg("enable"))
   .def("SetMinAnchor", (void (Urho3D::UIElement::*)(const Urho3D::Vector2 &)) &Urho3D::UIElement::SetMinAnchor, "todo: docstring", py::arg("anchor"))
   .def("SetMinAnchor", (void (Urho3D::UIElement::*)(float, float)) &Urho3D::UIElement::SetMinAnchor, "todo: docstring", py::arg("x"), py::arg("y"))
@@ -4999,8 +4859,7 @@ pyclass_Var_Urho3D_UIElement
   .def("SetPivot", (void (Urho3D::UIElement::*)(float, float)) &Urho3D::UIElement::SetPivot, "todo: docstring", py::arg("x"), py::arg("y"))
   .def("SetClipBorder", (void (Urho3D::UIElement::*)(const Urho3D::IntRect &)) &Urho3D::UIElement::SetClipBorder, "todo: docstring", py::arg("rect"))
   .def("SetColor", (void (Urho3D::UIElement::*)(const Urho3D::Color &)) &Urho3D::UIElement::SetColor, "todo: docstring", py::arg("color"))
-  //.def("SetColor", (void (Urho3D::UIElement::*)(Urho3D::Corner, const Urho3D::Color &)) &Urho3D::UIElement::SetColor, "todo: docstring", py::arg("corner"), py::arg("color"))
-    //['Urho3D::Corner', 'Urho3D::Color']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetColor", (void (Urho3D::UIElement::*)(Urho3D::Corner, const Urho3D::Color &)) &Urho3D::UIElement::SetColor, "todo: docstring", py::arg("corner"), py::arg("color"))
   .def("SetPriority", (void (Urho3D::UIElement::*)(int)) &Urho3D::UIElement::SetPriority, "todo: docstring", py::arg("priority"))
   .def("SetOpacity", (void (Urho3D::UIElement::*)(float)) &Urho3D::UIElement::SetOpacity, "todo: docstring", py::arg("opacity"))
   .def("SetBringToFront", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetBringToFront, "todo: docstring", py::arg("enable"))
@@ -5016,18 +4875,15 @@ pyclass_Var_Urho3D_UIElement
   .def("SetFocus", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetFocus, "todo: docstring", py::arg("enable"))
   .def("SetSelected", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetSelected, "todo: docstring", py::arg("enable"))
   .def("SetVisible", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetVisible, "todo: docstring", py::arg("enable"))
-  //.def("SetFocusMode", (void (Urho3D::UIElement::*)(Urho3D::FocusMode)) &Urho3D::UIElement::SetFocusMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FocusMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFocusMode", (void (Urho3D::UIElement::*)(Urho3D::FocusMode)) &Urho3D::UIElement::SetFocusMode, "todo: docstring", py::arg("mode"))
   //.def("SetDragDropMode", (void (Urho3D::UIElement::*)(Urho3D::FlagSet<Urho3D::DragAndDropMode, void>)) &Urho3D::UIElement::SetDragDropMode, "todo: docstring", py::arg("mode"))
     //['Urho3D::FlagSet<Urho3D::DragAndDropMode, void>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("SetStyle", (bool (Urho3D::UIElement::*)(const Urho3D::String &, Urho3D::XMLFile *)) &Urho3D::UIElement::SetStyle, "todo: docstring", py::arg("styleName"), py::arg("file")=nullptr)
   .def("SetStyle", (bool (Urho3D::UIElement::*)(const Urho3D::XMLElement &)) &Urho3D::UIElement::SetStyle, "todo: docstring", py::arg("element"))
   .def("SetStyleAuto", (bool (Urho3D::UIElement::*)(Urho3D::XMLFile *)) &Urho3D::UIElement::SetStyleAuto, "todo: docstring", py::arg("file")=nullptr)
   .def("SetDefaultStyle", (void (Urho3D::UIElement::*)(Urho3D::XMLFile *)) &Urho3D::UIElement::SetDefaultStyle, "todo: docstring", py::arg("style"))
-  //.def("SetLayout", (void (Urho3D::UIElement::*)(Urho3D::LayoutMode, int, const Urho3D::IntRect &)) &Urho3D::UIElement::SetLayout, "todo: docstring", py::arg("mode"), py::arg("spacing")=0, py::arg("border")=IntRect::ZERO)
-    //['Urho3D::LayoutMode', 'int', 'Urho3D::IntRect']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetLayoutMode", (void (Urho3D::UIElement::*)(Urho3D::LayoutMode)) &Urho3D::UIElement::SetLayoutMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::LayoutMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetLayout", (void (Urho3D::UIElement::*)(Urho3D::LayoutMode, int, const Urho3D::IntRect &)) &Urho3D::UIElement::SetLayout, "todo: docstring", py::arg("mode"), py::arg("spacing")=0, py::arg("border")=IntRect::ZERO)
+  .def("SetLayoutMode", (void (Urho3D::UIElement::*)(Urho3D::LayoutMode)) &Urho3D::UIElement::SetLayoutMode, "todo: docstring", py::arg("mode"))
   .def("SetLayoutSpacing", (void (Urho3D::UIElement::*)(int)) &Urho3D::UIElement::SetLayoutSpacing, "todo: docstring", py::arg("spacing"))
   .def("SetLayoutBorder", (void (Urho3D::UIElement::*)(const Urho3D::IntRect &)) &Urho3D::UIElement::SetLayoutBorder, "todo: docstring", py::arg("border"))
   .def("SetLayoutFlexScale", (void (Urho3D::UIElement::*)(const Urho3D::Vector2 &)) &Urho3D::UIElement::SetLayoutFlexScale, "todo: docstring", py::arg("scale"))
@@ -5048,8 +4904,7 @@ pyclass_Var_Urho3D_UIElement
   .def("SetParent", (void (Urho3D::UIElement::*)(Urho3D::UIElement *, unsigned int)) &Urho3D::UIElement::SetParent, "todo: docstring", py::arg("parent"), py::arg("index")=M_MAX_UNSIGNED)
   .def("SetVar", (void (Urho3D::UIElement::*)(Urho3D::StringHash, const Urho3D::Variant &)) &Urho3D::UIElement::SetVar, "todo: docstring", py::arg("key"), py::arg("value"))
   .def("SetInternal", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetInternal, "todo: docstring", py::arg("enable"))
-  //.def("SetTraversalMode", (void (Urho3D::UIElement::*)(Urho3D::TraversalMode)) &Urho3D::UIElement::SetTraversalMode, "todo: docstring", py::arg("traversalMode"))
-    //['Urho3D::TraversalMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTraversalMode", (void (Urho3D::UIElement::*)(Urho3D::TraversalMode)) &Urho3D::UIElement::SetTraversalMode, "todo: docstring", py::arg("traversalMode"))
   .def("SetElementEventSender", (void (Urho3D::UIElement::*)(bool)) &Urho3D::UIElement::SetElementEventSender, "todo: docstring", py::arg("flag"))
   .def("SetBasePath", (void (Urho3D::UIElement::*)(const Urho3D::String &)) &Urho3D::UIElement::SetBasePath, "todo: docstring", py::arg("basePath"))
   .def("SetTags", (void (Urho3D::UIElement::*)(const Urho3D::Vector<Urho3D::String> &)) &Urho3D::UIElement::SetTags, "todo: docstring", py::arg("tags"))
@@ -5073,10 +4928,8 @@ pyclass_Var_Urho3D_UIElement
   .def("IsFixedWidth", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::IsFixedWidth, "todo: docstring")
   .def("IsFixedHeight", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::IsFixedHeight, "todo: docstring")
   .def("GetChildOffset", (const Urho3D::IntVector2 & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetChildOffset, "todo: docstring")
-  //.def("GetHorizontalAlignment", (Urho3D::HorizontalAlignment (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetHorizontalAlignment, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVerticalAlignment", (Urho3D::VerticalAlignment (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetVerticalAlignment, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetHorizontalAlignment", (Urho3D::HorizontalAlignment (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetHorizontalAlignment, "todo: docstring")
+  .def("GetVerticalAlignment", (Urho3D::VerticalAlignment (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetVerticalAlignment, "todo: docstring")
   .def("GetEnableAnchor", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetEnableAnchor, "todo: docstring")
   .def("GetMinAnchor", (const Urho3D::Vector2 & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetMinAnchor, "todo: docstring")
   .def("GetMaxAnchor", (const Urho3D::Vector2 & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetMaxAnchor, "todo: docstring")
@@ -5084,8 +4937,7 @@ pyclass_Var_Urho3D_UIElement
   .def("GetMaxOffset", (const Urho3D::IntVector2 & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetMaxOffset, "todo: docstring")
   .def("GetPivot", (const Urho3D::Vector2 & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetPivot, "todo: docstring")
   .def("GetClipBorder", (const Urho3D::IntRect & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetClipBorder, "todo: docstring")
-  //.def("GetColor", (const Urho3D::Color & (Urho3D::UIElement::*)(Urho3D::Corner) const) &Urho3D::UIElement::GetColor, "todo: docstring", py::arg("corner"))
-    //['Urho3D::Corner']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetColor", (const Urho3D::Color & (Urho3D::UIElement::*)(Urho3D::Corner) const) &Urho3D::UIElement::GetColor, "todo: docstring", py::arg("corner"))
   .def("GetPriority", (int (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetPriority, "todo: docstring")
   .def("GetOpacity", (float (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetOpacity, "todo: docstring")
   .def("GetDerivedOpacity", (float (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetDerivedOpacity, "todo: docstring")
@@ -5105,14 +4957,12 @@ pyclass_Var_Urho3D_UIElement
   .def("IsHovering", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::IsHovering, "todo: docstring")
   .def("IsInternal", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::IsInternal, "todo: docstring")
   .def("HasColorGradient", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::HasColorGradient, "todo: docstring")
-  //.def("GetFocusMode", (Urho3D::FocusMode (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetFocusMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFocusMode", (Urho3D::FocusMode (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetFocusMode, "todo: docstring")
   //.def("GetDragDropMode", (Urho3D::DragAndDropModeFlags (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetDragDropMode, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetAppliedStyle", (const Urho3D::String & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetAppliedStyle, "todo: docstring")
   .def("GetDefaultStyle", (Urho3D::XMLFile * (Urho3D::UIElement::*)(bool) const) &Urho3D::UIElement::GetDefaultStyle, "todo: docstring", py::arg("recursiveUp")=true)
-  //.def("GetLayoutMode", (Urho3D::LayoutMode (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetLayoutMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetLayoutMode", (Urho3D::LayoutMode (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetLayoutMode, "todo: docstring")
   .def("GetLayoutSpacing", (int (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetLayoutSpacing, "todo: docstring")
   .def("GetLayoutBorder", (const Urho3D::IntRect & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetLayoutBorder, "todo: docstring")
   .def("GetLayoutFlexScale", (const Urho3D::Vector2 & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetLayoutFlexScale, "todo: docstring")
@@ -5152,8 +5002,7 @@ pyclass_Var_Urho3D_UIElement
   //.def("GetBatchesWithOffset", (void (Urho3D::UIElement::*)(Urho3D::IntVector2 &, Urho3D::PODVector<Urho3D::UIBatch> &, Urho3D::PODVector<float> &, Urho3D::IntRect)) &Urho3D::UIElement::GetBatchesWithOffset, "todo: docstring", py::arg("offset"), py::arg("batches"), py::arg("vertexData"), py::arg("currentScissor"))
     //['Urho3D::IntVector2', 'Urho3D::PODVector<Urho3D::UIBatch>', 'Urho3D::PODVector<float>', 'Urho3D::IntRect']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("GetColorAttr", (const Urho3D::Color & (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetColorAttr, "todo: docstring")
-  //.def("GetTraversalMode", (Urho3D::TraversalMode (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetTraversalMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTraversalMode", (Urho3D::TraversalMode (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetTraversalMode, "todo: docstring")
   .def("IsElementEventSender", (bool (Urho3D::UIElement::*)() const) &Urho3D::UIElement::IsElementEventSender, "todo: docstring")
   .def("GetElementEventSender", (Urho3D::UIElement * (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetElementEventSender, "todo: docstring")
   .def("GetEffectiveMinSize", (Urho3D::IntVector2 (Urho3D::UIElement::*)() const) &Urho3D::UIElement::GetEffectiveMinSize, "todo: docstring")
@@ -5181,8 +5030,7 @@ pyclass_Var_Urho3D_BorderImage
   .def("SetImageBorder", (void (Urho3D::BorderImage::*)(const Urho3D::IntRect &)) &Urho3D::BorderImage::SetImageBorder, "todo: docstring", py::arg("rect"))
   .def("SetHoverOffset", (void (Urho3D::BorderImage::*)(const Urho3D::IntVector2 &)) &Urho3D::BorderImage::SetHoverOffset, "todo: docstring", py::arg("offset"))
   .def("SetHoverOffset", (void (Urho3D::BorderImage::*)(int, int)) &Urho3D::BorderImage::SetHoverOffset, "todo: docstring", py::arg("x"), py::arg("y"))
-  //.def("SetBlendMode", (void (Urho3D::BorderImage::*)(Urho3D::BlendMode)) &Urho3D::BorderImage::SetBlendMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::BorderImage::*)(Urho3D::BlendMode)) &Urho3D::BorderImage::SetBlendMode, "todo: docstring", py::arg("mode"))
   .def("SetTiled", (void (Urho3D::BorderImage::*)(bool)) &Urho3D::BorderImage::SetTiled, "todo: docstring", py::arg("enable"))
   .def("SetMaterial", (void (Urho3D::BorderImage::*)(Urho3D::Material *)) &Urho3D::BorderImage::SetMaterial, "todo: docstring", py::arg("material"))
   .def("GetTexture", (Urho3D::Texture * (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetTexture, "todo: docstring")
@@ -5190,8 +5038,7 @@ pyclass_Var_Urho3D_BorderImage
   .def("GetBorder", (const Urho3D::IntRect & (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetBorder, "todo: docstring")
   .def("GetImageBorder", (const Urho3D::IntRect & (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetImageBorder, "todo: docstring")
   .def("GetHoverOffset", (const Urho3D::IntVector2 & (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetHoverOffset, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetBlendMode, "todo: docstring")
   .def("IsTiled", (bool (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::IsTiled, "todo: docstring")
   .def("GetMaterial", (Urho3D::Material * (Urho3D::BorderImage::*)() const) &Urho3D::BorderImage::GetMaterial, "todo: docstring")
   .def("SetTextureAttr", (void (Urho3D::BorderImage::*)(const Urho3D::ResourceRef &)) &Urho3D::BorderImage::SetTextureAttr, "todo: docstring", py::arg("value"))
@@ -5372,18 +5219,12 @@ pyclass_Var_Urho3D_VertexBuffer
   .def("GetVertexSize", (unsigned int (Urho3D::VertexBuffer::*)() const) &Urho3D::VertexBuffer::GetVertexSize, "todo: docstring")
   //.def("GetElements", (const PODVector<Urho3D::VertexElement> & (Urho3D::VertexBuffer::*)() const) &Urho3D::VertexBuffer::GetElements, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetElement", (const Urho3D::VertexElement * (Urho3D::VertexBuffer::*)(Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElement, "todo: docstring", py::arg("semantic"), py::arg("index")=0)
-    //['Urho3D::VertexElementSemantic', 'unsigned char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("GetElement", (const Urho3D::VertexElement * (Urho3D::VertexBuffer::*)(Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElement, "todo: docstring", py::arg("type"), py::arg("semantic"), py::arg("index")=0)
-    //['Urho3D::VertexElementType', 'Urho3D::VertexElementSemantic', 'unsigned char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("HasElement", (bool (Urho3D::VertexBuffer::*)(Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::HasElement, "todo: docstring", py::arg("semantic"), py::arg("index")=0)
-    //['Urho3D::VertexElementSemantic', 'unsigned char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("HasElement", (bool (Urho3D::VertexBuffer::*)(Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::HasElement, "todo: docstring", py::arg("type"), py::arg("semantic"), py::arg("index")=0)
-    //['Urho3D::VertexElementType', 'Urho3D::VertexElementSemantic', 'unsigned char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetElementOffset", (unsigned int (Urho3D::VertexBuffer::*)(Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElementOffset, "todo: docstring", py::arg("semantic"), py::arg("index")=0)
-    //['Urho3D::VertexElementSemantic', 'unsigned char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetElementOffset", (unsigned int (Urho3D::VertexBuffer::*)(Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElementOffset, "todo: docstring", py::arg("type"), py::arg("semantic"), py::arg("index")=0)
-    //['Urho3D::VertexElementType', 'Urho3D::VertexElementSemantic', 'unsigned char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetElement", (const Urho3D::VertexElement * (Urho3D::VertexBuffer::*)(Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElement, "todo: docstring", py::arg("semantic"), py::arg("index")=0)
+  .def("GetElement", (const Urho3D::VertexElement * (Urho3D::VertexBuffer::*)(Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElement, "todo: docstring", py::arg("type"), py::arg("semantic"), py::arg("index")=0)
+  .def("HasElement", (bool (Urho3D::VertexBuffer::*)(Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::HasElement, "todo: docstring", py::arg("semantic"), py::arg("index")=0)
+  .def("HasElement", (bool (Urho3D::VertexBuffer::*)(Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::HasElement, "todo: docstring", py::arg("type"), py::arg("semantic"), py::arg("index")=0)
+  .def("GetElementOffset", (unsigned int (Urho3D::VertexBuffer::*)(Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElementOffset, "todo: docstring", py::arg("semantic"), py::arg("index")=0)
+  .def("GetElementOffset", (unsigned int (Urho3D::VertexBuffer::*)(Urho3D::VertexElementType, Urho3D::VertexElementSemantic, unsigned char) const) &Urho3D::VertexBuffer::GetElementOffset, "todo: docstring", py::arg("type"), py::arg("semantic"), py::arg("index")=0)
   //.def("GetElementMask", (Urho3D::VertexMaskFlags (Urho3D::VertexBuffer::*)() const) &Urho3D::VertexBuffer::GetElementMask, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetShadowData", (unsigned char * (Urho3D::VertexBuffer::*)() const) &Urho3D::VertexBuffer::GetShadowData, "todo: docstring")
@@ -5400,8 +5241,7 @@ void Implement_Urho3D_BoxOctreeQuery(py::class_<Urho3D::BoxOctreeQuery, Urho3D::
 pyclass_Var_Urho3D_BoxOctreeQuery
   //.def(py::init<Urho3D::PODVector<Urho3D::Drawable *> &, const Urho3D::BoundingBox &, unsigned char, unsigned int>(), "todo: constructor docstring")
     //['Urho3D::PODVector<Urho3D::Drawable', 'Urho3D::BoundingBox', 'unsigned char', 'unsigned int']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("TestOctant", (Urho3D::Intersection (Urho3D::BoxOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::BoxOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
-    //['Urho3D::BoundingBox', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("TestOctant", (Urho3D::Intersection (Urho3D::BoxOctreeQuery::*)(const Urho3D::BoundingBox &, bool)) &Urho3D::BoxOctreeQuery::TestOctant, "todo: docstring", py::arg("box"), py::arg("inside"))
   //.def("TestDrawables", (void (Urho3D::BoxOctreeQuery::*)(Urho3D::Drawable **, Urho3D::Drawable **, bool)) &Urho3D::BoxOctreeQuery::TestDrawables, "todo: docstring", py::arg("start"), py::arg("end"), py::arg("inside"))
     //['Urho3D::Drawable', 'Urho3D::Drawable', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad False, max ptr 2
 // Class Variables:
@@ -5481,8 +5321,7 @@ pyclass_Var_Urho3D_Input
   .def("ResetMouseVisible", (void (Urho3D::Input::*)()) &Urho3D::Input::ResetMouseVisible, "todo: docstring")
   .def("SetMouseGrabbed", (void (Urho3D::Input::*)(bool, bool)) &Urho3D::Input::SetMouseGrabbed, "todo: docstring", py::arg("grab"), py::arg("suppressEvent")=false)
   .def("ResetMouseGrabbed", (void (Urho3D::Input::*)()) &Urho3D::Input::ResetMouseGrabbed, "todo: docstring")
-  //.def("SetMouseMode", (void (Urho3D::Input::*)(Urho3D::MouseMode, bool)) &Urho3D::Input::SetMouseMode, "todo: docstring", py::arg("mode"), py::arg("suppressEvent")=false)
-    //['Urho3D::MouseMode', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetMouseMode", (void (Urho3D::Input::*)(Urho3D::MouseMode, bool)) &Urho3D::Input::SetMouseMode, "todo: docstring", py::arg("mode"), py::arg("suppressEvent")=false)
   .def("ResetMouseMode", (void (Urho3D::Input::*)()) &Urho3D::Input::ResetMouseMode, "todo: docstring")
   //.def("AddScreenJoystick", (SDL_JoystickID (Urho3D::Input::*)()) &Urho3D::Input::AddScreenJoystick, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -5498,34 +5337,22 @@ pyclass_Var_Urho3D_Input
   .def("RemoveAllGestures", (void (Urho3D::Input::*)()) &Urho3D::Input::RemoveAllGestures, "todo: docstring")
   .def("SetMousePosition", (void (Urho3D::Input::*)(const Urho3D::IntVector2 &)) &Urho3D::Input::SetMousePosition, "todo: docstring", py::arg("position"))
   .def("CenterMousePosition", (void (Urho3D::Input::*)()) &Urho3D::Input::CenterMousePosition, "todo: docstring")
-  //.def("GetKeyFromName", (Urho3D::Key (Urho3D::Input::*)(const Urho3D::String &) const) &Urho3D::Input::GetKeyFromName, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetKeyFromScancode", (Urho3D::Key (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetKeyFromScancode, "todo: docstring", py::arg("scancode"))
-    //['Urho3D::Scancode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad True, max ptr 0
-  //.def("GetKeyName", (Urho3D::String (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetKeyName, "todo: docstring", py::arg("key"))
-    //['Urho3D::Key']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetScancodeFromKey", (Urho3D::Scancode (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetScancodeFromKey, "todo: docstring", py::arg("key"))
-    //['Urho3D::Key']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad True, max ptr 0
-  //.def("GetScancodeFromName", (Urho3D::Scancode (Urho3D::Input::*)(const Urho3D::String &) const) &Urho3D::Input::GetScancodeFromName, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetScancodeName", (Urho3D::String (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetScancodeName, "todo: docstring", py::arg("scancode"))
-    //['Urho3D::Scancode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetKeyDown", (bool (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetKeyDown, "todo: docstring", py::arg("key"))
-    //['Urho3D::Key']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetKeyPress", (bool (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetKeyPress, "todo: docstring", py::arg("key"))
-    //['Urho3D::Key']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetScancodeDown", (bool (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetScancodeDown, "todo: docstring", py::arg("scancode"))
-    //['Urho3D::Scancode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetScancodePress", (bool (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetScancodePress, "todo: docstring", py::arg("scancode"))
-    //['Urho3D::Scancode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetKeyFromName", (Urho3D::Key (Urho3D::Input::*)(const Urho3D::String &) const) &Urho3D::Input::GetKeyFromName, "todo: docstring", py::arg("name"))
+  .def("GetKeyFromScancode", (Urho3D::Key (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetKeyFromScancode, "todo: docstring", py::arg("scancode"))
+  .def("GetKeyName", (Urho3D::String (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetKeyName, "todo: docstring", py::arg("key"))
+  .def("GetScancodeFromKey", (Urho3D::Scancode (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetScancodeFromKey, "todo: docstring", py::arg("key"))
+  .def("GetScancodeFromName", (Urho3D::Scancode (Urho3D::Input::*)(const Urho3D::String &) const) &Urho3D::Input::GetScancodeFromName, "todo: docstring", py::arg("name"))
+  .def("GetScancodeName", (Urho3D::String (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetScancodeName, "todo: docstring", py::arg("scancode"))
+  .def("GetKeyDown", (bool (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetKeyDown, "todo: docstring", py::arg("key"))
+  .def("GetKeyPress", (bool (Urho3D::Input::*)(Urho3D::Key) const) &Urho3D::Input::GetKeyPress, "todo: docstring", py::arg("key"))
+  .def("GetScancodeDown", (bool (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetScancodeDown, "todo: docstring", py::arg("scancode"))
+  .def("GetScancodePress", (bool (Urho3D::Input::*)(Urho3D::Scancode) const) &Urho3D::Input::GetScancodePress, "todo: docstring", py::arg("scancode"))
   //.def("GetMouseButtonDown", (bool (Urho3D::Input::*)(Urho3D::FlagSet<Urho3D::MouseButton, void>) const) &Urho3D::Input::GetMouseButtonDown, "todo: docstring", py::arg("button"))
     //['Urho3D::FlagSet<Urho3D::MouseButton, void>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("GetMouseButtonPress", (bool (Urho3D::Input::*)(Urho3D::FlagSet<Urho3D::MouseButton, void>) const) &Urho3D::Input::GetMouseButtonPress, "todo: docstring", py::arg("button"))
     //['Urho3D::FlagSet<Urho3D::MouseButton, void>']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetQualifierDown", (bool (Urho3D::Input::*)(Urho3D::Qualifier) const) &Urho3D::Input::GetQualifierDown, "todo: docstring", py::arg("qualifier"))
-    //['Urho3D::Qualifier']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetQualifierPress", (bool (Urho3D::Input::*)(Urho3D::Qualifier) const) &Urho3D::Input::GetQualifierPress, "todo: docstring", py::arg("qualifier"))
-    //['Urho3D::Qualifier']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetQualifierDown", (bool (Urho3D::Input::*)(Urho3D::Qualifier) const) &Urho3D::Input::GetQualifierDown, "todo: docstring", py::arg("qualifier"))
+  .def("GetQualifierPress", (bool (Urho3D::Input::*)(Urho3D::Qualifier) const) &Urho3D::Input::GetQualifierPress, "todo: docstring", py::arg("qualifier"))
   //.def("GetQualifiers", (Urho3D::QualifierFlags (Urho3D::Input::*)() const) &Urho3D::Input::GetQualifiers, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetMousePosition", (Urho3D::IntVector2 (Urho3D::Input::*)() const) &Urho3D::Input::GetMousePosition, "todo: docstring")
@@ -5552,8 +5379,7 @@ pyclass_Var_Urho3D_Input
   .def("IsMouseVisible", (bool (Urho3D::Input::*)() const) &Urho3D::Input::IsMouseVisible, "todo: docstring")
   .def("IsMouseGrabbed", (bool (Urho3D::Input::*)() const) &Urho3D::Input::IsMouseGrabbed, "todo: docstring")
   .def("IsMouseLocked", (bool (Urho3D::Input::*)() const) &Urho3D::Input::IsMouseLocked, "todo: docstring")
-  //.def("GetMouseMode", (Urho3D::MouseMode (Urho3D::Input::*)() const) &Urho3D::Input::GetMouseMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetMouseMode", (Urho3D::MouseMode (Urho3D::Input::*)() const) &Urho3D::Input::GetMouseMode, "todo: docstring")
   .def("HasFocus", (bool (Urho3D::Input::*)()) &Urho3D::Input::HasFocus, "todo: docstring")
   .def("IsMinimized", (bool (Urho3D::Input::*)() const) &Urho3D::Input::IsMinimized, "todo: docstring")
 // Class Variables:
@@ -5779,8 +5605,7 @@ pyclass_Var_Urho3D_ScrollBar
   .def("ApplyAttributes", (void (Urho3D::ScrollBar::*)()) &Urho3D::ScrollBar::ApplyAttributes, "todo: docstring")
   .def("OnResize", (void (Urho3D::ScrollBar::*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &)) &Urho3D::ScrollBar::OnResize, "todo: docstring", py::arg("newSize"), py::arg("delta"))
   .def("OnSetEditable", (void (Urho3D::ScrollBar::*)()) &Urho3D::ScrollBar::OnSetEditable, "todo: docstring")
-  //.def("SetOrientation", (void (Urho3D::ScrollBar::*)(Urho3D::Orientation)) &Urho3D::ScrollBar::SetOrientation, "todo: docstring", py::arg("orientation"))
-    //['Urho3D::Orientation']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetOrientation", (void (Urho3D::ScrollBar::*)(Urho3D::Orientation)) &Urho3D::ScrollBar::SetOrientation, "todo: docstring", py::arg("orientation"))
   .def("SetRange", (void (Urho3D::ScrollBar::*)(float)) &Urho3D::ScrollBar::SetRange, "todo: docstring", py::arg("range"))
   .def("SetValue", (void (Urho3D::ScrollBar::*)(float)) &Urho3D::ScrollBar::SetValue, "todo: docstring", py::arg("value"))
   .def("ChangeValue", (void (Urho3D::ScrollBar::*)(float)) &Urho3D::ScrollBar::ChangeValue, "todo: docstring", py::arg("delta"))
@@ -5788,8 +5613,7 @@ pyclass_Var_Urho3D_ScrollBar
   .def("SetStepFactor", (void (Urho3D::ScrollBar::*)(float)) &Urho3D::ScrollBar::SetStepFactor, "todo: docstring", py::arg("factor"))
   .def("StepBack", (void (Urho3D::ScrollBar::*)()) &Urho3D::ScrollBar::StepBack, "todo: docstring")
   .def("StepForward", (void (Urho3D::ScrollBar::*)()) &Urho3D::ScrollBar::StepForward, "todo: docstring")
-  //.def("GetOrientation", (Urho3D::Orientation (Urho3D::ScrollBar::*)() const) &Urho3D::ScrollBar::GetOrientation, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetOrientation", (Urho3D::Orientation (Urho3D::ScrollBar::*)() const) &Urho3D::ScrollBar::GetOrientation, "todo: docstring")
   .def("GetRange", (float (Urho3D::ScrollBar::*)() const) &Urho3D::ScrollBar::GetRange, "todo: docstring")
   .def("GetValue", (float (Urho3D::ScrollBar::*)() const) &Urho3D::ScrollBar::GetValue, "todo: docstring")
   .def("GetScrollStep", (float (Urho3D::ScrollBar::*)() const) &Urho3D::ScrollBar::GetScrollStep, "todo: docstring")
@@ -5839,14 +5663,12 @@ pyclass_Var_Urho3D_Slider
   .def("OnDragMove", (void (Urho3D::Slider::*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &, const Urho3D::IntVector2 &, int, int, Urho3D::Cursor *)) &Urho3D::Slider::OnDragMove, "todo: docstring", py::arg("position"), py::arg("screenPosition"), py::arg("deltaPos"), py::arg("buttons"), py::arg("qualifiers"), py::arg("cursor"))
   .def("OnDragEnd", (void (Urho3D::Slider::*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &, int, int, Urho3D::Cursor *)) &Urho3D::Slider::OnDragEnd, "todo: docstring", py::arg("position"), py::arg("screenPosition"), py::arg("dragButtons"), py::arg("buttons"), py::arg("cursor"))
   .def("OnResize", (void (Urho3D::Slider::*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &)) &Urho3D::Slider::OnResize, "todo: docstring", py::arg("newSize"), py::arg("delta"))
-  //.def("SetOrientation", (void (Urho3D::Slider::*)(Urho3D::Orientation)) &Urho3D::Slider::SetOrientation, "todo: docstring", py::arg("orientation"))
-    //['Urho3D::Orientation']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetOrientation", (void (Urho3D::Slider::*)(Urho3D::Orientation)) &Urho3D::Slider::SetOrientation, "todo: docstring", py::arg("orientation"))
   .def("SetRange", (void (Urho3D::Slider::*)(float)) &Urho3D::Slider::SetRange, "todo: docstring", py::arg("range"))
   .def("SetValue", (void (Urho3D::Slider::*)(float)) &Urho3D::Slider::SetValue, "todo: docstring", py::arg("value"))
   .def("ChangeValue", (void (Urho3D::Slider::*)(float)) &Urho3D::Slider::ChangeValue, "todo: docstring", py::arg("delta"))
   .def("SetRepeatRate", (void (Urho3D::Slider::*)(float)) &Urho3D::Slider::SetRepeatRate, "todo: docstring", py::arg("rate"))
-  //.def("GetOrientation", (Urho3D::Orientation (Urho3D::Slider::*)() const) &Urho3D::Slider::GetOrientation, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetOrientation", (Urho3D::Orientation (Urho3D::Slider::*)() const) &Urho3D::Slider::GetOrientation, "todo: docstring")
   .def("GetRange", (float (Urho3D::Slider::*)() const) &Urho3D::Slider::GetRange, "todo: docstring")
   .def("GetValue", (float (Urho3D::Slider::*)() const) &Urho3D::Slider::GetValue, "todo: docstring")
   .def("GetKnob", (Urho3D::BorderImage * (Urho3D::Slider::*)() const) &Urho3D::Slider::GetKnob, "todo: docstring")
@@ -5905,8 +5727,7 @@ void Implement_Urho3D_TileMapObject2D(py::class_<Urho3D::TileMapObject2D, Urho3D
     // Class TileMapObject2D Implementation
 pyclass_Var_Urho3D_TileMapObject2D
   .def(py::init<>(), "todo: constructor docstring")
-  //.def("GetObjectType", (Urho3D::TileMapObjectType2D (Urho3D::TileMapObject2D::*)() const) &Urho3D::TileMapObject2D::GetObjectType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetObjectType", (Urho3D::TileMapObjectType2D (Urho3D::TileMapObject2D::*)() const) &Urho3D::TileMapObject2D::GetObjectType, "todo: docstring")
   .def("GetName", (const Urho3D::String & (Urho3D::TileMapObject2D::*)() const) &Urho3D::TileMapObject2D::GetName, "todo: docstring")
   .def("GetType", (const Urho3D::String & (Urho3D::TileMapObject2D::*)() const) &Urho3D::TileMapObject2D::GetType, "todo: docstring")
   .def("GetPosition", (const Urho3D::Vector2 & (Urho3D::TileMapObject2D::*)() const) &Urho3D::TileMapObject2D::GetPosition, "todo: docstring")
@@ -5996,10 +5817,8 @@ pyclass_Var_Urho3D_Rect
   .def("Size", (Urho3D::Vector2 (Urho3D::Rect::*)() const) &Urho3D::Rect::Size, "todo: docstring")
   .def("HalfSize", (Urho3D::Vector2 (Urho3D::Rect::*)() const) &Urho3D::Rect::HalfSize, "todo: docstring")
   .def("Equals", (bool (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::Equals, "todo: docstring", py::arg("rhs"))
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Rect::*)(const Urho3D::Vector2 &) const) &Urho3D::Rect::IsInside, "todo: docstring", py::arg("point"))
-    //['Urho3D::Vector2']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("IsInside", (Urho3D::Intersection (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::IsInside, "todo: docstring", py::arg("rect"))
-    //['Urho3D::Rect']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Rect::*)(const Urho3D::Vector2 &) const) &Urho3D::Rect::IsInside, "todo: docstring", py::arg("point"))
+  .def("IsInside", (Urho3D::Intersection (Urho3D::Rect::*)(const Urho3D::Rect &) const) &Urho3D::Rect::IsInside, "todo: docstring", py::arg("rect"))
   .def("Data", (const void * (Urho3D::Rect::*)() const) &Urho3D::Rect::Data, "todo: docstring")
   .def("ToVector4", (Urho3D::Vector4 (Urho3D::Rect::*)() const) &Urho3D::Rect::ToVector4, "todo: docstring")
   .def("ToString", (Urho3D::String (Urho3D::Rect::*)() const) &Urho3D::Rect::ToString, "todo: docstring")
@@ -6024,8 +5843,7 @@ void Implement_Urho3D_ResourceRouter(py::class_<Urho3D::ResourceRouter, Urho3D::
 pyclass_Var_Urho3D_ResourceRouter
   //.def(py::init<Urho3D::Context *>(), "todo: constructor docstring")
     // Abstract class ResourceRouter -> no init
-  //.def("Route", (void (Urho3D::ResourceRouter::*)(Urho3D::String &, Urho3D::ResourceRequest)) &Urho3D::ResourceRouter::Route, "todo: docstring", py::arg("name"), py::arg("requestType"))
-    //['Urho3D::String', 'Urho3D::ResourceRequest']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("Route", (void (Urho3D::ResourceRouter::*)(Urho3D::String &, Urho3D::ResourceRequest)) &Urho3D::ResourceRouter::Route, "todo: docstring", py::arg("name"), py::arg("requestType"))
 // Class Variables:
 ;
 }
@@ -6142,8 +5960,7 @@ pyclass_Var_Urho3D_SoundSource
   .def("SetGain", (void (Urho3D::SoundSource::*)(float)) &Urho3D::SoundSource::SetGain, "todo: docstring", py::arg("gain"))
   .def("SetAttenuation", (void (Urho3D::SoundSource::*)(float)) &Urho3D::SoundSource::SetAttenuation, "todo: docstring", py::arg("attenuation"))
   .def("SetPanning", (void (Urho3D::SoundSource::*)(float)) &Urho3D::SoundSource::SetPanning, "todo: docstring", py::arg("panning"))
-  //.def("SetAutoRemoveMode", (void (Urho3D::SoundSource::*)(Urho3D::AutoRemoveMode)) &Urho3D::SoundSource::SetAutoRemoveMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::AutoRemoveMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetAutoRemoveMode", (void (Urho3D::SoundSource::*)(Urho3D::AutoRemoveMode)) &Urho3D::SoundSource::SetAutoRemoveMode, "todo: docstring", py::arg("mode"))
   //.def("SetPlayPosition", (void (Urho3D::SoundSource::*)(signed char *)) &Urho3D::SoundSource::SetPlayPosition, "todo: docstring", py::arg("pos"))
     //['signed char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   .def("GetSound", (Urho3D::Sound * (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::GetSound, "todo: docstring")
@@ -6155,8 +5972,7 @@ pyclass_Var_Urho3D_SoundSource
   .def("GetGain", (float (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::GetGain, "todo: docstring")
   .def("GetAttenuation", (float (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::GetAttenuation, "todo: docstring")
   .def("GetPanning", (float (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::GetPanning, "todo: docstring")
-  //.def("GetAutoRemoveMode", (Urho3D::AutoRemoveMode (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::GetAutoRemoveMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAutoRemoveMode", (Urho3D::AutoRemoveMode (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::GetAutoRemoveMode, "todo: docstring")
   .def("IsPlaying", (bool (Urho3D::SoundSource::*)() const) &Urho3D::SoundSource::IsPlaying, "todo: docstring")
   .def("Update", (void (Urho3D::SoundSource::*)(float)) &Urho3D::SoundSource::Update, "todo: docstring", py::arg("timeStep"))
   .def("Mix", (void (Urho3D::SoundSource::*)(int *, unsigned int, int, bool, bool)) &Urho3D::SoundSource::Mix, "todo: docstring", py::arg("dest"), py::arg("samples"), py::arg("mixRate"), py::arg("stereo"), py::arg("interpolation"))
@@ -6190,8 +6006,7 @@ pyclass_Var_Urho3D_Drawable
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::Drawable::*)(const Urho3D::FrameInfo &)) &Urho3D::Drawable::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::Drawable::*)()) &Urho3D::Drawable::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::Drawable::*)()) &Urho3D::Drawable::GetUpdateGeometryType, "todo: docstring")
   .def("GetLodGeometry", (Urho3D::Geometry * (Urho3D::Drawable::*)(unsigned int, unsigned int)) &Urho3D::Drawable::GetLodGeometry, "todo: docstring", py::arg("batchIndex"), py::arg("level"))
   .def("GetNumOccluderTriangles", (unsigned int (Urho3D::Drawable::*)()) &Urho3D::Drawable::GetNumOccluderTriangles, "todo: docstring")
   .def("DrawOcclusion", (bool (Urho3D::Drawable::*)(Urho3D::OcclusionBuffer *)) &Urho3D::Drawable::DrawOcclusion, "todo: docstring", py::arg("buffer"))
@@ -6321,11 +6136,9 @@ pyclass_Var_Urho3D_Cursor
   //.def("GetBatches", (void (Urho3D::Cursor::*)(Urho3D::PODVector<Urho3D::UIBatch> &, Urho3D::PODVector<float> &, const Urho3D::IntRect &)) &Urho3D::Cursor::GetBatches, "todo: docstring", py::arg("batches"), py::arg("vertexData"), py::arg("currentScissor"))
     //['Urho3D::PODVector<Urho3D::UIBatch>', 'Urho3D::PODVector<float>', 'Urho3D::IntRect']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("DefineShape", (void (Urho3D::Cursor::*)(const Urho3D::String &, Urho3D::Image *, const Urho3D::IntRect &, const Urho3D::IntVector2 &)) &Urho3D::Cursor::DefineShape, "todo: docstring", py::arg("shape"), py::arg("image"), py::arg("imageRect"), py::arg("hotSpot"))
-  //.def("DefineShape", (void (Urho3D::Cursor::*)(Urho3D::CursorShape, Urho3D::Image *, const Urho3D::IntRect &, const Urho3D::IntVector2 &)) &Urho3D::Cursor::DefineShape, "todo: docstring", py::arg("shape"), py::arg("image"), py::arg("imageRect"), py::arg("hotSpot"))
-    //['Urho3D::CursorShape', 'Urho3D::Image', 'Urho3D::IntRect', 'Urho3D::IntVector2']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("DefineShape", (void (Urho3D::Cursor::*)(Urho3D::CursorShape, Urho3D::Image *, const Urho3D::IntRect &, const Urho3D::IntVector2 &)) &Urho3D::Cursor::DefineShape, "todo: docstring", py::arg("shape"), py::arg("image"), py::arg("imageRect"), py::arg("hotSpot"))
   .def("SetShape", (void (Urho3D::Cursor::*)(const Urho3D::String &)) &Urho3D::Cursor::SetShape, "todo: docstring", py::arg("shape"))
-  //.def("SetShape", (void (Urho3D::Cursor::*)(Urho3D::CursorShape)) &Urho3D::Cursor::SetShape, "todo: docstring", py::arg("shape"))
-    //['Urho3D::CursorShape']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetShape", (void (Urho3D::Cursor::*)(Urho3D::CursorShape)) &Urho3D::Cursor::SetShape, "todo: docstring", py::arg("shape"))
   .def("SetUseSystemShapes", (void (Urho3D::Cursor::*)(bool)) &Urho3D::Cursor::SetUseSystemShapes, "todo: docstring", py::arg("enable"))
   .def("GetShape", (const Urho3D::String & (Urho3D::Cursor::*)() const) &Urho3D::Cursor::GetShape, "todo: docstring")
   .def("GetUseSystemShapes", (bool (Urho3D::Cursor::*)() const) &Urho3D::Cursor::GetUseSystemShapes, "todo: docstring")
@@ -6425,15 +6238,13 @@ pyclass_Var_Urho3D_Text
   .def("SetFont", (bool (Urho3D::Text::*)(Urho3D::Font *, float)) &Urho3D::Text::SetFont, "todo: docstring", py::arg("font"), py::arg("size")=DEFAULT_FONT_SIZE)
   .def("SetFontSize", (bool (Urho3D::Text::*)(float)) &Urho3D::Text::SetFontSize, "todo: docstring", py::arg("size"))
   .def("SetText", (void (Urho3D::Text::*)(const Urho3D::String &)) &Urho3D::Text::SetText, "todo: docstring", py::arg("text"))
-  //.def("SetTextAlignment", (void (Urho3D::Text::*)(Urho3D::HorizontalAlignment)) &Urho3D::Text::SetTextAlignment, "todo: docstring", py::arg("align"))
-    //['Urho3D::HorizontalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTextAlignment", (void (Urho3D::Text::*)(Urho3D::HorizontalAlignment)) &Urho3D::Text::SetTextAlignment, "todo: docstring", py::arg("align"))
   .def("SetRowSpacing", (void (Urho3D::Text::*)(float)) &Urho3D::Text::SetRowSpacing, "todo: docstring", py::arg("spacing"))
   .def("SetWordwrap", (void (Urho3D::Text::*)(bool)) &Urho3D::Text::SetWordwrap, "todo: docstring", py::arg("enable"))
   .def("SetAutoLocalizable", (void (Urho3D::Text::*)(bool)) &Urho3D::Text::SetAutoLocalizable, "todo: docstring", py::arg("enable"))
   .def("SetSelection", (void (Urho3D::Text::*)(unsigned int, unsigned int)) &Urho3D::Text::SetSelection, "todo: docstring", py::arg("start"), py::arg("length")=M_MAX_UNSIGNED)
   .def("ClearSelection", (void (Urho3D::Text::*)()) &Urho3D::Text::ClearSelection, "todo: docstring")
-  //.def("SetTextEffect", (void (Urho3D::Text::*)(Urho3D::TextEffect)) &Urho3D::Text::SetTextEffect, "todo: docstring", py::arg("textEffect"))
-    //['Urho3D::TextEffect']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTextEffect", (void (Urho3D::Text::*)(Urho3D::TextEffect)) &Urho3D::Text::SetTextEffect, "todo: docstring", py::arg("textEffect"))
   .def("SetEffectShadowOffset", (void (Urho3D::Text::*)(const Urho3D::IntVector2 &)) &Urho3D::Text::SetEffectShadowOffset, "todo: docstring", py::arg("offset"))
   .def("SetEffectStrokeThickness", (void (Urho3D::Text::*)(int)) &Urho3D::Text::SetEffectStrokeThickness, "todo: docstring", py::arg("thickness"))
   .def("SetEffectRoundStroke", (void (Urho3D::Text::*)(bool)) &Urho3D::Text::SetEffectRoundStroke, "todo: docstring", py::arg("roundStroke"))
@@ -6441,15 +6252,13 @@ pyclass_Var_Urho3D_Text
   .def("GetFont", (Urho3D::Font * (Urho3D::Text::*)() const) &Urho3D::Text::GetFont, "todo: docstring")
   .def("GetFontSize", (float (Urho3D::Text::*)() const) &Urho3D::Text::GetFontSize, "todo: docstring")
   .def("GetText", (const Urho3D::String & (Urho3D::Text::*)() const) &Urho3D::Text::GetText, "todo: docstring")
-  //.def("GetTextAlignment", (Urho3D::HorizontalAlignment (Urho3D::Text::*)() const) &Urho3D::Text::GetTextAlignment, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTextAlignment", (Urho3D::HorizontalAlignment (Urho3D::Text::*)() const) &Urho3D::Text::GetTextAlignment, "todo: docstring")
   .def("GetRowSpacing", (float (Urho3D::Text::*)() const) &Urho3D::Text::GetRowSpacing, "todo: docstring")
   .def("GetWordwrap", (bool (Urho3D::Text::*)() const) &Urho3D::Text::GetWordwrap, "todo: docstring")
   .def("GetAutoLocalizable", (bool (Urho3D::Text::*)() const) &Urho3D::Text::GetAutoLocalizable, "todo: docstring")
   .def("GetSelectionStart", (unsigned int (Urho3D::Text::*)() const) &Urho3D::Text::GetSelectionStart, "todo: docstring")
   .def("GetSelectionLength", (unsigned int (Urho3D::Text::*)() const) &Urho3D::Text::GetSelectionLength, "todo: docstring")
-  //.def("GetTextEffect", (Urho3D::TextEffect (Urho3D::Text::*)() const) &Urho3D::Text::GetTextEffect, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTextEffect", (Urho3D::TextEffect (Urho3D::Text::*)() const) &Urho3D::Text::GetTextEffect, "todo: docstring")
   .def("GetEffectShadowOffset", (const Urho3D::IntVector2 & (Urho3D::Text::*)() const) &Urho3D::Text::GetEffectShadowOffset, "todo: docstring")
   .def("GetEffectStrokeThickness", (int (Urho3D::Text::*)() const) &Urho3D::Text::GetEffectStrokeThickness, "todo: docstring")
   .def("GetEffectRoundStroke", (bool (Urho3D::Text::*)() const) &Urho3D::Text::GetEffectRoundStroke, "todo: docstring")
@@ -6492,8 +6301,7 @@ pyclass_Var_Urho3D_AnimatedModel
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::AnimatedModel::*)(const Urho3D::FrameInfo &)) &Urho3D::AnimatedModel::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::AnimatedModel::*)()) &Urho3D::AnimatedModel::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::AnimatedModel::*)()) &Urho3D::AnimatedModel::GetUpdateGeometryType, "todo: docstring")
   .def("DrawDebugGeometry", (void (Urho3D::AnimatedModel::*)(Urho3D::DebugRenderer *, bool)) &Urho3D::AnimatedModel::DrawDebugGeometry, "todo: docstring", py::arg("debug"), py::arg("depthTest"))
   .def("SetModel", (void (Urho3D::AnimatedModel::*)(Urho3D::Model *, bool)) &Urho3D::AnimatedModel::SetModel, "todo: docstring", py::arg("model"), py::arg("createBones")=true)
   .def("AddAnimationState", (Urho3D::AnimationState * (Urho3D::AnimatedModel::*)(Urho3D::Animation *)) &Urho3D::AnimatedModel::AddAnimationState, "todo: docstring", py::arg("animation"))
@@ -6563,16 +6371,14 @@ pyclass_Var_Urho3D_BillboardSet
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::BillboardSet::*)(const Urho3D::FrameInfo &)) &Urho3D::BillboardSet::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::BillboardSet::*)()) &Urho3D::BillboardSet::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::BillboardSet::*)()) &Urho3D::BillboardSet::GetUpdateGeometryType, "todo: docstring")
   .def("SetMaterial", (void (Urho3D::BillboardSet::*)(Urho3D::Material *)) &Urho3D::BillboardSet::SetMaterial, "todo: docstring", py::arg("material"))
   .def("SetNumBillboards", (void (Urho3D::BillboardSet::*)(unsigned int)) &Urho3D::BillboardSet::SetNumBillboards, "todo: docstring", py::arg("num"))
   .def("SetRelative", (void (Urho3D::BillboardSet::*)(bool)) &Urho3D::BillboardSet::SetRelative, "todo: docstring", py::arg("enable"))
   .def("SetScaled", (void (Urho3D::BillboardSet::*)(bool)) &Urho3D::BillboardSet::SetScaled, "todo: docstring", py::arg("enable"))
   .def("SetSorted", (void (Urho3D::BillboardSet::*)(bool)) &Urho3D::BillboardSet::SetSorted, "todo: docstring", py::arg("enable"))
   .def("SetFixedScreenSize", (void (Urho3D::BillboardSet::*)(bool)) &Urho3D::BillboardSet::SetFixedScreenSize, "todo: docstring", py::arg("enable"))
-  //.def("SetFaceCameraMode", (void (Urho3D::BillboardSet::*)(Urho3D::FaceCameraMode)) &Urho3D::BillboardSet::SetFaceCameraMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FaceCameraMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFaceCameraMode", (void (Urho3D::BillboardSet::*)(Urho3D::FaceCameraMode)) &Urho3D::BillboardSet::SetFaceCameraMode, "todo: docstring", py::arg("mode"))
   .def("SetMinAngle", (void (Urho3D::BillboardSet::*)(float)) &Urho3D::BillboardSet::SetMinAngle, "todo: docstring", py::arg("angle"))
   .def("SetAnimationLodBias", (void (Urho3D::BillboardSet::*)(float)) &Urho3D::BillboardSet::SetAnimationLodBias, "todo: docstring", py::arg("bias"))
   .def("Commit", (void (Urho3D::BillboardSet::*)()) &Urho3D::BillboardSet::Commit, "todo: docstring")
@@ -6585,8 +6391,7 @@ pyclass_Var_Urho3D_BillboardSet
   .def("IsScaled", (bool (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::IsScaled, "todo: docstring")
   .def("IsSorted", (bool (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::IsSorted, "todo: docstring")
   .def("IsFixedScreenSize", (bool (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::IsFixedScreenSize, "todo: docstring")
-  //.def("GetFaceCameraMode", (Urho3D::FaceCameraMode (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetFaceCameraMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFaceCameraMode", (Urho3D::FaceCameraMode (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetFaceCameraMode, "todo: docstring")
   .def("GetMinAngle", (float (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetMinAngle, "todo: docstring")
   .def("GetAnimationLodBias", (float (Urho3D::BillboardSet::*)() const) &Urho3D::BillboardSet::GetAnimationLodBias, "todo: docstring")
   .def("SetMaterialAttr", (void (Urho3D::BillboardSet::*)(const Urho3D::ResourceRef &)) &Urho3D::BillboardSet::SetMaterialAttr, "todo: docstring", py::arg("value"))
@@ -6618,8 +6423,7 @@ pyclass_Var_Urho3D_DecalSet
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::DecalSet::*)(const Urho3D::FrameInfo &)) &Urho3D::DecalSet::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::DecalSet::*)()) &Urho3D::DecalSet::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::DecalSet::*)()) &Urho3D::DecalSet::GetUpdateGeometryType, "todo: docstring")
   .def("SetMaterial", (void (Urho3D::DecalSet::*)(Urho3D::Material *)) &Urho3D::DecalSet::SetMaterial, "todo: docstring", py::arg("material"))
   .def("SetMaxVertices", (void (Urho3D::DecalSet::*)(unsigned int)) &Urho3D::DecalSet::SetMaxVertices, "todo: docstring", py::arg("num"))
   .def("SetMaxIndices", (void (Urho3D::DecalSet::*)(unsigned int)) &Urho3D::DecalSet::SetMaxIndices, "todo: docstring", py::arg("num"))
@@ -6687,8 +6491,7 @@ pyclass_Var_Urho3D_ParticleEmitter
   .def("SetNumParticles", (void (Urho3D::ParticleEmitter::*)(unsigned int)) &Urho3D::ParticleEmitter::SetNumParticles, "todo: docstring", py::arg("num"))
   .def("SetEmitting", (void (Urho3D::ParticleEmitter::*)(bool)) &Urho3D::ParticleEmitter::SetEmitting, "todo: docstring", py::arg("enable"))
   .def("SetSerializeParticles", (void (Urho3D::ParticleEmitter::*)(bool)) &Urho3D::ParticleEmitter::SetSerializeParticles, "todo: docstring", py::arg("enable"))
-  //.def("SetAutoRemoveMode", (void (Urho3D::ParticleEmitter::*)(Urho3D::AutoRemoveMode)) &Urho3D::ParticleEmitter::SetAutoRemoveMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::AutoRemoveMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetAutoRemoveMode", (void (Urho3D::ParticleEmitter::*)(Urho3D::AutoRemoveMode)) &Urho3D::ParticleEmitter::SetAutoRemoveMode, "todo: docstring", py::arg("mode"))
   .def("ResetEmissionTimer", (void (Urho3D::ParticleEmitter::*)()) &Urho3D::ParticleEmitter::ResetEmissionTimer, "todo: docstring")
   .def("RemoveAllParticles", (void (Urho3D::ParticleEmitter::*)()) &Urho3D::ParticleEmitter::RemoveAllParticles, "todo: docstring")
   .def("Reset", (void (Urho3D::ParticleEmitter::*)()) &Urho3D::ParticleEmitter::Reset, "todo: docstring")
@@ -6697,8 +6500,7 @@ pyclass_Var_Urho3D_ParticleEmitter
   .def("GetNumParticles", (unsigned int (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetNumParticles, "todo: docstring")
   .def("IsEmitting", (bool (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::IsEmitting, "todo: docstring")
   .def("GetSerializeParticles", (bool (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetSerializeParticles, "todo: docstring")
-  //.def("GetAutoRemoveMode", (Urho3D::AutoRemoveMode (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetAutoRemoveMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAutoRemoveMode", (Urho3D::AutoRemoveMode (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetAutoRemoveMode, "todo: docstring")
   .def("SetEffectAttr", (void (Urho3D::ParticleEmitter::*)(const Urho3D::ResourceRef &)) &Urho3D::ParticleEmitter::SetEffectAttr, "todo: docstring", py::arg("value"))
   .def("GetEffectAttr", (Urho3D::ResourceRef (Urho3D::ParticleEmitter::*)() const) &Urho3D::ParticleEmitter::GetEffectAttr, "todo: docstring")
   .def("SetParticlesAttr", (void (Urho3D::ParticleEmitter::*)(const Urho3D::Vector<Urho3D::Variant> &)) &Urho3D::ParticleEmitter::SetParticlesAttr, "todo: docstring", py::arg("value"))
@@ -6742,8 +6544,7 @@ pyclass_Var_Urho3D_TerrainPatch
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::TerrainPatch::*)(const Urho3D::FrameInfo &)) &Urho3D::TerrainPatch::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::TerrainPatch::*)()) &Urho3D::TerrainPatch::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::TerrainPatch::*)()) &Urho3D::TerrainPatch::GetUpdateGeometryType, "todo: docstring")
   .def("GetLodGeometry", (Urho3D::Geometry * (Urho3D::TerrainPatch::*)(unsigned int, unsigned int)) &Urho3D::TerrainPatch::GetLodGeometry, "todo: docstring", py::arg("batchIndex"), py::arg("level"))
   .def("GetNumOccluderTriangles", (unsigned int (Urho3D::TerrainPatch::*)()) &Urho3D::TerrainPatch::GetNumOccluderTriangles, "todo: docstring")
   .def("DrawOcclusion", (bool (Urho3D::TerrainPatch::*)(Urho3D::OcclusionBuffer *)) &Urho3D::TerrainPatch::DrawOcclusion, "todo: docstring", py::arg("buffer"))
@@ -6801,10 +6602,8 @@ pyclass_Var_Urho3D_IKEffector
   .def(py::init<Urho3D::Context *>(), "todo: constructor docstring")
   //.def("~IKEffector", (void (Urho3D::IKEffector::*)()) &Urho3D::IKEffector::~IKEffector, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("GetFeature", (bool (Urho3D::IKEffector::*)(Urho3D::IKEffector::Feature) const) &Urho3D::IKEffector::GetFeature, "todo: docstring", py::arg("feature"))
-    //['Urho3D::IKEffector::Feature']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetFeature", (void (Urho3D::IKEffector::*)(Urho3D::IKEffector::Feature, bool)) &Urho3D::IKEffector::SetFeature, "todo: docstring", py::arg("feature"), py::arg("enable"))
-    //['Urho3D::IKEffector::Feature', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetFeature", (bool (Urho3D::IKEffector::*)(Urho3D::IKEffector::Feature) const) &Urho3D::IKEffector::GetFeature, "todo: docstring", py::arg("feature"))
+  .def("SetFeature", (void (Urho3D::IKEffector::*)(Urho3D::IKEffector::Feature, bool)) &Urho3D::IKEffector::SetFeature, "todo: docstring", py::arg("feature"), py::arg("enable"))
   .def("GetTargetNode", (Urho3D::Node * (Urho3D::IKEffector::*)() const) &Urho3D::IKEffector::GetTargetNode, "todo: docstring")
   .def("SetTargetNode", (void (Urho3D::IKEffector::*)(Urho3D::Node *)) &Urho3D::IKEffector::SetTargetNode, "todo: docstring", py::arg("targetNode"))
   .def("GetTargetName", (const Urho3D::String & (Urho3D::IKEffector::*)() const) &Urho3D::IKEffector::GetTargetName, "todo: docstring")
@@ -6982,10 +6781,8 @@ pyclass_Var_Urho3D_NavigationMesh
   .def("GetBoundingBox", (const Urho3D::BoundingBox & (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetBoundingBox, "todo: docstring")
   .def("GetWorldBoundingBox", (Urho3D::BoundingBox (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetWorldBoundingBox, "todo: docstring")
   .def("GetNumTiles", (Urho3D::IntVector2 (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetNumTiles, "todo: docstring")
-  //.def("SetPartitionType", (void (Urho3D::NavigationMesh::*)(Urho3D::NavmeshPartitionType)) &Urho3D::NavigationMesh::SetPartitionType, "todo: docstring", py::arg("partitionType"))
-    //['Urho3D::NavmeshPartitionType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetPartitionType", (Urho3D::NavmeshPartitionType (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetPartitionType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("SetPartitionType", (void (Urho3D::NavigationMesh::*)(Urho3D::NavmeshPartitionType)) &Urho3D::NavigationMesh::SetPartitionType, "todo: docstring", py::arg("partitionType"))
+  .def("GetPartitionType", (Urho3D::NavmeshPartitionType (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetPartitionType, "todo: docstring")
   .def("SetNavigationDataAttr", (void (Urho3D::NavigationMesh::*)(const Urho3D::PODVector<unsigned char> &)) &Urho3D::NavigationMesh::SetNavigationDataAttr, "todo: docstring", py::arg("value"))
   //.def("GetNavigationDataAttr", (PODVector<unsigned char> (Urho3D::NavigationMesh::*)() const) &Urho3D::NavigationMesh::GetNavigationDataAttr, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -7168,8 +6965,7 @@ pyclass_Var_Urho3D_CollisionShape
   .def("SetGImpactMesh", (void (Urho3D::CollisionShape::*)(Urho3D::Model *, unsigned int, const Urho3D::Vector3 &, const Urho3D::Vector3 &, const Urho3D::Quaternion &)) &Urho3D::CollisionShape::SetGImpactMesh, "todo: docstring", py::arg("model"), py::arg("lodLevel")=0, py::arg("scale")=Vector3::ONE, py::arg("position")=Vector3::ZERO, py::arg("rotation")=Quaternion::IDENTITY)
   .def("SetCustomGImpactMesh", (void (Urho3D::CollisionShape::*)(Urho3D::CustomGeometry *, const Urho3D::Vector3 &, const Urho3D::Vector3 &, const Urho3D::Quaternion &)) &Urho3D::CollisionShape::SetCustomGImpactMesh, "todo: docstring", py::arg("custom"), py::arg("scale")=Vector3::ONE, py::arg("position")=Vector3::ZERO, py::arg("rotation")=Quaternion::IDENTITY)
   .def("SetTerrain", (void (Urho3D::CollisionShape::*)(unsigned int)) &Urho3D::CollisionShape::SetTerrain, "todo: docstring", py::arg("lodLevel")=0)
-  //.def("SetShapeType", (void (Urho3D::CollisionShape::*)(Urho3D::ShapeType)) &Urho3D::CollisionShape::SetShapeType, "todo: docstring", py::arg("type"))
-    //['Urho3D::ShapeType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetShapeType", (void (Urho3D::CollisionShape::*)(Urho3D::ShapeType)) &Urho3D::CollisionShape::SetShapeType, "todo: docstring", py::arg("type"))
   .def("SetSize", (void (Urho3D::CollisionShape::*)(const Urho3D::Vector3 &)) &Urho3D::CollisionShape::SetSize, "todo: docstring", py::arg("size"))
   .def("SetPosition", (void (Urho3D::CollisionShape::*)(const Urho3D::Vector3 &)) &Urho3D::CollisionShape::SetPosition, "todo: docstring", py::arg("position"))
   .def("SetRotation", (void (Urho3D::CollisionShape::*)(const Urho3D::Quaternion &)) &Urho3D::CollisionShape::SetRotation, "todo: docstring", py::arg("rotation"))
@@ -7182,8 +6978,7 @@ pyclass_Var_Urho3D_CollisionShape
   //.def("GetGeometryData", (Urho3D::CollisionGeometryData * (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetGeometryData, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
   .def("GetPhysicsWorld", (Urho3D::PhysicsWorld * (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetPhysicsWorld, "todo: docstring")
-  //.def("GetShapeType", (Urho3D::ShapeType (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetShapeType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetShapeType", (Urho3D::ShapeType (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetShapeType, "todo: docstring")
   .def("GetSize", (const Urho3D::Vector3 & (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetSize, "todo: docstring")
   .def("GetPosition", (const Urho3D::Vector3 & (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetPosition, "todo: docstring")
   .def("GetRotation", (const Urho3D::Quaternion & (Urho3D::CollisionShape::*)() const) &Urho3D::CollisionShape::GetRotation, "todo: docstring")
@@ -7319,13 +7114,11 @@ pyclass_Var_Urho3D_SplinePath
   .def("AddControlPoint", (void (Urho3D::SplinePath::*)(Urho3D::Node *, unsigned int)) &Urho3D::SplinePath::AddControlPoint, "todo: docstring", py::arg("point"), py::arg("index")=M_MAX_UNSIGNED)
   .def("RemoveControlPoint", (void (Urho3D::SplinePath::*)(Urho3D::Node *)) &Urho3D::SplinePath::RemoveControlPoint, "todo: docstring", py::arg("point"))
   .def("ClearControlPoints", (void (Urho3D::SplinePath::*)()) &Urho3D::SplinePath::ClearControlPoints, "todo: docstring")
-  //.def("SetInterpolationMode", (void (Urho3D::SplinePath::*)(Urho3D::InterpolationMode)) &Urho3D::SplinePath::SetInterpolationMode, "todo: docstring", py::arg("interpolationMode"))
-    //['Urho3D::InterpolationMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetInterpolationMode", (void (Urho3D::SplinePath::*)(Urho3D::InterpolationMode)) &Urho3D::SplinePath::SetInterpolationMode, "todo: docstring", py::arg("interpolationMode"))
   .def("SetSpeed", (void (Urho3D::SplinePath::*)(float)) &Urho3D::SplinePath::SetSpeed, "todo: docstring", py::arg("speed"))
   .def("SetPosition", (void (Urho3D::SplinePath::*)(float)) &Urho3D::SplinePath::SetPosition, "todo: docstring", py::arg("factor"))
   .def("SetControlledNode", (void (Urho3D::SplinePath::*)(Urho3D::Node *)) &Urho3D::SplinePath::SetControlledNode, "todo: docstring", py::arg("controlled"))
-  //.def("GetInterpolationMode", (Urho3D::InterpolationMode (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetInterpolationMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetInterpolationMode", (Urho3D::InterpolationMode (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetInterpolationMode, "todo: docstring")
   .def("GetSpeed", (float (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetSpeed, "todo: docstring")
   .def("GetLength", (float (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetLength, "todo: docstring")
   .def("GetPosition", (Urho3D::Vector3 (Urho3D::SplinePath::*)() const) &Urho3D::SplinePath::GetPosition, "todo: docstring")
@@ -7450,16 +7243,14 @@ pyclass_Var_Urho3D_Sprite
   .def("SetTexture", (void (Urho3D::Sprite::*)(Urho3D::Texture *)) &Urho3D::Sprite::SetTexture, "todo: docstring", py::arg("texture"))
   .def("SetImageRect", (void (Urho3D::Sprite::*)(const Urho3D::IntRect &)) &Urho3D::Sprite::SetImageRect, "todo: docstring", py::arg("rect"))
   .def("SetFullImageRect", (void (Urho3D::Sprite::*)()) &Urho3D::Sprite::SetFullImageRect, "todo: docstring")
-  //.def("SetBlendMode", (void (Urho3D::Sprite::*)(Urho3D::BlendMode)) &Urho3D::Sprite::SetBlendMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::Sprite::*)(Urho3D::BlendMode)) &Urho3D::Sprite::SetBlendMode, "todo: docstring", py::arg("mode"))
   .def("GetPosition", (const Urho3D::Vector2 & (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetPosition, "todo: docstring")
   .def("GetHotSpot", (const Urho3D::IntVector2 & (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetHotSpot, "todo: docstring")
   .def("GetScale", (const Urho3D::Vector2 & (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetScale, "todo: docstring")
   .def("GetRotation", (float (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetRotation, "todo: docstring")
   .def("GetTexture", (Urho3D::Texture * (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetTexture, "todo: docstring")
   .def("GetImageRect", (const Urho3D::IntRect & (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetImageRect, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetBlendMode, "todo: docstring")
   .def("SetTextureAttr", (void (Urho3D::Sprite::*)(const Urho3D::ResourceRef &)) &Urho3D::Sprite::SetTextureAttr, "todo: docstring", py::arg("value"))
   .def("GetTextureAttr", (Urho3D::ResourceRef (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetTextureAttr, "todo: docstring")
   .def("GetTransform", (const Urho3D::Matrix3x4 & (Urho3D::Sprite::*)() const) &Urho3D::Sprite::GetTransform, "todo: docstring")
@@ -7501,12 +7292,10 @@ pyclass_Var_Urho3D_Renderer2D
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::Renderer2D::*)(const Urho3D::FrameInfo &)) &Urho3D::Renderer2D::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::Renderer2D::*)()) &Urho3D::Renderer2D::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::Renderer2D::*)()) &Urho3D::Renderer2D::GetUpdateGeometryType, "todo: docstring")
   .def("AddDrawable", (void (Urho3D::Renderer2D::*)(Urho3D::Drawable2D *)) &Urho3D::Renderer2D::AddDrawable, "todo: docstring", py::arg("drawable"))
   .def("RemoveDrawable", (void (Urho3D::Renderer2D::*)(Urho3D::Drawable2D *)) &Urho3D::Renderer2D::RemoveDrawable, "todo: docstring", py::arg("drawable"))
-  //.def("GetMaterial", (Urho3D::Material * (Urho3D::Renderer2D::*)(Urho3D::Texture2D *, Urho3D::BlendMode)) &Urho3D::Renderer2D::GetMaterial, "todo: docstring", py::arg("texture"), py::arg("blendMode"))
-    //['Urho3D::Texture2D', 'Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("GetMaterial", (Urho3D::Material * (Urho3D::Renderer2D::*)(Urho3D::Texture2D *, Urho3D::BlendMode)) &Urho3D::Renderer2D::GetMaterial, "todo: docstring", py::arg("texture"), py::arg("blendMode"))
   .def("CheckVisibility", (bool (Urho3D::Renderer2D::*)(Urho3D::Drawable2D *) const) &Urho3D::Renderer2D::CheckVisibility, "todo: docstring", py::arg("drawable"))
 // Class Variables:
 ;
@@ -7523,8 +7312,7 @@ pyclass_Var_Urho3D_RigidBody2D
   //.def("~RigidBody2D", (void (Urho3D::RigidBody2D::*)()) &Urho3D::RigidBody2D::~RigidBody2D, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("OnSetEnabled", (void (Urho3D::RigidBody2D::*)()) &Urho3D::RigidBody2D::OnSetEnabled, "todo: docstring")
-  //.def("SetBodyType", (void (Urho3D::RigidBody2D::*)(Urho3D::BodyType2D)) &Urho3D::RigidBody2D::SetBodyType, "todo: docstring", py::arg("type"))
-    //['Urho3D::BodyType2D']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBodyType", (void (Urho3D::RigidBody2D::*)(Urho3D::BodyType2D)) &Urho3D::RigidBody2D::SetBodyType, "todo: docstring", py::arg("type"))
   .def("SetMass", (void (Urho3D::RigidBody2D::*)(float)) &Urho3D::RigidBody2D::SetMass, "todo: docstring", py::arg("mass"))
   .def("SetInertia", (void (Urho3D::RigidBody2D::*)(float)) &Urho3D::RigidBody2D::SetInertia, "todo: docstring", py::arg("inertia"))
   .def("SetMassCenter", (void (Urho3D::RigidBody2D::*)(const Urho3D::Vector2 &)) &Urho3D::RigidBody2D::SetMassCenter, "todo: docstring", py::arg("center"))
@@ -7552,8 +7340,7 @@ pyclass_Var_Urho3D_RigidBody2D
   .def("RemoveCollisionShape2D", (void (Urho3D::RigidBody2D::*)(Urho3D::CollisionShape2D *)) &Urho3D::RigidBody2D::RemoveCollisionShape2D, "todo: docstring", py::arg("collisionShape"))
   .def("AddConstraint2D", (void (Urho3D::RigidBody2D::*)(Urho3D::Constraint2D *)) &Urho3D::RigidBody2D::AddConstraint2D, "todo: docstring", py::arg("constraint"))
   .def("RemoveConstraint2D", (void (Urho3D::RigidBody2D::*)(Urho3D::Constraint2D *)) &Urho3D::RigidBody2D::RemoveConstraint2D, "todo: docstring", py::arg("constraint"))
-  //.def("GetBodyType", (Urho3D::BodyType2D (Urho3D::RigidBody2D::*)() const) &Urho3D::RigidBody2D::GetBodyType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBodyType", (Urho3D::BodyType2D (Urho3D::RigidBody2D::*)() const) &Urho3D::RigidBody2D::GetBodyType, "todo: docstring")
   .def("GetMass", (float (Urho3D::RigidBody2D::*)() const) &Urho3D::RigidBody2D::GetMass, "todo: docstring")
   .def("GetInertia", (float (Urho3D::RigidBody2D::*)() const) &Urho3D::RigidBody2D::GetInertia, "todo: docstring")
   .def("GetMassCenter", (Urho3D::Vector2 (Urho3D::RigidBody2D::*)() const) &Urho3D::RigidBody2D::GetMassCenter, "todo: docstring")
@@ -7675,8 +7462,7 @@ pyclass_Var_Urho3D_TileMapLayer2D
   .def("IsVisible", (bool (Urho3D::TileMapLayer2D::*)() const) &Urho3D::TileMapLayer2D::IsVisible, "todo: docstring")
   .def("HasProperty", (bool (Urho3D::TileMapLayer2D::*)(const Urho3D::String &) const) &Urho3D::TileMapLayer2D::HasProperty, "todo: docstring", py::arg("name"))
   .def("GetProperty", (const Urho3D::String & (Urho3D::TileMapLayer2D::*)(const Urho3D::String &) const) &Urho3D::TileMapLayer2D::GetProperty, "todo: docstring", py::arg("name"))
-  //.def("GetLayerType", (Urho3D::TileMapLayerType2D (Urho3D::TileMapLayer2D::*)() const) &Urho3D::TileMapLayer2D::GetLayerType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetLayerType", (Urho3D::TileMapLayerType2D (Urho3D::TileMapLayer2D::*)() const) &Urho3D::TileMapLayer2D::GetLayerType, "todo: docstring")
   .def("GetWidth", (int (Urho3D::TileMapLayer2D::*)() const) &Urho3D::TileMapLayer2D::GetWidth, "todo: docstring")
   .def("GetHeight", (int (Urho3D::TileMapLayer2D::*)() const) &Urho3D::TileMapLayer2D::GetHeight, "todo: docstring")
   .def("GetTileNode", (Urho3D::Node * (Urho3D::TileMapLayer2D::*)(int, int) const) &Urho3D::TileMapLayer2D::GetTileNode, "todo: docstring", py::arg("x"), py::arg("y"))
@@ -7797,23 +7583,15 @@ pyclass_Var_Urho3D_Scene
   .def("LoadJSON", (bool (Urho3D::Scene::*)(Urho3D::Deserializer &)) &Urho3D::Scene::LoadJSON, "todo: docstring", py::arg("source"))
   .def("SaveXML", (bool (Urho3D::Scene::*)(Urho3D::Serializer &, const Urho3D::String &) const) &Urho3D::Scene::SaveXML, "todo: docstring", py::arg("dest"), py::arg("indentation")="\t")
   .def("SaveJSON", (bool (Urho3D::Scene::*)(Urho3D::Serializer &, const Urho3D::String &) const) &Urho3D::Scene::SaveJSON, "todo: docstring", py::arg("dest"), py::arg("indentation")="\t")
-  //.def("LoadAsync", (bool (Urho3D::Scene::*)(Urho3D::File *, Urho3D::LoadMode)) &Urho3D::Scene::LoadAsync, "todo: docstring", py::arg("file"), py::arg("mode")=LOAD_SCENE_AND_RESOURCES)
-    //['Urho3D::File', 'Urho3D::LoadMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("LoadAsyncXML", (bool (Urho3D::Scene::*)(Urho3D::File *, Urho3D::LoadMode)) &Urho3D::Scene::LoadAsyncXML, "todo: docstring", py::arg("file"), py::arg("mode")=LOAD_SCENE_AND_RESOURCES)
-    //['Urho3D::File', 'Urho3D::LoadMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("LoadAsyncJSON", (bool (Urho3D::Scene::*)(Urho3D::File *, Urho3D::LoadMode)) &Urho3D::Scene::LoadAsyncJSON, "todo: docstring", py::arg("file"), py::arg("mode")=LOAD_SCENE_AND_RESOURCES)
-    //['Urho3D::File', 'Urho3D::LoadMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("LoadAsync", (bool (Urho3D::Scene::*)(Urho3D::File *, Urho3D::LoadMode)) &Urho3D::Scene::LoadAsync, "todo: docstring", py::arg("file"), py::arg("mode")=LOAD_SCENE_AND_RESOURCES)
+  .def("LoadAsyncXML", (bool (Urho3D::Scene::*)(Urho3D::File *, Urho3D::LoadMode)) &Urho3D::Scene::LoadAsyncXML, "todo: docstring", py::arg("file"), py::arg("mode")=LOAD_SCENE_AND_RESOURCES)
+  .def("LoadAsyncJSON", (bool (Urho3D::Scene::*)(Urho3D::File *, Urho3D::LoadMode)) &Urho3D::Scene::LoadAsyncJSON, "todo: docstring", py::arg("file"), py::arg("mode")=LOAD_SCENE_AND_RESOURCES)
   .def("StopAsyncLoading", (void (Urho3D::Scene::*)()) &Urho3D::Scene::StopAsyncLoading, "todo: docstring")
-  //.def("Instantiate", (Urho3D::Node * (Urho3D::Scene::*)(Urho3D::Deserializer &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::Instantiate, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
-    //['Urho3D::Deserializer', 'Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("InstantiateXML", (Urho3D::Node * (Urho3D::Scene::*)(const Urho3D::XMLElement &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateXML, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
-    //['Urho3D::XMLElement', 'Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("InstantiateXML", (Urho3D::Node * (Urho3D::Scene::*)(Urho3D::Deserializer &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateXML, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
-    //['Urho3D::Deserializer', 'Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("InstantiateJSON", (Urho3D::Node * (Urho3D::Scene::*)(const Urho3D::JSONValue &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateJSON, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
-    //['Urho3D::JSONValue', 'Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("InstantiateJSON", (Urho3D::Node * (Urho3D::Scene::*)(Urho3D::Deserializer &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateJSON, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
-    //['Urho3D::Deserializer', 'Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("Instantiate", (Urho3D::Node * (Urho3D::Scene::*)(Urho3D::Deserializer &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::Instantiate, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
+  .def("InstantiateXML", (Urho3D::Node * (Urho3D::Scene::*)(const Urho3D::XMLElement &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateXML, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
+  .def("InstantiateXML", (Urho3D::Node * (Urho3D::Scene::*)(Urho3D::Deserializer &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateXML, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
+  .def("InstantiateJSON", (Urho3D::Node * (Urho3D::Scene::*)(const Urho3D::JSONValue &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateJSON, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
+  .def("InstantiateJSON", (Urho3D::Node * (Urho3D::Scene::*)(Urho3D::Deserializer &, const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::CreateMode)) &Urho3D::Scene::InstantiateJSON, "todo: docstring", py::arg("source"), py::arg("position"), py::arg("rotation"), py::arg("mode")=REPLICATED)
   .def("Clear", (void (Urho3D::Scene::*)(bool, bool)) &Urho3D::Scene::Clear, "todo: docstring", py::arg("clearReplicated")=true, py::arg("clearLocal")=true)
   .def("SetUpdateEnabled", (void (Urho3D::Scene::*)(bool)) &Urho3D::Scene::SetUpdateEnabled, "todo: docstring", py::arg("enable"))
   .def("SetTimeScale", (void (Urho3D::Scene::*)(float)) &Urho3D::Scene::SetTimeScale, "todo: docstring", py::arg("scale"))
@@ -7833,8 +7611,7 @@ pyclass_Var_Urho3D_Scene
   .def("IsUpdateEnabled", (bool (Urho3D::Scene::*)() const) &Urho3D::Scene::IsUpdateEnabled, "todo: docstring")
   .def("IsAsyncLoading", (bool (Urho3D::Scene::*)() const) &Urho3D::Scene::IsAsyncLoading, "todo: docstring")
   .def("GetAsyncProgress", (float (Urho3D::Scene::*)() const) &Urho3D::Scene::GetAsyncProgress, "todo: docstring")
-  //.def("GetAsyncLoadMode", (Urho3D::LoadMode (Urho3D::Scene::*)() const) &Urho3D::Scene::GetAsyncLoadMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAsyncLoadMode", (Urho3D::LoadMode (Urho3D::Scene::*)() const) &Urho3D::Scene::GetAsyncLoadMode, "todo: docstring")
   .def("GetFileName", (const Urho3D::String & (Urho3D::Scene::*)() const) &Urho3D::Scene::GetFileName, "todo: docstring")
   .def("GetChecksum", (unsigned int (Urho3D::Scene::*)() const) &Urho3D::Scene::GetChecksum, "todo: docstring")
   .def("GetTimeScale", (float (Urho3D::Scene::*)() const) &Urho3D::Scene::GetTimeScale, "todo: docstring")
@@ -7850,10 +7627,8 @@ pyclass_Var_Urho3D_Scene
   .def("EndThreadedUpdate", (void (Urho3D::Scene::*)()) &Urho3D::Scene::EndThreadedUpdate, "todo: docstring")
   .def("DelayedMarkedDirty", (void (Urho3D::Scene::*)(Urho3D::Component *)) &Urho3D::Scene::DelayedMarkedDirty, "todo: docstring", py::arg("component"))
   .def("IsThreadedUpdate", (bool (Urho3D::Scene::*)() const) &Urho3D::Scene::IsThreadedUpdate, "todo: docstring")
-  //.def("GetFreeNodeID", (unsigned int (Urho3D::Scene::*)(Urho3D::CreateMode)) &Urho3D::Scene::GetFreeNodeID, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetFreeComponentID", (unsigned int (Urho3D::Scene::*)(Urho3D::CreateMode)) &Urho3D::Scene::GetFreeComponentID, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CreateMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetFreeNodeID", (unsigned int (Urho3D::Scene::*)(Urho3D::CreateMode)) &Urho3D::Scene::GetFreeNodeID, "todo: docstring", py::arg("mode"))
+  .def("GetFreeComponentID", (unsigned int (Urho3D::Scene::*)(Urho3D::CreateMode)) &Urho3D::Scene::GetFreeComponentID, "todo: docstring", py::arg("mode"))
   .def("NodeTagAdded", (void (Urho3D::Scene::*)(Urho3D::Node *, const Urho3D::String &)) &Urho3D::Scene::NodeTagAdded, "todo: docstring", py::arg("node"), py::arg("tag"))
   .def("NodeTagRemoved", (void (Urho3D::Scene::*)(Urho3D::Node *, const Urho3D::String &)) &Urho3D::Scene::NodeTagRemoved, "todo: docstring", py::arg("node"), py::arg("tag"))
   .def("NodeAdded", (void (Urho3D::Scene::*)(Urho3D::Node *)) &Urho3D::Scene::NodeAdded, "todo: docstring", py::arg("node"))
@@ -7988,8 +7763,7 @@ pyclass_Var_Urho3D_Camera
   .def("SetOrthoSize", (void (Urho3D::Camera::*)(float)) &Urho3D::Camera::SetOrthoSize, "todo: docstring", py::arg("orthoSize"))
   .def("SetOrthoSize", (void (Urho3D::Camera::*)(const Urho3D::Vector2 &)) &Urho3D::Camera::SetOrthoSize, "todo: docstring", py::arg("orthoSize"))
   .def("SetAspectRatio", (void (Urho3D::Camera::*)(float)) &Urho3D::Camera::SetAspectRatio, "todo: docstring", py::arg("aspectRatio"))
-  //.def("SetFillMode", (void (Urho3D::Camera::*)(Urho3D::FillMode)) &Urho3D::Camera::SetFillMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FillMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFillMode", (void (Urho3D::Camera::*)(Urho3D::FillMode)) &Urho3D::Camera::SetFillMode, "todo: docstring", py::arg("mode"))
   .def("SetZoom", (void (Urho3D::Camera::*)(float)) &Urho3D::Camera::SetZoom, "todo: docstring", py::arg("zoom"))
   .def("SetLodBias", (void (Urho3D::Camera::*)(float)) &Urho3D::Camera::SetLodBias, "todo: docstring", py::arg("bias"))
   .def("SetViewMask", (void (Urho3D::Camera::*)(unsigned int)) &Urho3D::Camera::SetViewMask, "todo: docstring", py::arg("mask"))
@@ -8014,8 +7788,7 @@ pyclass_Var_Urho3D_Camera
   .def("GetViewMask", (unsigned int (Urho3D::Camera::*)() const) &Urho3D::Camera::GetViewMask, "todo: docstring")
   //.def("GetViewOverrideFlags", (Urho3D::ViewOverrideFlags (Urho3D::Camera::*)() const) &Urho3D::Camera::GetViewOverrideFlags, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetFillMode", (Urho3D::FillMode (Urho3D::Camera::*)() const) &Urho3D::Camera::GetFillMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFillMode", (Urho3D::FillMode (Urho3D::Camera::*)() const) &Urho3D::Camera::GetFillMode, "todo: docstring")
   .def("IsOrthographic", (bool (Urho3D::Camera::*)() const) &Urho3D::Camera::IsOrthographic, "todo: docstring")
   .def("GetAutoAspectRatio", (bool (Urho3D::Camera::*)() const) &Urho3D::Camera::GetAutoAspectRatio, "todo: docstring")
   .def("GetFrustum", (const Urho3D::Frustum & (Urho3D::Camera::*)() const) &Urho3D::Camera::GetFrustum, "todo: docstring")
@@ -8040,8 +7813,7 @@ pyclass_Var_Urho3D_Camera
   .def("GetDistance", (float (Urho3D::Camera::*)(const Urho3D::Vector3 &) const) &Urho3D::Camera::GetDistance, "todo: docstring", py::arg("worldPos"))
   .def("GetDistanceSquared", (float (Urho3D::Camera::*)(const Urho3D::Vector3 &) const) &Urho3D::Camera::GetDistanceSquared, "todo: docstring", py::arg("worldPos"))
   .def("GetLodDistance", (float (Urho3D::Camera::*)(float, float, float) const) &Urho3D::Camera::GetLodDistance, "todo: docstring", py::arg("distance"), py::arg("scale"), py::arg("bias"))
-  //.def("GetFaceCameraRotation", (Urho3D::Quaternion (Urho3D::Camera::*)(const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::FaceCameraMode, float)) &Urho3D::Camera::GetFaceCameraRotation, "todo: docstring", py::arg("position"), py::arg("rotation"), py::arg("mode"), py::arg("minAngle")=0.0f)
-    //['Urho3D::Vector3', 'Urho3D::Quaternion', 'Urho3D::FaceCameraMode', 'float']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetFaceCameraRotation", (Urho3D::Quaternion (Urho3D::Camera::*)(const Urho3D::Vector3 &, const Urho3D::Quaternion &, Urho3D::FaceCameraMode, float)) &Urho3D::Camera::GetFaceCameraRotation, "todo: docstring", py::arg("position"), py::arg("rotation"), py::arg("mode"), py::arg("minAngle")=0.0f)
   .def("GetEffectiveWorldTransform", (Urho3D::Matrix3x4 (Urho3D::Camera::*)() const) &Urho3D::Camera::GetEffectiveWorldTransform, "todo: docstring")
   .def("IsProjectionValid", (bool (Urho3D::Camera::*)() const) &Urho3D::Camera::IsProjectionValid, "todo: docstring")
   .def("SetAspectRatioInternal", (void (Urho3D::Camera::*)(float)) &Urho3D::Camera::SetAspectRatioInternal, "todo: docstring", py::arg("aspectRatio"))
@@ -8069,8 +7841,7 @@ pyclass_Var_Urho3D_Light
   //.def("UpdateBatches", (void (Urho3D::Light::*)(const Urho3D::FrameInfo &)) &Urho3D::Light::UpdateBatches, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   .def("DrawDebugGeometry", (void (Urho3D::Light::*)(Urho3D::DebugRenderer *, bool)) &Urho3D::Light::DrawDebugGeometry, "todo: docstring", py::arg("debug"), py::arg("depthTest"))
-  //.def("SetLightType", (void (Urho3D::Light::*)(Urho3D::LightType)) &Urho3D::Light::SetLightType, "todo: docstring", py::arg("type"))
-    //['Urho3D::LightType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetLightType", (void (Urho3D::Light::*)(Urho3D::LightType)) &Urho3D::Light::SetLightType, "todo: docstring", py::arg("type"))
   .def("SetPerVertex", (void (Urho3D::Light::*)(bool)) &Urho3D::Light::SetPerVertex, "todo: docstring", py::arg("enable"))
   .def("SetColor", (void (Urho3D::Light::*)(const Urho3D::Color &)) &Urho3D::Light::SetColor, "todo: docstring", py::arg("color"))
   .def("SetTemperature", (void (Urho3D::Light::*)(float)) &Urho3D::Light::SetTemperature, "todo: docstring", py::arg("temperature"))
@@ -8093,8 +7864,7 @@ pyclass_Var_Urho3D_Light
   .def("SetShadowMaxExtrusion", (void (Urho3D::Light::*)(float)) &Urho3D::Light::SetShadowMaxExtrusion, "todo: docstring", py::arg("extrusion"))
   .def("SetRampTexture", (void (Urho3D::Light::*)(Urho3D::Texture *)) &Urho3D::Light::SetRampTexture, "todo: docstring", py::arg("texture"))
   .def("SetShapeTexture", (void (Urho3D::Light::*)(Urho3D::Texture *)) &Urho3D::Light::SetShapeTexture, "todo: docstring", py::arg("texture"))
-  //.def("GetLightType", (Urho3D::LightType (Urho3D::Light::*)() const) &Urho3D::Light::GetLightType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetLightType", (Urho3D::LightType (Urho3D::Light::*)() const) &Urho3D::Light::GetLightType, "todo: docstring")
   .def("GetPerVertex", (bool (Urho3D::Light::*)() const) &Urho3D::Light::GetPerVertex, "todo: docstring")
   .def("GetColor", (const Urho3D::Color & (Urho3D::Light::*)() const) &Urho3D::Light::GetColor, "todo: docstring")
   .def("GetTemperature", (float (Urho3D::Light::*)() const) &Urho3D::Light::GetTemperature, "todo: docstring")
@@ -8201,14 +7971,12 @@ pyclass_Var_Urho3D_Resource
   .def("SetName", (void (Urho3D::Resource::*)(const Urho3D::String &)) &Urho3D::Resource::SetName, "todo: docstring", py::arg("name"))
   .def("SetMemoryUse", (void (Urho3D::Resource::*)(unsigned int)) &Urho3D::Resource::SetMemoryUse, "todo: docstring", py::arg("size"))
   .def("ResetUseTimer", (void (Urho3D::Resource::*)()) &Urho3D::Resource::ResetUseTimer, "todo: docstring")
-  //.def("SetAsyncLoadState", (void (Urho3D::Resource::*)(Urho3D::AsyncLoadState)) &Urho3D::Resource::SetAsyncLoadState, "todo: docstring", py::arg("newState"))
-    //['Urho3D::AsyncLoadState']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetAsyncLoadState", (void (Urho3D::Resource::*)(Urho3D::AsyncLoadState)) &Urho3D::Resource::SetAsyncLoadState, "todo: docstring", py::arg("newState"))
   .def("GetName", (const Urho3D::String & (Urho3D::Resource::*)() const) &Urho3D::Resource::GetName, "todo: docstring")
   .def("GetNameHash", (Urho3D::StringHash (Urho3D::Resource::*)() const) &Urho3D::Resource::GetNameHash, "todo: docstring")
   .def("GetMemoryUse", (unsigned int (Urho3D::Resource::*)() const) &Urho3D::Resource::GetMemoryUse, "todo: docstring")
   .def("GetUseTimer", (unsigned int (Urho3D::Resource::*)()) &Urho3D::Resource::GetUseTimer, "todo: docstring")
-  //.def("GetAsyncLoadState", (Urho3D::AsyncLoadState (Urho3D::Resource::*)() const) &Urho3D::Resource::GetAsyncLoadState, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAsyncLoadState", (Urho3D::AsyncLoadState (Urho3D::Resource::*)() const) &Urho3D::Resource::GetAsyncLoadState, "todo: docstring")
 // Class Variables:
 ;
 }
@@ -8317,8 +8085,7 @@ pyclass_Var_Urho3D_Font
   .def("SetAbsoluteGlyphOffset", (void (Urho3D::Font::*)(const Urho3D::IntVector2 &)) &Urho3D::Font::SetAbsoluteGlyphOffset, "todo: docstring", py::arg("offset"))
   .def("SetScaledGlyphOffset", (void (Urho3D::Font::*)(const Urho3D::Vector2 &)) &Urho3D::Font::SetScaledGlyphOffset, "todo: docstring", py::arg("offset"))
   .def("GetFace", (Urho3D::FontFace * (Urho3D::Font::*)(float)) &Urho3D::Font::GetFace, "todo: docstring", py::arg("pointSize"))
-  //.def("GetFontType", (Urho3D::FontType (Urho3D::Font::*)() const) &Urho3D::Font::GetFontType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFontType", (Urho3D::FontType (Urho3D::Font::*)() const) &Urho3D::Font::GetFontType, "todo: docstring")
   .def("IsSDFFont", (bool (Urho3D::Font::*)() const) &Urho3D::Font::IsSDFFont, "todo: docstring")
   .def("GetAbsoluteGlyphOffset", (const Urho3D::IntVector2 & (Urho3D::Font::*)() const) &Urho3D::Font::GetAbsoluteGlyphOffset, "todo: docstring")
   .def("GetScaledGlyphOffset", (const Urho3D::Vector2 & (Urho3D::Font::*)() const) &Urho3D::Font::GetScaledGlyphOffset, "todo: docstring")
@@ -8355,8 +8122,7 @@ pyclass_Var_Urho3D_AnimationController
   .def("SetSpeed", (bool (Urho3D::AnimationController::*)(const Urho3D::String &, float)) &Urho3D::AnimationController::SetSpeed, "todo: docstring", py::arg("name"), py::arg("speed"))
   .def("SetAutoFade", (bool (Urho3D::AnimationController::*)(const Urho3D::String &, float)) &Urho3D::AnimationController::SetAutoFade, "todo: docstring", py::arg("name"), py::arg("fadeOutTime"))
   .def("SetRemoveOnCompletion", (bool (Urho3D::AnimationController::*)(const Urho3D::String &, bool)) &Urho3D::AnimationController::SetRemoveOnCompletion, "todo: docstring", py::arg("name"), py::arg("removeOnCompletion"))
-  //.def("SetBlendMode", (bool (Urho3D::AnimationController::*)(const Urho3D::String &, Urho3D::AnimationBlendMode)) &Urho3D::AnimationController::SetBlendMode, "todo: docstring", py::arg("name"), py::arg("mode"))
-    //['Urho3D::String', 'Urho3D::AnimationBlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (bool (Urho3D::AnimationController::*)(const Urho3D::String &, Urho3D::AnimationBlendMode)) &Urho3D::AnimationController::SetBlendMode, "todo: docstring", py::arg("name"), py::arg("mode"))
   .def("IsPlaying", (bool (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::IsPlaying, "todo: docstring", py::arg("name"))
   .def("IsPlaying", (bool (Urho3D::AnimationController::*)(unsigned char) const) &Urho3D::AnimationController::IsPlaying, "todo: docstring", py::arg("layer"))
   .def("IsFadingIn", (bool (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::IsFadingIn, "todo: docstring", py::arg("name"))
@@ -8369,8 +8135,7 @@ pyclass_Var_Urho3D_AnimationController
   .def("GetTime", (float (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetTime, "todo: docstring", py::arg("name"))
   .def("GetWeight", (float (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetWeight, "todo: docstring", py::arg("name"))
   .def("IsLooped", (bool (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::IsLooped, "todo: docstring", py::arg("name"))
-  //.def("GetBlendMode", (Urho3D::AnimationBlendMode (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetBlendMode, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::AnimationBlendMode (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetBlendMode, "todo: docstring", py::arg("name"))
   .def("GetLength", (float (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetLength, "todo: docstring", py::arg("name"))
   .def("GetSpeed", (float (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetSpeed, "todo: docstring", py::arg("name"))
   .def("GetFadeTarget", (float (Urho3D::AnimationController::*)(const Urho3D::String &) const) &Urho3D::AnimationController::GetFadeTarget, "todo: docstring", py::arg("name"))
@@ -8404,12 +8169,9 @@ pyclass_Var_Urho3D_Shader
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("BeginLoad", (bool (Urho3D::Shader::*)(Urho3D::Deserializer &)) &Urho3D::Shader::BeginLoad, "todo: docstring", py::arg("source"))
   .def("EndLoad", (bool (Urho3D::Shader::*)()) &Urho3D::Shader::EndLoad, "todo: docstring")
-  //.def("GetVariation", (Urho3D::ShaderVariation * (Urho3D::Shader::*)(Urho3D::ShaderType, const Urho3D::String &)) &Urho3D::Shader::GetVariation, "todo: docstring", py::arg("type"), py::arg("defines"))
-    //['Urho3D::ShaderType', 'Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("GetVariation", (Urho3D::ShaderVariation * (Urho3D::Shader::*)(Urho3D::ShaderType, const char *)) &Urho3D::Shader::GetVariation, "todo: docstring", py::arg("type"), py::arg("defines"))
-    //['Urho3D::ShaderType', 'char']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("GetSourceCode", (const Urho3D::String & (Urho3D::Shader::*)(Urho3D::ShaderType) const) &Urho3D::Shader::GetSourceCode, "todo: docstring", py::arg("type"))
-    //['Urho3D::ShaderType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetVariation", (Urho3D::ShaderVariation * (Urho3D::Shader::*)(Urho3D::ShaderType, const Urho3D::String &)) &Urho3D::Shader::GetVariation, "todo: docstring", py::arg("type"), py::arg("defines"))
+  .def("GetVariation", (Urho3D::ShaderVariation * (Urho3D::Shader::*)(Urho3D::ShaderType, const char *)) &Urho3D::Shader::GetVariation, "todo: docstring", py::arg("type"), py::arg("defines"))
+  .def("GetSourceCode", (const Urho3D::String & (Urho3D::Shader::*)(Urho3D::ShaderType) const) &Urho3D::Shader::GetSourceCode, "todo: docstring", py::arg("type"))
   .def("GetTimeStamp", (unsigned int (Urho3D::Shader::*)() const) &Urho3D::Shader::GetTimeStamp, "todo: docstring")
 // Class Variables:
 ;
@@ -8438,8 +8200,7 @@ pyclass_Var_Urho3D_ParticleEffect
   .def("SetSorted", (void (Urho3D::ParticleEffect::*)(bool)) &Urho3D::ParticleEffect::SetSorted, "todo: docstring", py::arg("enable"))
   .def("SetFixedScreenSize", (void (Urho3D::ParticleEffect::*)(bool)) &Urho3D::ParticleEffect::SetFixedScreenSize, "todo: docstring", py::arg("enable"))
   .def("SetAnimationLodBias", (void (Urho3D::ParticleEffect::*)(float)) &Urho3D::ParticleEffect::SetAnimationLodBias, "todo: docstring", py::arg("lodBias"))
-  //.def("SetEmitterType", (void (Urho3D::ParticleEffect::*)(Urho3D::EmitterType)) &Urho3D::ParticleEffect::SetEmitterType, "todo: docstring", py::arg("type"))
-    //['Urho3D::EmitterType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetEmitterType", (void (Urho3D::ParticleEffect::*)(Urho3D::EmitterType)) &Urho3D::ParticleEffect::SetEmitterType, "todo: docstring", py::arg("type"))
   .def("SetEmitterSize", (void (Urho3D::ParticleEffect::*)(const Urho3D::Vector3 &)) &Urho3D::ParticleEffect::SetEmitterSize, "todo: docstring", py::arg("size"))
   .def("SetMinDirection", (void (Urho3D::ParticleEffect::*)(const Urho3D::Vector3 &)) &Urho3D::ParticleEffect::SetMinDirection, "todo: docstring", py::arg("direction"))
   .def("SetMaxDirection", (void (Urho3D::ParticleEffect::*)(const Urho3D::Vector3 &)) &Urho3D::ParticleEffect::SetMaxDirection, "todo: docstring", py::arg("direction"))
@@ -8461,8 +8222,7 @@ pyclass_Var_Urho3D_ParticleEffect
   .def("SetMaxRotationSpeed", (void (Urho3D::ParticleEffect::*)(float)) &Urho3D::ParticleEffect::SetMaxRotationSpeed, "todo: docstring", py::arg("speed"))
   .def("SetSizeAdd", (void (Urho3D::ParticleEffect::*)(float)) &Urho3D::ParticleEffect::SetSizeAdd, "todo: docstring", py::arg("sizeAdd"))
   .def("SetSizeMul", (void (Urho3D::ParticleEffect::*)(float)) &Urho3D::ParticleEffect::SetSizeMul, "todo: docstring", py::arg("sizeMul"))
-  //.def("SetFaceCameraMode", (void (Urho3D::ParticleEffect::*)(Urho3D::FaceCameraMode)) &Urho3D::ParticleEffect::SetFaceCameraMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FaceCameraMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFaceCameraMode", (void (Urho3D::ParticleEffect::*)(Urho3D::FaceCameraMode)) &Urho3D::ParticleEffect::SetFaceCameraMode, "todo: docstring", py::arg("mode"))
   .def("AddColorTime", (void (Urho3D::ParticleEffect::*)(const Urho3D::Color &, float)) &Urho3D::ParticleEffect::AddColorTime, "todo: docstring", py::arg("color"), py::arg("time"))
   //.def("AddColorFrame", (void (Urho3D::ParticleEffect::*)(const Urho3D::ColorFrame &)) &Urho3D::ParticleEffect::AddColorFrame, "todo: docstring", py::arg("colorFrame"))
     //['Urho3D::ColorFrame']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
@@ -8493,8 +8253,7 @@ pyclass_Var_Urho3D_ParticleEffect
   .def("IsSorted", (bool (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::IsSorted, "todo: docstring")
   .def("IsFixedScreenSize", (bool (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::IsFixedScreenSize, "todo: docstring")
   .def("GetAnimationLodBias", (float (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetAnimationLodBias, "todo: docstring")
-  //.def("GetEmitterType", (Urho3D::EmitterType (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetEmitterType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetEmitterType", (Urho3D::EmitterType (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetEmitterType, "todo: docstring")
   .def("GetEmitterSize", (const Urho3D::Vector3 & (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetEmitterSize, "todo: docstring")
   .def("GetMinDirection", (const Urho3D::Vector3 & (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetMinDirection, "todo: docstring")
   .def("GetMaxDirection", (const Urho3D::Vector3 & (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetMaxDirection, "todo: docstring")
@@ -8526,8 +8285,7 @@ pyclass_Var_Urho3D_ParticleEffect
   .def("GetNumTextureFrames", (unsigned int (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetNumTextureFrames, "todo: docstring")
   //.def("GetTextureFrame", (const Urho3D::TextureFrame * (Urho3D::ParticleEffect::*)(unsigned int) const) &Urho3D::ParticleEffect::GetTextureFrame, "todo: docstring", py::arg("index"))
     //['unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("GetFaceCameraMode", (Urho3D::FaceCameraMode (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetFaceCameraMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFaceCameraMode", (Urho3D::FaceCameraMode (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetFaceCameraMode, "todo: docstring")
   .def("GetRandomDirection", (Urho3D::Vector3 (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetRandomDirection, "todo: docstring")
   .def("GetRandomSize", (Urho3D::Vector2 (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetRandomSize, "todo: docstring")
   .def("GetRandomVelocity", (float (Urho3D::ParticleEffect::*)() const) &Urho3D::ParticleEffect::GetRandomVelocity, "todo: docstring")
@@ -8576,14 +8334,10 @@ pyclass_Var_Urho3D_IKSolver
   .def(py::init<Urho3D::Context *>(), "todo: constructor docstring")
   //.def("~IKSolver", (void (Urho3D::IKSolver::*)()) &Urho3D::IKSolver::~IKSolver, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
-  //.def("GetAlgorithm", (Urho3D::IKSolver::Algorithm (Urho3D::IKSolver::*)() const) &Urho3D::IKSolver::GetAlgorithm, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("SetAlgorithm", (void (Urho3D::IKSolver::*)(Urho3D::IKSolver::Algorithm)) &Urho3D::IKSolver::SetAlgorithm, "todo: docstring", py::arg("algorithm"))
-    //['Urho3D::IKSolver::Algorithm']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetFeature", (bool (Urho3D::IKSolver::*)(Urho3D::IKSolver::Feature) const) &Urho3D::IKSolver::GetFeature, "todo: docstring", py::arg("feature"))
-    //['Urho3D::IKSolver::Feature']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetFeature", (void (Urho3D::IKSolver::*)(Urho3D::IKSolver::Feature, bool)) &Urho3D::IKSolver::SetFeature, "todo: docstring", py::arg("feature"), py::arg("enable"))
-    //['Urho3D::IKSolver::Feature', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetAlgorithm", (Urho3D::IKSolver::Algorithm (Urho3D::IKSolver::*)() const) &Urho3D::IKSolver::GetAlgorithm, "todo: docstring")
+  .def("SetAlgorithm", (void (Urho3D::IKSolver::*)(Urho3D::IKSolver::Algorithm)) &Urho3D::IKSolver::SetAlgorithm, "todo: docstring", py::arg("algorithm"))
+  .def("GetFeature", (bool (Urho3D::IKSolver::*)(Urho3D::IKSolver::Feature) const) &Urho3D::IKSolver::GetFeature, "todo: docstring", py::arg("feature"))
+  .def("SetFeature", (void (Urho3D::IKSolver::*)(Urho3D::IKSolver::Feature, bool)) &Urho3D::IKSolver::SetFeature, "todo: docstring", py::arg("feature"), py::arg("enable"))
   .def("GetMaximumIterations", (unsigned int (Urho3D::IKSolver::*)() const) &Urho3D::IKSolver::GetMaximumIterations, "todo: docstring")
   .def("SetMaximumIterations", (void (Urho3D::IKSolver::*)(unsigned int)) &Urho3D::IKSolver::SetMaximumIterations, "todo: docstring", py::arg("iterations"))
   .def("GetTolerance", (float (Urho3D::IKSolver::*)() const) &Urho3D::IKSolver::GetTolerance, "todo: docstring")
@@ -8768,8 +8522,7 @@ pyclass_Var_Urho3D_RigidBody
   .def("SetCollisionLayer", (void (Urho3D::RigidBody::*)(unsigned int)) &Urho3D::RigidBody::SetCollisionLayer, "todo: docstring", py::arg("layer"))
   .def("SetCollisionMask", (void (Urho3D::RigidBody::*)(unsigned int)) &Urho3D::RigidBody::SetCollisionMask, "todo: docstring", py::arg("mask"))
   .def("SetCollisionLayerAndMask", (void (Urho3D::RigidBody::*)(unsigned int, unsigned int)) &Urho3D::RigidBody::SetCollisionLayerAndMask, "todo: docstring", py::arg("layer"), py::arg("mask"))
-  //.def("SetCollisionEventMode", (void (Urho3D::RigidBody::*)(Urho3D::CollisionEventMode)) &Urho3D::RigidBody::SetCollisionEventMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CollisionEventMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetCollisionEventMode", (void (Urho3D::RigidBody::*)(Urho3D::CollisionEventMode)) &Urho3D::RigidBody::SetCollisionEventMode, "todo: docstring", py::arg("mode"))
   .def("ApplyForce", (void (Urho3D::RigidBody::*)(const Urho3D::Vector3 &)) &Urho3D::RigidBody::ApplyForce, "todo: docstring", py::arg("force"))
   .def("ApplyForce", (void (Urho3D::RigidBody::*)(const Urho3D::Vector3 &, const Urho3D::Vector3 &)) &Urho3D::RigidBody::ApplyForce, "todo: docstring", py::arg("force"), py::arg("position"))
   .def("ApplyTorque", (void (Urho3D::RigidBody::*)(const Urho3D::Vector3 &)) &Urho3D::RigidBody::ApplyTorque, "todo: docstring", py::arg("torque"))
@@ -8813,8 +8566,7 @@ pyclass_Var_Urho3D_RigidBody
   .def("IsActive", (bool (Urho3D::RigidBody::*)() const) &Urho3D::RigidBody::IsActive, "todo: docstring")
   .def("GetCollisionLayer", (unsigned int (Urho3D::RigidBody::*)() const) &Urho3D::RigidBody::GetCollisionLayer, "todo: docstring")
   .def("GetCollisionMask", (unsigned int (Urho3D::RigidBody::*)() const) &Urho3D::RigidBody::GetCollisionMask, "todo: docstring")
-  //.def("GetCollisionEventMode", (Urho3D::CollisionEventMode (Urho3D::RigidBody::*)() const) &Urho3D::RigidBody::GetCollisionEventMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetCollisionEventMode", (Urho3D::CollisionEventMode (Urho3D::RigidBody::*)() const) &Urho3D::RigidBody::GetCollisionEventMode, "todo: docstring")
   //.def("GetCollidingBodies", (void (Urho3D::RigidBody::*)(Urho3D::PODVector<Urho3D::RigidBody *> &) const) &Urho3D::RigidBody::GetCollidingBodies, "todo: docstring", py::arg("result"))
     //['Urho3D::PODVector<Urho3D::RigidBody']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   .def("ApplyWorldTransform", (void (Urho3D::RigidBody::*)(const Urho3D::Vector3 &, const Urho3D::Quaternion &)) &Urho3D::RigidBody::ApplyWorldTransform, "todo: docstring", py::arg("newWorldPosition"), py::arg("newWorldRotation"))
@@ -8891,13 +8643,11 @@ pyclass_Var_Urho3D_ProgressBar
   //.def("~ProgressBar", (void (Urho3D::ProgressBar::*)()) &Urho3D::ProgressBar::~ProgressBar, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("OnResize", (void (Urho3D::ProgressBar::*)(const Urho3D::IntVector2 &, const Urho3D::IntVector2 &)) &Urho3D::ProgressBar::OnResize, "todo: docstring", py::arg("newSize"), py::arg("delta"))
-  //.def("SetOrientation", (void (Urho3D::ProgressBar::*)(Urho3D::Orientation)) &Urho3D::ProgressBar::SetOrientation, "todo: docstring", py::arg("orientation"))
-    //['Urho3D::Orientation']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetOrientation", (void (Urho3D::ProgressBar::*)(Urho3D::Orientation)) &Urho3D::ProgressBar::SetOrientation, "todo: docstring", py::arg("orientation"))
   .def("SetRange", (void (Urho3D::ProgressBar::*)(float)) &Urho3D::ProgressBar::SetRange, "todo: docstring", py::arg("range"))
   .def("SetValue", (void (Urho3D::ProgressBar::*)(float)) &Urho3D::ProgressBar::SetValue, "todo: docstring", py::arg("value"))
   .def("ChangeValue", (void (Urho3D::ProgressBar::*)(float)) &Urho3D::ProgressBar::ChangeValue, "todo: docstring", py::arg("delta"))
-  //.def("GetOrientation", (Urho3D::Orientation (Urho3D::ProgressBar::*)() const) &Urho3D::ProgressBar::GetOrientation, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetOrientation", (Urho3D::Orientation (Urho3D::ProgressBar::*)() const) &Urho3D::ProgressBar::GetOrientation, "todo: docstring")
   .def("GetRange", (float (Urho3D::ProgressBar::*)() const) &Urho3D::ProgressBar::GetRange, "todo: docstring")
   .def("GetValue", (float (Urho3D::ProgressBar::*)() const) &Urho3D::ProgressBar::GetValue, "todo: docstring")
   .def("GetKnob", (Urho3D::BorderImage * (Urho3D::ProgressBar::*)() const) &Urho3D::ProgressBar::GetKnob, "todo: docstring")
@@ -8944,8 +8694,7 @@ pyclass_Var_Urho3D_StaticSprite2D
   .def("SetSprite", (void (Urho3D::StaticSprite2D::*)(Urho3D::Sprite2D *)) &Urho3D::StaticSprite2D::SetSprite, "todo: docstring", py::arg("sprite"))
   .def("SetDrawRect", (void (Urho3D::StaticSprite2D::*)(const Urho3D::Rect &)) &Urho3D::StaticSprite2D::SetDrawRect, "todo: docstring", py::arg("rect"))
   .def("SetTextureRect", (void (Urho3D::StaticSprite2D::*)(const Urho3D::Rect &)) &Urho3D::StaticSprite2D::SetTextureRect, "todo: docstring", py::arg("rect"))
-  //.def("SetBlendMode", (void (Urho3D::StaticSprite2D::*)(Urho3D::BlendMode)) &Urho3D::StaticSprite2D::SetBlendMode, "todo: docstring", py::arg("blendMode"))
-    //['Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::StaticSprite2D::*)(Urho3D::BlendMode)) &Urho3D::StaticSprite2D::SetBlendMode, "todo: docstring", py::arg("blendMode"))
   .def("SetFlip", (void (Urho3D::StaticSprite2D::*)(bool, bool, bool)) &Urho3D::StaticSprite2D::SetFlip, "todo: docstring", py::arg("flipX"), py::arg("flipY"), py::arg("swapXY")=false)
   .def("SetFlipX", (void (Urho3D::StaticSprite2D::*)(bool)) &Urho3D::StaticSprite2D::SetFlipX, "todo: docstring", py::arg("flipX"))
   .def("SetFlipY", (void (Urho3D::StaticSprite2D::*)(bool)) &Urho3D::StaticSprite2D::SetFlipY, "todo: docstring", py::arg("flipY"))
@@ -8960,8 +8709,7 @@ pyclass_Var_Urho3D_StaticSprite2D
   .def("GetSprite", (Urho3D::Sprite2D * (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetSprite, "todo: docstring")
   .def("GetDrawRect", (const Urho3D::Rect & (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetDrawRect, "todo: docstring")
   .def("GetTextureRect", (const Urho3D::Rect & (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetTextureRect, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetBlendMode, "todo: docstring")
   .def("GetFlipX", (bool (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetFlipX, "todo: docstring")
   .def("GetFlipY", (bool (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetFlipY, "todo: docstring")
   .def("GetSwapXY", (bool (Urho3D::StaticSprite2D::*)() const) &Urho3D::StaticSprite2D::GetSwapXY, "todo: docstring")
@@ -9279,16 +9027,14 @@ pyclass_Var_Urho3D_ParticleEffect2D
   .def("SetFinishParticleSize", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetFinishParticleSize, "todo: docstring", py::arg("finishParticleSize"))
   .def("SetFinishParticleSizeVariance", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetFinishParticleSizeVariance, "todo: docstring", py::arg("finishParticleSizeVariance"))
   .def("SetDuration", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetDuration, "todo: docstring", py::arg("duration"))
-  //.def("SetEmitterType", (void (Urho3D::ParticleEffect2D::*)(Urho3D::EmitterType2D)) &Urho3D::ParticleEffect2D::SetEmitterType, "todo: docstring", py::arg("emitterType"))
-    //['Urho3D::EmitterType2D']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetEmitterType", (void (Urho3D::ParticleEffect2D::*)(Urho3D::EmitterType2D)) &Urho3D::ParticleEffect2D::SetEmitterType, "todo: docstring", py::arg("emitterType"))
   .def("SetMaxRadius", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetMaxRadius, "todo: docstring", py::arg("maxRadius"))
   .def("SetMaxRadiusVariance", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetMaxRadiusVariance, "todo: docstring", py::arg("maxRadiusVariance"))
   .def("SetMinRadius", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetMinRadius, "todo: docstring", py::arg("minRadius"))
   .def("SetMinRadiusVariance", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetMinRadiusVariance, "todo: docstring", py::arg("minRadiusVariance"))
   .def("SetRotatePerSecond", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetRotatePerSecond, "todo: docstring", py::arg("rotatePerSecond"))
   .def("SetRotatePerSecondVariance", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetRotatePerSecondVariance, "todo: docstring", py::arg("rotatePerSecondVariance"))
-  //.def("SetBlendMode", (void (Urho3D::ParticleEffect2D::*)(Urho3D::BlendMode)) &Urho3D::ParticleEffect2D::SetBlendMode, "todo: docstring", py::arg("blendMode"))
-    //['Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::ParticleEffect2D::*)(Urho3D::BlendMode)) &Urho3D::ParticleEffect2D::SetBlendMode, "todo: docstring", py::arg("blendMode"))
   .def("SetRotationStart", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetRotationStart, "todo: docstring", py::arg("rotationStart"))
   .def("SetRotationStartVariance", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetRotationStartVariance, "todo: docstring", py::arg("rotationStartVariance"))
   .def("SetRotationEnd", (void (Urho3D::ParticleEffect2D::*)(float)) &Urho3D::ParticleEffect2D::SetRotationEnd, "todo: docstring", py::arg("rotationEnd"))
@@ -9318,16 +9064,14 @@ pyclass_Var_Urho3D_ParticleEffect2D
   .def("GetFinishParticleSize", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetFinishParticleSize, "todo: docstring")
   .def("GetFinishParticleSizeVariance", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetFinishParticleSizeVariance, "todo: docstring")
   .def("GetDuration", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetDuration, "todo: docstring")
-  //.def("GetEmitterType", (Urho3D::EmitterType2D (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetEmitterType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetEmitterType", (Urho3D::EmitterType2D (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetEmitterType, "todo: docstring")
   .def("GetMaxRadius", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetMaxRadius, "todo: docstring")
   .def("GetMaxRadiusVariance", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetMaxRadiusVariance, "todo: docstring")
   .def("GetMinRadius", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetMinRadius, "todo: docstring")
   .def("GetMinRadiusVariance", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetMinRadiusVariance, "todo: docstring")
   .def("GetRotatePerSecond", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetRotatePerSecond, "todo: docstring")
   .def("GetRotatePerSecondVariance", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetRotatePerSecondVariance, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetBlendMode, "todo: docstring")
   .def("GetRotationStart", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetRotationStart, "todo: docstring")
   .def("GetRotationStartVariance", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetRotationStartVariance, "todo: docstring")
   .def("GetRotationEnd", (float (Urho3D::ParticleEffect2D::*)() const) &Urho3D::ParticleEffect2D::GetRotationEnd, "todo: docstring")
@@ -9391,20 +9135,16 @@ pyclass_Var_Urho3D_ValueAnimation
   .def("LoadJSON", (bool (Urho3D::ValueAnimation::*)(const Urho3D::JSONValue &)) &Urho3D::ValueAnimation::LoadJSON, "todo: docstring", py::arg("source"))
   .def("SaveJSON", (bool (Urho3D::ValueAnimation::*)(Urho3D::JSONValue &) const) &Urho3D::ValueAnimation::SaveJSON, "todo: docstring", py::arg("dest"))
   .def("SetOwner", (void (Urho3D::ValueAnimation::*)(void *)) &Urho3D::ValueAnimation::SetOwner, "todo: docstring", py::arg("owner"))
-  //.def("SetInterpolationMethod", (void (Urho3D::ValueAnimation::*)(Urho3D::InterpMethod)) &Urho3D::ValueAnimation::SetInterpolationMethod, "todo: docstring", py::arg("method"))
-    //['Urho3D::InterpMethod']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetInterpolationMethod", (void (Urho3D::ValueAnimation::*)(Urho3D::InterpMethod)) &Urho3D::ValueAnimation::SetInterpolationMethod, "todo: docstring", py::arg("method"))
   .def("SetSplineTension", (void (Urho3D::ValueAnimation::*)(float)) &Urho3D::ValueAnimation::SetSplineTension, "todo: docstring", py::arg("tension"))
-  //.def("SetValueType", (void (Urho3D::ValueAnimation::*)(Urho3D::VariantType)) &Urho3D::ValueAnimation::SetValueType, "todo: docstring", py::arg("valueType"))
-    //['Urho3D::VariantType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetValueType", (void (Urho3D::ValueAnimation::*)(Urho3D::VariantType)) &Urho3D::ValueAnimation::SetValueType, "todo: docstring", py::arg("valueType"))
   .def("SetKeyFrame", (bool (Urho3D::ValueAnimation::*)(float, const Urho3D::Variant &)) &Urho3D::ValueAnimation::SetKeyFrame, "todo: docstring", py::arg("time"), py::arg("value"))
   .def("SetEventFrame", (void (Urho3D::ValueAnimation::*)(float, const Urho3D::StringHash &, const Urho3D::HashMap<Urho3D::StringHash, Urho3D::Variant> &)) &Urho3D::ValueAnimation::SetEventFrame, "todo: docstring", py::arg("time"), py::arg("eventType"), py::arg("eventData")=VariantMap())
   .def("IsValid", (bool (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::IsValid, "todo: docstring")
   .def("GetOwner", (void * (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetOwner, "todo: docstring")
-  //.def("GetInterpolationMethod", (Urho3D::InterpMethod (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetInterpolationMethod, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetInterpolationMethod", (Urho3D::InterpMethod (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetInterpolationMethod, "todo: docstring")
   .def("GetSplineTension", (float (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetSplineTension, "todo: docstring")
-  //.def("GetValueType", (Urho3D::VariantType (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetValueType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetValueType", (Urho3D::VariantType (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetValueType, "todo: docstring")
   .def("GetBeginTime", (float (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetBeginTime, "todo: docstring")
   .def("GetEndTime", (float (Urho3D::ValueAnimation::*)() const) &Urho3D::ValueAnimation::GetEndTime, "todo: docstring")
   .def("GetAnimationValue", (Urho3D::Variant (Urho3D::ValueAnimation::*)(float) const) &Urho3D::ValueAnimation::GetAnimationValue, "todo: docstring", py::arg("scaledTime"))
@@ -9425,8 +9165,7 @@ pyclass_Var_Urho3D_File
   .def("GetTypeName", (const Urho3D::String & (Urho3D::File::*)() const) &Urho3D::File::GetTypeName, "todo: docstring")
   .def("GetTypeInfo", (const Urho3D::TypeInfo * (Urho3D::File::*)() const) &Urho3D::File::GetTypeInfo, "todo: docstring")
   .def(py::init<Urho3D::Context *>(), "todo: constructor docstring")
-  //.def(py::init<Urho3D::Context *, const Urho3D::String &, Urho3D::FileMode>(), "todo: constructor docstring")
-    //['Urho3D::Context', 'Urho3D::String', 'Urho3D::FileMode']; op False, ctor True, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def(py::init<Urho3D::Context *, const Urho3D::String &, Urho3D::FileMode>(), "todo: constructor docstring")
   .def(py::init<Urho3D::Context *, Urho3D::PackageFile *, const Urho3D::String &>(), "todo: constructor docstring")
   //.def("~File", (void (Urho3D::File::*)()) &Urho3D::File::~File, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
@@ -9435,14 +9174,12 @@ pyclass_Var_Urho3D_File
   .def("Write", (unsigned int (Urho3D::File::*)(const void *, unsigned int)) &Urho3D::File::Write, "todo: docstring", py::arg("data"), py::arg("size"))
   .def("GetName", (const Urho3D::String & (Urho3D::File::*)() const) &Urho3D::File::GetName, "todo: docstring")
   .def("GetChecksum", (unsigned int (Urho3D::File::*)()) &Urho3D::File::GetChecksum, "todo: docstring")
-  //.def("Open", (bool (Urho3D::File::*)(const Urho3D::String &, Urho3D::FileMode)) &Urho3D::File::Open, "todo: docstring", py::arg("fileName"), py::arg("mode")=FILE_READ)
-    //['Urho3D::String', 'Urho3D::FileMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("Open", (bool (Urho3D::File::*)(const Urho3D::String &, Urho3D::FileMode)) &Urho3D::File::Open, "todo: docstring", py::arg("fileName"), py::arg("mode")=FILE_READ)
   .def("Open", (bool (Urho3D::File::*)(Urho3D::PackageFile *, const Urho3D::String &)) &Urho3D::File::Open, "todo: docstring", py::arg("package"), py::arg("fileName"))
   .def("Close", (void (Urho3D::File::*)()) &Urho3D::File::Close, "todo: docstring")
   .def("Flush", (void (Urho3D::File::*)()) &Urho3D::File::Flush, "todo: docstring")
   .def("SetName", (void (Urho3D::File::*)(const Urho3D::String &)) &Urho3D::File::SetName, "todo: docstring", py::arg("name"))
-  //.def("GetMode", (Urho3D::FileMode (Urho3D::File::*)() const) &Urho3D::File::GetMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetMode", (Urho3D::FileMode (Urho3D::File::*)() const) &Urho3D::File::GetMode, "todo: docstring")
   .def("IsOpen", (bool (Urho3D::File::*)() const) &Urho3D::File::IsOpen, "todo: docstring")
   .def("GetHandle", (void * (Urho3D::File::*)() const) &Urho3D::File::GetHandle, "todo: docstring")
   .def("IsPackaged", (bool (Urho3D::File::*)() const) &Urho3D::File::IsPackaged, "todo: docstring")
@@ -9554,8 +9291,7 @@ pyclass_Var_Urho3D_ListView
   .def("ToggleSelection", (void (Urho3D::ListView::*)(unsigned int)) &Urho3D::ListView::ToggleSelection, "todo: docstring", py::arg("index"))
   .def("ChangeSelection", (void (Urho3D::ListView::*)(int, bool)) &Urho3D::ListView::ChangeSelection, "todo: docstring", py::arg("delta"), py::arg("additive")=false)
   .def("ClearSelection", (void (Urho3D::ListView::*)()) &Urho3D::ListView::ClearSelection, "todo: docstring")
-  //.def("SetHighlightMode", (void (Urho3D::ListView::*)(Urho3D::HighlightMode)) &Urho3D::ListView::SetHighlightMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::HighlightMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetHighlightMode", (void (Urho3D::ListView::*)(Urho3D::HighlightMode)) &Urho3D::ListView::SetHighlightMode, "todo: docstring", py::arg("mode"))
   .def("SetMultiselect", (void (Urho3D::ListView::*)(bool)) &Urho3D::ListView::SetMultiselect, "todo: docstring", py::arg("enable"))
   .def("SetHierarchyMode", (void (Urho3D::ListView::*)(bool)) &Urho3D::ListView::SetHierarchyMode, "todo: docstring", py::arg("enable"))
   .def("SetBaseIndent", (void (Urho3D::ListView::*)(int)) &Urho3D::ListView::SetBaseIndent, "todo: docstring", py::arg("baseIndent"))
@@ -9577,8 +9313,7 @@ pyclass_Var_Urho3D_ListView
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
   .def("IsSelected", (bool (Urho3D::ListView::*)(unsigned int) const) &Urho3D::ListView::IsSelected, "todo: docstring", py::arg("index"))
   .def("IsExpanded", (bool (Urho3D::ListView::*)(unsigned int) const) &Urho3D::ListView::IsExpanded, "todo: docstring", py::arg("index"))
-  //.def("GetHighlightMode", (Urho3D::HighlightMode (Urho3D::ListView::*)() const) &Urho3D::ListView::GetHighlightMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetHighlightMode", (Urho3D::HighlightMode (Urho3D::ListView::*)() const) &Urho3D::ListView::GetHighlightMode, "todo: docstring")
   .def("GetMultiselect", (bool (Urho3D::ListView::*)() const) &Urho3D::ListView::GetMultiselect, "todo: docstring")
   .def("GetClearSelectionOnDefocus", (bool (Urho3D::ListView::*)() const) &Urho3D::ListView::GetClearSelectionOnDefocus, "todo: docstring")
   .def("GetSelectOnClickEnd", (bool (Urho3D::ListView::*)() const) &Urho3D::ListView::GetSelectOnClickEnd, "todo: docstring")
@@ -9608,15 +9343,13 @@ pyclass_Var_Urho3D_CustomGeometry
   .def("Clear", (void (Urho3D::CustomGeometry::*)()) &Urho3D::CustomGeometry::Clear, "todo: docstring")
   .def("SetNumGeometries", (void (Urho3D::CustomGeometry::*)(unsigned int)) &Urho3D::CustomGeometry::SetNumGeometries, "todo: docstring", py::arg("num"))
   .def("SetDynamic", (void (Urho3D::CustomGeometry::*)(bool)) &Urho3D::CustomGeometry::SetDynamic, "todo: docstring", py::arg("enable"))
-  //.def("BeginGeometry", (void (Urho3D::CustomGeometry::*)(unsigned int, Urho3D::PrimitiveType)) &Urho3D::CustomGeometry::BeginGeometry, "todo: docstring", py::arg("index"), py::arg("type"))
-    //['unsigned int', 'Urho3D::PrimitiveType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("BeginGeometry", (void (Urho3D::CustomGeometry::*)(unsigned int, Urho3D::PrimitiveType)) &Urho3D::CustomGeometry::BeginGeometry, "todo: docstring", py::arg("index"), py::arg("type"))
   .def("DefineVertex", (void (Urho3D::CustomGeometry::*)(const Urho3D::Vector3 &)) &Urho3D::CustomGeometry::DefineVertex, "todo: docstring", py::arg("position"))
   .def("DefineNormal", (void (Urho3D::CustomGeometry::*)(const Urho3D::Vector3 &)) &Urho3D::CustomGeometry::DefineNormal, "todo: docstring", py::arg("normal"))
   .def("DefineColor", (void (Urho3D::CustomGeometry::*)(const Urho3D::Color &)) &Urho3D::CustomGeometry::DefineColor, "todo: docstring", py::arg("color"))
   .def("DefineTexCoord", (void (Urho3D::CustomGeometry::*)(const Urho3D::Vector2 &)) &Urho3D::CustomGeometry::DefineTexCoord, "todo: docstring", py::arg("texCoord"))
   .def("DefineTangent", (void (Urho3D::CustomGeometry::*)(const Urho3D::Vector4 &)) &Urho3D::CustomGeometry::DefineTangent, "todo: docstring", py::arg("tangent"))
-  //.def("DefineGeometry", (void (Urho3D::CustomGeometry::*)(unsigned int, Urho3D::PrimitiveType, unsigned int, bool, bool, bool, bool)) &Urho3D::CustomGeometry::DefineGeometry, "todo: docstring", py::arg("index"), py::arg("type"), py::arg("numVertices"), py::arg("hasNormals"), py::arg("hasColors"), py::arg("hasTexCoords"), py::arg("hasTangents"))
-    //['unsigned int', 'Urho3D::PrimitiveType', 'unsigned int', 'bool', 'bool', 'bool', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("DefineGeometry", (void (Urho3D::CustomGeometry::*)(unsigned int, Urho3D::PrimitiveType, unsigned int, bool, bool, bool, bool)) &Urho3D::CustomGeometry::DefineGeometry, "todo: docstring", py::arg("index"), py::arg("type"), py::arg("numVertices"), py::arg("hasNormals"), py::arg("hasColors"), py::arg("hasTexCoords"), py::arg("hasTangents"))
   .def("Commit", (void (Urho3D::CustomGeometry::*)()) &Urho3D::CustomGeometry::Commit, "todo: docstring")
   .def("SetMaterial", (void (Urho3D::CustomGeometry::*)(Urho3D::Material *)) &Urho3D::CustomGeometry::SetMaterial, "todo: docstring", py::arg("material"))
   .def("SetMaterial", (bool (Urho3D::CustomGeometry::*)(unsigned int, Urho3D::Material *)) &Urho3D::CustomGeometry::SetMaterial, "todo: docstring", py::arg("index"), py::arg("material"))
@@ -9656,8 +9389,7 @@ pyclass_Var_Urho3D_RibbonTrail
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::RibbonTrail::*)(const Urho3D::FrameInfo &)) &Urho3D::RibbonTrail::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::RibbonTrail::*)()) &Urho3D::RibbonTrail::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::RibbonTrail::*)()) &Urho3D::RibbonTrail::GetUpdateGeometryType, "todo: docstring")
   .def("SetMaterial", (void (Urho3D::RibbonTrail::*)(Urho3D::Material *)) &Urho3D::RibbonTrail::SetMaterial, "todo: docstring", py::arg("material"))
   .def("SetMaterialAttr", (void (Urho3D::RibbonTrail::*)(const Urho3D::ResourceRef &)) &Urho3D::RibbonTrail::SetMaterialAttr, "todo: docstring", py::arg("value"))
   .def("SetVertexDistance", (void (Urho3D::RibbonTrail::*)(float)) &Urho3D::RibbonTrail::SetVertexDistance, "todo: docstring", py::arg("length"))
@@ -9666,8 +9398,7 @@ pyclass_Var_Urho3D_RibbonTrail
   .def("SetEndColor", (void (Urho3D::RibbonTrail::*)(const Urho3D::Color &)) &Urho3D::RibbonTrail::SetEndColor, "todo: docstring", py::arg("color"))
   .def("SetStartScale", (void (Urho3D::RibbonTrail::*)(float)) &Urho3D::RibbonTrail::SetStartScale, "todo: docstring", py::arg("startScale"))
   .def("SetEndScale", (void (Urho3D::RibbonTrail::*)(float)) &Urho3D::RibbonTrail::SetEndScale, "todo: docstring", py::arg("endScale"))
-  //.def("SetTrailType", (void (Urho3D::RibbonTrail::*)(Urho3D::TrailType)) &Urho3D::RibbonTrail::SetTrailType, "todo: docstring", py::arg("type"))
-    //['Urho3D::TrailType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTrailType", (void (Urho3D::RibbonTrail::*)(Urho3D::TrailType)) &Urho3D::RibbonTrail::SetTrailType, "todo: docstring", py::arg("type"))
   .def("SetBaseVelocity", (void (Urho3D::RibbonTrail::*)(const Urho3D::Vector3 &)) &Urho3D::RibbonTrail::SetBaseVelocity, "todo: docstring", py::arg("baseVelocity"))
   .def("SetSorted", (void (Urho3D::RibbonTrail::*)(bool)) &Urho3D::RibbonTrail::SetSorted, "todo: docstring", py::arg("enable"))
   .def("SetLifetime", (void (Urho3D::RibbonTrail::*)(float)) &Urho3D::RibbonTrail::SetLifetime, "todo: docstring", py::arg("time"))
@@ -9687,8 +9418,7 @@ pyclass_Var_Urho3D_RibbonTrail
   .def("IsSorted", (bool (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::IsSorted, "todo: docstring")
   .def("GetLifetime", (float (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::GetLifetime, "todo: docstring")
   .def("GetAnimationLodBias", (float (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::GetAnimationLodBias, "todo: docstring")
-  //.def("GetTrailType", (Urho3D::TrailType (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::GetTrailType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTrailType", (Urho3D::TrailType (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::GetTrailType, "todo: docstring")
   .def("GetBaseVelocity", (const Urho3D::Vector3 & (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::GetBaseVelocity, "todo: docstring")
   .def("GetTailColumn", (unsigned int (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::GetTailColumn, "todo: docstring")
   .def("IsEmitting", (bool (Urho3D::RibbonTrail::*)() const) &Urho3D::RibbonTrail::IsEmitting, "todo: docstring")
@@ -9755,8 +9485,7 @@ pyclass_Var_Urho3D_Constraint
   //.def("GetDependencyNodes", (void (Urho3D::Constraint::*)(Urho3D::PODVector<Urho3D::Node *> &)) &Urho3D::Constraint::GetDependencyNodes, "todo: docstring", py::arg("dest"))
     //['Urho3D::PODVector<Urho3D::Node']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   .def("DrawDebugGeometry", (void (Urho3D::Constraint::*)(Urho3D::DebugRenderer *, bool)) &Urho3D::Constraint::DrawDebugGeometry, "todo: docstring", py::arg("debug"), py::arg("depthTest"))
-  //.def("SetConstraintType", (void (Urho3D::Constraint::*)(Urho3D::ConstraintType)) &Urho3D::Constraint::SetConstraintType, "todo: docstring", py::arg("type"))
-    //['Urho3D::ConstraintType']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetConstraintType", (void (Urho3D::Constraint::*)(Urho3D::ConstraintType)) &Urho3D::Constraint::SetConstraintType, "todo: docstring", py::arg("type"))
   .def("SetOtherBody", (void (Urho3D::Constraint::*)(Urho3D::RigidBody *)) &Urho3D::Constraint::SetOtherBody, "todo: docstring", py::arg("body"))
   .def("SetPosition", (void (Urho3D::Constraint::*)(const Urho3D::Vector3 &)) &Urho3D::Constraint::SetPosition, "todo: docstring", py::arg("position"))
   .def("SetRotation", (void (Urho3D::Constraint::*)(const Urho3D::Quaternion &)) &Urho3D::Constraint::SetRotation, "todo: docstring", py::arg("rotation"))
@@ -9773,8 +9502,7 @@ pyclass_Var_Urho3D_Constraint
   .def("GetPhysicsWorld", (Urho3D::PhysicsWorld * (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetPhysicsWorld, "todo: docstring")
   //.def("GetConstraint", (btTypedConstraint * (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetConstraint, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 1
-  //.def("GetConstraintType", (Urho3D::ConstraintType (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetConstraintType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetConstraintType", (Urho3D::ConstraintType (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetConstraintType, "todo: docstring")
   .def("GetOwnBody", (Urho3D::RigidBody * (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetOwnBody, "todo: docstring")
   .def("GetOtherBody", (Urho3D::RigidBody * (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetOtherBody, "todo: docstring")
   .def("GetPosition", (const Urho3D::Vector3 & (Urho3D::Constraint::*)() const) &Urho3D::Constraint::GetPosition, "todo: docstring")
@@ -9963,14 +9691,12 @@ pyclass_Var_Urho3D_ParticleEmitter2D
   .def("OnSetEnabled", (void (Urho3D::ParticleEmitter2D::*)()) &Urho3D::ParticleEmitter2D::OnSetEnabled, "todo: docstring")
   .def("SetEffect", (void (Urho3D::ParticleEmitter2D::*)(Urho3D::ParticleEffect2D *)) &Urho3D::ParticleEmitter2D::SetEffect, "todo: docstring", py::arg("effect"))
   .def("SetSprite", (void (Urho3D::ParticleEmitter2D::*)(Urho3D::Sprite2D *)) &Urho3D::ParticleEmitter2D::SetSprite, "todo: docstring", py::arg("sprite"))
-  //.def("SetBlendMode", (void (Urho3D::ParticleEmitter2D::*)(Urho3D::BlendMode)) &Urho3D::ParticleEmitter2D::SetBlendMode, "todo: docstring", py::arg("blendMode"))
-    //['Urho3D::BlendMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetBlendMode", (void (Urho3D::ParticleEmitter2D::*)(Urho3D::BlendMode)) &Urho3D::ParticleEmitter2D::SetBlendMode, "todo: docstring", py::arg("blendMode"))
   .def("SetMaxParticles", (void (Urho3D::ParticleEmitter2D::*)(unsigned int)) &Urho3D::ParticleEmitter2D::SetMaxParticles, "todo: docstring", py::arg("maxParticles"))
   .def("SetEmitting", (void (Urho3D::ParticleEmitter2D::*)(bool)) &Urho3D::ParticleEmitter2D::SetEmitting, "todo: docstring", py::arg("enable"))
   .def("GetEffect", (Urho3D::ParticleEffect2D * (Urho3D::ParticleEmitter2D::*)() const) &Urho3D::ParticleEmitter2D::GetEffect, "todo: docstring")
   .def("GetSprite", (Urho3D::Sprite2D * (Urho3D::ParticleEmitter2D::*)() const) &Urho3D::ParticleEmitter2D::GetSprite, "todo: docstring")
-  //.def("GetBlendMode", (Urho3D::BlendMode (Urho3D::ParticleEmitter2D::*)() const) &Urho3D::ParticleEmitter2D::GetBlendMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetBlendMode", (Urho3D::BlendMode (Urho3D::ParticleEmitter2D::*)() const) &Urho3D::ParticleEmitter2D::GetBlendMode, "todo: docstring")
   .def("GetMaxParticles", (unsigned int (Urho3D::ParticleEmitter2D::*)() const) &Urho3D::ParticleEmitter2D::GetMaxParticles, "todo: docstring")
   .def("SetParticleEffectAttr", (void (Urho3D::ParticleEmitter2D::*)(const Urho3D::ResourceRef &)) &Urho3D::ParticleEmitter2D::SetParticleEffectAttr, "todo: docstring", py::arg("value"))
   .def("GetParticleEffectAttr", (Urho3D::ResourceRef (Urho3D::ParticleEmitter2D::*)() const) &Urho3D::ParticleEmitter2D::GetParticleEffectAttr, "todo: docstring")
@@ -10217,8 +9943,7 @@ pyclass_Var_Urho3D_Image
   .def("GetComponents", (unsigned int (Urho3D::Image::*)() const) &Urho3D::Image::GetComponents, "todo: docstring")
   .def("GetData", (unsigned char * (Urho3D::Image::*)() const) &Urho3D::Image::GetData, "todo: docstring")
   .def("IsCompressed", (bool (Urho3D::Image::*)() const) &Urho3D::Image::IsCompressed, "todo: docstring")
-  //.def("GetCompressedFormat", (Urho3D::CompressedFormat (Urho3D::Image::*)() const) &Urho3D::Image::GetCompressedFormat, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetCompressedFormat", (Urho3D::CompressedFormat (Urho3D::Image::*)() const) &Urho3D::Image::GetCompressedFormat, "todo: docstring")
   .def("GetNumCompressedLevels", (unsigned int (Urho3D::Image::*)() const) &Urho3D::Image::GetNumCompressedLevels, "todo: docstring")
   //.def("GetNextLevel", (SharedPtr<Urho3D::Image> (Urho3D::Image::*)() const) &Urho3D::Image::GetNextLevel, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -10350,21 +10075,16 @@ pyclass_Var_Urho3D_CrowdAgent
   .def("SetHeight", (void (Urho3D::CrowdAgent::*)(float)) &Urho3D::CrowdAgent::SetHeight, "todo: docstring", py::arg("height"))
   .def("SetQueryFilterType", (void (Urho3D::CrowdAgent::*)(unsigned int)) &Urho3D::CrowdAgent::SetQueryFilterType, "todo: docstring", py::arg("queryFilterType"))
   .def("SetObstacleAvoidanceType", (void (Urho3D::CrowdAgent::*)(unsigned int)) &Urho3D::CrowdAgent::SetObstacleAvoidanceType, "todo: docstring", py::arg("obstacleAvoidanceType"))
-  //.def("SetNavigationQuality", (void (Urho3D::CrowdAgent::*)(Urho3D::NavigationQuality)) &Urho3D::CrowdAgent::SetNavigationQuality, "todo: docstring", py::arg("val"))
-    //['Urho3D::NavigationQuality']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetNavigationPushiness", (void (Urho3D::CrowdAgent::*)(Urho3D::NavigationPushiness)) &Urho3D::CrowdAgent::SetNavigationPushiness, "todo: docstring", py::arg("val"))
-    //['Urho3D::NavigationPushiness']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetNavigationQuality", (void (Urho3D::CrowdAgent::*)(Urho3D::NavigationQuality)) &Urho3D::CrowdAgent::SetNavigationQuality, "todo: docstring", py::arg("val"))
+  .def("SetNavigationPushiness", (void (Urho3D::CrowdAgent::*)(Urho3D::NavigationPushiness)) &Urho3D::CrowdAgent::SetNavigationPushiness, "todo: docstring", py::arg("val"))
   .def("GetPosition", (Urho3D::Vector3 (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetPosition, "todo: docstring")
   .def("GetDesiredVelocity", (Urho3D::Vector3 (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetDesiredVelocity, "todo: docstring")
   .def("GetActualVelocity", (Urho3D::Vector3 (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetActualVelocity, "todo: docstring")
   .def("GetTargetPosition", (const Urho3D::Vector3 & (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetTargetPosition, "todo: docstring")
   .def("GetTargetVelocity", (const Urho3D::Vector3 & (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetTargetVelocity, "todo: docstring")
-  //.def("GetRequestedTargetType", (Urho3D::CrowdAgentRequestedTarget (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetRequestedTargetType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetAgentState", (Urho3D::CrowdAgentState (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetAgentState, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetTargetState", (Urho3D::CrowdAgentTargetState (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetTargetState, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetRequestedTargetType", (Urho3D::CrowdAgentRequestedTarget (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetRequestedTargetType, "todo: docstring")
+  .def("GetAgentState", (Urho3D::CrowdAgentState (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetAgentState, "todo: docstring")
+  .def("GetTargetState", (Urho3D::CrowdAgentTargetState (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetTargetState, "todo: docstring")
   .def("GetUpdateNodePosition", (bool (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetUpdateNodePosition, "todo: docstring")
   .def("GetAgentCrowdId", (int (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetAgentCrowdId, "todo: docstring")
   .def("GetMaxAccel", (float (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetMaxAccel, "todo: docstring")
@@ -10373,10 +10093,8 @@ pyclass_Var_Urho3D_CrowdAgent
   .def("GetHeight", (float (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetHeight, "todo: docstring")
   .def("GetQueryFilterType", (unsigned int (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetQueryFilterType, "todo: docstring")
   .def("GetObstacleAvoidanceType", (unsigned int (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetObstacleAvoidanceType, "todo: docstring")
-  //.def("GetNavigationQuality", (Urho3D::NavigationQuality (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetNavigationQuality, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetNavigationPushiness", (Urho3D::NavigationPushiness (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetNavigationPushiness, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetNavigationQuality", (Urho3D::NavigationQuality (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetNavigationQuality, "todo: docstring")
+  .def("GetNavigationPushiness", (Urho3D::NavigationPushiness (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::GetNavigationPushiness, "todo: docstring")
   .def("HasRequestedTarget", (bool (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::HasRequestedTarget, "todo: docstring")
   .def("HasArrived", (bool (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::HasArrived, "todo: docstring")
   .def("IsInCrowd", (bool (Urho3D::CrowdAgent::*)() const) &Urho3D::CrowdAgent::IsInCrowd, "todo: docstring")
@@ -10485,8 +10203,7 @@ pyclass_Var_Urho3D_TmxFile2D
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("BeginLoad", (bool (Urho3D::TmxFile2D::*)(Urho3D::Deserializer &)) &Urho3D::TmxFile2D::BeginLoad, "todo: docstring", py::arg("source"))
   .def("EndLoad", (bool (Urho3D::TmxFile2D::*)()) &Urho3D::TmxFile2D::EndLoad, "todo: docstring")
-  //.def("SetInfo", (bool (Urho3D::TmxFile2D::*)(Urho3D::Orientation2D, int, int, float, float)) &Urho3D::TmxFile2D::SetInfo, "todo: docstring", py::arg("orientation"), py::arg("width"), py::arg("height"), py::arg("tileWidth"), py::arg("tileHeight"))
-    //['Urho3D::Orientation2D', 'int', 'int', 'float', 'float']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetInfo", (bool (Urho3D::TmxFile2D::*)(Urho3D::Orientation2D, int, int, float, float)) &Urho3D::TmxFile2D::SetInfo, "todo: docstring", py::arg("orientation"), py::arg("width"), py::arg("height"), py::arg("tileWidth"), py::arg("tileHeight"))
   //.def("AddLayer", (void (Urho3D::TmxFile2D::*)(unsigned int, Urho3D::TmxLayer2D *)) &Urho3D::TmxFile2D::AddLayer, "todo: docstring", py::arg("index"), py::arg("layer"))
     //['unsigned int', 'Urho3D::TmxLayer2D']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
   //.def("AddLayer", (void (Urho3D::TmxFile2D::*)(Urho3D::TmxLayer2D *)) &Urho3D::TmxFile2D::AddLayer, "todo: docstring", py::arg("layer"))
@@ -10521,13 +10238,11 @@ pyclass_Var_Urho3D_ObjectAnimation
   .def("SaveXML", (bool (Urho3D::ObjectAnimation::*)(Urho3D::XMLElement &) const) &Urho3D::ObjectAnimation::SaveXML, "todo: docstring", py::arg("dest"))
   .def("LoadJSON", (bool (Urho3D::ObjectAnimation::*)(const Urho3D::JSONValue &)) &Urho3D::ObjectAnimation::LoadJSON, "todo: docstring", py::arg("source"))
   .def("SaveJSON", (bool (Urho3D::ObjectAnimation::*)(Urho3D::JSONValue &) const) &Urho3D::ObjectAnimation::SaveJSON, "todo: docstring", py::arg("dest"))
-  //.def("AddAttributeAnimation", (void (Urho3D::ObjectAnimation::*)(const Urho3D::String &, Urho3D::ValueAnimation *, Urho3D::WrapMode, float)) &Urho3D::ObjectAnimation::AddAttributeAnimation, "todo: docstring", py::arg("name"), py::arg("attributeAnimation"), py::arg("wrapMode")=WM_LOOP, py::arg("speed")=1.0f)
-    //['Urho3D::String', 'Urho3D::ValueAnimation', 'Urho3D::WrapMode', 'float']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("AddAttributeAnimation", (void (Urho3D::ObjectAnimation::*)(const Urho3D::String &, Urho3D::ValueAnimation *, Urho3D::WrapMode, float)) &Urho3D::ObjectAnimation::AddAttributeAnimation, "todo: docstring", py::arg("name"), py::arg("attributeAnimation"), py::arg("wrapMode")=WM_LOOP, py::arg("speed")=1.0f)
   .def("RemoveAttributeAnimation", (void (Urho3D::ObjectAnimation::*)(const Urho3D::String &)) &Urho3D::ObjectAnimation::RemoveAttributeAnimation, "todo: docstring", py::arg("name"))
   .def("RemoveAttributeAnimation", (void (Urho3D::ObjectAnimation::*)(Urho3D::ValueAnimation *)) &Urho3D::ObjectAnimation::RemoveAttributeAnimation, "todo: docstring", py::arg("attributeAnimation"))
   .def("GetAttributeAnimation", (Urho3D::ValueAnimation * (Urho3D::ObjectAnimation::*)(const Urho3D::String &) const) &Urho3D::ObjectAnimation::GetAttributeAnimation, "todo: docstring", py::arg("name"))
-  //.def("GetAttributeAnimationWrapMode", (Urho3D::WrapMode (Urho3D::ObjectAnimation::*)(const Urho3D::String &) const) &Urho3D::ObjectAnimation::GetAttributeAnimationWrapMode, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetAttributeAnimationWrapMode", (Urho3D::WrapMode (Urho3D::ObjectAnimation::*)(const Urho3D::String &) const) &Urho3D::ObjectAnimation::GetAttributeAnimationWrapMode, "todo: docstring", py::arg("name"))
   .def("GetAttributeAnimationSpeed", (float (Urho3D::ObjectAnimation::*)(const Urho3D::String &) const) &Urho3D::ObjectAnimation::GetAttributeAnimationSpeed, "todo: docstring", py::arg("name"))
   //.def("GetAttributeAnimationInfos", (const HashMap<Urho3D::String, SharedPtr<Urho3D::ValueAnimationInfo> > & (Urho3D::ObjectAnimation::*)() const) &Urho3D::ObjectAnimation::GetAttributeAnimationInfos, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
@@ -10547,27 +10262,22 @@ pyclass_Var_Urho3D_Texture
   //.def("~Texture", (void (Urho3D::Texture::*)()) &Urho3D::Texture::~Texture, "todo: docstring")
     //[]; op False, ctor False, dtor True, variadic False, deleted False, ret bad False, param bad False, max ptr 0
   .def("SetNumLevels", (void (Urho3D::Texture::*)(unsigned int)) &Urho3D::Texture::SetNumLevels, "todo: docstring", py::arg("levels"))
-  //.def("SetFilterMode", (void (Urho3D::Texture::*)(Urho3D::TextureFilterMode)) &Urho3D::Texture::SetFilterMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::TextureFilterMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetAddressMode", (void (Urho3D::Texture::*)(Urho3D::TextureCoordinate, Urho3D::TextureAddressMode)) &Urho3D::Texture::SetAddressMode, "todo: docstring", py::arg("coord"), py::arg("mode"))
-    //['Urho3D::TextureCoordinate', 'Urho3D::TextureAddressMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFilterMode", (void (Urho3D::Texture::*)(Urho3D::TextureFilterMode)) &Urho3D::Texture::SetFilterMode, "todo: docstring", py::arg("mode"))
+  .def("SetAddressMode", (void (Urho3D::Texture::*)(Urho3D::TextureCoordinate, Urho3D::TextureAddressMode)) &Urho3D::Texture::SetAddressMode, "todo: docstring", py::arg("coord"), py::arg("mode"))
   .def("SetAnisotropy", (void (Urho3D::Texture::*)(unsigned int)) &Urho3D::Texture::SetAnisotropy, "todo: docstring", py::arg("level"))
   .def("SetShadowCompare", (void (Urho3D::Texture::*)(bool)) &Urho3D::Texture::SetShadowCompare, "todo: docstring", py::arg("enable"))
   .def("SetBorderColor", (void (Urho3D::Texture::*)(const Urho3D::Color &)) &Urho3D::Texture::SetBorderColor, "todo: docstring", py::arg("color"))
   .def("SetSRGB", (void (Urho3D::Texture::*)(bool)) &Urho3D::Texture::SetSRGB, "todo: docstring", py::arg("enable"))
   .def("SetBackupTexture", (void (Urho3D::Texture::*)(Urho3D::Texture *)) &Urho3D::Texture::SetBackupTexture, "todo: docstring", py::arg("texture"))
-  //.def("SetMipsToSkip", (void (Urho3D::Texture::*)(Urho3D::MaterialQuality, int)) &Urho3D::Texture::SetMipsToSkip, "todo: docstring", py::arg("quality"), py::arg("toSkip"))
-    //['Urho3D::MaterialQuality', 'int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetMipsToSkip", (void (Urho3D::Texture::*)(Urho3D::MaterialQuality, int)) &Urho3D::Texture::SetMipsToSkip, "todo: docstring", py::arg("quality"), py::arg("toSkip"))
   .def("GetFormat", (unsigned int (Urho3D::Texture::*)() const) &Urho3D::Texture::GetFormat, "todo: docstring")
   .def("IsCompressed", (bool (Urho3D::Texture::*)() const) &Urho3D::Texture::IsCompressed, "todo: docstring")
   .def("GetLevels", (unsigned int (Urho3D::Texture::*)() const) &Urho3D::Texture::GetLevels, "todo: docstring")
   .def("GetWidth", (int (Urho3D::Texture::*)() const) &Urho3D::Texture::GetWidth, "todo: docstring")
   .def("GetHeight", (int (Urho3D::Texture::*)() const) &Urho3D::Texture::GetHeight, "todo: docstring")
   .def("GetDepth", (int (Urho3D::Texture::*)() const) &Urho3D::Texture::GetDepth, "todo: docstring")
-  //.def("GetFilterMode", (Urho3D::TextureFilterMode (Urho3D::Texture::*)() const) &Urho3D::Texture::GetFilterMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetAddressMode", (Urho3D::TextureAddressMode (Urho3D::Texture::*)(Urho3D::TextureCoordinate) const) &Urho3D::Texture::GetAddressMode, "todo: docstring", py::arg("coord"))
-    //['Urho3D::TextureCoordinate']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad True, max ptr 0
+  .def("GetFilterMode", (Urho3D::TextureFilterMode (Urho3D::Texture::*)() const) &Urho3D::Texture::GetFilterMode, "todo: docstring")
+  .def("GetAddressMode", (Urho3D::TextureAddressMode (Urho3D::Texture::*)(Urho3D::TextureCoordinate) const) &Urho3D::Texture::GetAddressMode, "todo: docstring", py::arg("coord"))
   .def("GetAnisotropy", (unsigned int (Urho3D::Texture::*)() const) &Urho3D::Texture::GetAnisotropy, "todo: docstring")
   .def("GetShadowCompare", (bool (Urho3D::Texture::*)() const) &Urho3D::Texture::GetShadowCompare, "todo: docstring")
   .def("GetBorderColor", (const Urho3D::Color & (Urho3D::Texture::*)() const) &Urho3D::Texture::GetBorderColor, "todo: docstring")
@@ -10577,13 +10287,11 @@ pyclass_Var_Urho3D_Texture
   .def("IsResolveDirty", (bool (Urho3D::Texture::*)() const) &Urho3D::Texture::IsResolveDirty, "todo: docstring")
   .def("GetLevelsDirty", (bool (Urho3D::Texture::*)() const) &Urho3D::Texture::GetLevelsDirty, "todo: docstring")
   .def("GetBackupTexture", (Urho3D::Texture * (Urho3D::Texture::*)() const) &Urho3D::Texture::GetBackupTexture, "todo: docstring")
-  //.def("GetMipsToSkip", (int (Urho3D::Texture::*)(Urho3D::MaterialQuality) const) &Urho3D::Texture::GetMipsToSkip, "todo: docstring", py::arg("quality"))
-    //['Urho3D::MaterialQuality']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetMipsToSkip", (int (Urho3D::Texture::*)(Urho3D::MaterialQuality) const) &Urho3D::Texture::GetMipsToSkip, "todo: docstring", py::arg("quality"))
   .def("GetLevelWidth", (int (Urho3D::Texture::*)(unsigned int) const) &Urho3D::Texture::GetLevelWidth, "todo: docstring", py::arg("level"))
   .def("GetLevelHeight", (int (Urho3D::Texture::*)(unsigned int) const) &Urho3D::Texture::GetLevelHeight, "todo: docstring", py::arg("level"))
   .def("GetLevelDepth", (int (Urho3D::Texture::*)(unsigned int) const) &Urho3D::Texture::GetLevelDepth, "todo: docstring", py::arg("level"))
-  //.def("GetUsage", (Urho3D::TextureUsage (Urho3D::Texture::*)() const) &Urho3D::Texture::GetUsage, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUsage", (Urho3D::TextureUsage (Urho3D::Texture::*)() const) &Urho3D::Texture::GetUsage, "todo: docstring")
   .def("GetDataSize", (unsigned int (Urho3D::Texture::*)(int, int) const) &Urho3D::Texture::GetDataSize, "todo: docstring", py::arg("width"), py::arg("height"))
   .def("GetDataSize", (unsigned int (Urho3D::Texture::*)(int, int, int) const) &Urho3D::Texture::GetDataSize, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("depth"))
   .def("GetRowDataSize", (unsigned int (Urho3D::Texture::*)(int) const) &Urho3D::Texture::GetRowDataSize, "todo: docstring", py::arg("width"))
@@ -10620,20 +10328,14 @@ pyclass_Var_Urho3D_TextureCube
   .def("OnDeviceLost", (void (Urho3D::TextureCube::*)()) &Urho3D::TextureCube::OnDeviceLost, "todo: docstring")
   .def("OnDeviceReset", (void (Urho3D::TextureCube::*)()) &Urho3D::TextureCube::OnDeviceReset, "todo: docstring")
   .def("Release", (void (Urho3D::TextureCube::*)()) &Urho3D::TextureCube::Release, "todo: docstring")
-  //.def("SetSize", (bool (Urho3D::TextureCube::*)(int, unsigned int, Urho3D::TextureUsage, int)) &Urho3D::TextureCube::SetSize, "todo: docstring", py::arg("size"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC, py::arg("multiSample")=1)
-    //['int', 'unsigned int', 'Urho3D::TextureUsage', 'int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, unsigned int, int, int, int, int, const void *)) &Urho3D::TextureCube::SetData, "todo: docstring", py::arg("face"), py::arg("level"), py::arg("x"), py::arg("y"), py::arg("width"), py::arg("height"), py::arg("data"))
-    //['Urho3D::CubeMapFace', 'unsigned int', 'int', 'int', 'int', 'int', 'void']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("SetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, Urho3D::Deserializer &)) &Urho3D::TextureCube::SetData, "todo: docstring", py::arg("face"), py::arg("source"))
-    //['Urho3D::CubeMapFace', 'Urho3D::Deserializer']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, Urho3D::Image *, bool)) &Urho3D::TextureCube::SetData, "todo: docstring", py::arg("face"), py::arg("image"), py::arg("useAlpha")=false)
-    //['Urho3D::CubeMapFace', 'Urho3D::Image', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("GetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, unsigned int, void *) const) &Urho3D::TextureCube::GetData, "todo: docstring", py::arg("face"), py::arg("level"), py::arg("dest"))
-    //['Urho3D::CubeMapFace', 'unsigned int', 'void']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("SetSize", (bool (Urho3D::TextureCube::*)(int, unsigned int, Urho3D::TextureUsage, int)) &Urho3D::TextureCube::SetSize, "todo: docstring", py::arg("size"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC, py::arg("multiSample")=1)
+  .def("SetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, unsigned int, int, int, int, int, const void *)) &Urho3D::TextureCube::SetData, "todo: docstring", py::arg("face"), py::arg("level"), py::arg("x"), py::arg("y"), py::arg("width"), py::arg("height"), py::arg("data"))
+  .def("SetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, Urho3D::Deserializer &)) &Urho3D::TextureCube::SetData, "todo: docstring", py::arg("face"), py::arg("source"))
+  .def("SetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, Urho3D::Image *, bool)) &Urho3D::TextureCube::SetData, "todo: docstring", py::arg("face"), py::arg("image"), py::arg("useAlpha")=false)
+  .def("GetData", (bool (Urho3D::TextureCube::*)(Urho3D::CubeMapFace, unsigned int, void *) const) &Urho3D::TextureCube::GetData, "todo: docstring", py::arg("face"), py::arg("level"), py::arg("dest"))
   //.def("GetImage", (SharedPtr<Urho3D::Image> (Urho3D::TextureCube::*)(Urho3D::CubeMapFace) const) &Urho3D::TextureCube::GetImage, "todo: docstring", py::arg("face"))
-    //['Urho3D::CubeMapFace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad True, max ptr 0
-  //.def("GetRenderSurface", (Urho3D::RenderSurface * (Urho3D::TextureCube::*)(Urho3D::CubeMapFace) const) &Urho3D::TextureCube::GetRenderSurface, "todo: docstring", py::arg("face"))
-    //['Urho3D::CubeMapFace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+    //['Urho3D::CubeMapFace']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetRenderSurface", (Urho3D::RenderSurface * (Urho3D::TextureCube::*)(Urho3D::CubeMapFace) const) &Urho3D::TextureCube::GetRenderSurface, "todo: docstring", py::arg("face"))
 // Class Variables:
 ;
 }
@@ -10654,8 +10356,7 @@ pyclass_Var_Urho3D_Texture2DArray
   .def("OnDeviceReset", (void (Urho3D::Texture2DArray::*)()) &Urho3D::Texture2DArray::OnDeviceReset, "todo: docstring")
   .def("Release", (void (Urho3D::Texture2DArray::*)()) &Urho3D::Texture2DArray::Release, "todo: docstring")
   .def("SetLayers", (void (Urho3D::Texture2DArray::*)(unsigned int)) &Urho3D::Texture2DArray::SetLayers, "todo: docstring", py::arg("layers"))
-  //.def("SetSize", (bool (Urho3D::Texture2DArray::*)(unsigned int, int, int, unsigned int, Urho3D::TextureUsage)) &Urho3D::Texture2DArray::SetSize, "todo: docstring", py::arg("layers"), py::arg("width"), py::arg("height"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC)
-    //['unsigned int', 'int', 'int', 'unsigned int', 'Urho3D::TextureUsage']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetSize", (bool (Urho3D::Texture2DArray::*)(unsigned int, int, int, unsigned int, Urho3D::TextureUsage)) &Urho3D::Texture2DArray::SetSize, "todo: docstring", py::arg("layers"), py::arg("width"), py::arg("height"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC)
   .def("SetData", (bool (Urho3D::Texture2DArray::*)(unsigned int, unsigned int, int, int, int, int, const void *)) &Urho3D::Texture2DArray::SetData, "todo: docstring", py::arg("layer"), py::arg("level"), py::arg("x"), py::arg("y"), py::arg("width"), py::arg("height"), py::arg("data"))
   .def("SetData", (bool (Urho3D::Texture2DArray::*)(unsigned int, Urho3D::Deserializer &)) &Urho3D::Texture2DArray::SetData, "todo: docstring", py::arg("layer"), py::arg("source"))
   .def("SetData", (bool (Urho3D::Texture2DArray::*)(unsigned int, Urho3D::Image *, bool)) &Urho3D::Texture2DArray::SetData, "todo: docstring", py::arg("layer"), py::arg("image"), py::arg("useAlpha")=false)
@@ -10757,26 +10458,19 @@ pyclass_Var_Urho3D_Material
   .def("Load", (bool (Urho3D::Material::*)(const Urho3D::JSONValue &)) &Urho3D::Material::Load, "todo: docstring", py::arg("source"))
   .def("Save", (bool (Urho3D::Material::*)(Urho3D::JSONValue &) const) &Urho3D::Material::Save, "todo: docstring", py::arg("dest"))
   .def("SetNumTechniques", (void (Urho3D::Material::*)(unsigned int)) &Urho3D::Material::SetNumTechniques, "todo: docstring", py::arg("num"))
-  //.def("SetTechnique", (void (Urho3D::Material::*)(unsigned int, Urho3D::Technique *, Urho3D::MaterialQuality, float)) &Urho3D::Material::SetTechnique, "todo: docstring", py::arg("index"), py::arg("tech"), py::arg("qualityLevel")=QUALITY_LOW, py::arg("lodDistance")=0.0f)
-    //['unsigned int', 'Urho3D::Technique', 'Urho3D::MaterialQuality', 'float']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("SetTechnique", (void (Urho3D::Material::*)(unsigned int, Urho3D::Technique *, Urho3D::MaterialQuality, float)) &Urho3D::Material::SetTechnique, "todo: docstring", py::arg("index"), py::arg("tech"), py::arg("qualityLevel")=QUALITY_LOW, py::arg("lodDistance")=0.0f)
   .def("SetVertexShaderDefines", (void (Urho3D::Material::*)(const Urho3D::String &)) &Urho3D::Material::SetVertexShaderDefines, "todo: docstring", py::arg("defines"))
   .def("SetPixelShaderDefines", (void (Urho3D::Material::*)(const Urho3D::String &)) &Urho3D::Material::SetPixelShaderDefines, "todo: docstring", py::arg("defines"))
   .def("SetShaderParameter", (void (Urho3D::Material::*)(const Urho3D::String &, const Urho3D::Variant &)) &Urho3D::Material::SetShaderParameter, "todo: docstring", py::arg("name"), py::arg("value"))
-  //.def("SetShaderParameterAnimation", (void (Urho3D::Material::*)(const Urho3D::String &, Urho3D::ValueAnimation *, Urho3D::WrapMode, float)) &Urho3D::Material::SetShaderParameterAnimation, "todo: docstring", py::arg("name"), py::arg("animation"), py::arg("wrapMode")=WM_LOOP, py::arg("speed")=1.0f)
-    //['Urho3D::String', 'Urho3D::ValueAnimation', 'Urho3D::WrapMode', 'float']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
-  //.def("SetShaderParameterAnimationWrapMode", (void (Urho3D::Material::*)(const Urho3D::String &, Urho3D::WrapMode)) &Urho3D::Material::SetShaderParameterAnimationWrapMode, "todo: docstring", py::arg("name"), py::arg("wrapMode"))
-    //['Urho3D::String', 'Urho3D::WrapMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetShaderParameterAnimation", (void (Urho3D::Material::*)(const Urho3D::String &, Urho3D::ValueAnimation *, Urho3D::WrapMode, float)) &Urho3D::Material::SetShaderParameterAnimation, "todo: docstring", py::arg("name"), py::arg("animation"), py::arg("wrapMode")=WM_LOOP, py::arg("speed")=1.0f)
+  .def("SetShaderParameterAnimationWrapMode", (void (Urho3D::Material::*)(const Urho3D::String &, Urho3D::WrapMode)) &Urho3D::Material::SetShaderParameterAnimationWrapMode, "todo: docstring", py::arg("name"), py::arg("wrapMode"))
   .def("SetShaderParameterAnimationSpeed", (void (Urho3D::Material::*)(const Urho3D::String &, float)) &Urho3D::Material::SetShaderParameterAnimationSpeed, "todo: docstring", py::arg("name"), py::arg("speed"))
-  //.def("SetTexture", (void (Urho3D::Material::*)(Urho3D::TextureUnit, Urho3D::Texture *)) &Urho3D::Material::SetTexture, "todo: docstring", py::arg("unit"), py::arg("texture"))
-    //['Urho3D::TextureUnit', 'Urho3D::Texture']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("SetTexture", (void (Urho3D::Material::*)(Urho3D::TextureUnit, Urho3D::Texture *)) &Urho3D::Material::SetTexture, "todo: docstring", py::arg("unit"), py::arg("texture"))
   .def("SetUVTransform", (void (Urho3D::Material::*)(const Urho3D::Vector2 &, float, const Urho3D::Vector2 &)) &Urho3D::Material::SetUVTransform, "todo: docstring", py::arg("offset"), py::arg("rotation"), py::arg("repeat"))
   .def("SetUVTransform", (void (Urho3D::Material::*)(const Urho3D::Vector2 &, float, float)) &Urho3D::Material::SetUVTransform, "todo: docstring", py::arg("offset"), py::arg("rotation"), py::arg("repeat"))
-  //.def("SetCullMode", (void (Urho3D::Material::*)(Urho3D::CullMode)) &Urho3D::Material::SetCullMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CullMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetShadowCullMode", (void (Urho3D::Material::*)(Urho3D::CullMode)) &Urho3D::Material::SetShadowCullMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::CullMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetFillMode", (void (Urho3D::Material::*)(Urho3D::FillMode)) &Urho3D::Material::SetFillMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FillMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetCullMode", (void (Urho3D::Material::*)(Urho3D::CullMode)) &Urho3D::Material::SetCullMode, "todo: docstring", py::arg("mode"))
+  .def("SetShadowCullMode", (void (Urho3D::Material::*)(Urho3D::CullMode)) &Urho3D::Material::SetShadowCullMode, "todo: docstring", py::arg("mode"))
+  .def("SetFillMode", (void (Urho3D::Material::*)(Urho3D::FillMode)) &Urho3D::Material::SetFillMode, "todo: docstring", py::arg("mode"))
   .def("SetDepthBias", (void (Urho3D::Material::*)(const Urho3D::BiasParameters &)) &Urho3D::Material::SetDepthBias, "todo: docstring", py::arg("parameters"))
   .def("SetAlphaToCoverage", (void (Urho3D::Material::*)(bool)) &Urho3D::Material::SetAlphaToCoverage, "todo: docstring", py::arg("enable"))
   .def("SetLineAntiAlias", (void (Urho3D::Material::*)(bool)) &Urho3D::Material::SetLineAntiAlias, "todo: docstring", py::arg("enable"))
@@ -10796,25 +10490,20 @@ pyclass_Var_Urho3D_Material
     //['unsigned int']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetTechnique", (Urho3D::Technique * (Urho3D::Material::*)(unsigned int) const) &Urho3D::Material::GetTechnique, "todo: docstring", py::arg("index"))
   .def("GetPass", (Urho3D::Pass * (Urho3D::Material::*)(unsigned int, const Urho3D::String &) const) &Urho3D::Material::GetPass, "todo: docstring", py::arg("index"), py::arg("passName"))
-  //.def("GetTexture", (Urho3D::Texture * (Urho3D::Material::*)(Urho3D::TextureUnit) const) &Urho3D::Material::GetTexture, "todo: docstring", py::arg("unit"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 1
+  .def("GetTexture", (Urho3D::Texture * (Urho3D::Material::*)(Urho3D::TextureUnit) const) &Urho3D::Material::GetTexture, "todo: docstring", py::arg("unit"))
   //.def("GetTextures", (const HashMap<Urho3D::TextureUnit, SharedPtr<Urho3D::Texture> > & (Urho3D::Material::*)() const) &Urho3D::Material::GetTextures, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("GetVertexShaderDefines", (const Urho3D::String & (Urho3D::Material::*)() const) &Urho3D::Material::GetVertexShaderDefines, "todo: docstring")
   .def("GetPixelShaderDefines", (const Urho3D::String & (Urho3D::Material::*)() const) &Urho3D::Material::GetPixelShaderDefines, "todo: docstring")
   .def("GetShaderParameter", (const Urho3D::Variant & (Urho3D::Material::*)(const Urho3D::String &) const) &Urho3D::Material::GetShaderParameter, "todo: docstring", py::arg("name"))
   .def("GetShaderParameterAnimation", (Urho3D::ValueAnimation * (Urho3D::Material::*)(const Urho3D::String &) const) &Urho3D::Material::GetShaderParameterAnimation, "todo: docstring", py::arg("name"))
-  //.def("GetShaderParameterAnimationWrapMode", (Urho3D::WrapMode (Urho3D::Material::*)(const Urho3D::String &) const) &Urho3D::Material::GetShaderParameterAnimationWrapMode, "todo: docstring", py::arg("name"))
-    //['Urho3D::String']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetShaderParameterAnimationWrapMode", (Urho3D::WrapMode (Urho3D::Material::*)(const Urho3D::String &) const) &Urho3D::Material::GetShaderParameterAnimationWrapMode, "todo: docstring", py::arg("name"))
   .def("GetShaderParameterAnimationSpeed", (float (Urho3D::Material::*)(const Urho3D::String &) const) &Urho3D::Material::GetShaderParameterAnimationSpeed, "todo: docstring", py::arg("name"))
   //.def("GetShaderParameters", (const HashMap<Urho3D::StringHash, Urho3D::MaterialShaderParameter> & (Urho3D::Material::*)() const) &Urho3D::Material::GetShaderParameters, "todo: docstring")
     //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetCullMode", (Urho3D::CullMode (Urho3D::Material::*)() const) &Urho3D::Material::GetCullMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetShadowCullMode", (Urho3D::CullMode (Urho3D::Material::*)() const) &Urho3D::Material::GetShadowCullMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetFillMode", (Urho3D::FillMode (Urho3D::Material::*)() const) &Urho3D::Material::GetFillMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetCullMode", (Urho3D::CullMode (Urho3D::Material::*)() const) &Urho3D::Material::GetCullMode, "todo: docstring")
+  .def("GetShadowCullMode", (Urho3D::CullMode (Urho3D::Material::*)() const) &Urho3D::Material::GetShadowCullMode, "todo: docstring")
+  .def("GetFillMode", (Urho3D::FillMode (Urho3D::Material::*)() const) &Urho3D::Material::GetFillMode, "todo: docstring")
   .def("GetDepthBias", (const Urho3D::BiasParameters & (Urho3D::Material::*)() const) &Urho3D::Material::GetDepthBias, "todo: docstring")
   .def("GetAlphaToCoverage", (bool (Urho3D::Material::*)() const) &Urho3D::Material::GetAlphaToCoverage, "todo: docstring")
   .def("GetLineAntiAlias", (bool (Urho3D::Material::*)() const) &Urho3D::Material::GetLineAntiAlias, "todo: docstring")
@@ -10888,25 +10577,19 @@ pyclass_Var_Urho3D_Text3D
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
   //.def("UpdateGeometry", (void (Urho3D::Text3D::*)(const Urho3D::FrameInfo &)) &Urho3D::Text3D::UpdateGeometry, "todo: docstring", py::arg("frame"))
     //['Urho3D::FrameInfo']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::Text3D::*)()) &Urho3D::Text3D::GetUpdateGeometryType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetUpdateGeometryType", (Urho3D::UpdateGeometryType (Urho3D::Text3D::*)()) &Urho3D::Text3D::GetUpdateGeometryType, "todo: docstring")
   .def("SetFont", (bool (Urho3D::Text3D::*)(const Urho3D::String &, float)) &Urho3D::Text3D::SetFont, "todo: docstring", py::arg("fontName"), py::arg("size")=DEFAULT_FONT_SIZE)
   .def("SetFont", (bool (Urho3D::Text3D::*)(Urho3D::Font *, float)) &Urho3D::Text3D::SetFont, "todo: docstring", py::arg("font"), py::arg("size")=DEFAULT_FONT_SIZE)
   .def("SetFontSize", (bool (Urho3D::Text3D::*)(float)) &Urho3D::Text3D::SetFontSize, "todo: docstring", py::arg("size"))
   .def("SetMaterial", (void (Urho3D::Text3D::*)(Urho3D::Material *)) &Urho3D::Text3D::SetMaterial, "todo: docstring", py::arg("material"))
   .def("SetText", (void (Urho3D::Text3D::*)(const Urho3D::String &)) &Urho3D::Text3D::SetText, "todo: docstring", py::arg("text"))
-  //.def("SetAlignment", (void (Urho3D::Text3D::*)(Urho3D::HorizontalAlignment, Urho3D::VerticalAlignment)) &Urho3D::Text3D::SetAlignment, "todo: docstring", py::arg("hAlign"), py::arg("vAlign"))
-    //['Urho3D::HorizontalAlignment', 'Urho3D::VerticalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetHorizontalAlignment", (void (Urho3D::Text3D::*)(Urho3D::HorizontalAlignment)) &Urho3D::Text3D::SetHorizontalAlignment, "todo: docstring", py::arg("align"))
-    //['Urho3D::HorizontalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetVerticalAlignment", (void (Urho3D::Text3D::*)(Urho3D::VerticalAlignment)) &Urho3D::Text3D::SetVerticalAlignment, "todo: docstring", py::arg("align"))
-    //['Urho3D::VerticalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
-  //.def("SetTextAlignment", (void (Urho3D::Text3D::*)(Urho3D::HorizontalAlignment)) &Urho3D::Text3D::SetTextAlignment, "todo: docstring", py::arg("align"))
-    //['Urho3D::HorizontalAlignment']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetAlignment", (void (Urho3D::Text3D::*)(Urho3D::HorizontalAlignment, Urho3D::VerticalAlignment)) &Urho3D::Text3D::SetAlignment, "todo: docstring", py::arg("hAlign"), py::arg("vAlign"))
+  .def("SetHorizontalAlignment", (void (Urho3D::Text3D::*)(Urho3D::HorizontalAlignment)) &Urho3D::Text3D::SetHorizontalAlignment, "todo: docstring", py::arg("align"))
+  .def("SetVerticalAlignment", (void (Urho3D::Text3D::*)(Urho3D::VerticalAlignment)) &Urho3D::Text3D::SetVerticalAlignment, "todo: docstring", py::arg("align"))
+  .def("SetTextAlignment", (void (Urho3D::Text3D::*)(Urho3D::HorizontalAlignment)) &Urho3D::Text3D::SetTextAlignment, "todo: docstring", py::arg("align"))
   .def("SetRowSpacing", (void (Urho3D::Text3D::*)(float)) &Urho3D::Text3D::SetRowSpacing, "todo: docstring", py::arg("spacing"))
   .def("SetWordwrap", (void (Urho3D::Text3D::*)(bool)) &Urho3D::Text3D::SetWordwrap, "todo: docstring", py::arg("enable"))
-  //.def("SetTextEffect", (void (Urho3D::Text3D::*)(Urho3D::TextEffect)) &Urho3D::Text3D::SetTextEffect, "todo: docstring", py::arg("textEffect"))
-    //['Urho3D::TextEffect']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetTextEffect", (void (Urho3D::Text3D::*)(Urho3D::TextEffect)) &Urho3D::Text3D::SetTextEffect, "todo: docstring", py::arg("textEffect"))
   .def("SetEffectShadowOffset", (void (Urho3D::Text3D::*)(const Urho3D::IntVector2 &)) &Urho3D::Text3D::SetEffectShadowOffset, "todo: docstring", py::arg("offset"))
   .def("SetEffectStrokeThickness", (void (Urho3D::Text3D::*)(int)) &Urho3D::Text3D::SetEffectStrokeThickness, "todo: docstring", py::arg("thickness"))
   .def("SetEffectRoundStroke", (void (Urho3D::Text3D::*)(bool)) &Urho3D::Text3D::SetEffectRoundStroke, "todo: docstring", py::arg("roundStroke"))
@@ -10914,26 +10597,20 @@ pyclass_Var_Urho3D_Text3D
   .def("SetEffectDepthBias", (void (Urho3D::Text3D::*)(float)) &Urho3D::Text3D::SetEffectDepthBias, "todo: docstring", py::arg("bias"))
   .def("SetWidth", (void (Urho3D::Text3D::*)(int)) &Urho3D::Text3D::SetWidth, "todo: docstring", py::arg("width"))
   .def("SetColor", (void (Urho3D::Text3D::*)(const Urho3D::Color &)) &Urho3D::Text3D::SetColor, "todo: docstring", py::arg("color"))
-  //.def("SetColor", (void (Urho3D::Text3D::*)(Urho3D::Corner, const Urho3D::Color &)) &Urho3D::Text3D::SetColor, "todo: docstring", py::arg("corner"), py::arg("color"))
-    //['Urho3D::Corner', 'Urho3D::Color']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetColor", (void (Urho3D::Text3D::*)(Urho3D::Corner, const Urho3D::Color &)) &Urho3D::Text3D::SetColor, "todo: docstring", py::arg("corner"), py::arg("color"))
   .def("SetOpacity", (void (Urho3D::Text3D::*)(float)) &Urho3D::Text3D::SetOpacity, "todo: docstring", py::arg("opacity"))
   .def("SetFixedScreenSize", (void (Urho3D::Text3D::*)(bool)) &Urho3D::Text3D::SetFixedScreenSize, "todo: docstring", py::arg("enable"))
-  //.def("SetFaceCameraMode", (void (Urho3D::Text3D::*)(Urho3D::FaceCameraMode)) &Urho3D::Text3D::SetFaceCameraMode, "todo: docstring", py::arg("mode"))
-    //['Urho3D::FaceCameraMode']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetFaceCameraMode", (void (Urho3D::Text3D::*)(Urho3D::FaceCameraMode)) &Urho3D::Text3D::SetFaceCameraMode, "todo: docstring", py::arg("mode"))
   .def("GetFont", (Urho3D::Font * (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetFont, "todo: docstring")
   .def("GetFontSize", (float (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetFontSize, "todo: docstring")
   .def("GetMaterial", (Urho3D::Material * (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetMaterial, "todo: docstring")
   .def("GetText", (const Urho3D::String & (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetText, "todo: docstring")
-  //.def("GetTextAlignment", (Urho3D::HorizontalAlignment (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetTextAlignment, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetHorizontalAlignment", (Urho3D::HorizontalAlignment (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetHorizontalAlignment, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVerticalAlignment", (Urho3D::VerticalAlignment (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetVerticalAlignment, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTextAlignment", (Urho3D::HorizontalAlignment (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetTextAlignment, "todo: docstring")
+  .def("GetHorizontalAlignment", (Urho3D::HorizontalAlignment (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetHorizontalAlignment, "todo: docstring")
+  .def("GetVerticalAlignment", (Urho3D::VerticalAlignment (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetVerticalAlignment, "todo: docstring")
   .def("GetRowSpacing", (float (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetRowSpacing, "todo: docstring")
   .def("GetWordwrap", (bool (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetWordwrap, "todo: docstring")
-  //.def("GetTextEffect", (Urho3D::TextEffect (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetTextEffect, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetTextEffect", (Urho3D::TextEffect (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetTextEffect, "todo: docstring")
   .def("GetEffectShadowOffset", (const Urho3D::IntVector2 & (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetEffectShadowOffset, "todo: docstring")
   .def("GetEffectStrokeThickness", (int (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetEffectStrokeThickness, "todo: docstring")
   .def("GetEffectRoundStroke", (bool (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetEffectRoundStroke, "todo: docstring")
@@ -10947,12 +10624,10 @@ pyclass_Var_Urho3D_Text3D
   .def("GetRowWidth", (int (Urho3D::Text3D::*)(unsigned int) const) &Urho3D::Text3D::GetRowWidth, "todo: docstring", py::arg("index"))
   .def("GetCharPosition", (Urho3D::Vector2 (Urho3D::Text3D::*)(unsigned int)) &Urho3D::Text3D::GetCharPosition, "todo: docstring", py::arg("index"))
   .def("GetCharSize", (Urho3D::Vector2 (Urho3D::Text3D::*)(unsigned int)) &Urho3D::Text3D::GetCharSize, "todo: docstring", py::arg("index"))
-  //.def("GetColor", (const Urho3D::Color & (Urho3D::Text3D::*)(Urho3D::Corner) const) &Urho3D::Text3D::GetColor, "todo: docstring", py::arg("corner"))
-    //['Urho3D::Corner']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("GetColor", (const Urho3D::Color & (Urho3D::Text3D::*)(Urho3D::Corner) const) &Urho3D::Text3D::GetColor, "todo: docstring", py::arg("corner"))
   .def("GetOpacity", (float (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetOpacity, "todo: docstring")
   .def("IsFixedScreenSize", (bool (Urho3D::Text3D::*)() const) &Urho3D::Text3D::IsFixedScreenSize, "todo: docstring")
-  //.def("GetFaceCameraMode", (Urho3D::FaceCameraMode (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetFaceCameraMode, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
+  .def("GetFaceCameraMode", (Urho3D::FaceCameraMode (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetFaceCameraMode, "todo: docstring")
   .def("SetFontAttr", (void (Urho3D::Text3D::*)(const Urho3D::ResourceRef &)) &Urho3D::Text3D::SetFontAttr, "todo: docstring", py::arg("value"))
   .def("GetFontAttr", (Urho3D::ResourceRef (Urho3D::Text3D::*)() const) &Urho3D::Text3D::GetFontAttr, "todo: docstring")
   .def("SetMaterialAttr", (void (Urho3D::Text3D::*)(const Urho3D::ResourceRef &)) &Urho3D::Text3D::SetMaterialAttr, "todo: docstring", py::arg("value"))
@@ -10979,8 +10654,7 @@ pyclass_Var_Urho3D_Texture2D
   .def("OnDeviceLost", (void (Urho3D::Texture2D::*)()) &Urho3D::Texture2D::OnDeviceLost, "todo: docstring")
   .def("OnDeviceReset", (void (Urho3D::Texture2D::*)()) &Urho3D::Texture2D::OnDeviceReset, "todo: docstring")
   .def("Release", (void (Urho3D::Texture2D::*)()) &Urho3D::Texture2D::Release, "todo: docstring")
-  //.def("SetSize", (bool (Urho3D::Texture2D::*)(int, int, unsigned int, Urho3D::TextureUsage, int, bool)) &Urho3D::Texture2D::SetSize, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC, py::arg("multiSample")=1, py::arg("autoResolve")=true)
-    //['int', 'int', 'unsigned int', 'Urho3D::TextureUsage', 'int', 'bool']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetSize", (bool (Urho3D::Texture2D::*)(int, int, unsigned int, Urho3D::TextureUsage, int, bool)) &Urho3D::Texture2D::SetSize, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC, py::arg("multiSample")=1, py::arg("autoResolve")=true)
   .def("SetData", (bool (Urho3D::Texture2D::*)(unsigned int, int, int, int, int, const void *)) &Urho3D::Texture2D::SetData, "todo: docstring", py::arg("level"), py::arg("x"), py::arg("y"), py::arg("width"), py::arg("height"), py::arg("data"))
   .def("SetData", (bool (Urho3D::Texture2D::*)(Urho3D::Image *, bool)) &Urho3D::Texture2D::SetData, "todo: docstring", py::arg("image"), py::arg("useAlpha")=false)
   .def("GetData", (bool (Urho3D::Texture2D::*)(unsigned int, void *) const) &Urho3D::Texture2D::GetData, "todo: docstring", py::arg("level"), py::arg("dest"))
@@ -11027,8 +10701,7 @@ pyclass_Var_Urho3D_Texture3D
   .def("OnDeviceLost", (void (Urho3D::Texture3D::*)()) &Urho3D::Texture3D::OnDeviceLost, "todo: docstring")
   .def("OnDeviceReset", (void (Urho3D::Texture3D::*)()) &Urho3D::Texture3D::OnDeviceReset, "todo: docstring")
   .def("Release", (void (Urho3D::Texture3D::*)()) &Urho3D::Texture3D::Release, "todo: docstring")
-  //.def("SetSize", (bool (Urho3D::Texture3D::*)(int, int, int, unsigned int, Urho3D::TextureUsage)) &Urho3D::Texture3D::SetSize, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("depth"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC)
-    //['int', 'int', 'int', 'unsigned int', 'Urho3D::TextureUsage']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("SetSize", (bool (Urho3D::Texture3D::*)(int, int, int, unsigned int, Urho3D::TextureUsage)) &Urho3D::Texture3D::SetSize, "todo: docstring", py::arg("width"), py::arg("height"), py::arg("depth"), py::arg("format"), py::arg("usage")=TEXTURE_STATIC)
   .def("SetData", (bool (Urho3D::Texture3D::*)(unsigned int, int, int, int, int, int, int, const void *)) &Urho3D::Texture3D::SetData, "todo: docstring", py::arg("level"), py::arg("x"), py::arg("y"), py::arg("z"), py::arg("width"), py::arg("height"), py::arg("depth"), py::arg("data"))
   .def("SetData", (bool (Urho3D::Texture3D::*)(Urho3D::Image *, bool)) &Urho3D::Texture3D::SetData, "todo: docstring", py::arg("image"), py::arg("useAlpha")=false)
   .def("GetData", (bool (Urho3D::Texture3D::*)(unsigned int, void *) const) &Urho3D::Texture3D::GetData, "todo: docstring", py::arg("level"), py::arg("dest"))
@@ -12443,6 +12116,1711 @@ auto pyclass_Var_Urho3D_ConstraintGear2D = py::class_<Urho3D::ConstraintGear2D, 
 auto pyclass_Var_Urho3D_Texture3D = py::class_<Urho3D::Texture3D, Urho3D::SharedPtr<Urho3D::Texture3D>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture3D", "test doc");
 
     //================================================
+    // Declare and Implement Enumerations
+    //================================================
+    // Enum Urho3D::Spriter::ObjectType Registrations
+auto pyclass_Var_Urho3D_Spriter_ObjectType = py::enum_<Urho3D::Spriter::ObjectType>(pyclass_Var_Urho3D_Spriter, "ObjectType", py::arithmetic(), "test doc")
+  .value("BONE", Urho3D::Spriter::ObjectType::BONE)
+  .value("SPRITE", Urho3D::Spriter::ObjectType::SPRITE)
+  .export_values()
+;
+
+// Enum Urho3D::Spriter::CurveType Registrations
+auto pyclass_Var_Urho3D_Spriter_CurveType = py::enum_<Urho3D::Spriter::CurveType>(pyclass_Var_Urho3D_Spriter, "CurveType", py::arithmetic(), "test doc")
+  .value("INSTANT", Urho3D::Spriter::CurveType::INSTANT)
+  .value("LINEAR", Urho3D::Spriter::CurveType::LINEAR)
+  .value("QUADRATIC", Urho3D::Spriter::CurveType::QUADRATIC)
+  .value("CUBIC", Urho3D::Spriter::CurveType::CUBIC)
+  .export_values()
+;
+
+// Enum Urho3D::Spriter::LoopMode Registrations
+auto pyclass_Var_Urho3D_Spriter_LoopMode = py::enum_<Urho3D::Spriter::LoopMode>(pyclass_Var_Urho3D_Spriter, "LoopMode", py::arithmetic(), "test doc")
+  .value("Default", Urho3D::Spriter::LoopMode::Default)
+  .value("ForceLooped", Urho3D::Spriter::LoopMode::ForceLooped)
+  .value("ForceClamped", Urho3D::Spriter::LoopMode::ForceClamped)
+  .export_values()
+;
+
+// Enum Urho3D::IKSolver::Algorithm Registrations
+auto pyclass_Var_Urho3D_IKSolver_Algorithm = py::enum_<Urho3D::IKSolver::Algorithm>(pyclass_Var_Urho3D_IKSolver, "Algorithm", py::arithmetic(), "test doc")
+  .value("ONE_BONE", Urho3D::IKSolver::Algorithm::ONE_BONE)
+  .value("TWO_BONE", Urho3D::IKSolver::Algorithm::TWO_BONE)
+  .value("FABRIK", Urho3D::IKSolver::Algorithm::FABRIK)
+  .export_values()
+;
+
+// Enum Urho3D::IKSolver::Feature Registrations
+auto pyclass_Var_Urho3D_IKSolver_Feature = py::enum_<Urho3D::IKSolver::Feature>(pyclass_Var_Urho3D_IKSolver, "Feature", py::arithmetic(), "test doc")
+  .value("JOINT_ROTATIONS", Urho3D::IKSolver::Feature::JOINT_ROTATIONS)
+  .value("TARGET_ROTATIONS", Urho3D::IKSolver::Feature::TARGET_ROTATIONS)
+  .value("UPDATE_ORIGINAL_POSE", Urho3D::IKSolver::Feature::UPDATE_ORIGINAL_POSE)
+  .value("UPDATE_ACTIVE_POSE", Urho3D::IKSolver::Feature::UPDATE_ACTIVE_POSE)
+  .value("USE_ORIGINAL_POSE", Urho3D::IKSolver::Feature::USE_ORIGINAL_POSE)
+  .value("CONSTRAINTS", Urho3D::IKSolver::Feature::CONSTRAINTS)
+  .value("AUTO_SOLVE", Urho3D::IKSolver::Feature::AUTO_SOLVE)
+  .export_values()
+;
+
+// Enum Urho3D::IKEffector::Feature Registrations
+auto pyclass_Var_Urho3D_IKEffector_Feature = py::enum_<Urho3D::IKEffector::Feature>(pyclass_Var_Urho3D_IKEffector, "Feature", py::arithmetic(), "test doc")
+  .value("WEIGHT_NLERP", Urho3D::IKEffector::Feature::WEIGHT_NLERP)
+  .value("INHERIT_PARENT_ROTATION", Urho3D::IKEffector::Feature::INHERIT_PARENT_ROTATION)
+  .export_values()
+;
+
+// Enum Urho3D::Intersection Registrations
+auto pyclass_Var_Urho3D_Intersection = py::enum_<Urho3D::Intersection>(pyclass_Var_Urho3D, "Intersection", py::arithmetic(), "test doc")
+  .value("OUTSIDE", Urho3D::Intersection::OUTSIDE)
+  .value("INTERSECTS", Urho3D::Intersection::INTERSECTS)
+  .value("INSIDE", Urho3D::Intersection::INSIDE)
+  .export_values()
+;
+
+// Enum Urho3D::VariantType Registrations
+auto pyclass_Var_Urho3D_VariantType = py::enum_<Urho3D::VariantType>(pyclass_Var_Urho3D, "VariantType", py::arithmetic(), "test doc")
+  .value("VAR_NONE", Urho3D::VariantType::VAR_NONE)
+  .value("VAR_INT", Urho3D::VariantType::VAR_INT)
+  .value("VAR_BOOL", Urho3D::VariantType::VAR_BOOL)
+  .value("VAR_FLOAT", Urho3D::VariantType::VAR_FLOAT)
+  .value("VAR_VECTOR2", Urho3D::VariantType::VAR_VECTOR2)
+  .value("VAR_VECTOR3", Urho3D::VariantType::VAR_VECTOR3)
+  .value("VAR_VECTOR4", Urho3D::VariantType::VAR_VECTOR4)
+  .value("VAR_QUATERNION", Urho3D::VariantType::VAR_QUATERNION)
+  .value("VAR_COLOR", Urho3D::VariantType::VAR_COLOR)
+  .value("VAR_STRING", Urho3D::VariantType::VAR_STRING)
+  .value("VAR_BUFFER", Urho3D::VariantType::VAR_BUFFER)
+  .value("VAR_VOIDPTR", Urho3D::VariantType::VAR_VOIDPTR)
+  .value("VAR_RESOURCEREF", Urho3D::VariantType::VAR_RESOURCEREF)
+  .value("VAR_RESOURCEREFLIST", Urho3D::VariantType::VAR_RESOURCEREFLIST)
+  .value("VAR_VARIANTVECTOR", Urho3D::VariantType::VAR_VARIANTVECTOR)
+  .value("VAR_VARIANTMAP", Urho3D::VariantType::VAR_VARIANTMAP)
+  .value("VAR_INTRECT", Urho3D::VariantType::VAR_INTRECT)
+  .value("VAR_INTVECTOR2", Urho3D::VariantType::VAR_INTVECTOR2)
+  .value("VAR_PTR", Urho3D::VariantType::VAR_PTR)
+  .value("VAR_MATRIX3", Urho3D::VariantType::VAR_MATRIX3)
+  .value("VAR_MATRIX3X4", Urho3D::VariantType::VAR_MATRIX3X4)
+  .value("VAR_MATRIX4", Urho3D::VariantType::VAR_MATRIX4)
+  .value("VAR_DOUBLE", Urho3D::VariantType::VAR_DOUBLE)
+  .value("VAR_STRINGVECTOR", Urho3D::VariantType::VAR_STRINGVECTOR)
+  .value("VAR_RECT", Urho3D::VariantType::VAR_RECT)
+  .value("VAR_INTVECTOR3", Urho3D::VariantType::VAR_INTVECTOR3)
+  .value("VAR_INT64", Urho3D::VariantType::VAR_INT64)
+  .value("VAR_CUSTOM_HEAP", Urho3D::VariantType::VAR_CUSTOM_HEAP)
+  .value("VAR_CUSTOM_STACK", Urho3D::VariantType::VAR_CUSTOM_STACK)
+  .value("MAX_VAR_TYPES", Urho3D::VariantType::MAX_VAR_TYPES)
+  .export_values()
+;
+
+// Enum Urho3D::DumpMode Registrations
+auto pyclass_Var_Urho3D_DumpMode = py::enum_<Urho3D::DumpMode>(pyclass_Var_Urho3D, "DumpMode", py::arithmetic(), "test doc")
+  .value("DOXYGEN", Urho3D::DumpMode::DOXYGEN)
+  .value("C_HEADER", Urho3D::DumpMode::C_HEADER)
+  .value("MAX_DUMP_MODES", Urho3D::DumpMode::MAX_DUMP_MODES)
+  .export_values()
+;
+
+// Enum Urho3D::AttributeMode Registrations
+auto pyclass_Var_Urho3D_AttributeMode = py::enum_<Urho3D::AttributeMode>(pyclass_Var_Urho3D, "AttributeMode", py::arithmetic(), "test doc")
+  .value("AM_EDIT", Urho3D::AttributeMode::AM_EDIT)
+  .value("AM_FILE", Urho3D::AttributeMode::AM_FILE)
+  .value("AM_NET", Urho3D::AttributeMode::AM_NET)
+  .value("AM_DEFAULT", Urho3D::AttributeMode::AM_DEFAULT)
+  .value("AM_LATESTDATA", Urho3D::AttributeMode::AM_LATESTDATA)
+  .value("AM_NOEDIT", Urho3D::AttributeMode::AM_NOEDIT)
+  .value("AM_NODEID", Urho3D::AttributeMode::AM_NODEID)
+  .value("AM_COMPONENTID", Urho3D::AttributeMode::AM_COMPONENTID)
+  .value("AM_NODEIDVECTOR", Urho3D::AttributeMode::AM_NODEIDVECTOR)
+  .value("AM_FILEREADONLY", Urho3D::AttributeMode::AM_FILEREADONLY)
+  .export_values()
+;
+
+// Enum Urho3D::WrapMode Registrations
+auto pyclass_Var_Urho3D_WrapMode = py::enum_<Urho3D::WrapMode>(pyclass_Var_Urho3D, "WrapMode", py::arithmetic(), "test doc")
+  .value("WM_LOOP", Urho3D::WrapMode::WM_LOOP)
+  .value("WM_ONCE", Urho3D::WrapMode::WM_ONCE)
+  .value("WM_CLAMP", Urho3D::WrapMode::WM_CLAMP)
+  .export_values()
+;
+
+// Enum Urho3D::AutoRemoveMode Registrations
+auto pyclass_Var_Urho3D_AutoRemoveMode = py::enum_<Urho3D::AutoRemoveMode>(pyclass_Var_Urho3D, "AutoRemoveMode", py::arithmetic(), "test doc")
+  .value("REMOVE_DISABLED", Urho3D::AutoRemoveMode::REMOVE_DISABLED)
+  .value("REMOVE_COMPONENT", Urho3D::AutoRemoveMode::REMOVE_COMPONENT)
+  .value("REMOVE_NODE", Urho3D::AutoRemoveMode::REMOVE_NODE)
+  .export_values()
+;
+
+// Enum Urho3D::ScriptInstanceMethod Registrations
+auto pyclass_Var_Urho3D_ScriptInstanceMethod = py::enum_<Urho3D::ScriptInstanceMethod>(pyclass_Var_Urho3D, "ScriptInstanceMethod", py::arithmetic(), "test doc")
+  .value("METHOD_START", Urho3D::ScriptInstanceMethod::METHOD_START)
+  .value("METHOD_STOP", Urho3D::ScriptInstanceMethod::METHOD_STOP)
+  .value("METHOD_DELAYEDSTART", Urho3D::ScriptInstanceMethod::METHOD_DELAYEDSTART)
+  .value("METHOD_UPDATE", Urho3D::ScriptInstanceMethod::METHOD_UPDATE)
+  .value("METHOD_POSTUPDATE", Urho3D::ScriptInstanceMethod::METHOD_POSTUPDATE)
+  .value("METHOD_FIXEDUPDATE", Urho3D::ScriptInstanceMethod::METHOD_FIXEDUPDATE)
+  .value("METHOD_FIXEDPOSTUPDATE", Urho3D::ScriptInstanceMethod::METHOD_FIXEDPOSTUPDATE)
+  .value("METHOD_LOAD", Urho3D::ScriptInstanceMethod::METHOD_LOAD)
+  .value("METHOD_SAVE", Urho3D::ScriptInstanceMethod::METHOD_SAVE)
+  .value("METHOD_READNETWORKUPDATE", Urho3D::ScriptInstanceMethod::METHOD_READNETWORKUPDATE)
+  .value("METHOD_WRITENETWORKUPDATE", Urho3D::ScriptInstanceMethod::METHOD_WRITENETWORKUPDATE)
+  .value("METHOD_APPLYATTRIBUTES", Urho3D::ScriptInstanceMethod::METHOD_APPLYATTRIBUTES)
+  .value("METHOD_TRANSFORMCHANGED", Urho3D::ScriptInstanceMethod::METHOD_TRANSFORMCHANGED)
+  .value("MAX_SCRIPT_METHODS", Urho3D::ScriptInstanceMethod::MAX_SCRIPT_METHODS)
+  .export_values()
+;
+
+// Enum Urho3D::PrimitiveType Registrations
+auto pyclass_Var_Urho3D_PrimitiveType = py::enum_<Urho3D::PrimitiveType>(pyclass_Var_Urho3D, "PrimitiveType", py::arithmetic(), "test doc")
+  .value("TRIANGLE_LIST", Urho3D::PrimitiveType::TRIANGLE_LIST)
+  .value("LINE_LIST", Urho3D::PrimitiveType::LINE_LIST)
+  .value("POINT_LIST", Urho3D::PrimitiveType::POINT_LIST)
+  .value("TRIANGLE_STRIP", Urho3D::PrimitiveType::TRIANGLE_STRIP)
+  .value("LINE_STRIP", Urho3D::PrimitiveType::LINE_STRIP)
+  .value("TRIANGLE_FAN", Urho3D::PrimitiveType::TRIANGLE_FAN)
+  .export_values()
+;
+
+// Enum Urho3D::GeometryType Registrations
+auto pyclass_Var_Urho3D_GeometryType = py::enum_<Urho3D::GeometryType>(pyclass_Var_Urho3D, "GeometryType", py::arithmetic(), "test doc")
+  .value("GEOM_STATIC", Urho3D::GeometryType::GEOM_STATIC)
+  .value("GEOM_SKINNED", Urho3D::GeometryType::GEOM_SKINNED)
+  .value("GEOM_INSTANCED", Urho3D::GeometryType::GEOM_INSTANCED)
+  .value("GEOM_BILLBOARD", Urho3D::GeometryType::GEOM_BILLBOARD)
+  .value("GEOM_DIRBILLBOARD", Urho3D::GeometryType::GEOM_DIRBILLBOARD)
+  .value("GEOM_TRAIL_FACE_CAMERA", Urho3D::GeometryType::GEOM_TRAIL_FACE_CAMERA)
+  .value("GEOM_TRAIL_BONE", Urho3D::GeometryType::GEOM_TRAIL_BONE)
+  .value("MAX_GEOMETRYTYPES", Urho3D::GeometryType::MAX_GEOMETRYTYPES)
+  .value("GEOM_STATIC_NOINSTANCING", Urho3D::GeometryType::GEOM_STATIC_NOINSTANCING)
+  .export_values()
+;
+
+// Enum Urho3D::BlendMode Registrations
+auto pyclass_Var_Urho3D_BlendMode = py::enum_<Urho3D::BlendMode>(pyclass_Var_Urho3D, "BlendMode", py::arithmetic(), "test doc")
+  .value("BLEND_REPLACE", Urho3D::BlendMode::BLEND_REPLACE)
+  .value("BLEND_ADD", Urho3D::BlendMode::BLEND_ADD)
+  .value("BLEND_MULTIPLY", Urho3D::BlendMode::BLEND_MULTIPLY)
+  .value("BLEND_ALPHA", Urho3D::BlendMode::BLEND_ALPHA)
+  .value("BLEND_ADDALPHA", Urho3D::BlendMode::BLEND_ADDALPHA)
+  .value("BLEND_PREMULALPHA", Urho3D::BlendMode::BLEND_PREMULALPHA)
+  .value("BLEND_INVDESTALPHA", Urho3D::BlendMode::BLEND_INVDESTALPHA)
+  .value("BLEND_SUBTRACT", Urho3D::BlendMode::BLEND_SUBTRACT)
+  .value("BLEND_SUBTRACTALPHA", Urho3D::BlendMode::BLEND_SUBTRACTALPHA)
+  .value("MAX_BLENDMODES", Urho3D::BlendMode::MAX_BLENDMODES)
+  .export_values()
+;
+
+// Enum Urho3D::CompareMode Registrations
+auto pyclass_Var_Urho3D_CompareMode = py::enum_<Urho3D::CompareMode>(pyclass_Var_Urho3D, "CompareMode", py::arithmetic(), "test doc")
+  .value("CMP_ALWAYS", Urho3D::CompareMode::CMP_ALWAYS)
+  .value("CMP_EQUAL", Urho3D::CompareMode::CMP_EQUAL)
+  .value("CMP_NOTEQUAL", Urho3D::CompareMode::CMP_NOTEQUAL)
+  .value("CMP_LESS", Urho3D::CompareMode::CMP_LESS)
+  .value("CMP_LESSEQUAL", Urho3D::CompareMode::CMP_LESSEQUAL)
+  .value("CMP_GREATER", Urho3D::CompareMode::CMP_GREATER)
+  .value("CMP_GREATEREQUAL", Urho3D::CompareMode::CMP_GREATEREQUAL)
+  .value("MAX_COMPAREMODES", Urho3D::CompareMode::MAX_COMPAREMODES)
+  .export_values()
+;
+
+// Enum Urho3D::CullMode Registrations
+auto pyclass_Var_Urho3D_CullMode = py::enum_<Urho3D::CullMode>(pyclass_Var_Urho3D, "CullMode", py::arithmetic(), "test doc")
+  .value("CULL_NONE", Urho3D::CullMode::CULL_NONE)
+  .value("CULL_CCW", Urho3D::CullMode::CULL_CCW)
+  .value("CULL_CW", Urho3D::CullMode::CULL_CW)
+  .value("MAX_CULLMODES", Urho3D::CullMode::MAX_CULLMODES)
+  .export_values()
+;
+
+// Enum Urho3D::FillMode Registrations
+auto pyclass_Var_Urho3D_FillMode = py::enum_<Urho3D::FillMode>(pyclass_Var_Urho3D, "FillMode", py::arithmetic(), "test doc")
+  .value("FILL_SOLID", Urho3D::FillMode::FILL_SOLID)
+  .value("FILL_WIREFRAME", Urho3D::FillMode::FILL_WIREFRAME)
+  .value("FILL_POINT", Urho3D::FillMode::FILL_POINT)
+  .export_values()
+;
+
+// Enum Urho3D::StencilOp Registrations
+auto pyclass_Var_Urho3D_StencilOp = py::enum_<Urho3D::StencilOp>(pyclass_Var_Urho3D, "StencilOp", py::arithmetic(), "test doc")
+  .value("OP_KEEP", Urho3D::StencilOp::OP_KEEP)
+  .value("OP_ZERO", Urho3D::StencilOp::OP_ZERO)
+  .value("OP_REF", Urho3D::StencilOp::OP_REF)
+  .value("OP_INCR", Urho3D::StencilOp::OP_INCR)
+  .value("OP_DECR", Urho3D::StencilOp::OP_DECR)
+  .export_values()
+;
+
+// Enum Urho3D::LockState Registrations
+auto pyclass_Var_Urho3D_LockState = py::enum_<Urho3D::LockState>(pyclass_Var_Urho3D, "LockState", py::arithmetic(), "test doc")
+  .value("LOCK_NONE", Urho3D::LockState::LOCK_NONE)
+  .value("LOCK_HARDWARE", Urho3D::LockState::LOCK_HARDWARE)
+  .value("LOCK_SHADOW", Urho3D::LockState::LOCK_SHADOW)
+  .value("LOCK_SCRATCH", Urho3D::LockState::LOCK_SCRATCH)
+  .export_values()
+;
+
+// Enum Urho3D::LegacyVertexElement Registrations
+auto pyclass_Var_Urho3D_LegacyVertexElement = py::enum_<Urho3D::LegacyVertexElement>(pyclass_Var_Urho3D, "LegacyVertexElement", py::arithmetic(), "test doc")
+  .value("ELEMENT_POSITION", Urho3D::LegacyVertexElement::ELEMENT_POSITION)
+  .value("ELEMENT_NORMAL", Urho3D::LegacyVertexElement::ELEMENT_NORMAL)
+  .value("ELEMENT_COLOR", Urho3D::LegacyVertexElement::ELEMENT_COLOR)
+  .value("ELEMENT_TEXCOORD1", Urho3D::LegacyVertexElement::ELEMENT_TEXCOORD1)
+  .value("ELEMENT_TEXCOORD2", Urho3D::LegacyVertexElement::ELEMENT_TEXCOORD2)
+  .value("ELEMENT_CUBETEXCOORD1", Urho3D::LegacyVertexElement::ELEMENT_CUBETEXCOORD1)
+  .value("ELEMENT_CUBETEXCOORD2", Urho3D::LegacyVertexElement::ELEMENT_CUBETEXCOORD2)
+  .value("ELEMENT_TANGENT", Urho3D::LegacyVertexElement::ELEMENT_TANGENT)
+  .value("ELEMENT_BLENDWEIGHTS", Urho3D::LegacyVertexElement::ELEMENT_BLENDWEIGHTS)
+  .value("ELEMENT_BLENDINDICES", Urho3D::LegacyVertexElement::ELEMENT_BLENDINDICES)
+  .value("ELEMENT_INSTANCEMATRIX1", Urho3D::LegacyVertexElement::ELEMENT_INSTANCEMATRIX1)
+  .value("ELEMENT_INSTANCEMATRIX2", Urho3D::LegacyVertexElement::ELEMENT_INSTANCEMATRIX2)
+  .value("ELEMENT_INSTANCEMATRIX3", Urho3D::LegacyVertexElement::ELEMENT_INSTANCEMATRIX3)
+  .value("ELEMENT_OBJECTINDEX", Urho3D::LegacyVertexElement::ELEMENT_OBJECTINDEX)
+  .value("MAX_LEGACY_VERTEX_ELEMENTS", Urho3D::LegacyVertexElement::MAX_LEGACY_VERTEX_ELEMENTS)
+  .export_values()
+;
+
+// Enum Urho3D::VertexElementType Registrations
+auto pyclass_Var_Urho3D_VertexElementType = py::enum_<Urho3D::VertexElementType>(pyclass_Var_Urho3D, "VertexElementType", py::arithmetic(), "test doc")
+  .value("TYPE_INT", Urho3D::VertexElementType::TYPE_INT)
+  .value("TYPE_FLOAT", Urho3D::VertexElementType::TYPE_FLOAT)
+  .value("TYPE_VECTOR2", Urho3D::VertexElementType::TYPE_VECTOR2)
+  .value("TYPE_VECTOR3", Urho3D::VertexElementType::TYPE_VECTOR3)
+  .value("TYPE_VECTOR4", Urho3D::VertexElementType::TYPE_VECTOR4)
+  .value("TYPE_UBYTE4", Urho3D::VertexElementType::TYPE_UBYTE4)
+  .value("TYPE_UBYTE4_NORM", Urho3D::VertexElementType::TYPE_UBYTE4_NORM)
+  .value("MAX_VERTEX_ELEMENT_TYPES", Urho3D::VertexElementType::MAX_VERTEX_ELEMENT_TYPES)
+  .export_values()
+;
+
+// Enum Urho3D::VertexElementSemantic Registrations
+auto pyclass_Var_Urho3D_VertexElementSemantic = py::enum_<Urho3D::VertexElementSemantic>(pyclass_Var_Urho3D, "VertexElementSemantic", py::arithmetic(), "test doc")
+  .value("SEM_POSITION", Urho3D::VertexElementSemantic::SEM_POSITION)
+  .value("SEM_NORMAL", Urho3D::VertexElementSemantic::SEM_NORMAL)
+  .value("SEM_BINORMAL", Urho3D::VertexElementSemantic::SEM_BINORMAL)
+  .value("SEM_TANGENT", Urho3D::VertexElementSemantic::SEM_TANGENT)
+  .value("SEM_TEXCOORD", Urho3D::VertexElementSemantic::SEM_TEXCOORD)
+  .value("SEM_COLOR", Urho3D::VertexElementSemantic::SEM_COLOR)
+  .value("SEM_BLENDWEIGHTS", Urho3D::VertexElementSemantic::SEM_BLENDWEIGHTS)
+  .value("SEM_BLENDINDICES", Urho3D::VertexElementSemantic::SEM_BLENDINDICES)
+  .value("SEM_OBJECTINDEX", Urho3D::VertexElementSemantic::SEM_OBJECTINDEX)
+  .value("MAX_VERTEX_ELEMENT_SEMANTICS", Urho3D::VertexElementSemantic::MAX_VERTEX_ELEMENT_SEMANTICS)
+  .export_values()
+;
+
+// Enum Urho3D::TextureFilterMode Registrations
+auto pyclass_Var_Urho3D_TextureFilterMode = py::enum_<Urho3D::TextureFilterMode>(pyclass_Var_Urho3D, "TextureFilterMode", py::arithmetic(), "test doc")
+  .value("FILTER_NEAREST", Urho3D::TextureFilterMode::FILTER_NEAREST)
+  .value("FILTER_BILINEAR", Urho3D::TextureFilterMode::FILTER_BILINEAR)
+  .value("FILTER_TRILINEAR", Urho3D::TextureFilterMode::FILTER_TRILINEAR)
+  .value("FILTER_ANISOTROPIC", Urho3D::TextureFilterMode::FILTER_ANISOTROPIC)
+  .value("FILTER_NEAREST_ANISOTROPIC", Urho3D::TextureFilterMode::FILTER_NEAREST_ANISOTROPIC)
+  .value("FILTER_DEFAULT", Urho3D::TextureFilterMode::FILTER_DEFAULT)
+  .value("MAX_FILTERMODES", Urho3D::TextureFilterMode::MAX_FILTERMODES)
+  .export_values()
+;
+
+// Enum Urho3D::TextureAddressMode Registrations
+auto pyclass_Var_Urho3D_TextureAddressMode = py::enum_<Urho3D::TextureAddressMode>(pyclass_Var_Urho3D, "TextureAddressMode", py::arithmetic(), "test doc")
+  .value("ADDRESS_WRAP", Urho3D::TextureAddressMode::ADDRESS_WRAP)
+  .value("ADDRESS_MIRROR", Urho3D::TextureAddressMode::ADDRESS_MIRROR)
+  .value("ADDRESS_CLAMP", Urho3D::TextureAddressMode::ADDRESS_CLAMP)
+  .value("ADDRESS_BORDER", Urho3D::TextureAddressMode::ADDRESS_BORDER)
+  .value("MAX_ADDRESSMODES", Urho3D::TextureAddressMode::MAX_ADDRESSMODES)
+  .export_values()
+;
+
+// Enum Urho3D::TextureCoordinate Registrations
+auto pyclass_Var_Urho3D_TextureCoordinate = py::enum_<Urho3D::TextureCoordinate>(pyclass_Var_Urho3D, "TextureCoordinate", py::arithmetic(), "test doc")
+  .value("COORD_U", Urho3D::TextureCoordinate::COORD_U)
+  .value("COORD_V", Urho3D::TextureCoordinate::COORD_V)
+  .value("COORD_W", Urho3D::TextureCoordinate::COORD_W)
+  .value("MAX_COORDS", Urho3D::TextureCoordinate::MAX_COORDS)
+  .export_values()
+;
+
+// Enum Urho3D::TextureUsage Registrations
+auto pyclass_Var_Urho3D_TextureUsage = py::enum_<Urho3D::TextureUsage>(pyclass_Var_Urho3D, "TextureUsage", py::arithmetic(), "test doc")
+  .value("TEXTURE_STATIC", Urho3D::TextureUsage::TEXTURE_STATIC)
+  .value("TEXTURE_DYNAMIC", Urho3D::TextureUsage::TEXTURE_DYNAMIC)
+  .value("TEXTURE_RENDERTARGET", Urho3D::TextureUsage::TEXTURE_RENDERTARGET)
+  .value("TEXTURE_DEPTHSTENCIL", Urho3D::TextureUsage::TEXTURE_DEPTHSTENCIL)
+  .export_values()
+;
+
+// Enum Urho3D::CubeMapFace Registrations
+auto pyclass_Var_Urho3D_CubeMapFace = py::enum_<Urho3D::CubeMapFace>(pyclass_Var_Urho3D, "CubeMapFace", py::arithmetic(), "test doc")
+  .value("FACE_POSITIVE_X", Urho3D::CubeMapFace::FACE_POSITIVE_X)
+  .value("FACE_NEGATIVE_X", Urho3D::CubeMapFace::FACE_NEGATIVE_X)
+  .value("FACE_POSITIVE_Y", Urho3D::CubeMapFace::FACE_POSITIVE_Y)
+  .value("FACE_NEGATIVE_Y", Urho3D::CubeMapFace::FACE_NEGATIVE_Y)
+  .value("FACE_POSITIVE_Z", Urho3D::CubeMapFace::FACE_POSITIVE_Z)
+  .value("FACE_NEGATIVE_Z", Urho3D::CubeMapFace::FACE_NEGATIVE_Z)
+  .value("MAX_CUBEMAP_FACES", Urho3D::CubeMapFace::MAX_CUBEMAP_FACES)
+  .export_values()
+;
+
+// Enum Urho3D::CubeMapLayout Registrations
+auto pyclass_Var_Urho3D_CubeMapLayout = py::enum_<Urho3D::CubeMapLayout>(pyclass_Var_Urho3D, "CubeMapLayout", py::arithmetic(), "test doc")
+  .value("CML_HORIZONTAL", Urho3D::CubeMapLayout::CML_HORIZONTAL)
+  .value("CML_HORIZONTALNVIDIA", Urho3D::CubeMapLayout::CML_HORIZONTALNVIDIA)
+  .value("CML_HORIZONTALCROSS", Urho3D::CubeMapLayout::CML_HORIZONTALCROSS)
+  .value("CML_VERTICALCROSS", Urho3D::CubeMapLayout::CML_VERTICALCROSS)
+  .value("CML_BLENDER", Urho3D::CubeMapLayout::CML_BLENDER)
+  .export_values()
+;
+
+// Enum Urho3D::RenderSurfaceUpdateMode Registrations
+auto pyclass_Var_Urho3D_RenderSurfaceUpdateMode = py::enum_<Urho3D::RenderSurfaceUpdateMode>(pyclass_Var_Urho3D, "RenderSurfaceUpdateMode", py::arithmetic(), "test doc")
+  .value("SURFACE_MANUALUPDATE", Urho3D::RenderSurfaceUpdateMode::SURFACE_MANUALUPDATE)
+  .value("SURFACE_UPDATEVISIBLE", Urho3D::RenderSurfaceUpdateMode::SURFACE_UPDATEVISIBLE)
+  .value("SURFACE_UPDATEALWAYS", Urho3D::RenderSurfaceUpdateMode::SURFACE_UPDATEALWAYS)
+  .export_values()
+;
+
+// Enum Urho3D::ShaderType Registrations
+auto pyclass_Var_Urho3D_ShaderType = py::enum_<Urho3D::ShaderType>(pyclass_Var_Urho3D, "ShaderType", py::arithmetic(), "test doc")
+  .value("VS", Urho3D::ShaderType::VS)
+  .value("PS", Urho3D::ShaderType::PS)
+  .export_values()
+;
+
+// Enum Urho3D::ShaderParameterGroup Registrations
+auto pyclass_Var_Urho3D_ShaderParameterGroup = py::enum_<Urho3D::ShaderParameterGroup>(pyclass_Var_Urho3D, "ShaderParameterGroup", py::arithmetic(), "test doc")
+  .value("SP_FRAME", Urho3D::ShaderParameterGroup::SP_FRAME)
+  .value("SP_CAMERA", Urho3D::ShaderParameterGroup::SP_CAMERA)
+  .value("SP_ZONE", Urho3D::ShaderParameterGroup::SP_ZONE)
+  .value("SP_LIGHT", Urho3D::ShaderParameterGroup::SP_LIGHT)
+  .value("SP_MATERIAL", Urho3D::ShaderParameterGroup::SP_MATERIAL)
+  .value("SP_OBJECT", Urho3D::ShaderParameterGroup::SP_OBJECT)
+  .value("SP_CUSTOM", Urho3D::ShaderParameterGroup::SP_CUSTOM)
+  .value("MAX_SHADER_PARAMETER_GROUPS", Urho3D::ShaderParameterGroup::MAX_SHADER_PARAMETER_GROUPS)
+  .export_values()
+;
+
+// Enum Urho3D::TextureUnit Registrations
+auto pyclass_Var_Urho3D_TextureUnit = py::enum_<Urho3D::TextureUnit>(pyclass_Var_Urho3D, "TextureUnit", py::arithmetic(), "test doc")
+  .value("TU_DIFFUSE", Urho3D::TextureUnit::TU_DIFFUSE)
+  .value("TU_ALBEDOBUFFER", Urho3D::TextureUnit::TU_ALBEDOBUFFER)
+  .value("TU_NORMAL", Urho3D::TextureUnit::TU_NORMAL)
+  .value("TU_NORMALBUFFER", Urho3D::TextureUnit::TU_NORMALBUFFER)
+  .value("TU_SPECULAR", Urho3D::TextureUnit::TU_SPECULAR)
+  .value("TU_EMISSIVE", Urho3D::TextureUnit::TU_EMISSIVE)
+  .value("TU_ENVIRONMENT", Urho3D::TextureUnit::TU_ENVIRONMENT)
+  .value("TU_VOLUMEMAP", Urho3D::TextureUnit::TU_VOLUMEMAP)
+  .value("TU_CUSTOM1", Urho3D::TextureUnit::TU_CUSTOM1)
+  .value("TU_CUSTOM2", Urho3D::TextureUnit::TU_CUSTOM2)
+  .value("TU_LIGHTRAMP", Urho3D::TextureUnit::TU_LIGHTRAMP)
+  .value("TU_LIGHTSHAPE", Urho3D::TextureUnit::TU_LIGHTSHAPE)
+  .value("TU_SHADOWMAP", Urho3D::TextureUnit::TU_SHADOWMAP)
+  .value("TU_FACESELECT", Urho3D::TextureUnit::TU_FACESELECT)
+  .value("TU_INDIRECTION", Urho3D::TextureUnit::TU_INDIRECTION)
+  .value("TU_DEPTHBUFFER", Urho3D::TextureUnit::TU_DEPTHBUFFER)
+  .value("TU_LIGHTBUFFER", Urho3D::TextureUnit::TU_LIGHTBUFFER)
+  .value("TU_ZONE", Urho3D::TextureUnit::TU_ZONE)
+  .value("MAX_MATERIAL_TEXTURE_UNITS", Urho3D::TextureUnit::MAX_MATERIAL_TEXTURE_UNITS)
+  .value("MAX_TEXTURE_UNITS", Urho3D::TextureUnit::MAX_TEXTURE_UNITS)
+  .export_values()
+;
+
+// Enum Urho3D::FaceCameraMode Registrations
+auto pyclass_Var_Urho3D_FaceCameraMode = py::enum_<Urho3D::FaceCameraMode>(pyclass_Var_Urho3D, "FaceCameraMode", py::arithmetic(), "test doc")
+  .value("FC_NONE", Urho3D::FaceCameraMode::FC_NONE)
+  .value("FC_ROTATE_XYZ", Urho3D::FaceCameraMode::FC_ROTATE_XYZ)
+  .value("FC_ROTATE_Y", Urho3D::FaceCameraMode::FC_ROTATE_Y)
+  .value("FC_LOOKAT_XYZ", Urho3D::FaceCameraMode::FC_LOOKAT_XYZ)
+  .value("FC_LOOKAT_Y", Urho3D::FaceCameraMode::FC_LOOKAT_Y)
+  .value("FC_LOOKAT_MIXED", Urho3D::FaceCameraMode::FC_LOOKAT_MIXED)
+  .value("FC_DIRECTION", Urho3D::FaceCameraMode::FC_DIRECTION)
+  .export_values()
+;
+
+// Enum Urho3D::ShadowQuality Registrations
+auto pyclass_Var_Urho3D_ShadowQuality = py::enum_<Urho3D::ShadowQuality>(pyclass_Var_Urho3D, "ShadowQuality", py::arithmetic(), "test doc")
+  .value("SHADOWQUALITY_SIMPLE_16BIT", Urho3D::ShadowQuality::SHADOWQUALITY_SIMPLE_16BIT)
+  .value("SHADOWQUALITY_SIMPLE_24BIT", Urho3D::ShadowQuality::SHADOWQUALITY_SIMPLE_24BIT)
+  .value("SHADOWQUALITY_PCF_16BIT", Urho3D::ShadowQuality::SHADOWQUALITY_PCF_16BIT)
+  .value("SHADOWQUALITY_PCF_24BIT", Urho3D::ShadowQuality::SHADOWQUALITY_PCF_24BIT)
+  .value("SHADOWQUALITY_VSM", Urho3D::ShadowQuality::SHADOWQUALITY_VSM)
+  .value("SHADOWQUALITY_BLUR_VSM", Urho3D::ShadowQuality::SHADOWQUALITY_BLUR_VSM)
+  .export_values()
+;
+
+// Enum Urho3D::MaterialQuality Registrations
+auto pyclass_Var_Urho3D_MaterialQuality = py::enum_<Urho3D::MaterialQuality>(pyclass_Var_Urho3D, "MaterialQuality", py::arithmetic(), "test doc")
+  .value("QUALITY_LOW", Urho3D::MaterialQuality::QUALITY_LOW)
+  .value("QUALITY_MEDIUM", Urho3D::MaterialQuality::QUALITY_MEDIUM)
+  .value("QUALITY_HIGH", Urho3D::MaterialQuality::QUALITY_HIGH)
+  .value("QUALITY_MAX", Urho3D::MaterialQuality::QUALITY_MAX)
+  .export_values()
+;
+
+// Enum Urho3D::ClearTarget Registrations
+auto pyclass_Var_Urho3D_ClearTarget = py::enum_<Urho3D::ClearTarget>(pyclass_Var_Urho3D, "ClearTarget", py::arithmetic(), "test doc")
+  .value("CLEAR_COLOR", Urho3D::ClearTarget::CLEAR_COLOR)
+  .value("CLEAR_DEPTH", Urho3D::ClearTarget::CLEAR_DEPTH)
+  .value("CLEAR_STENCIL", Urho3D::ClearTarget::CLEAR_STENCIL)
+  .export_values()
+;
+
+// Enum Urho3D::VertexMask Registrations
+auto pyclass_Var_Urho3D_VertexMask = py::enum_<Urho3D::VertexMask>(pyclass_Var_Urho3D, "VertexMask", py::arithmetic(), "test doc")
+  .value("MASK_NONE", Urho3D::VertexMask::MASK_NONE)
+  .value("MASK_POSITION", Urho3D::VertexMask::MASK_POSITION)
+  .value("MASK_NORMAL", Urho3D::VertexMask::MASK_NORMAL)
+  .value("MASK_COLOR", Urho3D::VertexMask::MASK_COLOR)
+  .value("MASK_TEXCOORD1", Urho3D::VertexMask::MASK_TEXCOORD1)
+  .value("MASK_TEXCOORD2", Urho3D::VertexMask::MASK_TEXCOORD2)
+  .value("MASK_CUBETEXCOORD1", Urho3D::VertexMask::MASK_CUBETEXCOORD1)
+  .value("MASK_CUBETEXCOORD2", Urho3D::VertexMask::MASK_CUBETEXCOORD2)
+  .value("MASK_TANGENT", Urho3D::VertexMask::MASK_TANGENT)
+  .value("MASK_BLENDWEIGHTS", Urho3D::VertexMask::MASK_BLENDWEIGHTS)
+  .value("MASK_BLENDINDICES", Urho3D::VertexMask::MASK_BLENDINDICES)
+  .value("MASK_INSTANCEMATRIX1", Urho3D::VertexMask::MASK_INSTANCEMATRIX1)
+  .value("MASK_INSTANCEMATRIX2", Urho3D::VertexMask::MASK_INSTANCEMATRIX2)
+  .value("MASK_INSTANCEMATRIX3", Urho3D::VertexMask::MASK_INSTANCEMATRIX3)
+  .value("MASK_OBJECTINDEX", Urho3D::VertexMask::MASK_OBJECTINDEX)
+  .export_values()
+;
+
+// Enum Urho3D::UpdateGeometryType Registrations
+auto pyclass_Var_Urho3D_UpdateGeometryType = py::enum_<Urho3D::UpdateGeometryType>(pyclass_Var_Urho3D, "UpdateGeometryType", py::arithmetic(), "test doc")
+  .value("UPDATE_NONE", Urho3D::UpdateGeometryType::UPDATE_NONE)
+  .value("UPDATE_MAIN_THREAD", Urho3D::UpdateGeometryType::UPDATE_MAIN_THREAD)
+  .value("UPDATE_WORKER_THREAD", Urho3D::UpdateGeometryType::UPDATE_WORKER_THREAD)
+  .export_values()
+;
+
+// Enum Urho3D::JSONValueType Registrations
+auto pyclass_Var_Urho3D_JSONValueType = py::enum_<Urho3D::JSONValueType>(pyclass_Var_Urho3D, "JSONValueType", py::arithmetic(), "test doc")
+  .value("JSON_NULL", Urho3D::JSONValueType::JSON_NULL)
+  .value("JSON_BOOL", Urho3D::JSONValueType::JSON_BOOL)
+  .value("JSON_NUMBER", Urho3D::JSONValueType::JSON_NUMBER)
+  .value("JSON_STRING", Urho3D::JSONValueType::JSON_STRING)
+  .value("JSON_ARRAY", Urho3D::JSONValueType::JSON_ARRAY)
+  .value("JSON_OBJECT", Urho3D::JSONValueType::JSON_OBJECT)
+  .export_values()
+;
+
+// Enum Urho3D::JSONNumberType Registrations
+auto pyclass_Var_Urho3D_JSONNumberType = py::enum_<Urho3D::JSONNumberType>(pyclass_Var_Urho3D, "JSONNumberType", py::arithmetic(), "test doc")
+  .value("JSONNT_NAN", Urho3D::JSONNumberType::JSONNT_NAN)
+  .value("JSONNT_INT", Urho3D::JSONNumberType::JSONNT_INT)
+  .value("JSONNT_UINT", Urho3D::JSONNumberType::JSONNT_UINT)
+  .value("JSONNT_FLOAT_DOUBLE", Urho3D::JSONNumberType::JSONNT_FLOAT_DOUBLE)
+  .export_values()
+;
+
+// Enum Urho3D::AsyncLoadState Registrations
+auto pyclass_Var_Urho3D_AsyncLoadState = py::enum_<Urho3D::AsyncLoadState>(pyclass_Var_Urho3D, "AsyncLoadState", py::arithmetic(), "test doc")
+  .value("ASYNC_DONE", Urho3D::AsyncLoadState::ASYNC_DONE)
+  .value("ASYNC_QUEUED", Urho3D::AsyncLoadState::ASYNC_QUEUED)
+  .value("ASYNC_LOADING", Urho3D::AsyncLoadState::ASYNC_LOADING)
+  .value("ASYNC_SUCCESS", Urho3D::AsyncLoadState::ASYNC_SUCCESS)
+  .value("ASYNC_FAIL", Urho3D::AsyncLoadState::ASYNC_FAIL)
+  .export_values()
+;
+
+// Enum Urho3D::FileMode Registrations
+auto pyclass_Var_Urho3D_FileMode = py::enum_<Urho3D::FileMode>(pyclass_Var_Urho3D, "FileMode", py::arithmetic(), "test doc")
+  .value("FILE_READ", Urho3D::FileMode::FILE_READ)
+  .value("FILE_WRITE", Urho3D::FileMode::FILE_WRITE)
+  .value("FILE_READWRITE", Urho3D::FileMode::FILE_READWRITE)
+  .export_values()
+;
+
+// Enum Urho3D::CreateMode Registrations
+auto pyclass_Var_Urho3D_CreateMode = py::enum_<Urho3D::CreateMode>(pyclass_Var_Urho3D, "CreateMode", py::arithmetic(), "test doc")
+  .value("REPLICATED", Urho3D::CreateMode::REPLICATED)
+  .value("LOCAL", Urho3D::CreateMode::LOCAL)
+  .export_values()
+;
+
+// Enum Urho3D::TransformSpace Registrations
+auto pyclass_Var_Urho3D_TransformSpace = py::enum_<Urho3D::TransformSpace>(pyclass_Var_Urho3D, "TransformSpace", py::arithmetic(), "test doc")
+  .value("TS_LOCAL", Urho3D::TransformSpace::TS_LOCAL)
+  .value("TS_PARENT", Urho3D::TransformSpace::TS_PARENT)
+  .value("TS_WORLD", Urho3D::TransformSpace::TS_WORLD)
+  .export_values()
+;
+
+// Enum Urho3D::MouseButton Registrations
+auto pyclass_Var_Urho3D_MouseButton = py::enum_<Urho3D::MouseButton>(pyclass_Var_Urho3D, "MouseButton", py::arithmetic(), "test doc")
+  .value("MOUSEB_NONE", Urho3D::MouseButton::MOUSEB_NONE)
+  .value("MOUSEB_LEFT", Urho3D::MouseButton::MOUSEB_LEFT)
+  .value("MOUSEB_MIDDLE", Urho3D::MouseButton::MOUSEB_MIDDLE)
+  .value("MOUSEB_RIGHT", Urho3D::MouseButton::MOUSEB_RIGHT)
+  .value("MOUSEB_X1", Urho3D::MouseButton::MOUSEB_X1)
+  .value("MOUSEB_X2", Urho3D::MouseButton::MOUSEB_X2)
+  .value("MOUSEB_ANY", Urho3D::MouseButton::MOUSEB_ANY)
+  .export_values()
+;
+
+// Enum Urho3D::Qualifier Registrations
+auto pyclass_Var_Urho3D_Qualifier = py::enum_<Urho3D::Qualifier>(pyclass_Var_Urho3D, "Qualifier", py::arithmetic(), "test doc")
+  .value("QUAL_NONE", Urho3D::Qualifier::QUAL_NONE)
+  .value("QUAL_SHIFT", Urho3D::Qualifier::QUAL_SHIFT)
+  .value("QUAL_CTRL", Urho3D::Qualifier::QUAL_CTRL)
+  .value("QUAL_ALT", Urho3D::Qualifier::QUAL_ALT)
+  .value("QUAL_ANY", Urho3D::Qualifier::QUAL_ANY)
+  .export_values()
+;
+
+// Enum Urho3D::Key Registrations
+auto pyclass_Var_Urho3D_Key = py::enum_<Urho3D::Key>(pyclass_Var_Urho3D, "Key", py::arithmetic(), "test doc")
+  .value("KEY_UNKNOWN", Urho3D::Key::KEY_UNKNOWN)
+  .value("KEY_A", Urho3D::Key::KEY_A)
+  .value("KEY_B", Urho3D::Key::KEY_B)
+  .value("KEY_C", Urho3D::Key::KEY_C)
+  .value("KEY_D", Urho3D::Key::KEY_D)
+  .value("KEY_E", Urho3D::Key::KEY_E)
+  .value("KEY_F", Urho3D::Key::KEY_F)
+  .value("KEY_G", Urho3D::Key::KEY_G)
+  .value("KEY_H", Urho3D::Key::KEY_H)
+  .value("KEY_I", Urho3D::Key::KEY_I)
+  .value("KEY_J", Urho3D::Key::KEY_J)
+  .value("KEY_K", Urho3D::Key::KEY_K)
+  .value("KEY_L", Urho3D::Key::KEY_L)
+  .value("KEY_M", Urho3D::Key::KEY_M)
+  .value("KEY_N", Urho3D::Key::KEY_N)
+  .value("KEY_O", Urho3D::Key::KEY_O)
+  .value("KEY_P", Urho3D::Key::KEY_P)
+  .value("KEY_Q", Urho3D::Key::KEY_Q)
+  .value("KEY_R", Urho3D::Key::KEY_R)
+  .value("KEY_S", Urho3D::Key::KEY_S)
+  .value("KEY_T", Urho3D::Key::KEY_T)
+  .value("KEY_U", Urho3D::Key::KEY_U)
+  .value("KEY_V", Urho3D::Key::KEY_V)
+  .value("KEY_W", Urho3D::Key::KEY_W)
+  .value("KEY_X", Urho3D::Key::KEY_X)
+  .value("KEY_Y", Urho3D::Key::KEY_Y)
+  .value("KEY_Z", Urho3D::Key::KEY_Z)
+  .value("KEY_0", Urho3D::Key::KEY_0)
+  .value("KEY_1", Urho3D::Key::KEY_1)
+  .value("KEY_2", Urho3D::Key::KEY_2)
+  .value("KEY_3", Urho3D::Key::KEY_3)
+  .value("KEY_4", Urho3D::Key::KEY_4)
+  .value("KEY_5", Urho3D::Key::KEY_5)
+  .value("KEY_6", Urho3D::Key::KEY_6)
+  .value("KEY_7", Urho3D::Key::KEY_7)
+  .value("KEY_8", Urho3D::Key::KEY_8)
+  .value("KEY_9", Urho3D::Key::KEY_9)
+  .value("KEY_BACKSPACE", Urho3D::Key::KEY_BACKSPACE)
+  .value("KEY_TAB", Urho3D::Key::KEY_TAB)
+  .value("KEY_RETURN", Urho3D::Key::KEY_RETURN)
+  .value("KEY_RETURN2", Urho3D::Key::KEY_RETURN2)
+  .value("KEY_KP_ENTER", Urho3D::Key::KEY_KP_ENTER)
+  .value("KEY_SHIFT", Urho3D::Key::KEY_SHIFT)
+  .value("KEY_CTRL", Urho3D::Key::KEY_CTRL)
+  .value("KEY_ALT", Urho3D::Key::KEY_ALT)
+  .value("KEY_GUI", Urho3D::Key::KEY_GUI)
+  .value("KEY_PAUSE", Urho3D::Key::KEY_PAUSE)
+  .value("KEY_CAPSLOCK", Urho3D::Key::KEY_CAPSLOCK)
+  .value("KEY_ESCAPE", Urho3D::Key::KEY_ESCAPE)
+  .value("KEY_SPACE", Urho3D::Key::KEY_SPACE)
+  .value("KEY_PAGEUP", Urho3D::Key::KEY_PAGEUP)
+  .value("KEY_PAGEDOWN", Urho3D::Key::KEY_PAGEDOWN)
+  .value("KEY_END", Urho3D::Key::KEY_END)
+  .value("KEY_HOME", Urho3D::Key::KEY_HOME)
+  .value("KEY_LEFT", Urho3D::Key::KEY_LEFT)
+  .value("KEY_UP", Urho3D::Key::KEY_UP)
+  .value("KEY_RIGHT", Urho3D::Key::KEY_RIGHT)
+  .value("KEY_DOWN", Urho3D::Key::KEY_DOWN)
+  .value("KEY_SELECT", Urho3D::Key::KEY_SELECT)
+  .value("KEY_PRINTSCREEN", Urho3D::Key::KEY_PRINTSCREEN)
+  .value("KEY_INSERT", Urho3D::Key::KEY_INSERT)
+  .value("KEY_DELETE", Urho3D::Key::KEY_DELETE)
+  .value("KEY_LGUI", Urho3D::Key::KEY_LGUI)
+  .value("KEY_RGUI", Urho3D::Key::KEY_RGUI)
+  .value("KEY_APPLICATION", Urho3D::Key::KEY_APPLICATION)
+  .value("KEY_KP_0", Urho3D::Key::KEY_KP_0)
+  .value("KEY_KP_1", Urho3D::Key::KEY_KP_1)
+  .value("KEY_KP_2", Urho3D::Key::KEY_KP_2)
+  .value("KEY_KP_3", Urho3D::Key::KEY_KP_3)
+  .value("KEY_KP_4", Urho3D::Key::KEY_KP_4)
+  .value("KEY_KP_5", Urho3D::Key::KEY_KP_5)
+  .value("KEY_KP_6", Urho3D::Key::KEY_KP_6)
+  .value("KEY_KP_7", Urho3D::Key::KEY_KP_7)
+  .value("KEY_KP_8", Urho3D::Key::KEY_KP_8)
+  .value("KEY_KP_9", Urho3D::Key::KEY_KP_9)
+  .value("KEY_KP_MULTIPLY", Urho3D::Key::KEY_KP_MULTIPLY)
+  .value("KEY_KP_PLUS", Urho3D::Key::KEY_KP_PLUS)
+  .value("KEY_KP_MINUS", Urho3D::Key::KEY_KP_MINUS)
+  .value("KEY_KP_PERIOD", Urho3D::Key::KEY_KP_PERIOD)
+  .value("KEY_KP_DIVIDE", Urho3D::Key::KEY_KP_DIVIDE)
+  .value("KEY_F1", Urho3D::Key::KEY_F1)
+  .value("KEY_F2", Urho3D::Key::KEY_F2)
+  .value("KEY_F3", Urho3D::Key::KEY_F3)
+  .value("KEY_F4", Urho3D::Key::KEY_F4)
+  .value("KEY_F5", Urho3D::Key::KEY_F5)
+  .value("KEY_F6", Urho3D::Key::KEY_F6)
+  .value("KEY_F7", Urho3D::Key::KEY_F7)
+  .value("KEY_F8", Urho3D::Key::KEY_F8)
+  .value("KEY_F9", Urho3D::Key::KEY_F9)
+  .value("KEY_F10", Urho3D::Key::KEY_F10)
+  .value("KEY_F11", Urho3D::Key::KEY_F11)
+  .value("KEY_F12", Urho3D::Key::KEY_F12)
+  .value("KEY_F13", Urho3D::Key::KEY_F13)
+  .value("KEY_F14", Urho3D::Key::KEY_F14)
+  .value("KEY_F15", Urho3D::Key::KEY_F15)
+  .value("KEY_F16", Urho3D::Key::KEY_F16)
+  .value("KEY_F17", Urho3D::Key::KEY_F17)
+  .value("KEY_F18", Urho3D::Key::KEY_F18)
+  .value("KEY_F19", Urho3D::Key::KEY_F19)
+  .value("KEY_F20", Urho3D::Key::KEY_F20)
+  .value("KEY_F21", Urho3D::Key::KEY_F21)
+  .value("KEY_F22", Urho3D::Key::KEY_F22)
+  .value("KEY_F23", Urho3D::Key::KEY_F23)
+  .value("KEY_F24", Urho3D::Key::KEY_F24)
+  .value("KEY_NUMLOCKCLEAR", Urho3D::Key::KEY_NUMLOCKCLEAR)
+  .value("KEY_SCROLLLOCK", Urho3D::Key::KEY_SCROLLLOCK)
+  .value("KEY_LSHIFT", Urho3D::Key::KEY_LSHIFT)
+  .value("KEY_RSHIFT", Urho3D::Key::KEY_RSHIFT)
+  .value("KEY_LCTRL", Urho3D::Key::KEY_LCTRL)
+  .value("KEY_RCTRL", Urho3D::Key::KEY_RCTRL)
+  .value("KEY_LALT", Urho3D::Key::KEY_LALT)
+  .value("KEY_RALT", Urho3D::Key::KEY_RALT)
+  .value("KEY_AC_BACK", Urho3D::Key::KEY_AC_BACK)
+  .value("KEY_AC_BOOKMARKS", Urho3D::Key::KEY_AC_BOOKMARKS)
+  .value("KEY_AC_FORWARD", Urho3D::Key::KEY_AC_FORWARD)
+  .value("KEY_AC_HOME", Urho3D::Key::KEY_AC_HOME)
+  .value("KEY_AC_REFRESH", Urho3D::Key::KEY_AC_REFRESH)
+  .value("KEY_AC_SEARCH", Urho3D::Key::KEY_AC_SEARCH)
+  .value("KEY_AC_STOP", Urho3D::Key::KEY_AC_STOP)
+  .value("KEY_AGAIN", Urho3D::Key::KEY_AGAIN)
+  .value("KEY_ALTERASE", Urho3D::Key::KEY_ALTERASE)
+  .value("KEY_AMPERSAND", Urho3D::Key::KEY_AMPERSAND)
+  .value("KEY_ASTERISK", Urho3D::Key::KEY_ASTERISK)
+  .value("KEY_AT", Urho3D::Key::KEY_AT)
+  .value("KEY_AUDIOMUTE", Urho3D::Key::KEY_AUDIOMUTE)
+  .value("KEY_AUDIONEXT", Urho3D::Key::KEY_AUDIONEXT)
+  .value("KEY_AUDIOPLAY", Urho3D::Key::KEY_AUDIOPLAY)
+  .value("KEY_AUDIOPREV", Urho3D::Key::KEY_AUDIOPREV)
+  .value("KEY_AUDIOSTOP", Urho3D::Key::KEY_AUDIOSTOP)
+  .value("KEY_BACKQUOTE", Urho3D::Key::KEY_BACKQUOTE)
+  .value("KEY_BACKSLASH", Urho3D::Key::KEY_BACKSLASH)
+  .value("KEY_BRIGHTNESSDOWN", Urho3D::Key::KEY_BRIGHTNESSDOWN)
+  .value("KEY_BRIGHTNESSUP", Urho3D::Key::KEY_BRIGHTNESSUP)
+  .value("KEY_CALCULATOR", Urho3D::Key::KEY_CALCULATOR)
+  .value("KEY_CANCEL", Urho3D::Key::KEY_CANCEL)
+  .value("KEY_CARET", Urho3D::Key::KEY_CARET)
+  .value("KEY_CLEAR", Urho3D::Key::KEY_CLEAR)
+  .value("KEY_CLEARAGAIN", Urho3D::Key::KEY_CLEARAGAIN)
+  .value("KEY_COLON", Urho3D::Key::KEY_COLON)
+  .value("KEY_COMMA", Urho3D::Key::KEY_COMMA)
+  .value("KEY_COMPUTER", Urho3D::Key::KEY_COMPUTER)
+  .value("KEY_COPY", Urho3D::Key::KEY_COPY)
+  .value("KEY_CRSEL", Urho3D::Key::KEY_CRSEL)
+  .value("KEY_CURRENCYSUBUNIT", Urho3D::Key::KEY_CURRENCYSUBUNIT)
+  .value("KEY_CURRENCYUNIT", Urho3D::Key::KEY_CURRENCYUNIT)
+  .value("KEY_CUT", Urho3D::Key::KEY_CUT)
+  .value("KEY_DECIMALSEPARATOR", Urho3D::Key::KEY_DECIMALSEPARATOR)
+  .value("KEY_DISPLAYSWITCH", Urho3D::Key::KEY_DISPLAYSWITCH)
+  .value("KEY_DOLLAR", Urho3D::Key::KEY_DOLLAR)
+  .value("KEY_EJECT", Urho3D::Key::KEY_EJECT)
+  .value("KEY_EQUALS", Urho3D::Key::KEY_EQUALS)
+  .value("KEY_EXCLAIM", Urho3D::Key::KEY_EXCLAIM)
+  .value("KEY_EXSEL", Urho3D::Key::KEY_EXSEL)
+  .value("KEY_FIND", Urho3D::Key::KEY_FIND)
+  .value("KEY_GREATER", Urho3D::Key::KEY_GREATER)
+  .value("KEY_HASH", Urho3D::Key::KEY_HASH)
+  .value("KEY_HELP", Urho3D::Key::KEY_HELP)
+  .value("KEY_KBDILLUMDOWN", Urho3D::Key::KEY_KBDILLUMDOWN)
+  .value("KEY_KBDILLUMTOGGLE", Urho3D::Key::KEY_KBDILLUMTOGGLE)
+  .value("KEY_KBDILLUMUP", Urho3D::Key::KEY_KBDILLUMUP)
+  .value("KEY_KP_00", Urho3D::Key::KEY_KP_00)
+  .value("KEY_KP_000", Urho3D::Key::KEY_KP_000)
+  .value("KEY_KP_A", Urho3D::Key::KEY_KP_A)
+  .value("KEY_KP_AMPERSAND", Urho3D::Key::KEY_KP_AMPERSAND)
+  .value("KEY_KP_AT", Urho3D::Key::KEY_KP_AT)
+  .value("KEY_KP_B", Urho3D::Key::KEY_KP_B)
+  .value("KEY_KP_BACKSPACE", Urho3D::Key::KEY_KP_BACKSPACE)
+  .value("KEY_KP_BINARY", Urho3D::Key::KEY_KP_BINARY)
+  .value("KEY_KP_C", Urho3D::Key::KEY_KP_C)
+  .value("KEY_KP_CLEAR", Urho3D::Key::KEY_KP_CLEAR)
+  .value("KEY_KP_CLEARENTRY", Urho3D::Key::KEY_KP_CLEARENTRY)
+  .value("KEY_KP_COLON", Urho3D::Key::KEY_KP_COLON)
+  .value("KEY_KP_COMMA", Urho3D::Key::KEY_KP_COMMA)
+  .value("KEY_KP_D", Urho3D::Key::KEY_KP_D)
+  .value("KEY_KP_DBLAMPERSAND", Urho3D::Key::KEY_KP_DBLAMPERSAND)
+  .value("KEY_KP_DBLVERTICALBAR", Urho3D::Key::KEY_KP_DBLVERTICALBAR)
+  .value("KEY_KP_DECIMAL", Urho3D::Key::KEY_KP_DECIMAL)
+  .value("KEY_KP_E", Urho3D::Key::KEY_KP_E)
+  .value("KEY_KP_EQUALS", Urho3D::Key::KEY_KP_EQUALS)
+  .value("KEY_KP_EQUALSAS400", Urho3D::Key::KEY_KP_EQUALSAS400)
+  .value("KEY_KP_EXCLAM", Urho3D::Key::KEY_KP_EXCLAM)
+  .value("KEY_KP_F", Urho3D::Key::KEY_KP_F)
+  .value("KEY_KP_GREATER", Urho3D::Key::KEY_KP_GREATER)
+  .value("KEY_KP_HASH", Urho3D::Key::KEY_KP_HASH)
+  .value("KEY_KP_HEXADECIMAL", Urho3D::Key::KEY_KP_HEXADECIMAL)
+  .value("KEY_KP_LEFTBRACE", Urho3D::Key::KEY_KP_LEFTBRACE)
+  .value("KEY_KP_LEFTPAREN", Urho3D::Key::KEY_KP_LEFTPAREN)
+  .value("KEY_KP_LESS", Urho3D::Key::KEY_KP_LESS)
+  .value("KEY_KP_MEMADD", Urho3D::Key::KEY_KP_MEMADD)
+  .value("KEY_KP_MEMCLEAR", Urho3D::Key::KEY_KP_MEMCLEAR)
+  .value("KEY_KP_MEMDIVIDE", Urho3D::Key::KEY_KP_MEMDIVIDE)
+  .value("KEY_KP_MEMMULTIPLY", Urho3D::Key::KEY_KP_MEMMULTIPLY)
+  .value("KEY_KP_MEMRECALL", Urho3D::Key::KEY_KP_MEMRECALL)
+  .value("KEY_KP_MEMSTORE", Urho3D::Key::KEY_KP_MEMSTORE)
+  .value("KEY_KP_MEMSUBTRACT", Urho3D::Key::KEY_KP_MEMSUBTRACT)
+  .value("KEY_KP_OCTAL", Urho3D::Key::KEY_KP_OCTAL)
+  .value("KEY_KP_PERCENT", Urho3D::Key::KEY_KP_PERCENT)
+  .value("KEY_KP_PLUSMINUS", Urho3D::Key::KEY_KP_PLUSMINUS)
+  .value("KEY_KP_POWER", Urho3D::Key::KEY_KP_POWER)
+  .value("KEY_KP_RIGHTBRACE", Urho3D::Key::KEY_KP_RIGHTBRACE)
+  .value("KEY_KP_RIGHTPAREN", Urho3D::Key::KEY_KP_RIGHTPAREN)
+  .value("KEY_KP_SPACE", Urho3D::Key::KEY_KP_SPACE)
+  .value("KEY_KP_TAB", Urho3D::Key::KEY_KP_TAB)
+  .value("KEY_KP_VERTICALBAR", Urho3D::Key::KEY_KP_VERTICALBAR)
+  .value("KEY_KP_XOR", Urho3D::Key::KEY_KP_XOR)
+  .value("KEY_LEFTBRACKET", Urho3D::Key::KEY_LEFTBRACKET)
+  .value("KEY_LEFTPAREN", Urho3D::Key::KEY_LEFTPAREN)
+  .value("KEY_LESS", Urho3D::Key::KEY_LESS)
+  .value("KEY_MAIL", Urho3D::Key::KEY_MAIL)
+  .value("KEY_MEDIASELECT", Urho3D::Key::KEY_MEDIASELECT)
+  .value("KEY_MENU", Urho3D::Key::KEY_MENU)
+  .value("KEY_MINUS", Urho3D::Key::KEY_MINUS)
+  .value("KEY_MODE", Urho3D::Key::KEY_MODE)
+  .value("KEY_MUTE", Urho3D::Key::KEY_MUTE)
+  .value("KEY_OPER", Urho3D::Key::KEY_OPER)
+  .value("KEY_OUT", Urho3D::Key::KEY_OUT)
+  .value("KEY_PASTE", Urho3D::Key::KEY_PASTE)
+  .value("KEY_PERCENT", Urho3D::Key::KEY_PERCENT)
+  .value("KEY_PERIOD", Urho3D::Key::KEY_PERIOD)
+  .value("KEY_PLUS", Urho3D::Key::KEY_PLUS)
+  .value("KEY_POWER", Urho3D::Key::KEY_POWER)
+  .value("KEY_PRIOR", Urho3D::Key::KEY_PRIOR)
+  .value("KEY_QUESTION", Urho3D::Key::KEY_QUESTION)
+  .value("KEY_QUOTE", Urho3D::Key::KEY_QUOTE)
+  .value("KEY_QUOTEDBL", Urho3D::Key::KEY_QUOTEDBL)
+  .value("KEY_RIGHTBRACKET", Urho3D::Key::KEY_RIGHTBRACKET)
+  .value("KEY_RIGHTPAREN", Urho3D::Key::KEY_RIGHTPAREN)
+  .value("KEY_SEMICOLON", Urho3D::Key::KEY_SEMICOLON)
+  .value("KEY_SEPARATOR", Urho3D::Key::KEY_SEPARATOR)
+  .value("KEY_SLASH", Urho3D::Key::KEY_SLASH)
+  .value("KEY_SLEEP", Urho3D::Key::KEY_SLEEP)
+  .value("KEY_STOP", Urho3D::Key::KEY_STOP)
+  .value("KEY_SYSREQ", Urho3D::Key::KEY_SYSREQ)
+  .value("KEY_THOUSANDSSEPARATOR", Urho3D::Key::KEY_THOUSANDSSEPARATOR)
+  .value("KEY_UNDERSCORE", Urho3D::Key::KEY_UNDERSCORE)
+  .value("KEY_UNDO", Urho3D::Key::KEY_UNDO)
+  .value("KEY_VOLUMEDOWN", Urho3D::Key::KEY_VOLUMEDOWN)
+  .value("KEY_VOLUMEUP", Urho3D::Key::KEY_VOLUMEUP)
+  .value("KEY_WWW", Urho3D::Key::KEY_WWW)
+  .export_values()
+;
+
+// Enum Urho3D::Scancode Registrations
+auto pyclass_Var_Urho3D_Scancode = py::enum_<Urho3D::Scancode>(pyclass_Var_Urho3D, "Scancode", py::arithmetic(), "test doc")
+  .value("SCANCODE_UNKNOWN", Urho3D::Scancode::SCANCODE_UNKNOWN)
+  .value("SCANCODE_CTRL", Urho3D::Scancode::SCANCODE_CTRL)
+  .value("SCANCODE_SHIFT", Urho3D::Scancode::SCANCODE_SHIFT)
+  .value("SCANCODE_ALT", Urho3D::Scancode::SCANCODE_ALT)
+  .value("SCANCODE_GUI", Urho3D::Scancode::SCANCODE_GUI)
+  .value("SCANCODE_A", Urho3D::Scancode::SCANCODE_A)
+  .value("SCANCODE_B", Urho3D::Scancode::SCANCODE_B)
+  .value("SCANCODE_C", Urho3D::Scancode::SCANCODE_C)
+  .value("SCANCODE_D", Urho3D::Scancode::SCANCODE_D)
+  .value("SCANCODE_E", Urho3D::Scancode::SCANCODE_E)
+  .value("SCANCODE_F", Urho3D::Scancode::SCANCODE_F)
+  .value("SCANCODE_G", Urho3D::Scancode::SCANCODE_G)
+  .value("SCANCODE_H", Urho3D::Scancode::SCANCODE_H)
+  .value("SCANCODE_I", Urho3D::Scancode::SCANCODE_I)
+  .value("SCANCODE_J", Urho3D::Scancode::SCANCODE_J)
+  .value("SCANCODE_K", Urho3D::Scancode::SCANCODE_K)
+  .value("SCANCODE_L", Urho3D::Scancode::SCANCODE_L)
+  .value("SCANCODE_M", Urho3D::Scancode::SCANCODE_M)
+  .value("SCANCODE_N", Urho3D::Scancode::SCANCODE_N)
+  .value("SCANCODE_O", Urho3D::Scancode::SCANCODE_O)
+  .value("SCANCODE_P", Urho3D::Scancode::SCANCODE_P)
+  .value("SCANCODE_Q", Urho3D::Scancode::SCANCODE_Q)
+  .value("SCANCODE_R", Urho3D::Scancode::SCANCODE_R)
+  .value("SCANCODE_S", Urho3D::Scancode::SCANCODE_S)
+  .value("SCANCODE_T", Urho3D::Scancode::SCANCODE_T)
+  .value("SCANCODE_U", Urho3D::Scancode::SCANCODE_U)
+  .value("SCANCODE_V", Urho3D::Scancode::SCANCODE_V)
+  .value("SCANCODE_W", Urho3D::Scancode::SCANCODE_W)
+  .value("SCANCODE_X", Urho3D::Scancode::SCANCODE_X)
+  .value("SCANCODE_Y", Urho3D::Scancode::SCANCODE_Y)
+  .value("SCANCODE_Z", Urho3D::Scancode::SCANCODE_Z)
+  .value("SCANCODE_1", Urho3D::Scancode::SCANCODE_1)
+  .value("SCANCODE_2", Urho3D::Scancode::SCANCODE_2)
+  .value("SCANCODE_3", Urho3D::Scancode::SCANCODE_3)
+  .value("SCANCODE_4", Urho3D::Scancode::SCANCODE_4)
+  .value("SCANCODE_5", Urho3D::Scancode::SCANCODE_5)
+  .value("SCANCODE_6", Urho3D::Scancode::SCANCODE_6)
+  .value("SCANCODE_7", Urho3D::Scancode::SCANCODE_7)
+  .value("SCANCODE_8", Urho3D::Scancode::SCANCODE_8)
+  .value("SCANCODE_9", Urho3D::Scancode::SCANCODE_9)
+  .value("SCANCODE_0", Urho3D::Scancode::SCANCODE_0)
+  .value("SCANCODE_RETURN", Urho3D::Scancode::SCANCODE_RETURN)
+  .value("SCANCODE_ESCAPE", Urho3D::Scancode::SCANCODE_ESCAPE)
+  .value("SCANCODE_BACKSPACE", Urho3D::Scancode::SCANCODE_BACKSPACE)
+  .value("SCANCODE_TAB", Urho3D::Scancode::SCANCODE_TAB)
+  .value("SCANCODE_SPACE", Urho3D::Scancode::SCANCODE_SPACE)
+  .value("SCANCODE_MINUS", Urho3D::Scancode::SCANCODE_MINUS)
+  .value("SCANCODE_EQUALS", Urho3D::Scancode::SCANCODE_EQUALS)
+  .value("SCANCODE_LEFTBRACKET", Urho3D::Scancode::SCANCODE_LEFTBRACKET)
+  .value("SCANCODE_RIGHTBRACKET", Urho3D::Scancode::SCANCODE_RIGHTBRACKET)
+  .value("SCANCODE_BACKSLASH", Urho3D::Scancode::SCANCODE_BACKSLASH)
+  .value("SCANCODE_NONUSHASH", Urho3D::Scancode::SCANCODE_NONUSHASH)
+  .value("SCANCODE_SEMICOLON", Urho3D::Scancode::SCANCODE_SEMICOLON)
+  .value("SCANCODE_APOSTROPHE", Urho3D::Scancode::SCANCODE_APOSTROPHE)
+  .value("SCANCODE_GRAVE", Urho3D::Scancode::SCANCODE_GRAVE)
+  .value("SCANCODE_COMMA", Urho3D::Scancode::SCANCODE_COMMA)
+  .value("SCANCODE_PERIOD", Urho3D::Scancode::SCANCODE_PERIOD)
+  .value("SCANCODE_SLASH", Urho3D::Scancode::SCANCODE_SLASH)
+  .value("SCANCODE_CAPSLOCK", Urho3D::Scancode::SCANCODE_CAPSLOCK)
+  .value("SCANCODE_F1", Urho3D::Scancode::SCANCODE_F1)
+  .value("SCANCODE_F2", Urho3D::Scancode::SCANCODE_F2)
+  .value("SCANCODE_F3", Urho3D::Scancode::SCANCODE_F3)
+  .value("SCANCODE_F4", Urho3D::Scancode::SCANCODE_F4)
+  .value("SCANCODE_F5", Urho3D::Scancode::SCANCODE_F5)
+  .value("SCANCODE_F6", Urho3D::Scancode::SCANCODE_F6)
+  .value("SCANCODE_F7", Urho3D::Scancode::SCANCODE_F7)
+  .value("SCANCODE_F8", Urho3D::Scancode::SCANCODE_F8)
+  .value("SCANCODE_F9", Urho3D::Scancode::SCANCODE_F9)
+  .value("SCANCODE_F10", Urho3D::Scancode::SCANCODE_F10)
+  .value("SCANCODE_F11", Urho3D::Scancode::SCANCODE_F11)
+  .value("SCANCODE_F12", Urho3D::Scancode::SCANCODE_F12)
+  .value("SCANCODE_PRINTSCREEN", Urho3D::Scancode::SCANCODE_PRINTSCREEN)
+  .value("SCANCODE_SCROLLLOCK", Urho3D::Scancode::SCANCODE_SCROLLLOCK)
+  .value("SCANCODE_PAUSE", Urho3D::Scancode::SCANCODE_PAUSE)
+  .value("SCANCODE_INSERT", Urho3D::Scancode::SCANCODE_INSERT)
+  .value("SCANCODE_HOME", Urho3D::Scancode::SCANCODE_HOME)
+  .value("SCANCODE_PAGEUP", Urho3D::Scancode::SCANCODE_PAGEUP)
+  .value("SCANCODE_DELETE", Urho3D::Scancode::SCANCODE_DELETE)
+  .value("SCANCODE_END", Urho3D::Scancode::SCANCODE_END)
+  .value("SCANCODE_PAGEDOWN", Urho3D::Scancode::SCANCODE_PAGEDOWN)
+  .value("SCANCODE_RIGHT", Urho3D::Scancode::SCANCODE_RIGHT)
+  .value("SCANCODE_LEFT", Urho3D::Scancode::SCANCODE_LEFT)
+  .value("SCANCODE_DOWN", Urho3D::Scancode::SCANCODE_DOWN)
+  .value("SCANCODE_UP", Urho3D::Scancode::SCANCODE_UP)
+  .value("SCANCODE_NUMLOCKCLEAR", Urho3D::Scancode::SCANCODE_NUMLOCKCLEAR)
+  .value("SCANCODE_KP_DIVIDE", Urho3D::Scancode::SCANCODE_KP_DIVIDE)
+  .value("SCANCODE_KP_MULTIPLY", Urho3D::Scancode::SCANCODE_KP_MULTIPLY)
+  .value("SCANCODE_KP_MINUS", Urho3D::Scancode::SCANCODE_KP_MINUS)
+  .value("SCANCODE_KP_PLUS", Urho3D::Scancode::SCANCODE_KP_PLUS)
+  .value("SCANCODE_KP_ENTER", Urho3D::Scancode::SCANCODE_KP_ENTER)
+  .value("SCANCODE_KP_1", Urho3D::Scancode::SCANCODE_KP_1)
+  .value("SCANCODE_KP_2", Urho3D::Scancode::SCANCODE_KP_2)
+  .value("SCANCODE_KP_3", Urho3D::Scancode::SCANCODE_KP_3)
+  .value("SCANCODE_KP_4", Urho3D::Scancode::SCANCODE_KP_4)
+  .value("SCANCODE_KP_5", Urho3D::Scancode::SCANCODE_KP_5)
+  .value("SCANCODE_KP_6", Urho3D::Scancode::SCANCODE_KP_6)
+  .value("SCANCODE_KP_7", Urho3D::Scancode::SCANCODE_KP_7)
+  .value("SCANCODE_KP_8", Urho3D::Scancode::SCANCODE_KP_8)
+  .value("SCANCODE_KP_9", Urho3D::Scancode::SCANCODE_KP_9)
+  .value("SCANCODE_KP_0", Urho3D::Scancode::SCANCODE_KP_0)
+  .value("SCANCODE_KP_PERIOD", Urho3D::Scancode::SCANCODE_KP_PERIOD)
+  .value("SCANCODE_NONUSBACKSLASH", Urho3D::Scancode::SCANCODE_NONUSBACKSLASH)
+  .value("SCANCODE_APPLICATION", Urho3D::Scancode::SCANCODE_APPLICATION)
+  .value("SCANCODE_POWER", Urho3D::Scancode::SCANCODE_POWER)
+  .value("SCANCODE_KP_EQUALS", Urho3D::Scancode::SCANCODE_KP_EQUALS)
+  .value("SCANCODE_F13", Urho3D::Scancode::SCANCODE_F13)
+  .value("SCANCODE_F14", Urho3D::Scancode::SCANCODE_F14)
+  .value("SCANCODE_F15", Urho3D::Scancode::SCANCODE_F15)
+  .value("SCANCODE_F16", Urho3D::Scancode::SCANCODE_F16)
+  .value("SCANCODE_F17", Urho3D::Scancode::SCANCODE_F17)
+  .value("SCANCODE_F18", Urho3D::Scancode::SCANCODE_F18)
+  .value("SCANCODE_F19", Urho3D::Scancode::SCANCODE_F19)
+  .value("SCANCODE_F20", Urho3D::Scancode::SCANCODE_F20)
+  .value("SCANCODE_F21", Urho3D::Scancode::SCANCODE_F21)
+  .value("SCANCODE_F22", Urho3D::Scancode::SCANCODE_F22)
+  .value("SCANCODE_F23", Urho3D::Scancode::SCANCODE_F23)
+  .value("SCANCODE_F24", Urho3D::Scancode::SCANCODE_F24)
+  .value("SCANCODE_EXECUTE", Urho3D::Scancode::SCANCODE_EXECUTE)
+  .value("SCANCODE_HELP", Urho3D::Scancode::SCANCODE_HELP)
+  .value("SCANCODE_MENU", Urho3D::Scancode::SCANCODE_MENU)
+  .value("SCANCODE_SELECT", Urho3D::Scancode::SCANCODE_SELECT)
+  .value("SCANCODE_STOP", Urho3D::Scancode::SCANCODE_STOP)
+  .value("SCANCODE_AGAIN", Urho3D::Scancode::SCANCODE_AGAIN)
+  .value("SCANCODE_UNDO", Urho3D::Scancode::SCANCODE_UNDO)
+  .value("SCANCODE_CUT", Urho3D::Scancode::SCANCODE_CUT)
+  .value("SCANCODE_COPY", Urho3D::Scancode::SCANCODE_COPY)
+  .value("SCANCODE_PASTE", Urho3D::Scancode::SCANCODE_PASTE)
+  .value("SCANCODE_FIND", Urho3D::Scancode::SCANCODE_FIND)
+  .value("SCANCODE_MUTE", Urho3D::Scancode::SCANCODE_MUTE)
+  .value("SCANCODE_VOLUMEUP", Urho3D::Scancode::SCANCODE_VOLUMEUP)
+  .value("SCANCODE_VOLUMEDOWN", Urho3D::Scancode::SCANCODE_VOLUMEDOWN)
+  .value("SCANCODE_KP_COMMA", Urho3D::Scancode::SCANCODE_KP_COMMA)
+  .value("SCANCODE_KP_EQUALSAS400", Urho3D::Scancode::SCANCODE_KP_EQUALSAS400)
+  .value("SCANCODE_INTERNATIONAL1", Urho3D::Scancode::SCANCODE_INTERNATIONAL1)
+  .value("SCANCODE_INTERNATIONAL2", Urho3D::Scancode::SCANCODE_INTERNATIONAL2)
+  .value("SCANCODE_INTERNATIONAL3", Urho3D::Scancode::SCANCODE_INTERNATIONAL3)
+  .value("SCANCODE_INTERNATIONAL4", Urho3D::Scancode::SCANCODE_INTERNATIONAL4)
+  .value("SCANCODE_INTERNATIONAL5", Urho3D::Scancode::SCANCODE_INTERNATIONAL5)
+  .value("SCANCODE_INTERNATIONAL6", Urho3D::Scancode::SCANCODE_INTERNATIONAL6)
+  .value("SCANCODE_INTERNATIONAL7", Urho3D::Scancode::SCANCODE_INTERNATIONAL7)
+  .value("SCANCODE_INTERNATIONAL8", Urho3D::Scancode::SCANCODE_INTERNATIONAL8)
+  .value("SCANCODE_INTERNATIONAL9", Urho3D::Scancode::SCANCODE_INTERNATIONAL9)
+  .value("SCANCODE_LANG1", Urho3D::Scancode::SCANCODE_LANG1)
+  .value("SCANCODE_LANG2", Urho3D::Scancode::SCANCODE_LANG2)
+  .value("SCANCODE_LANG3", Urho3D::Scancode::SCANCODE_LANG3)
+  .value("SCANCODE_LANG4", Urho3D::Scancode::SCANCODE_LANG4)
+  .value("SCANCODE_LANG5", Urho3D::Scancode::SCANCODE_LANG5)
+  .value("SCANCODE_LANG6", Urho3D::Scancode::SCANCODE_LANG6)
+  .value("SCANCODE_LANG7", Urho3D::Scancode::SCANCODE_LANG7)
+  .value("SCANCODE_LANG8", Urho3D::Scancode::SCANCODE_LANG8)
+  .value("SCANCODE_LANG9", Urho3D::Scancode::SCANCODE_LANG9)
+  .value("SCANCODE_ALTERASE", Urho3D::Scancode::SCANCODE_ALTERASE)
+  .value("SCANCODE_SYSREQ", Urho3D::Scancode::SCANCODE_SYSREQ)
+  .value("SCANCODE_CANCEL", Urho3D::Scancode::SCANCODE_CANCEL)
+  .value("SCANCODE_CLEAR", Urho3D::Scancode::SCANCODE_CLEAR)
+  .value("SCANCODE_PRIOR", Urho3D::Scancode::SCANCODE_PRIOR)
+  .value("SCANCODE_RETURN2", Urho3D::Scancode::SCANCODE_RETURN2)
+  .value("SCANCODE_SEPARATOR", Urho3D::Scancode::SCANCODE_SEPARATOR)
+  .value("SCANCODE_OUT", Urho3D::Scancode::SCANCODE_OUT)
+  .value("SCANCODE_OPER", Urho3D::Scancode::SCANCODE_OPER)
+  .value("SCANCODE_CLEARAGAIN", Urho3D::Scancode::SCANCODE_CLEARAGAIN)
+  .value("SCANCODE_CRSEL", Urho3D::Scancode::SCANCODE_CRSEL)
+  .value("SCANCODE_EXSEL", Urho3D::Scancode::SCANCODE_EXSEL)
+  .value("SCANCODE_KP_00", Urho3D::Scancode::SCANCODE_KP_00)
+  .value("SCANCODE_KP_000", Urho3D::Scancode::SCANCODE_KP_000)
+  .value("SCANCODE_THOUSANDSSEPARATOR", Urho3D::Scancode::SCANCODE_THOUSANDSSEPARATOR)
+  .value("SCANCODE_DECIMALSEPARATOR", Urho3D::Scancode::SCANCODE_DECIMALSEPARATOR)
+  .value("SCANCODE_CURRENCYUNIT", Urho3D::Scancode::SCANCODE_CURRENCYUNIT)
+  .value("SCANCODE_CURRENCYSUBUNIT", Urho3D::Scancode::SCANCODE_CURRENCYSUBUNIT)
+  .value("SCANCODE_KP_LEFTPAREN", Urho3D::Scancode::SCANCODE_KP_LEFTPAREN)
+  .value("SCANCODE_KP_RIGHTPAREN", Urho3D::Scancode::SCANCODE_KP_RIGHTPAREN)
+  .value("SCANCODE_KP_LEFTBRACE", Urho3D::Scancode::SCANCODE_KP_LEFTBRACE)
+  .value("SCANCODE_KP_RIGHTBRACE", Urho3D::Scancode::SCANCODE_KP_RIGHTBRACE)
+  .value("SCANCODE_KP_TAB", Urho3D::Scancode::SCANCODE_KP_TAB)
+  .value("SCANCODE_KP_BACKSPACE", Urho3D::Scancode::SCANCODE_KP_BACKSPACE)
+  .value("SCANCODE_KP_A", Urho3D::Scancode::SCANCODE_KP_A)
+  .value("SCANCODE_KP_B", Urho3D::Scancode::SCANCODE_KP_B)
+  .value("SCANCODE_KP_C", Urho3D::Scancode::SCANCODE_KP_C)
+  .value("SCANCODE_KP_D", Urho3D::Scancode::SCANCODE_KP_D)
+  .value("SCANCODE_KP_E", Urho3D::Scancode::SCANCODE_KP_E)
+  .value("SCANCODE_KP_F", Urho3D::Scancode::SCANCODE_KP_F)
+  .value("SCANCODE_KP_XOR", Urho3D::Scancode::SCANCODE_KP_XOR)
+  .value("SCANCODE_KP_POWER", Urho3D::Scancode::SCANCODE_KP_POWER)
+  .value("SCANCODE_KP_PERCENT", Urho3D::Scancode::SCANCODE_KP_PERCENT)
+  .value("SCANCODE_KP_LESS", Urho3D::Scancode::SCANCODE_KP_LESS)
+  .value("SCANCODE_KP_GREATER", Urho3D::Scancode::SCANCODE_KP_GREATER)
+  .value("SCANCODE_KP_AMPERSAND", Urho3D::Scancode::SCANCODE_KP_AMPERSAND)
+  .value("SCANCODE_KP_DBLAMPERSAND", Urho3D::Scancode::SCANCODE_KP_DBLAMPERSAND)
+  .value("SCANCODE_KP_VERTICALBAR", Urho3D::Scancode::SCANCODE_KP_VERTICALBAR)
+  .value("SCANCODE_KP_DBLVERTICALBAR", Urho3D::Scancode::SCANCODE_KP_DBLVERTICALBAR)
+  .value("SCANCODE_KP_COLON", Urho3D::Scancode::SCANCODE_KP_COLON)
+  .value("SCANCODE_KP_HASH", Urho3D::Scancode::SCANCODE_KP_HASH)
+  .value("SCANCODE_KP_SPACE", Urho3D::Scancode::SCANCODE_KP_SPACE)
+  .value("SCANCODE_KP_AT", Urho3D::Scancode::SCANCODE_KP_AT)
+  .value("SCANCODE_KP_EXCLAM", Urho3D::Scancode::SCANCODE_KP_EXCLAM)
+  .value("SCANCODE_KP_MEMSTORE", Urho3D::Scancode::SCANCODE_KP_MEMSTORE)
+  .value("SCANCODE_KP_MEMRECALL", Urho3D::Scancode::SCANCODE_KP_MEMRECALL)
+  .value("SCANCODE_KP_MEMCLEAR", Urho3D::Scancode::SCANCODE_KP_MEMCLEAR)
+  .value("SCANCODE_KP_MEMADD", Urho3D::Scancode::SCANCODE_KP_MEMADD)
+  .value("SCANCODE_KP_MEMSUBTRACT", Urho3D::Scancode::SCANCODE_KP_MEMSUBTRACT)
+  .value("SCANCODE_KP_MEMMULTIPLY", Urho3D::Scancode::SCANCODE_KP_MEMMULTIPLY)
+  .value("SCANCODE_KP_MEMDIVIDE", Urho3D::Scancode::SCANCODE_KP_MEMDIVIDE)
+  .value("SCANCODE_KP_PLUSMINUS", Urho3D::Scancode::SCANCODE_KP_PLUSMINUS)
+  .value("SCANCODE_KP_CLEAR", Urho3D::Scancode::SCANCODE_KP_CLEAR)
+  .value("SCANCODE_KP_CLEARENTRY", Urho3D::Scancode::SCANCODE_KP_CLEARENTRY)
+  .value("SCANCODE_KP_BINARY", Urho3D::Scancode::SCANCODE_KP_BINARY)
+  .value("SCANCODE_KP_OCTAL", Urho3D::Scancode::SCANCODE_KP_OCTAL)
+  .value("SCANCODE_KP_DECIMAL", Urho3D::Scancode::SCANCODE_KP_DECIMAL)
+  .value("SCANCODE_KP_HEXADECIMAL", Urho3D::Scancode::SCANCODE_KP_HEXADECIMAL)
+  .value("SCANCODE_LCTRL", Urho3D::Scancode::SCANCODE_LCTRL)
+  .value("SCANCODE_LSHIFT", Urho3D::Scancode::SCANCODE_LSHIFT)
+  .value("SCANCODE_LALT", Urho3D::Scancode::SCANCODE_LALT)
+  .value("SCANCODE_LGUI", Urho3D::Scancode::SCANCODE_LGUI)
+  .value("SCANCODE_RCTRL", Urho3D::Scancode::SCANCODE_RCTRL)
+  .value("SCANCODE_RSHIFT", Urho3D::Scancode::SCANCODE_RSHIFT)
+  .value("SCANCODE_RALT", Urho3D::Scancode::SCANCODE_RALT)
+  .value("SCANCODE_RGUI", Urho3D::Scancode::SCANCODE_RGUI)
+  .value("SCANCODE_MODE", Urho3D::Scancode::SCANCODE_MODE)
+  .value("SCANCODE_AUDIONEXT", Urho3D::Scancode::SCANCODE_AUDIONEXT)
+  .value("SCANCODE_AUDIOPREV", Urho3D::Scancode::SCANCODE_AUDIOPREV)
+  .value("SCANCODE_AUDIOSTOP", Urho3D::Scancode::SCANCODE_AUDIOSTOP)
+  .value("SCANCODE_AUDIOPLAY", Urho3D::Scancode::SCANCODE_AUDIOPLAY)
+  .value("SCANCODE_AUDIOMUTE", Urho3D::Scancode::SCANCODE_AUDIOMUTE)
+  .value("SCANCODE_MEDIASELECT", Urho3D::Scancode::SCANCODE_MEDIASELECT)
+  .value("SCANCODE_WWW", Urho3D::Scancode::SCANCODE_WWW)
+  .value("SCANCODE_MAIL", Urho3D::Scancode::SCANCODE_MAIL)
+  .value("SCANCODE_CALCULATOR", Urho3D::Scancode::SCANCODE_CALCULATOR)
+  .value("SCANCODE_COMPUTER", Urho3D::Scancode::SCANCODE_COMPUTER)
+  .value("SCANCODE_AC_SEARCH", Urho3D::Scancode::SCANCODE_AC_SEARCH)
+  .value("SCANCODE_AC_HOME", Urho3D::Scancode::SCANCODE_AC_HOME)
+  .value("SCANCODE_AC_BACK", Urho3D::Scancode::SCANCODE_AC_BACK)
+  .value("SCANCODE_AC_FORWARD", Urho3D::Scancode::SCANCODE_AC_FORWARD)
+  .value("SCANCODE_AC_STOP", Urho3D::Scancode::SCANCODE_AC_STOP)
+  .value("SCANCODE_AC_REFRESH", Urho3D::Scancode::SCANCODE_AC_REFRESH)
+  .value("SCANCODE_AC_BOOKMARKS", Urho3D::Scancode::SCANCODE_AC_BOOKMARKS)
+  .value("SCANCODE_BRIGHTNESSDOWN", Urho3D::Scancode::SCANCODE_BRIGHTNESSDOWN)
+  .value("SCANCODE_BRIGHTNESSUP", Urho3D::Scancode::SCANCODE_BRIGHTNESSUP)
+  .value("SCANCODE_DISPLAYSWITCH", Urho3D::Scancode::SCANCODE_DISPLAYSWITCH)
+  .value("SCANCODE_KBDILLUMTOGGLE", Urho3D::Scancode::SCANCODE_KBDILLUMTOGGLE)
+  .value("SCANCODE_KBDILLUMDOWN", Urho3D::Scancode::SCANCODE_KBDILLUMDOWN)
+  .value("SCANCODE_KBDILLUMUP", Urho3D::Scancode::SCANCODE_KBDILLUMUP)
+  .value("SCANCODE_EJECT", Urho3D::Scancode::SCANCODE_EJECT)
+  .value("SCANCODE_SLEEP", Urho3D::Scancode::SCANCODE_SLEEP)
+  .value("SCANCODE_APP1", Urho3D::Scancode::SCANCODE_APP1)
+  .value("SCANCODE_APP2", Urho3D::Scancode::SCANCODE_APP2)
+  .export_values()
+;
+
+// Enum Urho3D::HatPosition Registrations
+auto pyclass_Var_Urho3D_HatPosition = py::enum_<Urho3D::HatPosition>(pyclass_Var_Urho3D, "HatPosition", py::arithmetic(), "test doc")
+  .value("HAT_CENTER", Urho3D::HatPosition::HAT_CENTER)
+  .value("HAT_UP", Urho3D::HatPosition::HAT_UP)
+  .value("HAT_RIGHT", Urho3D::HatPosition::HAT_RIGHT)
+  .value("HAT_DOWN", Urho3D::HatPosition::HAT_DOWN)
+  .value("HAT_LEFT", Urho3D::HatPosition::HAT_LEFT)
+  .export_values()
+;
+
+// Enum Urho3D::ControllerButton Registrations
+auto pyclass_Var_Urho3D_ControllerButton = py::enum_<Urho3D::ControllerButton>(pyclass_Var_Urho3D, "ControllerButton", py::arithmetic(), "test doc")
+  .value("CONTROLLER_BUTTON_A", Urho3D::ControllerButton::CONTROLLER_BUTTON_A)
+  .value("CONTROLLER_BUTTON_B", Urho3D::ControllerButton::CONTROLLER_BUTTON_B)
+  .value("CONTROLLER_BUTTON_X", Urho3D::ControllerButton::CONTROLLER_BUTTON_X)
+  .value("CONTROLLER_BUTTON_Y", Urho3D::ControllerButton::CONTROLLER_BUTTON_Y)
+  .value("CONTROLLER_BUTTON_BACK", Urho3D::ControllerButton::CONTROLLER_BUTTON_BACK)
+  .value("CONTROLLER_BUTTON_GUIDE", Urho3D::ControllerButton::CONTROLLER_BUTTON_GUIDE)
+  .value("CONTROLLER_BUTTON_START", Urho3D::ControllerButton::CONTROLLER_BUTTON_START)
+  .value("CONTROLLER_BUTTON_LEFTSTICK", Urho3D::ControllerButton::CONTROLLER_BUTTON_LEFTSTICK)
+  .value("CONTROLLER_BUTTON_RIGHTSTICK", Urho3D::ControllerButton::CONTROLLER_BUTTON_RIGHTSTICK)
+  .value("CONTROLLER_BUTTON_LEFTSHOULDER", Urho3D::ControllerButton::CONTROLLER_BUTTON_LEFTSHOULDER)
+  .value("CONTROLLER_BUTTON_RIGHTSHOULDER", Urho3D::ControllerButton::CONTROLLER_BUTTON_RIGHTSHOULDER)
+  .value("CONTROLLER_BUTTON_DPAD_UP", Urho3D::ControllerButton::CONTROLLER_BUTTON_DPAD_UP)
+  .value("CONTROLLER_BUTTON_DPAD_DOWN", Urho3D::ControllerButton::CONTROLLER_BUTTON_DPAD_DOWN)
+  .value("CONTROLLER_BUTTON_DPAD_LEFT", Urho3D::ControllerButton::CONTROLLER_BUTTON_DPAD_LEFT)
+  .value("CONTROLLER_BUTTON_DPAD_RIGHT", Urho3D::ControllerButton::CONTROLLER_BUTTON_DPAD_RIGHT)
+  .export_values()
+;
+
+// Enum Urho3D::ControllerAxis Registrations
+auto pyclass_Var_Urho3D_ControllerAxis = py::enum_<Urho3D::ControllerAxis>(pyclass_Var_Urho3D, "ControllerAxis", py::arithmetic(), "test doc")
+  .value("CONTROLLER_AXIS_LEFTX", Urho3D::ControllerAxis::CONTROLLER_AXIS_LEFTX)
+  .value("CONTROLLER_AXIS_LEFTY", Urho3D::ControllerAxis::CONTROLLER_AXIS_LEFTY)
+  .value("CONTROLLER_AXIS_RIGHTX", Urho3D::ControllerAxis::CONTROLLER_AXIS_RIGHTX)
+  .value("CONTROLLER_AXIS_RIGHTY", Urho3D::ControllerAxis::CONTROLLER_AXIS_RIGHTY)
+  .value("CONTROLLER_AXIS_TRIGGERLEFT", Urho3D::ControllerAxis::CONTROLLER_AXIS_TRIGGERLEFT)
+  .value("CONTROLLER_AXIS_TRIGGERRIGHT", Urho3D::ControllerAxis::CONTROLLER_AXIS_TRIGGERRIGHT)
+  .export_values()
+;
+
+// Enum Urho3D::FrustumPlane Registrations
+auto pyclass_Var_Urho3D_FrustumPlane = py::enum_<Urho3D::FrustumPlane>(pyclass_Var_Urho3D, "FrustumPlane", py::arithmetic(), "test doc")
+  .value("PLANE_NEAR", Urho3D::FrustumPlane::PLANE_NEAR)
+  .value("PLANE_LEFT", Urho3D::FrustumPlane::PLANE_LEFT)
+  .value("PLANE_RIGHT", Urho3D::FrustumPlane::PLANE_RIGHT)
+  .value("PLANE_UP", Urho3D::FrustumPlane::PLANE_UP)
+  .value("PLANE_DOWN", Urho3D::FrustumPlane::PLANE_DOWN)
+  .value("PLANE_FAR", Urho3D::FrustumPlane::PLANE_FAR)
+  .export_values()
+;
+
+// Enum Urho3D::LightType Registrations
+auto pyclass_Var_Urho3D_LightType = py::enum_<Urho3D::LightType>(pyclass_Var_Urho3D, "LightType", py::arithmetic(), "test doc")
+  .value("LIGHT_DIRECTIONAL", Urho3D::LightType::LIGHT_DIRECTIONAL)
+  .value("LIGHT_SPOT", Urho3D::LightType::LIGHT_SPOT)
+  .value("LIGHT_POINT", Urho3D::LightType::LIGHT_POINT)
+  .export_values()
+;
+
+// Enum Urho3D::HorizontalAlignment Registrations
+auto pyclass_Var_Urho3D_HorizontalAlignment = py::enum_<Urho3D::HorizontalAlignment>(pyclass_Var_Urho3D, "HorizontalAlignment", py::arithmetic(), "test doc")
+  .value("HA_LEFT", Urho3D::HorizontalAlignment::HA_LEFT)
+  .value("HA_CENTER", Urho3D::HorizontalAlignment::HA_CENTER)
+  .value("HA_RIGHT", Urho3D::HorizontalAlignment::HA_RIGHT)
+  .value("HA_CUSTOM", Urho3D::HorizontalAlignment::HA_CUSTOM)
+  .export_values()
+;
+
+// Enum Urho3D::VerticalAlignment Registrations
+auto pyclass_Var_Urho3D_VerticalAlignment = py::enum_<Urho3D::VerticalAlignment>(pyclass_Var_Urho3D, "VerticalAlignment", py::arithmetic(), "test doc")
+  .value("VA_TOP", Urho3D::VerticalAlignment::VA_TOP)
+  .value("VA_CENTER", Urho3D::VerticalAlignment::VA_CENTER)
+  .value("VA_BOTTOM", Urho3D::VerticalAlignment::VA_BOTTOM)
+  .value("VA_CUSTOM", Urho3D::VerticalAlignment::VA_CUSTOM)
+  .export_values()
+;
+
+// Enum Urho3D::Corner Registrations
+auto pyclass_Var_Urho3D_Corner = py::enum_<Urho3D::Corner>(pyclass_Var_Urho3D, "Corner", py::arithmetic(), "test doc")
+  .value("C_TOPLEFT", Urho3D::Corner::C_TOPLEFT)
+  .value("C_TOPRIGHT", Urho3D::Corner::C_TOPRIGHT)
+  .value("C_BOTTOMLEFT", Urho3D::Corner::C_BOTTOMLEFT)
+  .value("C_BOTTOMRIGHT", Urho3D::Corner::C_BOTTOMRIGHT)
+  .value("MAX_UIELEMENT_CORNERS", Urho3D::Corner::MAX_UIELEMENT_CORNERS)
+  .export_values()
+;
+
+// Enum Urho3D::Orientation Registrations
+auto pyclass_Var_Urho3D_Orientation = py::enum_<Urho3D::Orientation>(pyclass_Var_Urho3D, "Orientation", py::arithmetic(), "test doc")
+  .value("O_HORIZONTAL", Urho3D::Orientation::O_HORIZONTAL)
+  .value("O_VERTICAL", Urho3D::Orientation::O_VERTICAL)
+  .export_values()
+;
+
+// Enum Urho3D::FocusMode Registrations
+auto pyclass_Var_Urho3D_FocusMode = py::enum_<Urho3D::FocusMode>(pyclass_Var_Urho3D, "FocusMode", py::arithmetic(), "test doc")
+  .value("FM_NOTFOCUSABLE", Urho3D::FocusMode::FM_NOTFOCUSABLE)
+  .value("FM_RESETFOCUS", Urho3D::FocusMode::FM_RESETFOCUS)
+  .value("FM_FOCUSABLE", Urho3D::FocusMode::FM_FOCUSABLE)
+  .value("FM_FOCUSABLE_DEFOCUSABLE", Urho3D::FocusMode::FM_FOCUSABLE_DEFOCUSABLE)
+  .export_values()
+;
+
+// Enum Urho3D::LayoutMode Registrations
+auto pyclass_Var_Urho3D_LayoutMode = py::enum_<Urho3D::LayoutMode>(pyclass_Var_Urho3D, "LayoutMode", py::arithmetic(), "test doc")
+  .value("LM_FREE", Urho3D::LayoutMode::LM_FREE)
+  .value("LM_HORIZONTAL", Urho3D::LayoutMode::LM_HORIZONTAL)
+  .value("LM_VERTICAL", Urho3D::LayoutMode::LM_VERTICAL)
+  .export_values()
+;
+
+// Enum Urho3D::TraversalMode Registrations
+auto pyclass_Var_Urho3D_TraversalMode = py::enum_<Urho3D::TraversalMode>(pyclass_Var_Urho3D, "TraversalMode", py::arithmetic(), "test doc")
+  .value("TM_BREADTH_FIRST", Urho3D::TraversalMode::TM_BREADTH_FIRST)
+  .value("TM_DEPTH_FIRST", Urho3D::TraversalMode::TM_DEPTH_FIRST)
+  .export_values()
+;
+
+// Enum Urho3D::DragAndDropMode Registrations
+auto pyclass_Var_Urho3D_DragAndDropMode = py::enum_<Urho3D::DragAndDropMode>(pyclass_Var_Urho3D, "DragAndDropMode", py::arithmetic(), "test doc")
+  .value("DD_DISABLED", Urho3D::DragAndDropMode::DD_DISABLED)
+  .value("DD_SOURCE", Urho3D::DragAndDropMode::DD_SOURCE)
+  .value("DD_TARGET", Urho3D::DragAndDropMode::DD_TARGET)
+  .value("DD_SOURCE_AND_TARGET", Urho3D::DragAndDropMode::DD_SOURCE_AND_TARGET)
+  .export_values()
+;
+
+// Enum Urho3D::InterpolationMode Registrations
+auto pyclass_Var_Urho3D_InterpolationMode = py::enum_<Urho3D::InterpolationMode>(pyclass_Var_Urho3D, "InterpolationMode", py::arithmetic(), "test doc")
+  .value("BEZIER_CURVE", Urho3D::InterpolationMode::BEZIER_CURVE)
+  .value("CATMULL_ROM_CURVE", Urho3D::InterpolationMode::CATMULL_ROM_CURVE)
+  .value("LINEAR_CURVE", Urho3D::InterpolationMode::LINEAR_CURVE)
+  .value("CATMULL_ROM_FULL_CURVE", Urho3D::InterpolationMode::CATMULL_ROM_FULL_CURVE)
+  .export_values()
+;
+
+// Enum Urho3D::BoneCollisionShape Registrations
+auto pyclass_Var_Urho3D_BoneCollisionShape = py::enum_<Urho3D::BoneCollisionShape>(pyclass_Var_Urho3D, "BoneCollisionShape", py::arithmetic(), "test doc")
+  .value("BONECOLLISION_NONE", Urho3D::BoneCollisionShape::BONECOLLISION_NONE)
+  .value("BONECOLLISION_SPHERE", Urho3D::BoneCollisionShape::BONECOLLISION_SPHERE)
+  .value("BONECOLLISION_BOX", Urho3D::BoneCollisionShape::BONECOLLISION_BOX)
+  .export_values()
+;
+
+// Enum Urho3D::AnimationChannel Registrations
+auto pyclass_Var_Urho3D_AnimationChannel = py::enum_<Urho3D::AnimationChannel>(pyclass_Var_Urho3D, "AnimationChannel", py::arithmetic(), "test doc")
+  .value("CHANNEL_NONE", Urho3D::AnimationChannel::CHANNEL_NONE)
+  .value("CHANNEL_POSITION", Urho3D::AnimationChannel::CHANNEL_POSITION)
+  .value("CHANNEL_ROTATION", Urho3D::AnimationChannel::CHANNEL_ROTATION)
+  .value("CHANNEL_SCALE", Urho3D::AnimationChannel::CHANNEL_SCALE)
+  .export_values()
+;
+
+// Enum Urho3D::AnimationBlendMode Registrations
+auto pyclass_Var_Urho3D_AnimationBlendMode = py::enum_<Urho3D::AnimationBlendMode>(pyclass_Var_Urho3D, "AnimationBlendMode", py::arithmetic(), "test doc")
+  .value("ABM_LERP", Urho3D::AnimationBlendMode::ABM_LERP)
+  .value("ABM_ADDITIVE", Urho3D::AnimationBlendMode::ABM_ADDITIVE)
+  .export_values()
+;
+
+// Enum Urho3D::ViewOverride Registrations
+auto pyclass_Var_Urho3D_ViewOverride = py::enum_<Urho3D::ViewOverride>(pyclass_Var_Urho3D, "ViewOverride", py::arithmetic(), "test doc")
+  .value("VO_NONE", Urho3D::ViewOverride::VO_NONE)
+  .value("VO_LOW_MATERIAL_QUALITY", Urho3D::ViewOverride::VO_LOW_MATERIAL_QUALITY)
+  .value("VO_DISABLE_SHADOWS", Urho3D::ViewOverride::VO_DISABLE_SHADOWS)
+  .value("VO_DISABLE_OCCLUSION", Urho3D::ViewOverride::VO_DISABLE_OCCLUSION)
+  .export_values()
+;
+
+// Enum Urho3D::CompressedFormat Registrations
+auto pyclass_Var_Urho3D_CompressedFormat = py::enum_<Urho3D::CompressedFormat>(pyclass_Var_Urho3D, "CompressedFormat", py::arithmetic(), "test doc")
+  .value("CF_NONE", Urho3D::CompressedFormat::CF_NONE)
+  .value("CF_RGBA", Urho3D::CompressedFormat::CF_RGBA)
+  .value("CF_DXT1", Urho3D::CompressedFormat::CF_DXT1)
+  .value("CF_DXT3", Urho3D::CompressedFormat::CF_DXT3)
+  .value("CF_DXT5", Urho3D::CompressedFormat::CF_DXT5)
+  .value("CF_ETC1", Urho3D::CompressedFormat::CF_ETC1)
+  .value("CF_PVRTC_RGB_2BPP", Urho3D::CompressedFormat::CF_PVRTC_RGB_2BPP)
+  .value("CF_PVRTC_RGBA_2BPP", Urho3D::CompressedFormat::CF_PVRTC_RGBA_2BPP)
+  .value("CF_PVRTC_RGB_4BPP", Urho3D::CompressedFormat::CF_PVRTC_RGB_4BPP)
+  .value("CF_PVRTC_RGBA_4BPP", Urho3D::CompressedFormat::CF_PVRTC_RGBA_4BPP)
+  .export_values()
+;
+
+// Enum Urho3D::RayQueryLevel Registrations
+auto pyclass_Var_Urho3D_RayQueryLevel = py::enum_<Urho3D::RayQueryLevel>(pyclass_Var_Urho3D, "RayQueryLevel", py::arithmetic(), "test doc")
+  .value("RAY_AABB", Urho3D::RayQueryLevel::RAY_AABB)
+  .value("RAY_OBB", Urho3D::RayQueryLevel::RAY_OBB)
+  .value("RAY_TRIANGLE", Urho3D::RayQueryLevel::RAY_TRIANGLE)
+  .value("RAY_TRIANGLE_UV", Urho3D::RayQueryLevel::RAY_TRIANGLE_UV)
+  .export_values()
+;
+
+// Enum Urho3D::EmitterType Registrations
+auto pyclass_Var_Urho3D_EmitterType = py::enum_<Urho3D::EmitterType>(pyclass_Var_Urho3D, "EmitterType", py::arithmetic(), "test doc")
+  .value("EMITTER_SPHERE", Urho3D::EmitterType::EMITTER_SPHERE)
+  .value("EMITTER_BOX", Urho3D::EmitterType::EMITTER_BOX)
+  .value("EMITTER_SPHEREVOLUME", Urho3D::EmitterType::EMITTER_SPHEREVOLUME)
+  .value("EMITTER_CYLINDER", Urho3D::EmitterType::EMITTER_CYLINDER)
+  .value("EMITTER_RING", Urho3D::EmitterType::EMITTER_RING)
+  .export_values()
+;
+
+// Enum Urho3D::RenderCommandType Registrations
+auto pyclass_Var_Urho3D_RenderCommandType = py::enum_<Urho3D::RenderCommandType>(pyclass_Var_Urho3D, "RenderCommandType", py::arithmetic(), "test doc")
+  .value("CMD_NONE", Urho3D::RenderCommandType::CMD_NONE)
+  .value("CMD_CLEAR", Urho3D::RenderCommandType::CMD_CLEAR)
+  .value("CMD_SCENEPASS", Urho3D::RenderCommandType::CMD_SCENEPASS)
+  .value("CMD_QUAD", Urho3D::RenderCommandType::CMD_QUAD)
+  .value("CMD_FORWARDLIGHTS", Urho3D::RenderCommandType::CMD_FORWARDLIGHTS)
+  .value("CMD_LIGHTVOLUMES", Urho3D::RenderCommandType::CMD_LIGHTVOLUMES)
+  .value("CMD_RENDERUI", Urho3D::RenderCommandType::CMD_RENDERUI)
+  .value("CMD_SENDEVENT", Urho3D::RenderCommandType::CMD_SENDEVENT)
+  .export_values()
+;
+
+// Enum Urho3D::RenderCommandSortMode Registrations
+auto pyclass_Var_Urho3D_RenderCommandSortMode = py::enum_<Urho3D::RenderCommandSortMode>(pyclass_Var_Urho3D, "RenderCommandSortMode", py::arithmetic(), "test doc")
+  .value("SORT_FRONTTOBACK", Urho3D::RenderCommandSortMode::SORT_FRONTTOBACK)
+  .value("SORT_BACKTOFRONT", Urho3D::RenderCommandSortMode::SORT_BACKTOFRONT)
+  .export_values()
+;
+
+// Enum Urho3D::RenderTargetSizeMode Registrations
+auto pyclass_Var_Urho3D_RenderTargetSizeMode = py::enum_<Urho3D::RenderTargetSizeMode>(pyclass_Var_Urho3D, "RenderTargetSizeMode", py::arithmetic(), "test doc")
+  .value("SIZE_ABSOLUTE", Urho3D::RenderTargetSizeMode::SIZE_ABSOLUTE)
+  .value("SIZE_VIEWPORTDIVISOR", Urho3D::RenderTargetSizeMode::SIZE_VIEWPORTDIVISOR)
+  .value("SIZE_VIEWPORTMULTIPLIER", Urho3D::RenderTargetSizeMode::SIZE_VIEWPORTMULTIPLIER)
+  .export_values()
+;
+
+// Enum Urho3D::LightVSVariation Registrations
+auto pyclass_Var_Urho3D_LightVSVariation = py::enum_<Urho3D::LightVSVariation>(pyclass_Var_Urho3D, "LightVSVariation", py::arithmetic(), "test doc")
+  .value("LVS_DIR", Urho3D::LightVSVariation::LVS_DIR)
+  .value("LVS_SPOT", Urho3D::LightVSVariation::LVS_SPOT)
+  .value("LVS_POINT", Urho3D::LightVSVariation::LVS_POINT)
+  .value("LVS_SHADOW", Urho3D::LightVSVariation::LVS_SHADOW)
+  .value("LVS_SPOTSHADOW", Urho3D::LightVSVariation::LVS_SPOTSHADOW)
+  .value("LVS_POINTSHADOW", Urho3D::LightVSVariation::LVS_POINTSHADOW)
+  .value("LVS_SHADOWNORMALOFFSET", Urho3D::LightVSVariation::LVS_SHADOWNORMALOFFSET)
+  .value("LVS_SPOTSHADOWNORMALOFFSET", Urho3D::LightVSVariation::LVS_SPOTSHADOWNORMALOFFSET)
+  .value("LVS_POINTSHADOWNORMALOFFSET", Urho3D::LightVSVariation::LVS_POINTSHADOWNORMALOFFSET)
+  .value("MAX_LIGHT_VS_VARIATIONS", Urho3D::LightVSVariation::MAX_LIGHT_VS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::VertexLightVSVariation Registrations
+auto pyclass_Var_Urho3D_VertexLightVSVariation = py::enum_<Urho3D::VertexLightVSVariation>(pyclass_Var_Urho3D, "VertexLightVSVariation", py::arithmetic(), "test doc")
+  .value("VLVS_NOLIGHTS", Urho3D::VertexLightVSVariation::VLVS_NOLIGHTS)
+  .value("VLVS_1LIGHT", Urho3D::VertexLightVSVariation::VLVS_1LIGHT)
+  .value("VLVS_2LIGHTS", Urho3D::VertexLightVSVariation::VLVS_2LIGHTS)
+  .value("VLVS_3LIGHTS", Urho3D::VertexLightVSVariation::VLVS_3LIGHTS)
+  .value("VLVS_4LIGHTS", Urho3D::VertexLightVSVariation::VLVS_4LIGHTS)
+  .value("MAX_VERTEXLIGHT_VS_VARIATIONS", Urho3D::VertexLightVSVariation::MAX_VERTEXLIGHT_VS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::LightPSVariation Registrations
+auto pyclass_Var_Urho3D_LightPSVariation = py::enum_<Urho3D::LightPSVariation>(pyclass_Var_Urho3D, "LightPSVariation", py::arithmetic(), "test doc")
+  .value("LPS_NONE", Urho3D::LightPSVariation::LPS_NONE)
+  .value("LPS_SPOT", Urho3D::LightPSVariation::LPS_SPOT)
+  .value("LPS_POINT", Urho3D::LightPSVariation::LPS_POINT)
+  .value("LPS_POINTMASK", Urho3D::LightPSVariation::LPS_POINTMASK)
+  .value("LPS_SPEC", Urho3D::LightPSVariation::LPS_SPEC)
+  .value("LPS_SPOTSPEC", Urho3D::LightPSVariation::LPS_SPOTSPEC)
+  .value("LPS_POINTSPEC", Urho3D::LightPSVariation::LPS_POINTSPEC)
+  .value("LPS_POINTMASKSPEC", Urho3D::LightPSVariation::LPS_POINTMASKSPEC)
+  .value("LPS_SHADOW", Urho3D::LightPSVariation::LPS_SHADOW)
+  .value("LPS_SPOTSHADOW", Urho3D::LightPSVariation::LPS_SPOTSHADOW)
+  .value("LPS_POINTSHADOW", Urho3D::LightPSVariation::LPS_POINTSHADOW)
+  .value("LPS_POINTMASKSHADOW", Urho3D::LightPSVariation::LPS_POINTMASKSHADOW)
+  .value("LPS_SHADOWSPEC", Urho3D::LightPSVariation::LPS_SHADOWSPEC)
+  .value("LPS_SPOTSHADOWSPEC", Urho3D::LightPSVariation::LPS_SPOTSHADOWSPEC)
+  .value("LPS_POINTSHADOWSPEC", Urho3D::LightPSVariation::LPS_POINTSHADOWSPEC)
+  .value("LPS_POINTMASKSHADOWSPEC", Urho3D::LightPSVariation::LPS_POINTMASKSHADOWSPEC)
+  .value("MAX_LIGHT_PS_VARIATIONS", Urho3D::LightPSVariation::MAX_LIGHT_PS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::DeferredLightVSVariation Registrations
+auto pyclass_Var_Urho3D_DeferredLightVSVariation = py::enum_<Urho3D::DeferredLightVSVariation>(pyclass_Var_Urho3D, "DeferredLightVSVariation", py::arithmetic(), "test doc")
+  .value("DLVS_NONE", Urho3D::DeferredLightVSVariation::DLVS_NONE)
+  .value("DLVS_DIR", Urho3D::DeferredLightVSVariation::DLVS_DIR)
+  .value("DLVS_ORTHO", Urho3D::DeferredLightVSVariation::DLVS_ORTHO)
+  .value("DLVS_ORTHODIR", Urho3D::DeferredLightVSVariation::DLVS_ORTHODIR)
+  .value("MAX_DEFERRED_LIGHT_VS_VARIATIONS", Urho3D::DeferredLightVSVariation::MAX_DEFERRED_LIGHT_VS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::DeferredLightPSVariation Registrations
+auto pyclass_Var_Urho3D_DeferredLightPSVariation = py::enum_<Urho3D::DeferredLightPSVariation>(pyclass_Var_Urho3D, "DeferredLightPSVariation", py::arithmetic(), "test doc")
+  .value("DLPS_NONE", Urho3D::DeferredLightPSVariation::DLPS_NONE)
+  .value("DLPS_SPOT", Urho3D::DeferredLightPSVariation::DLPS_SPOT)
+  .value("DLPS_POINT", Urho3D::DeferredLightPSVariation::DLPS_POINT)
+  .value("DLPS_POINTMASK", Urho3D::DeferredLightPSVariation::DLPS_POINTMASK)
+  .value("DLPS_SPEC", Urho3D::DeferredLightPSVariation::DLPS_SPEC)
+  .value("DLPS_SPOTSPEC", Urho3D::DeferredLightPSVariation::DLPS_SPOTSPEC)
+  .value("DLPS_POINTSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTSPEC)
+  .value("DLPS_POINTMASKSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSPEC)
+  .value("DLPS_SHADOW", Urho3D::DeferredLightPSVariation::DLPS_SHADOW)
+  .value("DLPS_SPOTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOW)
+  .value("DLPS_POINTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOW)
+  .value("DLPS_POINTMASKSHADOW", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOW)
+  .value("DLPS_SHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_SHADOWSPEC)
+  .value("DLPS_SPOTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOWSPEC)
+  .value("DLPS_POINTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOWSPEC)
+  .value("DLPS_POINTMASKSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOWSPEC)
+  .value("DLPS_SHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SHADOWNORMALOFFSET)
+  .value("DLPS_SPOTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOWNORMALOFFSET)
+  .value("DLPS_POINTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOWNORMALOFFSET)
+  .value("DLPS_POINTMASKSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOWNORMALOFFSET)
+  .value("DLPS_SHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SHADOWSPECNORMALOFFSET)
+  .value("DLPS_SPOTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_POINTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_POINTMASKSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHO", Urho3D::DeferredLightPSVariation::DLPS_ORTHO)
+  .value("DLPS_ORTHOSPOT", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOT)
+  .value("DLPS_ORTHOPOINT", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINT)
+  .value("DLPS_ORTHOPOINTMASK", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASK)
+  .value("DLPS_ORTHOSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPEC)
+  .value("DLPS_ORTHOSPOTSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSPEC)
+  .value("DLPS_ORTHOPOINTSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSPEC)
+  .value("DLPS_ORTHOPOINTMASKSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSPEC)
+  .value("DLPS_ORTHOSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOW)
+  .value("DLPS_ORTHOSPOTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOW)
+  .value("DLPS_ORTHOPOINTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOW)
+  .value("DLPS_ORTHOPOINTMASKSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOW)
+  .value("DLPS_ORTHOSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOWSPEC)
+  .value("DLPS_ORTHOSPOTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOWSPEC)
+  .value("DLPS_ORTHOPOINTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOWSPEC)
+  .value("DLPS_ORTHOPOINTMASKSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOWSPEC)
+  .value("DLPS_ORTHOSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOSPOTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET)
+  .value("MAX_DEFERRED_LIGHT_PS_VARIATIONS", Urho3D::DeferredLightPSVariation::MAX_DEFERRED_LIGHT_PS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::TrailType Registrations
+auto pyclass_Var_Urho3D_TrailType = py::enum_<Urho3D::TrailType>(pyclass_Var_Urho3D, "TrailType", py::arithmetic(), "test doc")
+  .value("TT_FACE_CAMERA", Urho3D::TrailType::TT_FACE_CAMERA)
+  .value("TT_BONE", Urho3D::TrailType::TT_BONE)
+  .export_values()
+;
+
+// Enum Urho3D::PassLightingMode Registrations
+auto pyclass_Var_Urho3D_PassLightingMode = py::enum_<Urho3D::PassLightingMode>(pyclass_Var_Urho3D, "PassLightingMode", py::arithmetic(), "test doc")
+  .value("LIGHTING_UNLIT", Urho3D::PassLightingMode::LIGHTING_UNLIT)
+  .value("LIGHTING_PERVERTEX", Urho3D::PassLightingMode::LIGHTING_PERVERTEX)
+  .value("LIGHTING_PERPIXEL", Urho3D::PassLightingMode::LIGHTING_PERPIXEL)
+  .export_values()
+;
+
+// Enum Urho3D::LoadMode Registrations
+auto pyclass_Var_Urho3D_LoadMode = py::enum_<Urho3D::LoadMode>(pyclass_Var_Urho3D, "LoadMode", py::arithmetic(), "test doc")
+  .value("LOAD_RESOURCES_ONLY", Urho3D::LoadMode::LOAD_RESOURCES_ONLY)
+  .value("LOAD_SCENE", Urho3D::LoadMode::LOAD_SCENE)
+  .value("LOAD_SCENE_AND_RESOURCES", Urho3D::LoadMode::LOAD_SCENE_AND_RESOURCES)
+  .export_values()
+;
+
+// Enum Urho3D::CursorShape Registrations
+auto pyclass_Var_Urho3D_CursorShape = py::enum_<Urho3D::CursorShape>(pyclass_Var_Urho3D, "CursorShape", py::arithmetic(), "test doc")
+  .value("CS_NORMAL", Urho3D::CursorShape::CS_NORMAL)
+  .value("CS_IBEAM", Urho3D::CursorShape::CS_IBEAM)
+  .value("CS_CROSS", Urho3D::CursorShape::CS_CROSS)
+  .value("CS_RESIZEVERTICAL", Urho3D::CursorShape::CS_RESIZEVERTICAL)
+  .value("CS_RESIZEDIAGONAL_TOPRIGHT", Urho3D::CursorShape::CS_RESIZEDIAGONAL_TOPRIGHT)
+  .value("CS_RESIZEHORIZONTAL", Urho3D::CursorShape::CS_RESIZEHORIZONTAL)
+  .value("CS_RESIZEDIAGONAL_TOPLEFT", Urho3D::CursorShape::CS_RESIZEDIAGONAL_TOPLEFT)
+  .value("CS_RESIZE_ALL", Urho3D::CursorShape::CS_RESIZE_ALL)
+  .value("CS_ACCEPTDROP", Urho3D::CursorShape::CS_ACCEPTDROP)
+  .value("CS_REJECTDROP", Urho3D::CursorShape::CS_REJECTDROP)
+  .value("CS_BUSY", Urho3D::CursorShape::CS_BUSY)
+  .value("CS_BUSY_ARROW", Urho3D::CursorShape::CS_BUSY_ARROW)
+  .value("CS_MAX_SHAPES", Urho3D::CursorShape::CS_MAX_SHAPES)
+  .export_values()
+;
+
+// Enum Urho3D::MouseMode Registrations
+auto pyclass_Var_Urho3D_MouseMode = py::enum_<Urho3D::MouseMode>(pyclass_Var_Urho3D, "MouseMode", py::arithmetic(), "test doc")
+  .value("MM_ABSOLUTE", Urho3D::MouseMode::MM_ABSOLUTE)
+  .value("MM_RELATIVE", Urho3D::MouseMode::MM_RELATIVE)
+  .value("MM_WRAP", Urho3D::MouseMode::MM_WRAP)
+  .value("MM_FREE", Urho3D::MouseMode::MM_FREE)
+  .value("MM_INVALID", Urho3D::MouseMode::MM_INVALID)
+  .export_values()
+;
+
+// Enum Urho3D::LuaScriptObjectMethod Registrations
+auto pyclass_Var_Urho3D_LuaScriptObjectMethod = py::enum_<Urho3D::LuaScriptObjectMethod>(pyclass_Var_Urho3D, "LuaScriptObjectMethod", py::arithmetic(), "test doc")
+  .value("LSOM_START", Urho3D::LuaScriptObjectMethod::LSOM_START)
+  .value("LSOM_STOP", Urho3D::LuaScriptObjectMethod::LSOM_STOP)
+  .value("LSOM_DELAYEDSTART", Urho3D::LuaScriptObjectMethod::LSOM_DELAYEDSTART)
+  .value("LSOM_UPDATE", Urho3D::LuaScriptObjectMethod::LSOM_UPDATE)
+  .value("LSOM_POSTUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_POSTUPDATE)
+  .value("LSOM_FIXEDUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_FIXEDUPDATE)
+  .value("LSOM_FIXEDPOSTUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_FIXEDPOSTUPDATE)
+  .value("LSOM_LOAD", Urho3D::LuaScriptObjectMethod::LSOM_LOAD)
+  .value("LSOM_SAVE", Urho3D::LuaScriptObjectMethod::LSOM_SAVE)
+  .value("LSOM_READNETWORKUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_READNETWORKUPDATE)
+  .value("LSOM_WRITENETWORKUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_WRITENETWORKUPDATE)
+  .value("LSOM_APPLYATTRIBUTES", Urho3D::LuaScriptObjectMethod::LSOM_APPLYATTRIBUTES)
+  .value("LSOM_TRANSFORMCHANGED", Urho3D::LuaScriptObjectMethod::LSOM_TRANSFORMCHANGED)
+  .value("MAX_LUA_SCRIPT_OBJECT_METHODS", Urho3D::LuaScriptObjectMethod::MAX_LUA_SCRIPT_OBJECT_METHODS)
+  .export_values()
+;
+
+// Enum Urho3D::CrowdAgentRequestedTarget Registrations
+auto pyclass_Var_Urho3D_CrowdAgentRequestedTarget = py::enum_<Urho3D::CrowdAgentRequestedTarget>(pyclass_Var_Urho3D, "CrowdAgentRequestedTarget", py::arithmetic(), "test doc")
+  .value("CA_REQUESTEDTARGET_NONE", Urho3D::CrowdAgentRequestedTarget::CA_REQUESTEDTARGET_NONE)
+  .value("CA_REQUESTEDTARGET_POSITION", Urho3D::CrowdAgentRequestedTarget::CA_REQUESTEDTARGET_POSITION)
+  .value("CA_REQUESTEDTARGET_VELOCITY", Urho3D::CrowdAgentRequestedTarget::CA_REQUESTEDTARGET_VELOCITY)
+  .export_values()
+;
+
+// Enum Urho3D::CrowdAgentTargetState Registrations
+auto pyclass_Var_Urho3D_CrowdAgentTargetState = py::enum_<Urho3D::CrowdAgentTargetState>(pyclass_Var_Urho3D, "CrowdAgentTargetState", py::arithmetic(), "test doc")
+  .value("CA_TARGET_NONE", Urho3D::CrowdAgentTargetState::CA_TARGET_NONE)
+  .value("CA_TARGET_FAILED", Urho3D::CrowdAgentTargetState::CA_TARGET_FAILED)
+  .value("CA_TARGET_VALID", Urho3D::CrowdAgentTargetState::CA_TARGET_VALID)
+  .value("CA_TARGET_REQUESTING", Urho3D::CrowdAgentTargetState::CA_TARGET_REQUESTING)
+  .value("CA_TARGET_WAITINGFORQUEUE", Urho3D::CrowdAgentTargetState::CA_TARGET_WAITINGFORQUEUE)
+  .value("CA_TARGET_WAITINGFORPATH", Urho3D::CrowdAgentTargetState::CA_TARGET_WAITINGFORPATH)
+  .value("CA_TARGET_VELOCITY", Urho3D::CrowdAgentTargetState::CA_TARGET_VELOCITY)
+  .export_values()
+;
+
+// Enum Urho3D::CrowdAgentState Registrations
+auto pyclass_Var_Urho3D_CrowdAgentState = py::enum_<Urho3D::CrowdAgentState>(pyclass_Var_Urho3D, "CrowdAgentState", py::arithmetic(), "test doc")
+  .value("CA_STATE_INVALID", Urho3D::CrowdAgentState::CA_STATE_INVALID)
+  .value("CA_STATE_WALKING", Urho3D::CrowdAgentState::CA_STATE_WALKING)
+  .value("CA_STATE_OFFMESH", Urho3D::CrowdAgentState::CA_STATE_OFFMESH)
+  .export_values()
+;
+
+// Enum Urho3D::NavigationQuality Registrations
+auto pyclass_Var_Urho3D_NavigationQuality = py::enum_<Urho3D::NavigationQuality>(pyclass_Var_Urho3D, "NavigationQuality", py::arithmetic(), "test doc")
+  .value("NAVIGATIONQUALITY_LOW", Urho3D::NavigationQuality::NAVIGATIONQUALITY_LOW)
+  .value("NAVIGATIONQUALITY_MEDIUM", Urho3D::NavigationQuality::NAVIGATIONQUALITY_MEDIUM)
+  .value("NAVIGATIONQUALITY_HIGH", Urho3D::NavigationQuality::NAVIGATIONQUALITY_HIGH)
+  .export_values()
+;
+
+// Enum Urho3D::NavigationPushiness Registrations
+auto pyclass_Var_Urho3D_NavigationPushiness = py::enum_<Urho3D::NavigationPushiness>(pyclass_Var_Urho3D, "NavigationPushiness", py::arithmetic(), "test doc")
+  .value("NAVIGATIONPUSHINESS_LOW", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_LOW)
+  .value("NAVIGATIONPUSHINESS_MEDIUM", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_MEDIUM)
+  .value("NAVIGATIONPUSHINESS_HIGH", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_HIGH)
+  .value("NAVIGATIONPUSHINESS_NONE", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_NONE)
+  .export_values()
+;
+
+// Enum Urho3D::NavmeshPartitionType Registrations
+auto pyclass_Var_Urho3D_NavmeshPartitionType = py::enum_<Urho3D::NavmeshPartitionType>(pyclass_Var_Urho3D, "NavmeshPartitionType", py::arithmetic(), "test doc")
+  .value("NAVMESH_PARTITION_WATERSHED", Urho3D::NavmeshPartitionType::NAVMESH_PARTITION_WATERSHED)
+  .value("NAVMESH_PARTITION_MONOTONE", Urho3D::NavmeshPartitionType::NAVMESH_PARTITION_MONOTONE)
+  .export_values()
+;
+
+// Enum Urho3D::NavigationPathPointFlag Registrations
+auto pyclass_Var_Urho3D_NavigationPathPointFlag = py::enum_<Urho3D::NavigationPathPointFlag>(pyclass_Var_Urho3D, "NavigationPathPointFlag", py::arithmetic(), "test doc")
+  .value("NAVPATHFLAG_NONE", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_NONE)
+  .value("NAVPATHFLAG_START", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_START)
+  .value("NAVPATHFLAG_END", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_END)
+  .value("NAVPATHFLAG_OFF_MESH", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_OFF_MESH)
+  .export_values()
+;
+
+// Enum Urho3D::ObserverPositionSendMode Registrations
+auto pyclass_Var_Urho3D_ObserverPositionSendMode = py::enum_<Urho3D::ObserverPositionSendMode>(pyclass_Var_Urho3D, "ObserverPositionSendMode", py::arithmetic(), "test doc")
+  .value("OPSM_NONE", Urho3D::ObserverPositionSendMode::OPSM_NONE)
+  .value("OPSM_POSITION", Urho3D::ObserverPositionSendMode::OPSM_POSITION)
+  .value("OPSM_POSITION_ROTATION", Urho3D::ObserverPositionSendMode::OPSM_POSITION_ROTATION)
+  .export_values()
+;
+
+// Enum Urho3D::HttpRequestState Registrations
+auto pyclass_Var_Urho3D_HttpRequestState = py::enum_<Urho3D::HttpRequestState>(pyclass_Var_Urho3D, "HttpRequestState", py::arithmetic(), "test doc")
+  .value("HTTP_INITIALIZING", Urho3D::HttpRequestState::HTTP_INITIALIZING)
+  .value("HTTP_ERROR", Urho3D::HttpRequestState::HTTP_ERROR)
+  .value("HTTP_OPEN", Urho3D::HttpRequestState::HTTP_OPEN)
+  .value("HTTP_CLOSED", Urho3D::HttpRequestState::HTTP_CLOSED)
+  .export_values()
+;
+
+// Enum Urho3D::ShapeType Registrations
+auto pyclass_Var_Urho3D_ShapeType = py::enum_<Urho3D::ShapeType>(pyclass_Var_Urho3D, "ShapeType", py::arithmetic(), "test doc")
+  .value("SHAPE_BOX", Urho3D::ShapeType::SHAPE_BOX)
+  .value("SHAPE_SPHERE", Urho3D::ShapeType::SHAPE_SPHERE)
+  .value("SHAPE_STATICPLANE", Urho3D::ShapeType::SHAPE_STATICPLANE)
+  .value("SHAPE_CYLINDER", Urho3D::ShapeType::SHAPE_CYLINDER)
+  .value("SHAPE_CAPSULE", Urho3D::ShapeType::SHAPE_CAPSULE)
+  .value("SHAPE_CONE", Urho3D::ShapeType::SHAPE_CONE)
+  .value("SHAPE_TRIANGLEMESH", Urho3D::ShapeType::SHAPE_TRIANGLEMESH)
+  .value("SHAPE_CONVEXHULL", Urho3D::ShapeType::SHAPE_CONVEXHULL)
+  .value("SHAPE_TERRAIN", Urho3D::ShapeType::SHAPE_TERRAIN)
+  .value("SHAPE_GIMPACTMESH", Urho3D::ShapeType::SHAPE_GIMPACTMESH)
+  .export_values()
+;
+
+// Enum Urho3D::ConstraintType Registrations
+auto pyclass_Var_Urho3D_ConstraintType = py::enum_<Urho3D::ConstraintType>(pyclass_Var_Urho3D, "ConstraintType", py::arithmetic(), "test doc")
+  .value("CONSTRAINT_POINT", Urho3D::ConstraintType::CONSTRAINT_POINT)
+  .value("CONSTRAINT_HINGE", Urho3D::ConstraintType::CONSTRAINT_HINGE)
+  .value("CONSTRAINT_SLIDER", Urho3D::ConstraintType::CONSTRAINT_SLIDER)
+  .value("CONSTRAINT_CONETWIST", Urho3D::ConstraintType::CONSTRAINT_CONETWIST)
+  .export_values()
+;
+
+// Enum Urho3D::UpdateEvent Registrations
+auto pyclass_Var_Urho3D_UpdateEvent = py::enum_<Urho3D::UpdateEvent>(pyclass_Var_Urho3D, "UpdateEvent", py::arithmetic(), "test doc")
+  .value("USE_NO_EVENT", Urho3D::UpdateEvent::USE_NO_EVENT)
+  .value("USE_UPDATE", Urho3D::UpdateEvent::USE_UPDATE)
+  .value("USE_POSTUPDATE", Urho3D::UpdateEvent::USE_POSTUPDATE)
+  .value("USE_FIXEDUPDATE", Urho3D::UpdateEvent::USE_FIXEDUPDATE)
+  .value("USE_FIXEDPOSTUPDATE", Urho3D::UpdateEvent::USE_FIXEDPOSTUPDATE)
+  .export_values()
+;
+
+// Enum Urho3D::CollisionEventMode Registrations
+auto pyclass_Var_Urho3D_CollisionEventMode = py::enum_<Urho3D::CollisionEventMode>(pyclass_Var_Urho3D, "CollisionEventMode", py::arithmetic(), "test doc")
+  .value("COLLISION_NEVER", Urho3D::CollisionEventMode::COLLISION_NEVER)
+  .value("COLLISION_ACTIVE", Urho3D::CollisionEventMode::COLLISION_ACTIVE)
+  .value("COLLISION_ALWAYS", Urho3D::CollisionEventMode::COLLISION_ALWAYS)
+  .export_values()
+;
+
+// Enum Urho3D::PListValueType Registrations
+auto pyclass_Var_Urho3D_PListValueType = py::enum_<Urho3D::PListValueType>(pyclass_Var_Urho3D, "PListValueType", py::arithmetic(), "test doc")
+  .value("PLVT_NONE", Urho3D::PListValueType::PLVT_NONE)
+  .value("PLVT_INT", Urho3D::PListValueType::PLVT_INT)
+  .value("PLVT_BOOL", Urho3D::PListValueType::PLVT_BOOL)
+  .value("PLVT_FLOAT", Urho3D::PListValueType::PLVT_FLOAT)
+  .value("PLVT_STRING", Urho3D::PListValueType::PLVT_STRING)
+  .value("PLVT_VALUEMAP", Urho3D::PListValueType::PLVT_VALUEMAP)
+  .value("PLVT_VALUEVECTOR", Urho3D::PListValueType::PLVT_VALUEVECTOR)
+  .export_values()
+;
+
+// Enum Urho3D::ResourceRequest Registrations
+auto pyclass_Var_Urho3D_ResourceRequest = py::enum_<Urho3D::ResourceRequest>(pyclass_Var_Urho3D, "ResourceRequest", py::arithmetic(), "test doc")
+  .value("RESOURCE_CHECKEXISTS", Urho3D::ResourceRequest::RESOURCE_CHECKEXISTS)
+  .value("RESOURCE_GETFILE", Urho3D::ResourceRequest::RESOURCE_GETFILE)
+  .export_values()
+;
+
+// Enum Urho3D::SmoothingType Registrations
+auto pyclass_Var_Urho3D_SmoothingType = py::enum_<Urho3D::SmoothingType>(pyclass_Var_Urho3D, "SmoothingType", py::arithmetic(), "test doc")
+  .value("SMOOTH_NONE", Urho3D::SmoothingType::SMOOTH_NONE)
+  .value("SMOOTH_POSITION", Urho3D::SmoothingType::SMOOTH_POSITION)
+  .value("SMOOTH_ROTATION", Urho3D::SmoothingType::SMOOTH_ROTATION)
+  .export_values()
+;
+
+// Enum Urho3D::InterpMethod Registrations
+auto pyclass_Var_Urho3D_InterpMethod = py::enum_<Urho3D::InterpMethod>(pyclass_Var_Urho3D, "InterpMethod", py::arithmetic(), "test doc")
+  .value("IM_NONE", Urho3D::InterpMethod::IM_NONE)
+  .value("IM_LINEAR", Urho3D::InterpMethod::IM_LINEAR)
+  .value("IM_SPLINE", Urho3D::InterpMethod::IM_SPLINE)
+  .export_values()
+;
+
+// Enum Urho3D::FontType Registrations
+auto pyclass_Var_Urho3D_FontType = py::enum_<Urho3D::FontType>(pyclass_Var_Urho3D, "FontType", py::arithmetic(), "test doc")
+  .value("FONT_NONE", Urho3D::FontType::FONT_NONE)
+  .value("FONT_FREETYPE", Urho3D::FontType::FONT_FREETYPE)
+  .value("FONT_BITMAP", Urho3D::FontType::FONT_BITMAP)
+  .value("MAX_FONT_TYPES", Urho3D::FontType::MAX_FONT_TYPES)
+  .export_values()
+;
+
+// Enum Urho3D::HighlightMode Registrations
+auto pyclass_Var_Urho3D_HighlightMode = py::enum_<Urho3D::HighlightMode>(pyclass_Var_Urho3D, "HighlightMode", py::arithmetic(), "test doc")
+  .value("HM_NEVER", Urho3D::HighlightMode::HM_NEVER)
+  .value("HM_FOCUS", Urho3D::HighlightMode::HM_FOCUS)
+  .value("HM_ALWAYS", Urho3D::HighlightMode::HM_ALWAYS)
+  .export_values()
+;
+
+// Enum Urho3D::TextEffect Registrations
+auto pyclass_Var_Urho3D_TextEffect = py::enum_<Urho3D::TextEffect>(pyclass_Var_Urho3D, "TextEffect", py::arithmetic(), "test doc")
+  .value("TE_NONE", Urho3D::TextEffect::TE_NONE)
+  .value("TE_SHADOW", Urho3D::TextEffect::TE_SHADOW)
+  .value("TE_STROKE", Urho3D::TextEffect::TE_STROKE)
+  .export_values()
+;
+
+// Enum Urho3D::FontHintLevel Registrations
+auto pyclass_Var_Urho3D_FontHintLevel = py::enum_<Urho3D::FontHintLevel>(pyclass_Var_Urho3D, "FontHintLevel", py::arithmetic(), "test doc")
+  .value("FONT_HINT_LEVEL_NONE", Urho3D::FontHintLevel::FONT_HINT_LEVEL_NONE)
+  .value("FONT_HINT_LEVEL_LIGHT", Urho3D::FontHintLevel::FONT_HINT_LEVEL_LIGHT)
+  .value("FONT_HINT_LEVEL_NORMAL", Urho3D::FontHintLevel::FONT_HINT_LEVEL_NORMAL)
+  .export_values()
+;
+
+// Enum Urho3D::WindowDragMode Registrations
+auto pyclass_Var_Urho3D_WindowDragMode = py::enum_<Urho3D::WindowDragMode>(pyclass_Var_Urho3D, "WindowDragMode", py::arithmetic(), "test doc")
+  .value("DRAG_NONE", Urho3D::WindowDragMode::DRAG_NONE)
+  .value("DRAG_MOVE", Urho3D::WindowDragMode::DRAG_MOVE)
+  .value("DRAG_RESIZE_TOPLEFT", Urho3D::WindowDragMode::DRAG_RESIZE_TOPLEFT)
+  .value("DRAG_RESIZE_TOP", Urho3D::WindowDragMode::DRAG_RESIZE_TOP)
+  .value("DRAG_RESIZE_TOPRIGHT", Urho3D::WindowDragMode::DRAG_RESIZE_TOPRIGHT)
+  .value("DRAG_RESIZE_RIGHT", Urho3D::WindowDragMode::DRAG_RESIZE_RIGHT)
+  .value("DRAG_RESIZE_BOTTOMRIGHT", Urho3D::WindowDragMode::DRAG_RESIZE_BOTTOMRIGHT)
+  .value("DRAG_RESIZE_BOTTOM", Urho3D::WindowDragMode::DRAG_RESIZE_BOTTOM)
+  .value("DRAG_RESIZE_BOTTOMLEFT", Urho3D::WindowDragMode::DRAG_RESIZE_BOTTOMLEFT)
+  .value("DRAG_RESIZE_LEFT", Urho3D::WindowDragMode::DRAG_RESIZE_LEFT)
+  .export_values()
+;
+
+// Enum Urho3D::EmitterType2D Registrations
+auto pyclass_Var_Urho3D_EmitterType2D = py::enum_<Urho3D::EmitterType2D>(pyclass_Var_Urho3D, "EmitterType2D", py::arithmetic(), "test doc")
+  .value("EMITTER_TYPE_GRAVITY", Urho3D::EmitterType2D::EMITTER_TYPE_GRAVITY)
+  .value("EMITTER_TYPE_RADIAL", Urho3D::EmitterType2D::EMITTER_TYPE_RADIAL)
+  .export_values()
+;
+
+// Enum Urho3D::BodyType2D Registrations
+auto pyclass_Var_Urho3D_BodyType2D = py::enum_<Urho3D::BodyType2D>(pyclass_Var_Urho3D, "BodyType2D", py::arithmetic(), "test doc")
+  .value("BT_STATIC", Urho3D::BodyType2D::BT_STATIC)
+  .value("BT_KINEMATIC", Urho3D::BodyType2D::BT_KINEMATIC)
+  .value("BT_DYNAMIC", Urho3D::BodyType2D::BT_DYNAMIC)
+  .export_values()
+;
+
+// Enum Urho3D::Orientation2D Registrations
+auto pyclass_Var_Urho3D_Orientation2D = py::enum_<Urho3D::Orientation2D>(pyclass_Var_Urho3D, "Orientation2D", py::arithmetic(), "test doc")
+  .value("O_ORTHOGONAL", Urho3D::Orientation2D::O_ORTHOGONAL)
+  .value("O_ISOMETRIC", Urho3D::Orientation2D::O_ISOMETRIC)
+  .value("O_STAGGERED", Urho3D::Orientation2D::O_STAGGERED)
+  .value("O_HEXAGONAL", Urho3D::Orientation2D::O_HEXAGONAL)
+  .export_values()
+;
+
+// Enum Urho3D::TileMapLayerType2D Registrations
+auto pyclass_Var_Urho3D_TileMapLayerType2D = py::enum_<Urho3D::TileMapLayerType2D>(pyclass_Var_Urho3D, "TileMapLayerType2D", py::arithmetic(), "test doc")
+  .value("LT_TILE_LAYER", Urho3D::TileMapLayerType2D::LT_TILE_LAYER)
+  .value("LT_OBJECT_GROUP", Urho3D::TileMapLayerType2D::LT_OBJECT_GROUP)
+  .value("LT_IMAGE_LAYER", Urho3D::TileMapLayerType2D::LT_IMAGE_LAYER)
+  .value("LT_INVALID", Urho3D::TileMapLayerType2D::LT_INVALID)
+  .export_values()
+;
+
+// Enum Urho3D::TileMapObjectType2D Registrations
+auto pyclass_Var_Urho3D_TileMapObjectType2D = py::enum_<Urho3D::TileMapObjectType2D>(pyclass_Var_Urho3D, "TileMapObjectType2D", py::arithmetic(), "test doc")
+  .value("OT_RECTANGLE", Urho3D::TileMapObjectType2D::OT_RECTANGLE)
+  .value("OT_ELLIPSE", Urho3D::TileMapObjectType2D::OT_ELLIPSE)
+  .value("OT_POLYGON", Urho3D::TileMapObjectType2D::OT_POLYGON)
+  .value("OT_POLYLINE", Urho3D::TileMapObjectType2D::OT_POLYLINE)
+  .value("OT_TILE", Urho3D::TileMapObjectType2D::OT_TILE)
+  .value("OT_INVALID", Urho3D::TileMapObjectType2D::OT_INVALID)
+  .export_values()
+;
+
+    //================================================
     // Implement Classes
     //================================================
     Implement_Urho3D_HashBase(pyclass_Var_Urho3D_HashBase);
@@ -12806,60 +14184,6 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   // Operator Urho3D::Matrix3 operator*(float lhs=None, const Urho3D::Matrix3 & rhs=None) implemented in Urho3D::Matrix3
   // Operator Urho3D::Matrix4 operator*(float lhs=None, const Urho3D::Matrix4 & rhs=None) implemented in Urho3D::Matrix4
   // Operator Urho3D::Matrix3x4 operator*(float lhs=None, const Urho3D::Matrix3x4 & rhs=None) implemented in Urho3D::Matrix3x4
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
-  //.def("GetVariantType", (Urho3D::VariantType (*)()) &Urho3D::GetVariantType, "todo: docstring")
-    //[]; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0
   .def("CompareDrawables", (bool (*)(Urho3D::Drawable *, Urho3D::Drawable *)) &Urho3D::CompareDrawables, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
   .def("GetResourceName", (const Urho3D::String & (*)(Urho3D::Resource *)) &Urho3D::GetResourceName, "todo: docstring", py::arg("resource"))
   .def("GetResourceType", (Urho3D::StringHash (*)(Urho3D::Resource *, Urho3D::StringHash)) &Urho3D::GetResourceType, "todo: docstring", py::arg("resource"), py::arg("defaultType"))
@@ -12885,8 +14209,7 @@ Implement_Urho3D_Texture3D(pyclass_Var_Urho3D_Texture3D);
   .def("FromString", (Urho3D::Matrix3x4 (*)(const char *)) &Urho3D::FromString, "todo: docstring", py::arg("source"))
   .def("FromString", (Urho3D::Matrix4 (*)(const char *)) &Urho3D::FromString, "todo: docstring", py::arg("source"))
   .def("CompareLights", (bool (*)(Urho3D::Light *, Urho3D::Light *)) &Urho3D::CompareLights, "todo: docstring", py::arg("lhs"), py::arg("rhs"))
-  //.def("MakeHash", (unsigned int (*)(const Urho3D::TextureUnit &)) &Urho3D::MakeHash, "todo: docstring", py::arg("value"))
-    //['Urho3D::TextureUnit']; op False, ctor False, dtor False, variadic False, deleted False, ret bad False, param bad True, max ptr 0
+  .def("MakeHash", (unsigned int (*)(const Urho3D::TextureUnit &)) &Urho3D::MakeHash, "todo: docstring", py::arg("value"))
   // Operator Urho3D::Matrix2 operator*(float lhs=None, const Urho3D::Matrix2 & rhs=None) implemented in Urho3D::Matrix2
   //.def("ToBtVector3", (btVector3 (*)(const Urho3D::Vector3 &)) &Urho3D::ToBtVector3, "todo: docstring", py::arg("vector"))
     //['Urho3D::Vector3']; op False, ctor False, dtor False, variadic False, deleted False, ret bad True, param bad False, max ptr 0

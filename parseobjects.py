@@ -56,6 +56,9 @@ def clang_append_class(cls, cursor):
 
         elif c.kind in [CursorKind.FIELD_DECL, CursorKind.VAR_DECL]:
             cls.vars.append(clang_parse_variable(c, cls))
+
+        elif c.kind is CursorKind.ENUM_DECL:
+            cls.enums.append(clang_parse_enumeration(c, cls))
         # self.append(c)
 
 def clang_parse_class(cursor, scope):
@@ -226,6 +229,9 @@ def clang_append_namespace(self, cursor):
 
         elif c.kind in [CursorKind.VAR_DECL]:#CursorKind.FIELD_DECL, CursorKind.VAR_DECL]:
             self.vars.append(clang_parse_variable(c, self))
+
+        elif c.kind is CursorKind.ENUM_DECL:
+            self.enums.append(clang_parse_enumeration(c, self))
         # else:
         #     print(c.kind)
         #     print(c.displayname)
@@ -280,6 +286,48 @@ def clang_parse_variable(cursor, scope):
             print(c.canonical.spelling + '@' + cursor.spelling)
     return self
 
+def clang_append_enumeration_value(c, enumeration):
+    if c.kind not in [CursorKind.ENUM_CONSTANT_DECL]:
+        raise Exception('Enumeration Value being constructed from a {}.'.format(c.kind.name))
+
+    enumeration.add_value(c.spelling, c.enum_value)
+    # print(c.displayname,', spelling=',c.spelling)
+    # print(c.enum_value)
+
+
+def clang_parse_enumeration(cursor, scope):
+    assert isinstance(cursor, clang.cindex.Cursor)
+    assert isinstance(scope, Class) or isinstance(scope, Namespace)
+
+    if cursor.kind not in [CursorKind.ENUM_DECL]:
+        raise Exception('Enumeration being constructed from a {}.'.format(cursor.kind.name))
+
+
+    self = Enumeration(name=cursor.spelling,scope=scope,canonical=clang_get_canonical(cursor,scope))
+
+    self.annotations = []
+    self.visibility = Visibility.DEFAULT
+    self.access = clang_map_access(cursor.access_specifier)
+    self.enum_type = clang_parse_type(cursor.enum_type)
+    # print(self.enum_type)
+
+    for c in cursor.get_children():
+        assert isinstance(c, clang.cindex.Cursor)
+
+        if c.kind is clang.cindex.CursorKind.ANNOTATE_ATTR:
+            self.annotations.append(c.spelling)
+            print(c.canonical.spelling + '@' + cursor.spelling)
+        elif c.kind is clang.cindex.CursorKind.ENUM_CONSTANT_DECL:
+            clang_append_enumeration_value(c,self)
+
+    for t in cursor.get_tokens():
+        if t.spelling == 'class':
+            # TODO: We could use the next token(s) as the class type, or we can just get it w/ enum_type
+            self.enum_class = str(self.enum_type)
+
+
+    return self
+
 index = clang.cindex.Index.create()
 
 def visit(cursor, cond):
@@ -288,16 +336,18 @@ def visit(cursor, cond):
     lag = None
     for c in cursor.get_children():
         if next:
-            print('Next: ',c.displayname)
+            print('Next: ',c.displayname,'|',c.spelling,c.kind)
+            print('')
             next = False
 
 
         if cond(c):
-            print('Current', cursor.displayname)
-            next = True
             if lag is not None:
                 print('LAG: ',lag.displayname, '|', lag.spelling, lag.kind)
-
+            print('Current', c.displayname,'|',c.spelling,c.kind)
+            print(' - Canonical',c.canonical.spelling,cursor.displayname)
+            print(' - Current Spelling', c.spelling)
+            next = True
         visit(c, cond)
 
         lag = c
@@ -419,14 +469,26 @@ with open(include) as f:
 print('Translation unit:', tu.spelling)
 print('================================')
 
-def checkVis(c):
-    assert isinstance(c, clang.cindex.Cursor)
-    if c.kind is CursorKind.VISIBILITY_ATTR:
-        if c.spelling == 'default':
-            return True
-        else:
-            return False
+# def checkVis(c):
+#     assert isinstance(c, clang.cindex.Cursor)
+#     if c.kind is CursorKind.VISIBILITY_ATTR:
+#         if c.spelling == 'default':
+#             return True
+#         else:
+#             return False
 # visit(tu.cursor,checkVis)
+
+# visit(tu.cursor,lambda cursor:cursor.kind == CursorKind.ENUM_DECL)
+# visit(tu.cursor,lambda cursor:cursor.kind == CursorKind.ENUM_CONSTANT_DECL)
+
+# def checkEnumClass(c):
+#     assert isinstance(c, clang.cindex.Cursor)
+#     if c.kind is CursorKind.ENUM_DECL:
+#         for t in c.get_tokens():
+#             if t.spelling == 'class':
+#                 return True
+#     return False
+# visit(tu.cursor,checkEnumClass)
 # exit()
 
 default_namespace = clang_parse_namespace(tu.cursor, None)
