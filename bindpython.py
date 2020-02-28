@@ -219,11 +219,12 @@ def patch_canon(canon):
         canon['Urho3D::Application::engineParameters_'].canonical = 'ApplicationPublicist::engineParameters_'
 
         # Fix some defaults:
-        fix = canon['Urho3D::Spriter::SpriterInstance']
-        for m in fix.methods:
-            for a in m.params:
-                if a.default == 'Default':
-                    a.default = 'Urho3D::Spriter::LoopMode::Default'
+        fix = canon.get('Urho3D::Spriter::SpriterInstance')
+        if fix is not None:
+            for m in fix.methods:
+                for a in m.params:
+                    if a.default == 'Default':
+                        a.default = 'Urho3D::Spriter::LoopMode::Default'
         for fixkey in canon:
             fix = canon[fixkey]
             if isinstance(fix, Class):
@@ -239,11 +240,11 @@ def patch_canon(canon):
         # del canon['Urho3D::GetVariantType'] <- doesn't exclude function as it is based on the namespace functions
         scope = canon['Urho3D']
         scope.functions = [f for f in scope.functions if f.name != 'GetVariantType']
-
     except KeyError as e:
         print("KEY ERROR")
         print(e)
-        print(canon)
+        #print(canon)
+        exit()
 
 
 def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=None):
@@ -615,7 +616,7 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 {classImplFuns}
 
 // can do sub-modules, just need to py::import... the other module if it has any required classes first (see Advanced Topics in pybind11 docs)
-PYBIND11_MODULE(urho, m) {{
+PYBIND11_MODULE(pyrho3d, m) {{
     m.doc() = "Urho3D Python bindings"; // optional module docstring
 
 
