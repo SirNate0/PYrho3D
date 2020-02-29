@@ -212,6 +212,20 @@ def add_enums(ns, enums):
         raise Exception("Failed to add enum of type {} != [{},{}]".format(type(ns),Enumeration,Class,Namespace) )
 
 
+def scopeFromM(scope):
+    if scope in force_global:
+        return 'm'
+    else:
+        return scopeFromM(canon[scope].scope.canonical) + '.attr("{}")'.format(canon[scope].name)
+
+def scopeSetToVars(canonical_set):
+    vars = []
+    for s in canonical_set:
+        parent = scopeFromM(s)
+        type = 'py::module&' if parent == 'm' else 'py::object'
+        vars.append(f'{type} pyclass_Var_{varsafe(s)} = {parent};')
+    return vars
+
 def patch_canon(canon):
     try:
         #canon['Urho3D::Application'].vars.append[Variable(None,)]
@@ -247,7 +261,7 @@ def patch_canon(canon):
         exit()
 
 
-def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount=1, preamble=None):
+def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount=1, splitMain=2, preamble=None):
 
     if not outputCount:
         import multiprocessing
@@ -263,6 +277,8 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount
     for i in range(1,int(outputCount)):
         extraName = extraOfNames.format(i)
         extraFiles.append(open(extraName,'w'))
+
+    splitMain = min(splitMain,1+len(extraFiles))
 
     patch_canon(canon)
 
@@ -400,10 +416,12 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount
 
     classesMixedHolder = {}
 
+
     classVars = []
     classImpls = []
-    classImplFuns = []
+    classImplFunDecls = []
     classImplFunDefs = []
+    classImplFunBodies = []
     for cls in classes:
         classname = cls.name
         fullclass = cls.canonical
@@ -562,36 +580,74 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount
 {{
     {impl}
 }}'''
-        classImplFuns.append(fn_impl+';')
+        classImplFunDecls.append(fn_impl+';')
         classImplFunDefs.append(fn_impl_def)
+        classImplFunBodies.append(impl)
         classImpls.append(f'Implement_{varsafe(fullclass)}({pyclass});')
 
 
-    classVars = '\n'.join(classVars)
-    classImpls = '\n'.join(classImpls)
-    classImplFuns = '\n\n'.join(classImplFuns)
-    # classImplFunDefs = '\n\n'.join(classImplFunDefs)
 
-    if len(extraFiles) == 0:
-        classImplFuns = '\n\n'.join(classImplFunDefs)
-    else:
-        c = len(extraFiles)
-        classImplFunDefs += ['']*((c-len(classImplFunDefs)) % c)
-        assert(len(classImplFunDefs)%c == 0)
-        sz = len(classImplFunDefs) // c
+
+    def divideListInto(list,c, joinStr=None):
+        list = list + ['']*((c-len(list)) % c)
+        assert(len(list)%c == 0)
+        sz = len(list) // c
         cd = []
         for i in range(1,c+1):
-            cd.append('\n\n'.join(classImplFunDefs[:sz]))
-            classImplFunDefs = classImplFunDefs[sz:]
-        classImplFunDefs = cd
+            if joinStr is not None:
+                cd.append(joinStr.join(list[:sz]))
+            else:
+                cd.append(list[:sz])
+            list = list[sz:]
+        return cd
+
+    if len(extraFiles) == 0:
+        # Not used ones for this time
+        classImpls = '\n'.join(classImpls)
+        classImplFunDecls = '\n\n'.join(classImplFunDecls)
+        # classImplFunDefs = '\n\n'.join(classImplFunDefs)
+
+        # Used ones
+        classVars = ['\n'.join(classVars)]
+        classImplFunDecls = ['//Classes implemented directly in module']
+        classImpls = ['\n\n'.join(classImplFunBodies)]
+    else:
+        classFileCount = len(extraFiles)
+        divClasses = divideListInto(classes,classFileCount)
+        classScopeVars = ['']
+        for group in divClasses:
+            scopes = set()
+            # add all parent classes
+            for cls in group:
+                # because we append the '' to make it divide evenly
+                if not isinstance(cls,str):
+                    scopes.add(cls.scope.canonical)
+            # remove the ones that we are implementing in this group
+            for cls in group:
+                # because we append the '' to make it divide evenly
+                if not isinstance(cls,str):
+                    if cls.canonical in scopes:
+                        scopes.remove(cls.canonical)
+            classScopeVars.append('\n'.join(scopeSetToVars(scopes)))
+
+
+        #divideListInto(classImplFunDefs,len(extraFiles))
+        #divideListInto(classImplFunDecls,len(extraFiles))
+        classImplFunNames = ['Implement_Class_Bindings_%d'%(1+i) for i in range(classFileCount)]
+        classImplFunDecls = ['void %s(py::module& m);'%f for f in classImplFunNames] + ['void Implement_Enum_Bindings(py::module& m);']
+        classImplFunCalls = ['%s(m);'%f for f in classImplFunNames] + ['Implement_Enum_Bindings(m)']
+        classVars = ['//Class declarations moved to other files'] + divideListInto(classVars,classFileCount,'\n')
+        classImplFunBodies = [''] + divideListInto(classImplFunBodies,classFileCount,'\n\n')
+        classImpls = [f'{scopes}\n\n{vars}\n\n{further}\n\n{actual}' for scopes,vars,further,actual in zip(classScopeVars,classVars,classImplFunCalls,classImplFunBodies)]
+        classImplFunDefs = [f'void {f}(py::module& m)\n{{\n{impl}\n}}' for f,impl in zip(['NEVER USED!!!'] + classImplFunNames,classImpls)]
 
 
 
 
     enumImpls = []
+    enumScopes = set()
     for e in enums:
         assert isinstance(e,Enumeration)
-        fakemodule = 'PythonBindingsFakeModule' + varsafe(cls.canonical)
         pyclass = 'pyclass_Var_' + varsafe(e.canonical)
         baseclass = 'pyclass_Var_' + varsafe(e.scope.canonical)
 
@@ -613,8 +669,10 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount
         binding += ';'
 
         enumImpls.append(comment + '\n' + binding)
+        enumScopes.add(e.scope.canonical)
 
     enumImpls = '\n\n'.join(enumImpls)
+    enumScopes = '\n'.join(scopeSetToVars(enumScopes))
 
     if not enumImpls:
         enumImpls = f'// {len(enums)}'
@@ -669,7 +727,17 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 //================================================
 // Implement Classes
 //================================================
-{classImplFuns}
+{classImplFunDecls[0]}
+
+//================================================
+// Declare and Implement Enumerations
+//================================================
+void Implement_Enum_Bindings(py::module& m)
+{{
+{enumScopes}
+
+{enumImpls}
+}}
 
 // can do sub-modules, just need to py::import... the other module if it has any required classes first (see Advanced Topics in pybind11 docs)
 PYBIND11_MODULE(pyrho3d, m) {{
@@ -702,17 +770,12 @@ PYBIND11_MODULE(pyrho3d, m) {{
     //================================================
     // Declare Classes
     //================================================
-    {classVars}
-
-    //================================================
-    // Declare and Implement Enumerations
-    //================================================
-    {enumImpls}
+    {classVars[0]}
 
     //================================================
     // Implement Classes
     //================================================
-    {classImpls}
+    {classImpls[0]}
 
     //================================================
     // Implement Namespaces
@@ -738,7 +801,7 @@ PYBIND11_MODULE(pyrho3d, m) {{
 
 
 // create context object for us
-Urho3D::SharedPtr<Urho3D::Context> c{new Urho3D::Context()};
+Urho3D::SharedPtr<Urho3D::Context> c{{new Urho3D::Context()}};
 c->AddRef();
 m.add_object("context", py::cast(c));
 // Register a callback function that is invoked when the BaseClass object is colelcted
@@ -766,6 +829,7 @@ py::cpp_function cleanup_callback(
         outputFile.write(out)
         outputFile.close()
     for i,f in enumerate(extraFiles):
+        i+=1 # as it should go 1,2,3,4,...
         extraOut = f'''
 {preamble}
 
@@ -814,6 +878,11 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 //================================================
 // Implement Classes
 //================================================
+
+// Next binding:
+{classImplFunDecls[i]}
+
+// Current binding:
 {classImplFunDefs[i]}
 '''
         f.write(extraOut)

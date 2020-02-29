@@ -22,3 +22,19 @@ Leak a reference to the context and then clean it up at the end (or switch to a 
  
  Function pointer type support (it's often getting flagged as being a higher pointer number than 1)
 
+
+
+NOTES: About 8 GB for the present bindresult.cpp where the class declarations and implementations are in other files but the enum implementation is just in another function
+ - about 1.5-2 GB without the enum implementation
+ - about 6.7 GB for just the enum function w/ 123-7 enums
+ - roughly linear with the number of enum_'s, about 3.2 GB for 60-7 enum_'s, 1.1 GB for 20 enum_'s, 514 MB for 1 enum_, 480 ish w/ 0 enum_'s
+
+## all of the below are bad as I was changing the wrong file...
+NOTES: About 8 GB for the present bindresult.cpp where the class declarations and implementations are in other files but the enum implementation is just in another function
+ - same even without the enum implementation
+ - same even without the container specification
+ - same even without the namespace variable module faking stuff
+ 
+bindresult1.cpp uses only about 2GB of RAM, though
+
+
