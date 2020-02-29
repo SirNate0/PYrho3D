@@ -247,9 +247,23 @@ def patch_canon(canon):
         exit()
 
 
-def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=None):
+def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount=1, preamble=None):
+
+    if not outputCount:
+        import multiprocessing
+        outputCount = multiprocessing.cpu_count()
+    print('Using {} output files'.format(outputCount))
+
     if isinstance(outputFile,str):
         outputFile = open(outputFile,'w')
+
+    of_name = outputFile.name
+    extraOfNames = of_name.replace('.c','{}.c')
+    extraFiles = []
+    for i in range(1,int(outputCount)):
+        extraName = extraOfNames.format(i)
+        extraFiles.append(open(extraName,'w'))
+
     patch_canon(canon)
 
     print('Adding namespaces')
@@ -356,7 +370,27 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
                 else:
                     comment = '//' if bad else ''
                     impl += f'  {comment}.def{static_state}("{f.name}", ({f.fnptr_type}) &{f.canonical}, "todo: docstring"{args})\n{bad}'
-
+        for v in ns.vars:
+            if v.access is Access.PUBLIC and v.canonical not in has_override:
+                write_state = 'only' if v.const else 'write'
+                static_state = '_static' #CLASSES: if v.static else ''
+                name = v.name
+                if name.startswith('_'):
+                    name = name[1:]
+                if name.endswith('_'):
+                    name = name[:-1]
+                var_bad = v.name in [
+                    'NPOS',
+                    'MIN_CAPACITY',
+                    'EMPTY',
+                    'MIN_BUCKETS',
+                    'MAX_LOAD_FACTOR',
+                    'SAMPLE_SIZE_MUL'
+                ]
+                if not any([var_bad, v.type.pointer, v.type.array, v.type.reference]):
+                    impl += f'  .def_read{write_state}{static_state}("{name}",&{v.canonical}, "todo: var docstring")//{v.type}\n'
+                else:
+                    impl += f'  //.def_read{write_state}{static_state}("{name}",&{v.canonical}, "todo: var docstring")//{v.type}\n'
         if impl and ns.name: # exclude the global namespace
             namespaceImpls.append(f'{pyns}\n{impl};')
 
@@ -369,6 +403,7 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
     classVars = []
     classImpls = []
     classImplFuns = []
+    classImplFunDefs = []
     for cls in classes:
         classname = cls.name
         fullclass = cls.canonical
@@ -518,20 +553,38 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, preamble=No
                 ]
                 if not any([var_bad, v.type.pointer, v.type.array, v.type.reference]):
                     impl += f'  .def_read{write_state}{static_state}("{name}",&{v.canonical}, "todo: var docstring")//{v.type}\n'
+                else:
+                    impl += f'  //.def_read{write_state}{static_state}("{name}",&{v.canonical}, "todo: var docstring")//{v.type}\n'
 
         impl += ';'
-
-        fn_impl = f'''void Implement_{varsafe(fullclass)}(py::class_<{fullclass + trampolineClass + ptrclass + inherits}>& {pyclass})
+        fn_impl = f'void Implement_{varsafe(fullclass)}(py::class_<{fullclass + trampolineClass + ptrclass + inherits}>& {pyclass})'
+        fn_impl_def = f'''{fn_impl}
 {{
     {impl}
 }}'''
-        classImplFuns.append(fn_impl)
+        classImplFuns.append(fn_impl+';')
+        classImplFunDefs.append(fn_impl_def)
         classImpls.append(f'Implement_{varsafe(fullclass)}({pyclass});')
 
 
     classVars = '\n'.join(classVars)
     classImpls = '\n'.join(classImpls)
     classImplFuns = '\n\n'.join(classImplFuns)
+    # classImplFunDefs = '\n\n'.join(classImplFunDefs)
+
+    if len(extraFiles) == 0:
+        classImplFuns = '\n\n'.join(classImplFunDefs)
+    else:
+        c = len(extraFiles)
+        classImplFunDefs += ['']*((c-len(classImplFunDefs)) % c)
+        assert(len(classImplFunDefs)%c == 0)
+        sz = len(classImplFunDefs) // c
+        cd = []
+        for i in range(1,c+1):
+            cd.append('\n\n'.join(classImplFunDefs[:sz]))
+            classImplFunDefs = classImplFunDefs[sz:]
+        classImplFunDefs = cd
+
 
 
 
@@ -613,6 +666,9 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::ExternalPtr<T>, false);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::SharedPtr<T>, true);
 PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 
+//================================================
+// Implement Classes
+//================================================
 {classImplFuns}
 
 // can do sub-modules, just need to py::import... the other module if it has any required classes first (see Advanced Topics in pybind11 docs)
@@ -678,6 +734,25 @@ PYBIND11_MODULE(pyrho3d, m) {{
 {globalClassOperators}
 */
 
+
+
+
+// create context object for us
+Urho3D::SharedPtr<Urho3D::Context> c{new Urho3D::Context()};
+c->AddRef();
+m.add_object("context", py::cast(c));
+// Register a callback function that is invoked when the BaseClass object is colelcted
+py::cpp_function cleanup_callback(
+    [m](py::handle weakref) {{
+        // perform cleanup here -- this function is called with the GIL held
+        Urho3D::Context* ctx = m.attr("context").cast<Urho3D::Context*>();
+        weakref.dec_ref(); // release weak reference
+    }}
+);
+
+// Create a weak reference with a cleanup callback and initially leak it
+(void) py::weakref(m.attr("Context"), cleanup_callback).release();
+
 }}
 
 
@@ -690,6 +765,59 @@ PYBIND11_MODULE(pyrho3d, m) {{
     if outputFile is not None:
         outputFile.write(out)
         outputFile.close()
+    for i,f in enumerate(extraFiles):
+        extraOut = f'''
+{preamble}
+
+
+
+#include <pybind11/pybind11.h>
+#include <pybind11/numpy.h>
+#include <pybind11/operators.h>
+#include <memory>
+namespace py = pybind11;
+
+
+// Urho local
+#include "String_binding.h"
+#include "PtrBinding.h"
+#include "PyTrampolines.h"
+#include "ContainerBinding.h"
+
+// From the bind call
+{includes}
+
+// Patch Urho things (esp. function default values)
+typedef Urho3D::String::Iterator Iterator;
+
+
+typedef Urho3D::Renderer::ShadowMapFilter ShadowMapFilter;
+extern const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
+
+
+//================================================
+//Operator typedefs
+//================================================
+// These are needed to prevent the compiler disliking the spaces, so we make it a single word
+{typedefs}
+
+
+//================================================
+// Declare the holder types shared and weak ptr
+//================================================
+// TODO: Consider global hashmap of pointers for external pointer, then we could mark it as safe from raw ptr.
+PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::ExternalPtr<T>, false);
+PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::SharedPtr<T>, true);
+PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
+
+
+//================================================
+// Implement Classes
+//================================================
+{classImplFunDefs[i]}
+'''
+        f.write(extraOut)
+        f.close
     return out
 
 

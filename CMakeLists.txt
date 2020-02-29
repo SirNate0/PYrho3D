@@ -21,8 +21,31 @@ cmake_minimum_required (VERSION 3.5.1)
 # Set CMake modules search path
 set (CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake/Modules)
 
-set (URHO3D_HOME /home/nathan/Projects/Urho/Urho3D/Build)
-set (URHO3D_LIB_TYPE SHARED)
+set (URHO3D_HOME /home/nathan/Projects/Urho/Urho3D/Build CACHE PATH "" FORCE)
+set (URHO3D_LIB_TYPE SHARED CACHE STRING "docstring" FORCE)
+
+# Binding file count
+set (BINDING_FILE_COUNT 0 CACHE STRING "Number of files to split the bindings into. 0 for CPU count.")
+if (BINDING_FILE_COUNT EQUAL 0)
+    include(ProcessorCount)
+    ProcessorCount(N)
+    if(NOT N EQUAL 0)
+        set(ACTUAL_BINDING_FILE_COUNT ${N})
+    else()
+        message("Could not get the number of cores. Defaulting to 1 file.")
+        set(ACTUAL_BINDING_FILE_COUNT 1)
+    endif()
+else()
+    set(ACTUAL_BINDING_FILE_COUNT ${BINDING_FILE_COUNT})
+endif()
+
+list(APPEND BINDING_FILES ${CMAKE_CURRENT_BINARY_DIR}/bindresult.cpp)
+foreach(N RANGE 1 ${ACTUAL_BINDING_FILE_COUNT})
+    if(NOT N EQUAL ${ACTUAL_BINDING_FILE_COUNT})
+        list(APPEND BINDING_FILES ${CMAKE_CURRENT_BINARY_DIR}/bindresult${N}.cpp)
+    endif()
+endforeach()
+
 # Include Urho3D Cmake common module
 include (UrhoCommon)
 # Find Urho3D library
@@ -83,15 +106,20 @@ ADD_CUSTOM_TARGET(process_header DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/Urho3DProce
 
 ADD_CUSTOM_COMMAND(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/bindresult.cpp
-    COMMAND python3.6 ${CMAKE_CURRENT_SOURCE_DIR}/parseobjects.py ${CMAKE_CURRENT_BINARY_DIR}/Urho3DProcessed.h -o ${CMAKE_CURRENT_BINARY_DIR}/bindresult.cpp -i Urho3D/Urho3DAll.h
+    COMMAND python3.6 ${CMAKE_CURRENT_SOURCE_DIR}/parseobjects.py ${CMAKE_CURRENT_BINARY_DIR}/Urho3DProcessed.h -o ${CMAKE_CURRENT_BINARY_DIR}/bindresult.cpp -i Urho3D/Urho3DAll.h -n ${ACTUAL_BINDING_FILE_COUNT}
     DEPENDS process_header
 )
 
-define_source_files (bindresult.cpp)
-ADD_CUSTOM_TARGET(bind_result DEPENDS bindresult.cpp)
+
+#define_source_files (${CMAKE_CURRENT_BINARY_DIR}/bindresult.cpp)
+#ADD_CUSTOM_TARGET(bind_result DEPENDS bindresult.cpp)
+
+define_source_files (${BINDING_FILES})
+ADD_CUSTOM_TARGET(bind_result DEPENDS ${BINDING_FILES})
+
 
 # Based on https://stackoverflow.com/questions/49053544/how-do-i-run-a-python-script-every-time-in-a-cmake-build
-add_library(pyrho3d SHARED bindresult.cpp)
+add_library(pyrho3d SHARED ${BINDING_FILES})
 
 add_dependencies(bind_result process_header)
 add_dependencies(pyrho3d bind_result)

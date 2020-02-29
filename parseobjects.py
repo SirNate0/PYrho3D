@@ -359,6 +359,7 @@ parser.add_argument('include', metavar='ProcessedIncludeFile.h', help='The (prep
 parser.add_argument('-i', '--include', dest='include_override', metavar='IncludeFile.h', help='The unprocessed header file to include in the output.')
 parser.add_argument('-o', '--output', dest='output', required=False, default='result.cpp', metavar='result.cpp',  help='The output filename (default: result.cpp)')
 parser.add_argument('-p', '--prefix', dest='prefix', required=False, metavar='/* Prefixed Comment */',  help='The text prefixed to the start of the file')
+parser.add_argument('-n', '--output-number', dest='output_number', required=False, default=None, metavar='result.cpp',  help='The output count to split the binding into (default: CPU Count)')
 
 parser.add_argument('-v', '--parse-output', dest='parse_output', required=False, default=None, metavar='result.cpp',  help='File to output parsed file to.')
 
@@ -527,7 +528,7 @@ print(args)
 include = include if args.include_override is None else args.include_override
 print(include)
 
-bind(canon,default_namespace=default_namespace,includeThese=[include], outputFile=args.output)
+bind(canon,default_namespace=default_namespace,includeThese=[include], outputFile=args.output, outputCount=args.output_number)
 
 #render_bindings(args.output, **globals()) #default_namespace=default_namespace,include= include if args.include_override is None else args.include_override,canon=canon)
 
