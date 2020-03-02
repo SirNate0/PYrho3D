@@ -635,7 +635,7 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount
         #divideListInto(classImplFunDecls,len(extraFiles))
         classImplFunNames = ['Implement_Class_Bindings_%d'%(1+i) for i in range(classFileCount)]
         classImplFunDecls = ['void %s(py::module& m);'%f for f in classImplFunNames] + ['void Implement_Enum_Bindings(py::module& m);']
-        classImplFunCalls = ['%s(m);'%f for f in classImplFunNames] + ['Implement_Enum_Bindings(m)']
+        classImplFunCalls = ['%s(m);'%f for f in classImplFunNames] + ['Implement_Enum_Bindings(m);']
         classVars = ['//Class declarations moved to other files'] + divideListInto(classVars,classFileCount,'\n')
         classImplFunBodies = [''] + divideListInto(classImplFunBodies,classFileCount,'\n\n')
         classImpls = [f'{scopes}\n\n{vars}\n\n{further}\n\n{actual}' for scopes,vars,further,actual in zip(classScopeVars,classVars,classImplFunCalls,classImplFunBodies)]
@@ -643,39 +643,97 @@ def bind(canon, default_namespace, includeThese=[], outputFile=None, outputCount
 
 
 
+    if len(extraFiles) == 0:
+        enumImpls = []
+        enumScopes = set()
+        for e in enums:
+            assert isinstance(e,Enumeration)
+            pyclass = 'pyclass_Var_' + varsafe(e.canonical)
+            baseclass = 'pyclass_Var_' + varsafe(e.scope.canonical)
 
-    enumImpls = []
-    enumScopes = set()
-    for e in enums:
-        assert isinstance(e,Enumeration)
-        pyclass = 'pyclass_Var_' + varsafe(e.canonical)
-        baseclass = 'pyclass_Var_' + varsafe(e.scope.canonical)
+            # TODO: Actually determine which Urho Enums use math (FlagSets?)
+            def enumUsesMath(e):
+                return True
 
-        # TODO: Actually determine which Urho Enums use math (FlagSets?)
-        def enumUsesMath(e):
-            return True
+            pyarith = 'py::arithmetic(), ' if enumUsesMath(e) else ''
 
-        pyarith = 'py::arithmetic(), ' if enumUsesMath(e) else ''
+            comment = f'// Enum {e.canonical} Registrations'
+            binding = f'auto {pyclass} = py::enum_<{e.canonical}>({baseclass}, "{e.name}", {pyarith}"test doc")\n'
 
-        comment = f'// Enum {e.canonical} Registrations'
-        binding = f'auto {pyclass} = py::enum_<{e.canonical}>({baseclass}, "{e.name}", {pyarith}"test doc")\n'
+            for v in e.values:
+                binding += f'  .value("{v.name}", {v.canonical})\n'
 
-        for v in e.values:
-            binding += f'  .value("{v.name}", {v.canonical})\n'
+            if not e.enum_class:
+                binding += '  .export_values()\n'
 
-        if not e.enum_class:
-            binding += '  .export_values()\n'
+            binding += ';'
 
-        binding += ';'
+            enumImpls.append(comment + '\n' + binding)
+            enumScopes.add(e.scope.canonical)
 
-        enumImpls.append(comment + '\n' + binding)
-        enumScopes.add(e.scope.canonical)
+            enumImpls = '\n\n'.join(enumImpls)
+            enumScopes = '\n'.join(scopeSetToVars(enumScopes))
 
-    enumImpls = '\n\n'.join(enumImpls)
-    enumScopes = '\n'.join(scopeSetToVars(enumScopes))
+            if not enumImpls:
+                enumImpls = f'// {len(enums)}'
 
-    if not enumImpls:
-        enumImpls = f'// {len(enums)}'
+            enumImplDecls = ['']
+            enumImplDefs = [f'''void Implement_Enum_Bindings(py::module& m)
+{{
+{enumScopes}
+
+{enumImpls}
+}}''']
+    else:
+        classFileCount = len(extraFiles)+1
+        divEnums = divideListInto(enums,classFileCount)
+        enumImplFunNames = ['Implement_Enum_Bindings']+['Implement_Enum_Bindings_%d'%(1+i) for i in range(classFileCount-1)]
+        enumImplDecls = ['void %s(py::module& m);'%f for f in enumImplFunNames[1:]] + ['// No more enum init fns']
+        enumImplCalls = ['%s(m);'%f for f in enumImplFunNames] + ['// No more enum calls']
+        enumImplDefs = []
+        for i,group in enumerate(divEnums):
+            enumImpls = []
+            enumScopes = set()
+            for e in group:
+                if not isinstance(e,Enumeration):
+                    # we append '' to the groups to make them even
+                    continue
+                pyclass = 'pyclass_Var_' + varsafe(e.canonical)
+                baseclass = 'pyclass_Var_' + varsafe(e.scope.canonical)
+
+                # TODO: Actually determine which Urho Enums use math (FlagSets?)
+                def enumUsesMath(e):
+                    return True
+
+                pyarith = 'py::arithmetic(), ' if enumUsesMath(e) else ''
+
+                comment = f'// Enum {e.canonical} Registrations'
+                binding = f'auto {pyclass} = py::enum_<{e.canonical}>({baseclass}, "{e.name}", {pyarith}"test doc")\n'
+
+                for v in e.values:
+                    binding += f'  .value("{v.name}", {v.canonical})\n'
+
+                if not e.enum_class:
+                    binding += '  .export_values()\n'
+
+                binding += ';'
+
+                enumImpls.append(comment + '\n' + binding)
+                enumScopes.add(e.scope.canonical)
+            next = enumImplCalls[i+1]
+            enumImpls = '\n\n'.join(enumImpls)
+            enumScopes = scopeSetToVars(enumScopes)
+            enumScopes = '\n'.join(enumScopes)
+
+            enumImplDefs.append(f'''void {enumImplFunNames[i]}(py::module& m)
+{{
+{enumScopes}
+
+{enumImpls}
+
+{next}
+}}''')
+
 
 
 
@@ -732,12 +790,8 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 //================================================
 // Declare and Implement Enumerations
 //================================================
-void Implement_Enum_Bindings(py::module& m)
-{{
-{enumScopes}
-
-{enumImpls}
-}}
+{enumImplDecls[0]}
+{enumImplDefs[0]}
 
 // can do sub-modules, just need to py::import... the other module if it has any required classes first (see Advanced Topics in pybind11 docs)
 PYBIND11_MODULE(pyrho3d, m) {{
@@ -803,7 +857,8 @@ PYBIND11_MODULE(pyrho3d, m) {{
 // create context object for us
 Urho3D::SharedPtr<Urho3D::Context> c{{new Urho3D::Context()}};
 c->AddRef();
-m.add_object("context", py::cast(c));
+//m.add_object("context", py::cast(c));
+m.attr("context") = py::cast(c);
 // Register a callback function that is invoked when the BaseClass object is colelcted
 py::cpp_function cleanup_callback(
     [m](py::handle weakref) {{
@@ -856,7 +911,7 @@ typedef Urho3D::String::Iterator Iterator;
 
 
 typedef Urho3D::Renderer::ShadowMapFilter ShadowMapFilter;
-extern const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
+static const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
 
 
 //================================================
@@ -884,6 +939,13 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, Urho3D::WeakPtr<T>, true);
 
 // Current binding:
 {classImplFunDefs[i]}
+
+
+//================================================
+// Declare and Implement Enumerations
+//================================================
+{enumImplDecls[i]}
+{enumImplDefs[i]}
 '''
         f.write(extraOut)
         f.close

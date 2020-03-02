@@ -54,6 +54,9 @@ urho.so: bindresult.cpp
 manualTestBind: 
 	g++ manualTestBind.cpp -std=c++14 -I /home/nathan/Projects/Urho/PythonBindings/pybind11/include -I /usr/include/python2.7 $(CXX_INCLUDES) -lpython2.7 -L . -lUrho3D $(LINK_TARGET) $(CXX_DEFINES) -shared -fPIC -fmax-errors=3 -o urho.so -ftime-report
 	
+TestBind:
+	g++ TestBind.cpp -std=c++14 -I /home/nathan/Projects/Urho/PythonBindings/pybind11/include -I /usr/include/python2.7 $(CXX_INCLUDES) -lpython2.7 -L . -lUrho3D $(LINK_TARGET) $(CXX_DEFINES) -shared -fPIC -fmax-errors=3 -o urho.so -ftime-report
+	
 
 bindresult.cpp: Urho3DProcessed.h bind-template.mako
 	python3.6 parseobjects.py Urho3DProcessed.h -o bindresult.cpp -i Urho3D/Urho3DAll.h

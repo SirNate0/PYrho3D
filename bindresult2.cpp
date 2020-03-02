@@ -32,7 +32,7 @@ typedef Urho3D::String::Iterator Iterator;
 
 
 typedef Urho3D::Renderer::ShadowMapFilter ShadowMapFilter;
-extern const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
+static const auto& RIGHT_FORWARD_UP = Urho3D::RaycastVehicle::RIGHT_FORWARD_UP;
 
 
 //================================================
@@ -353,7 +353,7 @@ auto pyclass_Var_Urho3D_ConstraintGear2D = py::class_<Urho3D::ConstraintGear2D, 
 auto pyclass_Var_Urho3D_Texture3D = py::class_<Urho3D::Texture3D, Urho3D::SharedPtr<Urho3D::Texture3D>, Urho3D::Texture>(pyclass_Var_Urho3D, "Texture3D", "test doc");
 
 
-Implement_Enum_Bindings(m)
+Implement_Enum_Bindings(m);
 
 // Class VertexBuffer Implementation
 pyclass_Var_Urho3D_VertexBuffer
@@ -5448,4 +5448,419 @@ pyclass_Var_Urho3D_Texture3D
 ;
 
 
+}
+
+
+//================================================
+// Declare and Implement Enumerations
+//================================================
+// No more enum init fns
+void Implement_Enum_Bindings_2(py::module& m)
+{
+py::module& pyclass_Var_Urho3D = m;
+
+// Enum Urho3D::LightPSVariation Registrations
+auto pyclass_Var_Urho3D_LightPSVariation = py::enum_<Urho3D::LightPSVariation>(pyclass_Var_Urho3D, "LightPSVariation", py::arithmetic(), "test doc")
+  .value("LPS_NONE", Urho3D::LightPSVariation::LPS_NONE)
+  .value("LPS_SPOT", Urho3D::LightPSVariation::LPS_SPOT)
+  .value("LPS_POINT", Urho3D::LightPSVariation::LPS_POINT)
+  .value("LPS_POINTMASK", Urho3D::LightPSVariation::LPS_POINTMASK)
+  .value("LPS_SPEC", Urho3D::LightPSVariation::LPS_SPEC)
+  .value("LPS_SPOTSPEC", Urho3D::LightPSVariation::LPS_SPOTSPEC)
+  .value("LPS_POINTSPEC", Urho3D::LightPSVariation::LPS_POINTSPEC)
+  .value("LPS_POINTMASKSPEC", Urho3D::LightPSVariation::LPS_POINTMASKSPEC)
+  .value("LPS_SHADOW", Urho3D::LightPSVariation::LPS_SHADOW)
+  .value("LPS_SPOTSHADOW", Urho3D::LightPSVariation::LPS_SPOTSHADOW)
+  .value("LPS_POINTSHADOW", Urho3D::LightPSVariation::LPS_POINTSHADOW)
+  .value("LPS_POINTMASKSHADOW", Urho3D::LightPSVariation::LPS_POINTMASKSHADOW)
+  .value("LPS_SHADOWSPEC", Urho3D::LightPSVariation::LPS_SHADOWSPEC)
+  .value("LPS_SPOTSHADOWSPEC", Urho3D::LightPSVariation::LPS_SPOTSHADOWSPEC)
+  .value("LPS_POINTSHADOWSPEC", Urho3D::LightPSVariation::LPS_POINTSHADOWSPEC)
+  .value("LPS_POINTMASKSHADOWSPEC", Urho3D::LightPSVariation::LPS_POINTMASKSHADOWSPEC)
+  .value("MAX_LIGHT_PS_VARIATIONS", Urho3D::LightPSVariation::MAX_LIGHT_PS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::DeferredLightVSVariation Registrations
+auto pyclass_Var_Urho3D_DeferredLightVSVariation = py::enum_<Urho3D::DeferredLightVSVariation>(pyclass_Var_Urho3D, "DeferredLightVSVariation", py::arithmetic(), "test doc")
+  .value("DLVS_NONE", Urho3D::DeferredLightVSVariation::DLVS_NONE)
+  .value("DLVS_DIR", Urho3D::DeferredLightVSVariation::DLVS_DIR)
+  .value("DLVS_ORTHO", Urho3D::DeferredLightVSVariation::DLVS_ORTHO)
+  .value("DLVS_ORTHODIR", Urho3D::DeferredLightVSVariation::DLVS_ORTHODIR)
+  .value("MAX_DEFERRED_LIGHT_VS_VARIATIONS", Urho3D::DeferredLightVSVariation::MAX_DEFERRED_LIGHT_VS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::DeferredLightPSVariation Registrations
+auto pyclass_Var_Urho3D_DeferredLightPSVariation = py::enum_<Urho3D::DeferredLightPSVariation>(pyclass_Var_Urho3D, "DeferredLightPSVariation", py::arithmetic(), "test doc")
+  .value("DLPS_NONE", Urho3D::DeferredLightPSVariation::DLPS_NONE)
+  .value("DLPS_SPOT", Urho3D::DeferredLightPSVariation::DLPS_SPOT)
+  .value("DLPS_POINT", Urho3D::DeferredLightPSVariation::DLPS_POINT)
+  .value("DLPS_POINTMASK", Urho3D::DeferredLightPSVariation::DLPS_POINTMASK)
+  .value("DLPS_SPEC", Urho3D::DeferredLightPSVariation::DLPS_SPEC)
+  .value("DLPS_SPOTSPEC", Urho3D::DeferredLightPSVariation::DLPS_SPOTSPEC)
+  .value("DLPS_POINTSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTSPEC)
+  .value("DLPS_POINTMASKSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSPEC)
+  .value("DLPS_SHADOW", Urho3D::DeferredLightPSVariation::DLPS_SHADOW)
+  .value("DLPS_SPOTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOW)
+  .value("DLPS_POINTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOW)
+  .value("DLPS_POINTMASKSHADOW", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOW)
+  .value("DLPS_SHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_SHADOWSPEC)
+  .value("DLPS_SPOTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOWSPEC)
+  .value("DLPS_POINTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOWSPEC)
+  .value("DLPS_POINTMASKSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOWSPEC)
+  .value("DLPS_SHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SHADOWNORMALOFFSET)
+  .value("DLPS_SPOTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOWNORMALOFFSET)
+  .value("DLPS_POINTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOWNORMALOFFSET)
+  .value("DLPS_POINTMASKSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOWNORMALOFFSET)
+  .value("DLPS_SHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SHADOWSPECNORMALOFFSET)
+  .value("DLPS_SPOTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_SPOTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_POINTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_POINTMASKSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_POINTMASKSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHO", Urho3D::DeferredLightPSVariation::DLPS_ORTHO)
+  .value("DLPS_ORTHOSPOT", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOT)
+  .value("DLPS_ORTHOPOINT", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINT)
+  .value("DLPS_ORTHOPOINTMASK", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASK)
+  .value("DLPS_ORTHOSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPEC)
+  .value("DLPS_ORTHOSPOTSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSPEC)
+  .value("DLPS_ORTHOPOINTSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSPEC)
+  .value("DLPS_ORTHOPOINTMASKSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSPEC)
+  .value("DLPS_ORTHOSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOW)
+  .value("DLPS_ORTHOSPOTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOW)
+  .value("DLPS_ORTHOPOINTSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOW)
+  .value("DLPS_ORTHOPOINTMASKSHADOW", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOW)
+  .value("DLPS_ORTHOSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOWSPEC)
+  .value("DLPS_ORTHOSPOTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOWSPEC)
+  .value("DLPS_ORTHOPOINTSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOWSPEC)
+  .value("DLPS_ORTHOPOINTMASKSHADOWSPEC", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOWSPEC)
+  .value("DLPS_ORTHOSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOSPOTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOWNORMALOFFSET)
+  .value("DLPS_ORTHOSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOSPOTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTSHADOWSPECNORMALOFFSET)
+  .value("DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET", Urho3D::DeferredLightPSVariation::DLPS_ORTHOPOINTMASKSHADOWSPECNORMALOFFSET)
+  .value("MAX_DEFERRED_LIGHT_PS_VARIATIONS", Urho3D::DeferredLightPSVariation::MAX_DEFERRED_LIGHT_PS_VARIATIONS)
+  .export_values()
+;
+
+// Enum Urho3D::TrailType Registrations
+auto pyclass_Var_Urho3D_TrailType = py::enum_<Urho3D::TrailType>(pyclass_Var_Urho3D, "TrailType", py::arithmetic(), "test doc")
+  .value("TT_FACE_CAMERA", Urho3D::TrailType::TT_FACE_CAMERA)
+  .value("TT_BONE", Urho3D::TrailType::TT_BONE)
+  .export_values()
+;
+
+// Enum Urho3D::PassLightingMode Registrations
+auto pyclass_Var_Urho3D_PassLightingMode = py::enum_<Urho3D::PassLightingMode>(pyclass_Var_Urho3D, "PassLightingMode", py::arithmetic(), "test doc")
+  .value("LIGHTING_UNLIT", Urho3D::PassLightingMode::LIGHTING_UNLIT)
+  .value("LIGHTING_PERVERTEX", Urho3D::PassLightingMode::LIGHTING_PERVERTEX)
+  .value("LIGHTING_PERPIXEL", Urho3D::PassLightingMode::LIGHTING_PERPIXEL)
+  .export_values()
+;
+
+// Enum Urho3D::LoadMode Registrations
+auto pyclass_Var_Urho3D_LoadMode = py::enum_<Urho3D::LoadMode>(pyclass_Var_Urho3D, "LoadMode", py::arithmetic(), "test doc")
+  .value("LOAD_RESOURCES_ONLY", Urho3D::LoadMode::LOAD_RESOURCES_ONLY)
+  .value("LOAD_SCENE", Urho3D::LoadMode::LOAD_SCENE)
+  .value("LOAD_SCENE_AND_RESOURCES", Urho3D::LoadMode::LOAD_SCENE_AND_RESOURCES)
+  .export_values()
+;
+
+// Enum Urho3D::CursorShape Registrations
+auto pyclass_Var_Urho3D_CursorShape = py::enum_<Urho3D::CursorShape>(pyclass_Var_Urho3D, "CursorShape", py::arithmetic(), "test doc")
+  .value("CS_NORMAL", Urho3D::CursorShape::CS_NORMAL)
+  .value("CS_IBEAM", Urho3D::CursorShape::CS_IBEAM)
+  .value("CS_CROSS", Urho3D::CursorShape::CS_CROSS)
+  .value("CS_RESIZEVERTICAL", Urho3D::CursorShape::CS_RESIZEVERTICAL)
+  .value("CS_RESIZEDIAGONAL_TOPRIGHT", Urho3D::CursorShape::CS_RESIZEDIAGONAL_TOPRIGHT)
+  .value("CS_RESIZEHORIZONTAL", Urho3D::CursorShape::CS_RESIZEHORIZONTAL)
+  .value("CS_RESIZEDIAGONAL_TOPLEFT", Urho3D::CursorShape::CS_RESIZEDIAGONAL_TOPLEFT)
+  .value("CS_RESIZE_ALL", Urho3D::CursorShape::CS_RESIZE_ALL)
+  .value("CS_ACCEPTDROP", Urho3D::CursorShape::CS_ACCEPTDROP)
+  .value("CS_REJECTDROP", Urho3D::CursorShape::CS_REJECTDROP)
+  .value("CS_BUSY", Urho3D::CursorShape::CS_BUSY)
+  .value("CS_BUSY_ARROW", Urho3D::CursorShape::CS_BUSY_ARROW)
+  .value("CS_MAX_SHAPES", Urho3D::CursorShape::CS_MAX_SHAPES)
+  .export_values()
+;
+
+// Enum Urho3D::MouseMode Registrations
+auto pyclass_Var_Urho3D_MouseMode = py::enum_<Urho3D::MouseMode>(pyclass_Var_Urho3D, "MouseMode", py::arithmetic(), "test doc")
+  .value("MM_ABSOLUTE", Urho3D::MouseMode::MM_ABSOLUTE)
+  .value("MM_RELATIVE", Urho3D::MouseMode::MM_RELATIVE)
+  .value("MM_WRAP", Urho3D::MouseMode::MM_WRAP)
+  .value("MM_FREE", Urho3D::MouseMode::MM_FREE)
+  .value("MM_INVALID", Urho3D::MouseMode::MM_INVALID)
+  .export_values()
+;
+
+// Enum Urho3D::LuaScriptObjectMethod Registrations
+auto pyclass_Var_Urho3D_LuaScriptObjectMethod = py::enum_<Urho3D::LuaScriptObjectMethod>(pyclass_Var_Urho3D, "LuaScriptObjectMethod", py::arithmetic(), "test doc")
+  .value("LSOM_START", Urho3D::LuaScriptObjectMethod::LSOM_START)
+  .value("LSOM_STOP", Urho3D::LuaScriptObjectMethod::LSOM_STOP)
+  .value("LSOM_DELAYEDSTART", Urho3D::LuaScriptObjectMethod::LSOM_DELAYEDSTART)
+  .value("LSOM_UPDATE", Urho3D::LuaScriptObjectMethod::LSOM_UPDATE)
+  .value("LSOM_POSTUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_POSTUPDATE)
+  .value("LSOM_FIXEDUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_FIXEDUPDATE)
+  .value("LSOM_FIXEDPOSTUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_FIXEDPOSTUPDATE)
+  .value("LSOM_LOAD", Urho3D::LuaScriptObjectMethod::LSOM_LOAD)
+  .value("LSOM_SAVE", Urho3D::LuaScriptObjectMethod::LSOM_SAVE)
+  .value("LSOM_READNETWORKUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_READNETWORKUPDATE)
+  .value("LSOM_WRITENETWORKUPDATE", Urho3D::LuaScriptObjectMethod::LSOM_WRITENETWORKUPDATE)
+  .value("LSOM_APPLYATTRIBUTES", Urho3D::LuaScriptObjectMethod::LSOM_APPLYATTRIBUTES)
+  .value("LSOM_TRANSFORMCHANGED", Urho3D::LuaScriptObjectMethod::LSOM_TRANSFORMCHANGED)
+  .value("MAX_LUA_SCRIPT_OBJECT_METHODS", Urho3D::LuaScriptObjectMethod::MAX_LUA_SCRIPT_OBJECT_METHODS)
+  .export_values()
+;
+
+// Enum Urho3D::CrowdAgentRequestedTarget Registrations
+auto pyclass_Var_Urho3D_CrowdAgentRequestedTarget = py::enum_<Urho3D::CrowdAgentRequestedTarget>(pyclass_Var_Urho3D, "CrowdAgentRequestedTarget", py::arithmetic(), "test doc")
+  .value("CA_REQUESTEDTARGET_NONE", Urho3D::CrowdAgentRequestedTarget::CA_REQUESTEDTARGET_NONE)
+  .value("CA_REQUESTEDTARGET_POSITION", Urho3D::CrowdAgentRequestedTarget::CA_REQUESTEDTARGET_POSITION)
+  .value("CA_REQUESTEDTARGET_VELOCITY", Urho3D::CrowdAgentRequestedTarget::CA_REQUESTEDTARGET_VELOCITY)
+  .export_values()
+;
+
+// Enum Urho3D::CrowdAgentTargetState Registrations
+auto pyclass_Var_Urho3D_CrowdAgentTargetState = py::enum_<Urho3D::CrowdAgentTargetState>(pyclass_Var_Urho3D, "CrowdAgentTargetState", py::arithmetic(), "test doc")
+  .value("CA_TARGET_NONE", Urho3D::CrowdAgentTargetState::CA_TARGET_NONE)
+  .value("CA_TARGET_FAILED", Urho3D::CrowdAgentTargetState::CA_TARGET_FAILED)
+  .value("CA_TARGET_VALID", Urho3D::CrowdAgentTargetState::CA_TARGET_VALID)
+  .value("CA_TARGET_REQUESTING", Urho3D::CrowdAgentTargetState::CA_TARGET_REQUESTING)
+  .value("CA_TARGET_WAITINGFORQUEUE", Urho3D::CrowdAgentTargetState::CA_TARGET_WAITINGFORQUEUE)
+  .value("CA_TARGET_WAITINGFORPATH", Urho3D::CrowdAgentTargetState::CA_TARGET_WAITINGFORPATH)
+  .value("CA_TARGET_VELOCITY", Urho3D::CrowdAgentTargetState::CA_TARGET_VELOCITY)
+  .export_values()
+;
+
+// Enum Urho3D::CrowdAgentState Registrations
+auto pyclass_Var_Urho3D_CrowdAgentState = py::enum_<Urho3D::CrowdAgentState>(pyclass_Var_Urho3D, "CrowdAgentState", py::arithmetic(), "test doc")
+  .value("CA_STATE_INVALID", Urho3D::CrowdAgentState::CA_STATE_INVALID)
+  .value("CA_STATE_WALKING", Urho3D::CrowdAgentState::CA_STATE_WALKING)
+  .value("CA_STATE_OFFMESH", Urho3D::CrowdAgentState::CA_STATE_OFFMESH)
+  .export_values()
+;
+
+// Enum Urho3D::NavigationQuality Registrations
+auto pyclass_Var_Urho3D_NavigationQuality = py::enum_<Urho3D::NavigationQuality>(pyclass_Var_Urho3D, "NavigationQuality", py::arithmetic(), "test doc")
+  .value("NAVIGATIONQUALITY_LOW", Urho3D::NavigationQuality::NAVIGATIONQUALITY_LOW)
+  .value("NAVIGATIONQUALITY_MEDIUM", Urho3D::NavigationQuality::NAVIGATIONQUALITY_MEDIUM)
+  .value("NAVIGATIONQUALITY_HIGH", Urho3D::NavigationQuality::NAVIGATIONQUALITY_HIGH)
+  .export_values()
+;
+
+// Enum Urho3D::NavigationPushiness Registrations
+auto pyclass_Var_Urho3D_NavigationPushiness = py::enum_<Urho3D::NavigationPushiness>(pyclass_Var_Urho3D, "NavigationPushiness", py::arithmetic(), "test doc")
+  .value("NAVIGATIONPUSHINESS_LOW", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_LOW)
+  .value("NAVIGATIONPUSHINESS_MEDIUM", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_MEDIUM)
+  .value("NAVIGATIONPUSHINESS_HIGH", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_HIGH)
+  .value("NAVIGATIONPUSHINESS_NONE", Urho3D::NavigationPushiness::NAVIGATIONPUSHINESS_NONE)
+  .export_values()
+;
+
+// Enum Urho3D::NavmeshPartitionType Registrations
+auto pyclass_Var_Urho3D_NavmeshPartitionType = py::enum_<Urho3D::NavmeshPartitionType>(pyclass_Var_Urho3D, "NavmeshPartitionType", py::arithmetic(), "test doc")
+  .value("NAVMESH_PARTITION_WATERSHED", Urho3D::NavmeshPartitionType::NAVMESH_PARTITION_WATERSHED)
+  .value("NAVMESH_PARTITION_MONOTONE", Urho3D::NavmeshPartitionType::NAVMESH_PARTITION_MONOTONE)
+  .export_values()
+;
+
+// Enum Urho3D::NavigationPathPointFlag Registrations
+auto pyclass_Var_Urho3D_NavigationPathPointFlag = py::enum_<Urho3D::NavigationPathPointFlag>(pyclass_Var_Urho3D, "NavigationPathPointFlag", py::arithmetic(), "test doc")
+  .value("NAVPATHFLAG_NONE", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_NONE)
+  .value("NAVPATHFLAG_START", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_START)
+  .value("NAVPATHFLAG_END", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_END)
+  .value("NAVPATHFLAG_OFF_MESH", Urho3D::NavigationPathPointFlag::NAVPATHFLAG_OFF_MESH)
+  .export_values()
+;
+
+// Enum Urho3D::ObserverPositionSendMode Registrations
+auto pyclass_Var_Urho3D_ObserverPositionSendMode = py::enum_<Urho3D::ObserverPositionSendMode>(pyclass_Var_Urho3D, "ObserverPositionSendMode", py::arithmetic(), "test doc")
+  .value("OPSM_NONE", Urho3D::ObserverPositionSendMode::OPSM_NONE)
+  .value("OPSM_POSITION", Urho3D::ObserverPositionSendMode::OPSM_POSITION)
+  .value("OPSM_POSITION_ROTATION", Urho3D::ObserverPositionSendMode::OPSM_POSITION_ROTATION)
+  .export_values()
+;
+
+// Enum Urho3D::HttpRequestState Registrations
+auto pyclass_Var_Urho3D_HttpRequestState = py::enum_<Urho3D::HttpRequestState>(pyclass_Var_Urho3D, "HttpRequestState", py::arithmetic(), "test doc")
+  .value("HTTP_INITIALIZING", Urho3D::HttpRequestState::HTTP_INITIALIZING)
+  .value("HTTP_ERROR", Urho3D::HttpRequestState::HTTP_ERROR)
+  .value("HTTP_OPEN", Urho3D::HttpRequestState::HTTP_OPEN)
+  .value("HTTP_CLOSED", Urho3D::HttpRequestState::HTTP_CLOSED)
+  .export_values()
+;
+
+// Enum Urho3D::ShapeType Registrations
+auto pyclass_Var_Urho3D_ShapeType = py::enum_<Urho3D::ShapeType>(pyclass_Var_Urho3D, "ShapeType", py::arithmetic(), "test doc")
+  .value("SHAPE_BOX", Urho3D::ShapeType::SHAPE_BOX)
+  .value("SHAPE_SPHERE", Urho3D::ShapeType::SHAPE_SPHERE)
+  .value("SHAPE_STATICPLANE", Urho3D::ShapeType::SHAPE_STATICPLANE)
+  .value("SHAPE_CYLINDER", Urho3D::ShapeType::SHAPE_CYLINDER)
+  .value("SHAPE_CAPSULE", Urho3D::ShapeType::SHAPE_CAPSULE)
+  .value("SHAPE_CONE", Urho3D::ShapeType::SHAPE_CONE)
+  .value("SHAPE_TRIANGLEMESH", Urho3D::ShapeType::SHAPE_TRIANGLEMESH)
+  .value("SHAPE_CONVEXHULL", Urho3D::ShapeType::SHAPE_CONVEXHULL)
+  .value("SHAPE_TERRAIN", Urho3D::ShapeType::SHAPE_TERRAIN)
+  .value("SHAPE_GIMPACTMESH", Urho3D::ShapeType::SHAPE_GIMPACTMESH)
+  .export_values()
+;
+
+// Enum Urho3D::ConstraintType Registrations
+auto pyclass_Var_Urho3D_ConstraintType = py::enum_<Urho3D::ConstraintType>(pyclass_Var_Urho3D, "ConstraintType", py::arithmetic(), "test doc")
+  .value("CONSTRAINT_POINT", Urho3D::ConstraintType::CONSTRAINT_POINT)
+  .value("CONSTRAINT_HINGE", Urho3D::ConstraintType::CONSTRAINT_HINGE)
+  .value("CONSTRAINT_SLIDER", Urho3D::ConstraintType::CONSTRAINT_SLIDER)
+  .value("CONSTRAINT_CONETWIST", Urho3D::ConstraintType::CONSTRAINT_CONETWIST)
+  .export_values()
+;
+
+// Enum Urho3D::UpdateEvent Registrations
+auto pyclass_Var_Urho3D_UpdateEvent = py::enum_<Urho3D::UpdateEvent>(pyclass_Var_Urho3D, "UpdateEvent", py::arithmetic(), "test doc")
+  .value("USE_NO_EVENT", Urho3D::UpdateEvent::USE_NO_EVENT)
+  .value("USE_UPDATE", Urho3D::UpdateEvent::USE_UPDATE)
+  .value("USE_POSTUPDATE", Urho3D::UpdateEvent::USE_POSTUPDATE)
+  .value("USE_FIXEDUPDATE", Urho3D::UpdateEvent::USE_FIXEDUPDATE)
+  .value("USE_FIXEDPOSTUPDATE", Urho3D::UpdateEvent::USE_FIXEDPOSTUPDATE)
+  .export_values()
+;
+
+// Enum Urho3D::CollisionEventMode Registrations
+auto pyclass_Var_Urho3D_CollisionEventMode = py::enum_<Urho3D::CollisionEventMode>(pyclass_Var_Urho3D, "CollisionEventMode", py::arithmetic(), "test doc")
+  .value("COLLISION_NEVER", Urho3D::CollisionEventMode::COLLISION_NEVER)
+  .value("COLLISION_ACTIVE", Urho3D::CollisionEventMode::COLLISION_ACTIVE)
+  .value("COLLISION_ALWAYS", Urho3D::CollisionEventMode::COLLISION_ALWAYS)
+  .export_values()
+;
+
+// Enum Urho3D::PListValueType Registrations
+auto pyclass_Var_Urho3D_PListValueType = py::enum_<Urho3D::PListValueType>(pyclass_Var_Urho3D, "PListValueType", py::arithmetic(), "test doc")
+  .value("PLVT_NONE", Urho3D::PListValueType::PLVT_NONE)
+  .value("PLVT_INT", Urho3D::PListValueType::PLVT_INT)
+  .value("PLVT_BOOL", Urho3D::PListValueType::PLVT_BOOL)
+  .value("PLVT_FLOAT", Urho3D::PListValueType::PLVT_FLOAT)
+  .value("PLVT_STRING", Urho3D::PListValueType::PLVT_STRING)
+  .value("PLVT_VALUEMAP", Urho3D::PListValueType::PLVT_VALUEMAP)
+  .value("PLVT_VALUEVECTOR", Urho3D::PListValueType::PLVT_VALUEVECTOR)
+  .export_values()
+;
+
+// Enum Urho3D::ResourceRequest Registrations
+auto pyclass_Var_Urho3D_ResourceRequest = py::enum_<Urho3D::ResourceRequest>(pyclass_Var_Urho3D, "ResourceRequest", py::arithmetic(), "test doc")
+  .value("RESOURCE_CHECKEXISTS", Urho3D::ResourceRequest::RESOURCE_CHECKEXISTS)
+  .value("RESOURCE_GETFILE", Urho3D::ResourceRequest::RESOURCE_GETFILE)
+  .export_values()
+;
+
+// Enum Urho3D::SmoothingType Registrations
+auto pyclass_Var_Urho3D_SmoothingType = py::enum_<Urho3D::SmoothingType>(pyclass_Var_Urho3D, "SmoothingType", py::arithmetic(), "test doc")
+  .value("SMOOTH_NONE", Urho3D::SmoothingType::SMOOTH_NONE)
+  .value("SMOOTH_POSITION", Urho3D::SmoothingType::SMOOTH_POSITION)
+  .value("SMOOTH_ROTATION", Urho3D::SmoothingType::SMOOTH_ROTATION)
+  .export_values()
+;
+
+// Enum Urho3D::InterpMethod Registrations
+auto pyclass_Var_Urho3D_InterpMethod = py::enum_<Urho3D::InterpMethod>(pyclass_Var_Urho3D, "InterpMethod", py::arithmetic(), "test doc")
+  .value("IM_NONE", Urho3D::InterpMethod::IM_NONE)
+  .value("IM_LINEAR", Urho3D::InterpMethod::IM_LINEAR)
+  .value("IM_SPLINE", Urho3D::InterpMethod::IM_SPLINE)
+  .export_values()
+;
+
+// Enum Urho3D::FontType Registrations
+auto pyclass_Var_Urho3D_FontType = py::enum_<Urho3D::FontType>(pyclass_Var_Urho3D, "FontType", py::arithmetic(), "test doc")
+  .value("FONT_NONE", Urho3D::FontType::FONT_NONE)
+  .value("FONT_FREETYPE", Urho3D::FontType::FONT_FREETYPE)
+  .value("FONT_BITMAP", Urho3D::FontType::FONT_BITMAP)
+  .value("MAX_FONT_TYPES", Urho3D::FontType::MAX_FONT_TYPES)
+  .export_values()
+;
+
+// Enum Urho3D::HighlightMode Registrations
+auto pyclass_Var_Urho3D_HighlightMode = py::enum_<Urho3D::HighlightMode>(pyclass_Var_Urho3D, "HighlightMode", py::arithmetic(), "test doc")
+  .value("HM_NEVER", Urho3D::HighlightMode::HM_NEVER)
+  .value("HM_FOCUS", Urho3D::HighlightMode::HM_FOCUS)
+  .value("HM_ALWAYS", Urho3D::HighlightMode::HM_ALWAYS)
+  .export_values()
+;
+
+// Enum Urho3D::TextEffect Registrations
+auto pyclass_Var_Urho3D_TextEffect = py::enum_<Urho3D::TextEffect>(pyclass_Var_Urho3D, "TextEffect", py::arithmetic(), "test doc")
+  .value("TE_NONE", Urho3D::TextEffect::TE_NONE)
+  .value("TE_SHADOW", Urho3D::TextEffect::TE_SHADOW)
+  .value("TE_STROKE", Urho3D::TextEffect::TE_STROKE)
+  .export_values()
+;
+
+// Enum Urho3D::FontHintLevel Registrations
+auto pyclass_Var_Urho3D_FontHintLevel = py::enum_<Urho3D::FontHintLevel>(pyclass_Var_Urho3D, "FontHintLevel", py::arithmetic(), "test doc")
+  .value("FONT_HINT_LEVEL_NONE", Urho3D::FontHintLevel::FONT_HINT_LEVEL_NONE)
+  .value("FONT_HINT_LEVEL_LIGHT", Urho3D::FontHintLevel::FONT_HINT_LEVEL_LIGHT)
+  .value("FONT_HINT_LEVEL_NORMAL", Urho3D::FontHintLevel::FONT_HINT_LEVEL_NORMAL)
+  .export_values()
+;
+
+// Enum Urho3D::WindowDragMode Registrations
+auto pyclass_Var_Urho3D_WindowDragMode = py::enum_<Urho3D::WindowDragMode>(pyclass_Var_Urho3D, "WindowDragMode", py::arithmetic(), "test doc")
+  .value("DRAG_NONE", Urho3D::WindowDragMode::DRAG_NONE)
+  .value("DRAG_MOVE", Urho3D::WindowDragMode::DRAG_MOVE)
+  .value("DRAG_RESIZE_TOPLEFT", Urho3D::WindowDragMode::DRAG_RESIZE_TOPLEFT)
+  .value("DRAG_RESIZE_TOP", Urho3D::WindowDragMode::DRAG_RESIZE_TOP)
+  .value("DRAG_RESIZE_TOPRIGHT", Urho3D::WindowDragMode::DRAG_RESIZE_TOPRIGHT)
+  .value("DRAG_RESIZE_RIGHT", Urho3D::WindowDragMode::DRAG_RESIZE_RIGHT)
+  .value("DRAG_RESIZE_BOTTOMRIGHT", Urho3D::WindowDragMode::DRAG_RESIZE_BOTTOMRIGHT)
+  .value("DRAG_RESIZE_BOTTOM", Urho3D::WindowDragMode::DRAG_RESIZE_BOTTOM)
+  .value("DRAG_RESIZE_BOTTOMLEFT", Urho3D::WindowDragMode::DRAG_RESIZE_BOTTOMLEFT)
+  .value("DRAG_RESIZE_LEFT", Urho3D::WindowDragMode::DRAG_RESIZE_LEFT)
+  .export_values()
+;
+
+// Enum Urho3D::EmitterType2D Registrations
+auto pyclass_Var_Urho3D_EmitterType2D = py::enum_<Urho3D::EmitterType2D>(pyclass_Var_Urho3D, "EmitterType2D", py::arithmetic(), "test doc")
+  .value("EMITTER_TYPE_GRAVITY", Urho3D::EmitterType2D::EMITTER_TYPE_GRAVITY)
+  .value("EMITTER_TYPE_RADIAL", Urho3D::EmitterType2D::EMITTER_TYPE_RADIAL)
+  .export_values()
+;
+
+// Enum Urho3D::BodyType2D Registrations
+auto pyclass_Var_Urho3D_BodyType2D = py::enum_<Urho3D::BodyType2D>(pyclass_Var_Urho3D, "BodyType2D", py::arithmetic(), "test doc")
+  .value("BT_STATIC", Urho3D::BodyType2D::BT_STATIC)
+  .value("BT_KINEMATIC", Urho3D::BodyType2D::BT_KINEMATIC)
+  .value("BT_DYNAMIC", Urho3D::BodyType2D::BT_DYNAMIC)
+  .export_values()
+;
+
+// Enum Urho3D::Orientation2D Registrations
+auto pyclass_Var_Urho3D_Orientation2D = py::enum_<Urho3D::Orientation2D>(pyclass_Var_Urho3D, "Orientation2D", py::arithmetic(), "test doc")
+  .value("O_ORTHOGONAL", Urho3D::Orientation2D::O_ORTHOGONAL)
+  .value("O_ISOMETRIC", Urho3D::Orientation2D::O_ISOMETRIC)
+  .value("O_STAGGERED", Urho3D::Orientation2D::O_STAGGERED)
+  .value("O_HEXAGONAL", Urho3D::Orientation2D::O_HEXAGONAL)
+  .export_values()
+;
+
+// Enum Urho3D::TileMapLayerType2D Registrations
+auto pyclass_Var_Urho3D_TileMapLayerType2D = py::enum_<Urho3D::TileMapLayerType2D>(pyclass_Var_Urho3D, "TileMapLayerType2D", py::arithmetic(), "test doc")
+  .value("LT_TILE_LAYER", Urho3D::TileMapLayerType2D::LT_TILE_LAYER)
+  .value("LT_OBJECT_GROUP", Urho3D::TileMapLayerType2D::LT_OBJECT_GROUP)
+  .value("LT_IMAGE_LAYER", Urho3D::TileMapLayerType2D::LT_IMAGE_LAYER)
+  .value("LT_INVALID", Urho3D::TileMapLayerType2D::LT_INVALID)
+  .export_values()
+;
+
+// Enum Urho3D::TileMapObjectType2D Registrations
+auto pyclass_Var_Urho3D_TileMapObjectType2D = py::enum_<Urho3D::TileMapObjectType2D>(pyclass_Var_Urho3D, "TileMapObjectType2D", py::arithmetic(), "test doc")
+  .value("OT_RECTANGLE", Urho3D::TileMapObjectType2D::OT_RECTANGLE)
+  .value("OT_ELLIPSE", Urho3D::TileMapObjectType2D::OT_ELLIPSE)
+  .value("OT_POLYGON", Urho3D::TileMapObjectType2D::OT_POLYGON)
+  .value("OT_POLYLINE", Urho3D::TileMapObjectType2D::OT_POLYLINE)
+  .value("OT_TILE", Urho3D::TileMapObjectType2D::OT_TILE)
+  .value("OT_INVALID", Urho3D::TileMapObjectType2D::OT_INVALID)
+  .export_values()
+;
+
+// No more enum calls
 }
